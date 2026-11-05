@@ -54,18 +54,21 @@ def p_snb_efv():
     return r.status_code, f"{m.group(0)} first bytes {r.content[:2]!r}", r.content[:2] == b"PK"
 
 
-def _last_weekday(offset_days=3):
-    d = today - timedelta(days=offset_days)
-    while d.weekday() >= 5:
-        d -= timedelta(days=1)
-    return d
-
-
 def p_anbima():
-    r = requests.post("https://www.anbima.com.br/informacoes/est-termo/CZ-down.asp",
-                      data={"Idioma": "PT", "Dt_Ref": _last_weekday().strftime("%d/%m/%Y"), "saida": "csv"},
-                      headers={"User-Agent": UA}, timeout=TIMEOUT)
-    return r.status_code, f"{len(r.content)} bytes; {'PREFIXADOS' in r.text and 'curve params present' or 'no params (holiday or blocked)'}", "PREFIXADOS" in r.text
+    """Try the last few weekdays: a Brazilian holiday returns an empty file, which is not a failure of the source."""
+    r = None
+    d = today
+    for _ in range(4):
+        d -= timedelta(days=1)
+        while d.weekday() >= 5:
+            d -= timedelta(days=1)
+        r = requests.post("https://www.anbima.com.br/informacoes/est-termo/CZ-down.asp",
+                          data={"Idioma": "PT", "Dt_Ref": d.strftime("%d/%m/%Y"), "saida": "csv"},
+                          headers={"User-Agent": UA}, timeout=TIMEOUT)
+        if "PREFIXADOS" in r.text:
+            return r.status_code, f"{len(r.content)} bytes; curve params present for {d.isoformat()}", True
+        time.sleep(2)
+    return r.status_code, f"{len(r.content)} bytes; no curve in the last 4 weekdays", False
 
 
 # (group, name, callable returning (status, detail[, ok]))
