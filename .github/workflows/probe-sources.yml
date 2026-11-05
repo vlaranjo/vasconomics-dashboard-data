@@ -1,0 +1,22 @@
+# Manual only. Publishes nothing and commits nothing. From GitHub's servers it fetches one page or file from Yahoo,
+# worldperatio and every yield-curve source in docs/yield-sources.md and writes a reachability table to the run summary.
+name: probe-sources
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python jobs/probe_sources.py

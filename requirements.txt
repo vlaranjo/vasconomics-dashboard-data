@@ -1,0 +1,7 @@
+yahooquery==2.4.1
+pandas==2.3.3
+numpy==2.3.5
+requests==2.34.2
+jsonschema==4.26.0
+python-dateutil==2.9.0.post0
+PyYAML==6.0.3

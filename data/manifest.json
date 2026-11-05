@@ -1,0 +1,21 @@
+{
+ "schema_version": 1,
+ "generated_at": "2026-11-05T19:14:54Z",
+ "status": "status.json",
+ "sections": {
+  "m1-demo": {
+   "path": "sections/m1-demo.json",
+   "as_of": "2026-11-04"
+  }
+ },
+ "pe": {
+  "sp-500": {
+   "path": "pe/sp-500.json",
+   "last_point": "2026-11"
+  },
+  "sp-500-energy": {
+   "path": "pe/sp-500-energy.json",
+   "last_point": "2026-11"
+  }
+ }
+}

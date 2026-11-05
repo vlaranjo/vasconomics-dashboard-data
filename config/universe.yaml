@@ -1,0 +1,16 @@
+# Milestone 1 universe: three ETFs in one demo section.
+# Labels are by what the fund holds (fund-audit.md, decisions F2). acc / hedged feed the
+# "Acc" and "EUR-hedged" reference-table columns (decisions F4).
+schema_version: 1
+lookbacks: ["1D", "1W", "1M", "3M", "6M", "1Y", "2Y", "3Y", "5Y", "10Y"]
+validation:
+  min_fresh_fraction: 0.66      # at least 2 of 3 tickers fresh in this run (85% for the full set)
+  max_close_age_days: 5         # a fresh row's last close within 5 calendar days of the run date
+  max_abs_1d_pct: 25.0          # larger needs a suspect flag
+sections:
+  - id: m1-demo
+    title: "M1 demo"
+    rows:
+      - {id: sxr8, label: "S&P 500", ticker: "SXR8.DE", isin: "IE00B5BMR087", provider: "iShares", currency: "EUR", acc: true, hedged: false}
+      - {id: eunk, label: "MSCI Europe", ticker: "EUNK.DE", isin: "IE00B4K48X80", provider: "iShares", currency: "EUR", acc: true, hedged: false}
+      - {id: mvea, label: "MSCI USA Min Vol Advanced Select", ticker: "MVEA.DE", isin: "IE00BKVL7331", provider: "iShares", currency: "EUR", acc: true, hedged: false}

@@ -1,0 +1,6 @@
+work/
+data.old/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
