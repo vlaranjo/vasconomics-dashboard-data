@@ -160,6 +160,10 @@ def validate_section(section: dict, *, run_date: date, prev_as_of: str | None, n
             age = (run_date - date.fromisoformat(r["last_close"])).days
             if age > max_close_age_days:
                 raise ValidationError(f"{r['ticker']}: last close {r['last_close']} is {age} days before the run date")
+        for k, cell in r["returns"].items():
+            for what, v in (("return", cell.get("value")), ("since-launch return", (cell.get("since_launch") or {}).get("value"))):
+                if isinstance(v, (int, float)) and v < -100:
+                    raise ValidationError(f"{r['ticker']} {k}: {what} {v}% is below -100% (a fund cannot lose more than everything)")
         c1 = r["returns"].get("1D", {}).get("value")
         if c1 is not None and abs(c1) > max_abs_1d_pct and not r.get("suspect"):
             raise ValidationError(f"{r['ticker']}: |1D| {c1}% above {max_abs_1d_pct}% without a suspect flag")

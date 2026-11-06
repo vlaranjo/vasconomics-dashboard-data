@@ -169,7 +169,7 @@ def test_V9b_exception_covers_only_the_named_ticker_and_dates():
     # +60.2% exactly on 2022-03-07 and -27.4% on 2022-03-09 (the two real ENIK.MI moves)
     real = [(date(2022, 3, 4), 100.0), (date(2022, 3, 7), 160.2), (date(2022, 3, 8), 160.2), (date(2022, 3, 9), 116.3)]
     validate.check_price_jumps("ENIK.MI", real, 25.0, NICKEL_EX)             # allowed: both dates are listed
-    with pytest.raises(validate.ValidationError, match="NICK.MI: \+60.2%"):  # same moves, another ticker: not allowed
+    with pytest.raises(validate.ValidationError, match=r"NICK.MI: \+60.2%"):  # same moves, another ticker: not allowed
         validate.check_price_jumps("NICK.MI", real, 25.0, NICKEL_EX)
     shifted = [(date(2022, 3, 4), 100.0), (date(2022, 3, 8), 160.2)]         # the same jump on an unlisted date
     with pytest.raises(validate.ValidationError, match="2022-03-08"):
@@ -202,3 +202,20 @@ def test_V9d_markets_job_carries_a_row_forward_when_its_history_has_an_unlisted_
         return bars
     res = run(cfg, tmp_path, fetch=fetch)
     assert any("SXR8.DE" in f and "jump_exceptions" in f for f in res["failed"])
+
+
+def test_V10_a_return_below_minus_100_percent_is_rejected(cfg, tmp_path):
+    s = _section(cfg, tmp_path)
+    validate.validate_section(s, **_kw())                                        # the real data passes
+    edge = json.loads(json.dumps(s)); edge["rows"][0]["returns"]["1Y"]["value"] = -100.0
+    validate.validate_section(edge, **_kw())                                     # exactly -100% (total loss) is possible
+    for key, path in (("1Y", None), ("10Y", "since_launch")):
+        bad = json.loads(json.dumps(s))
+        cell = bad["rows"][0]["returns"][key]
+        if path:
+            cell["value"], cell["status"] = None, "na_young"
+            cell["since_launch"] = {"value": -100.5, "start": "2020-04-24"}
+        else:
+            cell["value"] = -100.01
+        with pytest.raises(validate.ValidationError, match="below -100%"):
+            validate.validate_section(bad, **_kw())
