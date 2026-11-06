@@ -11,8 +11,9 @@ Scheduled jobs and the published JSON for the Vasconomics macro dashboard (Miles
 |---|---|---|
 | `markets` | 22:37 Mon-Fri, repair 05:47 Tue-Sat, manual | Yahoo -> returns (D7 rule) -> validate -> atomic swap of `data/` -> one commit -> Pages deploy |
 | `pe` | Sunday 03:07, manual | worldperatio.com (plain HTTP) -> validate -> atomic swap -> commit -> deploy |
+| `yields` | Monday 15:47, manual | Official yield-curve sources for 8 countries (+ France when the secret `FR_WEBSTAT_CLIENT_ID` exists, adapter untested) -> four curves per country -> validate -> atomic swap -> commit -> deploy. One country failing keeps its last good file and marks it stale. |
 | `probe-sources` | manual only | Fetches one item from Yahoo, worldperatio and every yield-curve source and reports reachability. Publishes nothing. |
-| `pages-deploy` | called by the two above; on push to `main` touching `data/**` | Deploys `data/` to Pages. Only ever from `main`. |
+| `pages-deploy` | called by the three above; on push to `main` touching `data/**` | Deploys `data/` to Pages. Only ever from `main`. |
 
 A manual run on a branch other than `main` commits to that branch and does not deploy.
 No failure emails: staleness is shown on the page. A run fails only on a validation failure or when nothing could be fetched.
@@ -24,6 +25,7 @@ pip install -r requirements-dev.txt
 python -m pytest tests -q                 # unit tests, no network
 python jobs/run_markets.py --today 2026-11-04
 python jobs/run_pe.py
+python jobs/run_yields.py                 # weekly yield curves (network)
 python jobs/probe_sources.py              # reachability from this machine
 ```
 
