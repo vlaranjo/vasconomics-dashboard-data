@@ -56,3 +56,12 @@ def test_P4_last_point_must_be_recent():
         w.validate_series(s[:-14], date(2026, 11, 5))  # ends 2025-09
     with pytest.raises(w.ParseError, match="only"):
         w.validate_series(s[:100], date(2026, 11, 5))
+
+
+def test_P5_manifest_entries_carry_name_group_and_pages_for_the_selector(tmp_path, pe_cfg):
+    cfg = dict(pe_cfg)
+    cfg["indices"] = [dict(i, group="G", pages=["us-sectors"]) if i["slug"] == "sp-500-energy" else i for i in cfg["indices"]]
+    pages = {i["url"]: page(i["slug"]) for i in cfg["indices"]}
+    pe.run(cfg, lambda u: pages[u], today=date(2026, 11, 5), data_dir=tmp_path / "data", work_dir=tmp_path / "work", sleep=lambda s: None)
+    man = json.loads((tmp_path / "data" / "manifest.json").read_text())
+    assert man["pe"]["sp-500-energy"]["name"] and man["pe"]["sp-500-energy"]["group"] == "G" and man["pe"]["sp-500-energy"]["pages"] == ["us-sectors"]

@@ -367,7 +367,7 @@ def test_Y11_all_countries_publish_manifest_and_status(tmp_path, monkeypatch):
     res = run_job(tmp_path, {"aa": stub("aa"), "bb": stub("bb", value=2.0)}, monkeypatch)
     assert res["ok"] == ["aa", "bb"] and res["order"][-1] == "manifest.json"
     man = json.loads((tmp_path / "data" / "manifest.json").read_text())
-    assert man["yields"]["aa"] == {"path": "yields/aa.json", "as_of": "2026-10-30", "stale": False, "status": "ok"}
+    assert man["yields"]["aa"] == {"path": "yields/aa.json", "as_of": "2026-10-30", "stale": False, "status": "ok", "name": "AA"}
     st = json.loads((tmp_path / "data" / "status.json").read_text())["sources"]["yield_curves"]
     assert st["items_ok"] == 2 and st["items_total"] == 2 and st["expected_cadence_hours"] == 168 and st["stale"] is False
     doc = json.loads((tmp_path / "data" / "yields" / "aa.json").read_text())

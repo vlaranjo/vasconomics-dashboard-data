@@ -51,7 +51,8 @@ def run(cfg: dict, fetch_text, *, today: date, now: datetime | None = None, data
                 continue  # no previous file: the page shows "no data yet"
         validate.validate_pe(doc)
         files[rel] = doc
-        pe_meta[idx["slug"]] = {"path": rel, "last_point": doc["last_point"]}
+        pe_meta[idx["slug"]] = {"path": rel, "last_point": doc["last_point"], "name": idx["name"],
+                                "group": idx.get("group", ""), "pages": list(idx.get("pages", []))}
     if ok == 0:
         raise NothingFetched("; ".join(failed) or "no index fetched")
     last_success = now_iso
@@ -63,7 +64,7 @@ def run(cfg: dict, fetch_text, *, today: date, now: datetime | None = None, data
     manifest = {
         "schema_version": 1, "generated_at": now_iso, "status": "status.json",
         "sections": prev_manifest.get("sections", {}),
-        "pe": {**prev_manifest.get("pe", {}), **pe_meta},
+        "pe": {**{k: v for k, v in prev_manifest.get("pe", {}).items() if k in {i["slug"] for i in cfg["indices"]}}, **pe_meta},
         **({"yields": prev_manifest["yields"]} if "yields" in prev_manifest else {}),
     }
     files["status.json"] = st

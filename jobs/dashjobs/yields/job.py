@@ -68,7 +68,7 @@ def run(cfg: dict, getter, *, today: date, now: datetime | None = None, data_dir
             doc = dict(prev)
             doc["stale"], doc["stale_reason"], doc["fetched_at"] = True, "fetch_or_parse_failed", now_iso
         files[rel] = doc
-        meta_out[code] = {"path": rel, "as_of": doc["as_of"], "stale": doc["stale"], "status": doc["status"]}
+        meta_out[code] = {"path": rel, "as_of": doc["as_of"], "stale": doc["stale"], "status": doc["status"], "name": doc["name"]}
     attempted = len(ok) + len(failed)
     if attempted and not ok:
         raise NothingFetched("; ".join(failed))
