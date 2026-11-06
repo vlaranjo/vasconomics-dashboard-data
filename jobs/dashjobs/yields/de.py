@@ -18,6 +18,9 @@ META = {
 }
 BBK = ("https://api.statistiken.bundesbank.de/rest/data/BBSIS/D.I.ZST.ZI.EUR.S1311.B.A604..R.A.A._Z._Z.A")
 AUC = "https://www.deutsche-finanzagentur.de/fileadmin/user_upload/Institutionelle-investoren/auktionen/emissionsergebnisse_aktuell_en.xlsx"
+# Same layout, all auctions since 1999 (linked from the issuance-results page). The current-year file starts in January, so the
+# history file is what gives the 1-year-earlier curve its 3M point. Optional: if it cannot be fetched or read, Germany still runs.
+AUC_HISTORY = "https://www.deutsche-finanzagentur.de/fileadmin/user_upload/Institutionelle-investoren/auktionen/emissionshistorie_en.xlsx"
 MAT = {"6M": "R005X", "1Y": "R01XX", "3Y": "R03XX", "5Y": "R05XX", "10Y": "R10XX", "30Y": "R30XX"}
 GAPS = {"1M": "No Bubill with about one month left is auctioned."}
 
@@ -72,5 +75,11 @@ def fetch(g, today: date, env=None, prev=None) -> Raw:
     for t, pts in bbk.items():
         raw.series[t] = [Series("D", pts, max_lag=5)]
     aus = parse_bubills(g.get(AUC))
+    try:
+        seen = {(a.date, a.days) for a in aus}
+        floor = window_start(today) - timedelta(days=100)       # a year back plus the 90-day auction rule
+        aus += [a for a in parse_bubills(g.get(AUC_HISTORY)) if a.date >= floor and (a.date, a.days) not in seen]
+    except Exception as e:  # noqa: BLE001 - optional source: the current-year workbook alone still gives the latest 3M
+        raw.extra["history_workbook"] = f"not used: {str(e)[:80]}"
     raw.auctions = {"1M": aus, "3M": aus}
     return raw

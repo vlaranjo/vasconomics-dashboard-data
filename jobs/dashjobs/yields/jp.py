@@ -18,8 +18,8 @@ META = {
 CME = "https://www.mof.go.jp/english/policy/jgbs/reference/interest_rate/historical/jgbcme_all.csv"
 RESULT = "https://www.mof.go.jp/jgbs/auction/calendar/tbill/tbill_nyusatsu/resul{d}.htm"
 COLS = {"1Y": "1Y", "3Y": "3Y", "5Y": "5Y", "10Y": "10Y", "30Y": "30Y"}
-INITIAL_DAYS = 190          # first run: enough for the 3-months-earlier curve plus the 90-day auction rule
-KEEP_DAYS = 400
+INITIAL_DAYS = 460          # first run only: the 1-year-earlier curve (365 days) plus the 90-day auction rule; later runs scan new days
+KEEP_DAYS = 460
 GAPS = {"1M": "Japan issues no Treasury discount bill of about one month."}
 
 
@@ -81,7 +81,7 @@ def fetch(g, today: date, env=None, prev=None) -> Raw:
     start = date.fromisoformat(done) + timedelta(days=1) if done else today - timedelta(days=INITIAL_DAYS)
     old_delay = getattr(g, "delay", None)
     if old_delay is not None:
-        g.delay = min(old_delay, 1.0)          # up to ~135 plain page probes on a first run
+        g.delay = min(old_delay, 1.0)          # up to ~330 plain page probes on a first run (once)
     try:
         new = scan(g, start, today)
     finally:

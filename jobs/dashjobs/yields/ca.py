@@ -1,6 +1,6 @@
 """Canada: Bank of Canada Valet. Bonds daily (3Y, 5Y, 10Y), bills weekly (1M, 3M, 6M, 1Y). The 30Y point is the
-'long-term benchmark' series: the Bank's page names 2-, 5-, 10- and 30-year selected issues but its series description
-says only "long-term benchmark bond", so it is labelled as such, not as 30Y (decisions 6 Nov, item d)."""
+'long-term benchmark' series. The Bank's own page says its benchmarks are "selected 2-, 5-, 10-, or 30-year issues", which the
+owner accepted as enough (7 Nov 2026), so the point is labelled "30Y (long-term benchmark)"."""
 from __future__ import annotations
 
 import json
@@ -39,6 +39,6 @@ def fetch(g, today: date, env=None, prev=None) -> Raw:
         raw.series[t] = [Series("D", bonds.get(c, []), max_lag=5)]
     for t, c in BILLS.items():
         raw.series[t] = [Series("W", bills.get(c, []), max_lag=10, label="weekly observation")]
-    raw.series[LONG[0]] = [Series("B", bonds.get(LONG[1], []), max_lag=5, label="long-term benchmark bond (the Bank does not state its maturity)",
-                                  tenor_label="long-term benchmark")]
+    raw.series[LONG[0]] = [Series("B", bonds.get(LONG[1], []), max_lag=5, label="long-term benchmark bond (the Bank's benchmarks are selected 2-, 5-, 10- or 30-year issues)",
+                                  tenor_label="30Y (long-term benchmark)")]
     return raw

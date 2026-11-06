@@ -3,7 +3,7 @@ import hashlib
 import io
 import json
 import zipfile
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -157,7 +157,7 @@ def test_Y5_canada_weekly_bills_and_long_term_label():
     c = core.build_curves(raw, core.curve_date(raw))[0]["points"]
     assert c["1M"] == {"value": 2.46, "date": "2026-10-28", "kind": "W", "label": "weekly observation"}
     assert c["30Y"]["kind"] == "B" and c["30Y"]["value"] == 4.11
-    assert core.tenor_labels(raw) == {"30Y": "long-term benchmark"}
+    assert core.tenor_labels(raw) == {"30Y": "30Y (long-term benchmark)"}
 
 
 # ---------------------------------------------------------------- Y6: Japan
@@ -181,7 +181,7 @@ def test_Y6_japan_scan_probes_only_new_weekdays_and_keeps_state():
     cme = (YF / "jp_cme.csv").read_bytes()
     g = FakeGetter({"jgbcme_all.csv": cme, "tbill_nyusatsu": route})
     raw = jp.fetch(g, TODAY, prev=None)
-    assert 130 <= len(calls) <= 140                      # about 190 days of weekdays on a first run
+    assert 325 <= len(calls) <= 335                      # about 460 days of weekdays on a first run (once)
     assert raw.extra["scanned_through"] == "2026-11-05" and raw.extra["auction_log"][0]["value"] == 1.241
     calls.clear()
     raw2 = jp.fetch(g, D("2026-11-13"), prev=raw.extra)
@@ -190,6 +190,21 @@ def test_Y6_japan_scan_probes_only_new_weekdays_and_keeps_state():
     a = core.point_at(raw2, "3M", D("2026-11-13"))
     assert a == {"value": 1.241, "date": "2026-11-06", "kind": "A", "days": 98}
     assert core.point_at(raw2, "1M", D("2026-11-13")) is None and "1M" in raw2.gaps
+
+
+def test_Y6_japan_first_run_reaches_back_far_enough_for_the_one_year_earlier_curve():
+    page = (YF / "mof_result_20261106.htm").read_bytes()
+    old = TODAY - timedelta(days=420)                                           # an auction 420 days ago (a weekday)
+    while old.weekday() > 4:
+        old -= timedelta(days=1)
+    want = f"resul{old:%Y%m%d}.htm"
+    g = FakeGetter({"jgbcme_all.csv": (YF / "jp_cme.csv").read_bytes(), "tbill_nyusatsu": lambda url, p: page if url.endswith(want) else None})
+    raw = jp.fetch(g, TODAY, prev=None)
+    assert jp.INITIAL_DAYS >= 455                                              # 365 days + the 90-day auction rule
+    assert raw.extra["auction_log"][0]["date"] == old.isoformat()
+    year_ago = TODAY - timedelta(days=365)
+    p = core.point_at(raw, "3M", year_ago)
+    assert p and p["kind"] == "A" and p["date"] == old.isoformat() and p["days"] == 98   # the old curve has its 3M point from run one
 
 
 # ---------------------------------------------------------------- Y7: Germany
@@ -221,6 +236,22 @@ def test_Y7_germany_curve_columns_and_bubill_reopening_is_3m():
     assert c["3M"] == {"value": 2.586, "date": "2026-10-05", "kind": "A", "days": 98}   # 2 Nov is after the curve date
     assert c["6M"]["kind"] == "D"                                                     # 6M keeps the curve: it is fresher
     assert "1M" not in c
+
+
+def test_Y7_germany_history_workbook_gives_the_one_year_earlier_3m_point_and_is_optional():
+    cur = bubill_xlsx([(D("2026-11-02"), D("2027-02-17"), 2.67)])
+    hist = bubill_xlsx([(D("2025-10-20"), D("2026-01-14"), 1.711), (D("2026-11-02"), D("2027-02-17"), 2.67), (D("2015-01-05"), D("2015-04-01"), 0.1)])
+    bbk = (YF / "bbk.csv").read_bytes()
+    raw = de.fetch(FakeGetter({"bundesbank.de": bbk, "emissionsergebnisse": cur, "emissionshistorie": hist}), TODAY)
+    assert len([a for a in raw.auctions["3M"] if a.date == D("2026-11-02")]) == 1       # the overlap is not duplicated
+    assert not [a for a in raw.auctions["3M"] if a.date.year == 2015]                  # old years are dropped
+    p = core.point_at(raw, "3M", D("2025-11-05"))
+    assert p == {"value": 1.711, "date": "2025-10-20", "kind": "A", "days": 84}
+    def broken(url, params):
+        raise OSError("download failed")
+    raw2 = de.fetch(FakeGetter({"bundesbank.de": bbk, "emissionsergebnisse": cur, "emissionshistorie": broken}), TODAY)
+    assert core.point_at(raw2, "3M", D("2026-11-05"))["value"] == 2.67                  # the latest 3M is unaffected
+    assert core.point_at(raw2, "3M", D("2025-11-05")) is None and "not used" in raw2.extra["history_workbook"]
 
 
 # ---------------------------------------------------------------- Y8: Spain
