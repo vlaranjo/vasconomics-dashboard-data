@@ -9,9 +9,9 @@ from . import lookback, publish, status, validate
 
 
 def _row_record(meta: dict, bars, now_iso: str) -> dict:
+    extra = {k: meta[k] for k in ("isin", "provider", "acc", "hedged", "holds") if k in meta}
     return {
-        "id": meta["id"], "label": meta["label"], "ticker": meta["ticker"], "isin": meta["isin"],
-        "provider": meta["provider"], "currency": meta["currency"], "acc": meta["acc"], "hedged": meta["hedged"],
+        "id": meta["id"], "label": meta["label"], "ticker": meta["ticker"], "currency": meta["currency"], **extra,
         "first_close": bars[0][0].isoformat(), "last_close": bars[-1][0].isoformat(),
         "stale": False, "stale_reason": None, "last_success": now_iso,
         "returns": lookback.compute_returns(bars),
@@ -37,7 +37,16 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
     all_fresh_ids: set[str] = set()
     last_success = (prev_status or {}).get("sources", {}).get("yahoo_markets", {}).get("last_success")
     section_for_validation = None
+    cache: dict[str, object] = {}                       # a ticker used on several pages is fetched once per run
 
+    def fetch_once(ticker):
+        if ticker in cache:
+            return cache[ticker], False
+        bars_raw = fetch(ticker)
+        cache[ticker] = bars_raw
+        return bars_raw, True
+
+    waited_once = False
     for sec in cfg["sections"]:
         rel = f"sections/{sec['id']}.json"
         prev_section = publish.read_json(data_dir / rel)
@@ -45,10 +54,12 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
         rows, fresh_ids = [], set()
         for i, meta in enumerate(sec["rows"]):
             n_total += 1
-            if i:
-                sleep(delay)
+            if meta["ticker"] not in cache and waited_once:
+                sleep(delay)                              # one request at a time, with a pause between network calls
+            waited_once = waited_once or meta["ticker"] not in cache
             try:
-                bars = lookback.clean_bars(fetch(meta["ticker"]), today)
+                raw, _net = fetch_once(meta["ticker"])
+                bars = lookback.clean_bars(raw, today)
                 if not bars:
                     raise ValueError("no usable bars")
                 validate.check_price_jumps(meta["ticker"], bars, vcfg["max_abs_1d_pct"], vcfg.get("jump_exceptions"))
@@ -71,7 +82,8 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
             if not r["stale"] and lookback.is_stale_close(date.fromisoformat(r["last_close"]), latest):
                 r["stale"], r["stale_reason"] = True, "old_close"
         section = {
-            "schema_version": 1, "section": sec["id"], "title": sec["title"], "generated_at": now_iso,
+            "schema_version": 1, "section": sec["id"], "title": sec["title"], "page": sec.get("page", sec["id"]),
+            "kind": sec.get("kind", "funds"), "generated_at": now_iso,
             "as_of": latest.isoformat(), "lookbacks": cfg["lookbacks"], "rows": rows,
         }
         files[rel] = section
@@ -94,7 +106,8 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
         status.run_info(workflow, started, finished, env), now)
     manifest = {
         "schema_version": 1, "generated_at": now_iso, "status": "status.json",
-        "sections": {**prev_manifest.get("sections", {}), **sections_meta},
+        "sections": {**{k: v for k, v in prev_manifest.get("sections", {}).items() if k in {x["id"] for x in cfg["sections"]}},
+                     **sections_meta},
         "pe": prev_manifest.get("pe", {}),
         **({"yields": prev_manifest["yields"]} if "yields" in prev_manifest else {}),
     }

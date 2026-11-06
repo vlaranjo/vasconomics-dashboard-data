@@ -34,16 +34,17 @@ SECTION_SCHEMA = {
     "properties": {
         "schema_version": {"const": 1},
         "section": {"type": "string"}, "title": {"type": "string"},
+        "page": {"type": "string"}, "kind": {"enum": ["funds", "fx"]},
         "generated_at": _TS, "as_of": _DATE,
         "lookbacks": {"type": "array", "items": {"type": "string"}},
         "rows": {"type": "array", "items": {
             "type": "object",
-            "required": ["id", "label", "ticker", "isin", "provider", "currency", "acc", "hedged", "first_close",
+            "required": ["id", "label", "ticker", "currency", "first_close",
                          "last_close", "stale", "stale_reason", "last_success", "returns"],
             "properties": {
                 "id": {"type": "string"}, "label": {"type": "string"}, "ticker": {"type": "string"},
                 "isin": {"type": "string"}, "provider": {"type": "string"}, "currency": {"type": "string"},
-                "acc": {"type": "boolean"}, "hedged": {"type": "boolean"},
+                "acc": {"type": "boolean"}, "hedged": {"type": "boolean"}, "holds": {"type": "string"},
                 "first_close": _DATE, "last_close": _DATE, "stale": {"type": "boolean"},
                 "stale_reason": {"type": ["string", "null"]}, "last_success": _TS,
                 "suspect": {"type": "boolean"},
@@ -148,6 +149,11 @@ def validate_section(section: dict, *, run_date: date, prev_as_of: str | None, n
                      fresh_ids: set[str]) -> None:
     _check(SECTION_SCHEMA, section, "section")
     _walk_numbers(section, "section")
+    if section.get("kind", "funds") == "funds":                          # fund rows must carry the reference-table fields
+        for r in section["rows"]:
+            for k in ("isin", "provider", "acc", "hedged"):
+                if k not in r:
+                    raise ValidationError(f"{r['ticker']}: fund row without '{k}'")
     ids = [r["id"] for r in section["rows"]]
     if len(ids) != len(set(ids)):
         raise ValidationError("row ids are not unique")

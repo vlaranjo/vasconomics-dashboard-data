@@ -22,13 +22,13 @@ def load_csv(symbol: str, upto: date | None = None):
 @pytest.fixture
 def cfg():
     import yaml
-    return yaml.safe_load((ROOT / "config" / "universe.yaml").read_text(encoding="utf-8"))
+    return yaml.safe_load((ROOT / "tests" / "fixtures" / "config" / "universe_m1.yaml").read_text(encoding="utf-8"))
 
 
 @pytest.fixture
 def pe_cfg():
     import yaml
-    return yaml.safe_load((ROOT / "config" / "pe_index_map.yaml").read_text(encoding="utf-8"))
+    return yaml.safe_load((ROOT / "tests" / "fixtures" / "config" / "pe_index_map_m1.yaml").read_text(encoding="utf-8"))
 
 
 def fixture_fetch(upto: date | None = None, fail: set[str] = frozenset()):
