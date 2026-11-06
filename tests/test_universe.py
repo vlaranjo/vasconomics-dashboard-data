@@ -189,3 +189,17 @@ def test_U9_a_jump_older_than_the_ten_year_window_is_ignored_but_a_recent_one_is
     res = markets.run(prod, fetch, today=today, now=datetime(2026, 11, 6, 22, 40, tzinfo=timezone.utc), data_dir=tmp_path / "data",
                       work_dir=tmp_path / "work", sleep=lambda s: None, retry_wait=0)
     assert [f.split(":")[0] for f in res["failed"]] == ["SXR1.DE"] and "above 25.0%" in res["failed"][0]
+
+
+def test_U10_a_row_with_an_old_close_does_not_mark_the_whole_run_stale(prod, tmp_path):
+    today = date(2026, 11, 6)
+
+    def fetch(t):
+        bars = _bars(t, today)
+        return bars[:-3] if t == "MUNI.MI" else bars                      # last close three sessions behind the rest
+    markets.run(prod, fetch, today=today, now=datetime(2026, 11, 6, 22, 40, tzinfo=timezone.utc), data_dir=tmp_path / "data",
+                work_dir=tmp_path / "work", sleep=lambda s: None)
+    st = json.loads((tmp_path / "data" / "status.json").read_text())
+    sec = json.loads((tmp_path / "data" / "sections" / "fixed-income.json").read_text())
+    assert next(r for r in sec["rows"] if r["ticker"] == "MUNI.MI")["stale_reason"] == "old_close"
+    assert st["sources"]["yahoo_markets"]["stale"] is False

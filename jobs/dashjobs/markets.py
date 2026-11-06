@@ -130,8 +130,9 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
     finished = datetime.now(timezone.utc) if now is None else now
     st = status.merge_status(
         prev_status, "yahoo_markets",
+        # a lagging row (old close) is shown on its own row; only fetch failures mark the run stale
         status.source_block(now=now, last_success=last_success, items_ok=n_fresh, items_total=n_total,
-                            failed=failed + [f"{t}: missing" for t in missing], cadence_hours=24, stale=any_stale),
+                            failed=failed + [f"{t}: missing" for t in missing], cadence_hours=24, stale=bool(failed or missing)),
         status.run_info(workflow, started, finished, env), now)
     manifest = {
         "schema_version": 1, "generated_at": now_iso, "status": "status.json",
