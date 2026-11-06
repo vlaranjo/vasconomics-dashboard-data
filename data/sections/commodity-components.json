@@ -1,0 +1,1043 @@
+{
+ "schema_version": 1,
+ "section": "commodity-components",
+ "title": "Commodity components",
+ "page": "commodities",
+ "kind": "funds",
+ "generated_at": "2026-11-06T21:51:24Z",
+ "as_of": "2026-11-06",
+ "lookbacks": [
+  "1D",
+  "1W",
+  "1M",
+  "3M",
+  "6M",
+  "1Y",
+  "2Y",
+  "3Y",
+  "5Y",
+  "10Y"
+ ],
+ "rows": [
+  {
+   "id": "ebrt",
+   "label": "Brent Crude Oil",
+   "ticker": "EBRT.MI",
+   "currency": "EUR",
+   "isin": "JE00B7305Z55",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": true,
+   "holds": "Brent crude futures (ETC, EUR-hedged)",
+   "first_close": "2012-07-03",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": 1.32,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -13.07,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 0.75,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 28.15,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 13.36,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 84.09,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 65.18,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 58.76,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 111.5,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 223.72,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "engs",
+   "label": "Natural Gas",
+   "ticker": "ENGS.MI",
+   "currency": "EUR",
+   "isin": "JE00B6XF0923",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": true,
+   "holds": "Natural gas futures (ETC, EUR-hedged)",
+   "first_close": "2012-07-03",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": 0.38,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 2.33,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -9.56,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -4.01,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -15.61,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": -39.29,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": -35.07,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": -73.63,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": -90.76,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": -95.4,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "ecrn",
+   "label": "Corn",
+   "ticker": "ECRN.MI",
+   "currency": "EUR",
+   "isin": "JE00B3ZQRP79",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": true,
+   "holds": "Corn futures (ETC, EUR-hedged)",
+   "first_close": "2012-07-03",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": -0.55,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -2.04,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -12.07,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -4.06,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -12.33,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": -10.85,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": -15.19,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": -34.65,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": -33.41,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": -35.96,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "esoy",
+   "label": "Soybeans",
+   "ticker": "ESOY.MI",
+   "currency": "EUR",
+   "isin": "JE00B6SLJ210",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": true,
+   "holds": "Soybeans futures (ETC, EUR-hedged)",
+   "first_close": "2012-07-03",
+   "last_close": "2026-11-05",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": -0.04,
+     "start": "2026-11-04",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -2.48,
+     "start": "2026-10-29",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -7.6,
+     "start": "2026-10-05",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 1.85,
+     "start": "2026-08-05",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -3.11,
+     "start": "2026-05-05",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 0.59,
+     "start": "2025-11-05",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 12.44,
+     "start": "2024-11-05",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": -14.86,
+     "start": "2023-11-03",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 12.4,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 2.96,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "ewat",
+   "label": "Wheat",
+   "ticker": "EWAT.MI",
+   "currency": "EUR",
+   "isin": "JE00B78NNK09",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": true,
+   "holds": "Wheat futures (ETC, EUR-hedged)",
+   "first_close": "2012-07-03",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": -1.66,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -1.62,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -14.22,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -8.06,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -7.14,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 0.31,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": -17.46,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": -27.72,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": -54.83,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": -54.15,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "xad1",
+   "label": "Gold",
+   "ticker": "XAD1.DE",
+   "currency": "EUR",
+   "isin": "DE000A1EK0G3",
+   "provider": "Xtrackers (DWS)",
+   "acc": true,
+   "hedged": true,
+   "holds": "Gold (physical ETC, EUR-hedged)",
+   "first_close": "2010-06-15",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": -1.36,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 4.01,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -2.79,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -5.0,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -14.73,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": -1.01,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 42.9,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 87.7,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 94.03,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 133.29,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "esvr",
+   "label": "Silver",
+   "ticker": "ESVR.MI",
+   "currency": "EUR",
+   "isin": "JE00B5SV2703",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": true,
+   "holds": "Silver (futures, EUR-hedged)",
+   "first_close": "2012-07-03",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": -0.95,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 5.55,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -15.48,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -16.42,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -34.4,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 3.39,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 49.99,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 94.82,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 69.65,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 69.22,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "phpt",
+   "label": "Platinum",
+   "ticker": "PHPT.MI",
+   "currency": "EUR",
+   "isin": "JE00B1VS2W53",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": false,
+   "holds": "Physical platinum (ETC)",
+   "first_close": "2008-01-02",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": 1.31,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 7.38,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -8.13,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -8.27,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -20.77,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 4.42,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 49.47,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 59.72,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 50.6,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 46.43,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "ecop",
+   "label": "Copper",
+   "ticker": "ECOP.MI",
+   "currency": "EUR",
+   "isin": "JE00B4PDKD43",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": true,
+   "holds": "Copper futures (ETC, EUR-hedged)",
+   "first_close": "2012-07-03",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": -0.68,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -3.16,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -5.43,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -7.8,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -0.72,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 19.76,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 31.34,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 49.82,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 22.0,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 87.18,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "ealu",
+   "label": "Aluminium",
+   "ticker": "EALU.MI",
+   "currency": "EUR",
+   "isin": "JE00B6VG2P72",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": true,
+   "holds": "Aluminium futures (ETC, EUR-hedged)",
+   "first_close": "2012-07-03",
+   "last_close": "2026-11-05",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": 0.44,
+     "start": "2026-11-04",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 0.78,
+     "start": "2026-10-29",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -1.59,
+     "start": "2026-10-05",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -4.77,
+     "start": "2026-08-05",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -13.81,
+     "start": "2026-05-05",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 9.06,
+     "start": "2025-11-05",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 17.81,
+     "start": "2024-11-05",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 33.77,
+     "start": "2023-11-03",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 3.56,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 18.7,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "eznc",
+   "label": "Zinc",
+   "ticker": "EZNC.MI",
+   "currency": "EUR",
+   "isin": "JE00B78NNM23",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": true,
+   "holds": "Zinc futures (ETC, EUR-hedged)",
+   "first_close": "2012-07-03",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": -1.95,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -4.32,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -0.77,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 0.74,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 11.63,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 24.3,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 26.71,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 43.21,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 10.84,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 42.42,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "enik",
+   "label": "Nickel",
+   "ticker": "ENIK.MI",
+   "currency": "EUR",
+   "isin": "JE00B6XL6W59",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": true,
+   "holds": "Nickel futures (ETC, EUR-hedged)",
+   "first_close": "2012-07-03",
+   "last_close": "2026-11-04",
+   "stale": true,
+   "stale_reason": "old_close",
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": 2.78,
+     "start": "2026-11-03",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 1.03,
+     "start": "2026-10-28",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 0.76,
+     "start": "2026-10-02",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -8.9,
+     "start": "2026-08-04",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -20.6,
+     "start": "2026-05-04",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 0.17,
+     "start": "2025-11-04",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": -9.66,
+     "start": "2024-11-04",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": -23.08,
+     "start": "2023-11-03",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": -31.77,
+     "start": "2021-11-04",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 2.66,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "esug",
+   "label": "Sugar",
+   "ticker": "ESUG.MI",
+   "currency": "EUR",
+   "isin": "JE00B6X05031",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": true,
+   "holds": "Sugar futures (ETC, EUR-hedged)",
+   "first_close": "2012-07-03",
+   "last_close": "2026-11-05",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": 1.98,
+     "start": "2026-11-04",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -3.34,
+     "start": "2026-10-29",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -8.83,
+     "start": "2026-10-05",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 18.18,
+     "start": "2026-08-05",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 12.85,
+     "start": "2026-05-05",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 24.22,
+     "start": "2025-11-05",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": -17.23,
+     "start": "2024-11-05",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": -31.04,
+     "start": "2023-11-03",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 10.55,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": -33.38,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "ecof",
+   "label": "Coffee",
+   "ticker": "ECOF.MI",
+   "currency": "EUR",
+   "isin": "JE00B6TK3K31",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": true,
+   "holds": "Coffee futures (ETC, EUR-hedged)",
+   "first_close": "2012-07-03",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": 0.27,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -3.13,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -8.73,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -8.52,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 5.77,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": -17.2,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 43.11,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 127.22,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 92.99,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 22.49,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "ectn",
+   "label": "Cotton",
+   "ticker": "ECTN.MI",
+   "currency": "EUR",
+   "isin": "JE00B70DCH80",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": true,
+   "holds": "Cotton futures (ETC, EUR-hedged)",
+   "first_close": "2012-07-03",
+   "last_close": "2026-11-05",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-06T21:51:24Z",
+   "returns": {
+    "1D": {
+     "value": 0.5,
+     "start": "2026-11-04",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 0.01,
+     "start": "2026-10-29",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -2.4,
+     "start": "2026-10-05",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -5.59,
+     "start": "2026-08-05",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -12.0,
+     "start": "2026-05-05",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 4.72,
+     "start": "2025-11-05",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": -10.14,
+     "start": "2024-11-05",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": -23.63,
+     "start": "2023-11-03",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": -32.68,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": -10.54,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  }
+ ]
+}
