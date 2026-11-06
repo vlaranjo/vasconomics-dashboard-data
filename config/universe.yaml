@@ -14,3 +14,34 @@ sections:
       - {id: sxr8, label: "S&P 500", ticker: "SXR8.DE", isin: "IE00B5BMR087", provider: "iShares", currency: "EUR", acc: true, hedged: false}
       - {id: eunk, label: "MSCI Europe", ticker: "EUNK.DE", isin: "IE00B4K48X80", provider: "iShares", currency: "EUR", acc: true, hedged: false}
       - {id: mvea, label: "MSCI USA Min Vol Advanced Select", ticker: "MVEA.DE", isin: "IE00BKVL7331", provider: "iShares", currency: "EUR", acc: true, hedged: false}
+
+# ---------------------------------------------------------------------------------------------
+# Final fund decisions of 6 Nov 2026 for the FULL universe (milestone 2+). The M1 job ignores this block;
+# it reads only `sections`. Every `to` line passed the checks in docs/fund-audit.md
+# ("Decisions of 6 November 2026"): ISIN/Acc/hedging from the issuer list or justETF, Yahoo EUR line,
+# no gap above 10 trading days, no 1-day move above 25%, traded in the last 5 days.
+# `acc` for ETCs is true (they pay no distributions). `pages` says where the swap applies.
+# ---------------------------------------------------------------------------------------------
+m2_fund_changes:
+  - {from: "VECP.DE", to: "VECA.DE", isin: "IE00BGYWT403", provider: "Vanguard", label: "Bloomberg Euro Corporate Bond", acc: true, hedged: false, pages: ["fixed-income"], yahoo_first: "2019-02-19"}
+  - {from: "AIGI.MI", to: "EIMT.MI", isin: "JE00B78NPW60", provider: "WisdomTree", label: "Industrial Metals futures (ETC, EUR-hedged)", acc: true, hedged: true, pages: ["commodities"], yahoo_first: "2012-07-03"}
+  - {from: "BRNT.MI", to: "EBRT.MI", isin: "JE00B7305Z55", provider: "WisdomTree", label: "Brent crude futures (ETC, EUR-hedged)", acc: true, hedged: true, pages: ["commodities"], yahoo_first: "2012-07-03"}
+  - {from: "NGAS.MI", to: "ENGS.MI", isin: "JE00B6XF0923", provider: "WisdomTree", label: "Natural gas futures (ETC, EUR-hedged)", acc: true, hedged: true, pages: ["commodities"], yahoo_first: "2012-07-03"}
+  - {from: "CORN.MI", to: "ECRN.MI", isin: "JE00B3ZQRP79", provider: "WisdomTree", label: "Corn futures (ETC, EUR-hedged)", acc: true, hedged: true, pages: ["commodities"], yahoo_first: "2012-07-03"}
+  - {from: "SOYB.MI", to: "ESOY.MI", isin: "JE00B6SLJ210", provider: "WisdomTree", label: "Soybeans futures (ETC, EUR-hedged)", acc: true, hedged: true, pages: ["commodities"], yahoo_first: "2012-07-03"}
+  - {from: "WEAT.MI", to: "EWAT.MI", isin: "JE00B78NNK09", provider: "WisdomTree", label: "Wheat futures (ETC, EUR-hedged)", acc: true, hedged: true, pages: ["commodities"], yahoo_first: "2012-07-03"}
+  - {from: "PHAG.MI", to: "ESVR.MI", isin: "JE00B5SV2703", provider: "WisdomTree", label: "Silver (ETC, EUR-hedged)", acc: true, hedged: true, pages: ["commodities"], yahoo_first: "2012-07-03", note: "futures-based silver ETC, not the physical PHAG; owner to confirm"}
+  - {from: "COPA.MI", to: "ECOP.MI", isin: "JE00B4PDKD43", provider: "WisdomTree", label: "Copper futures (ETC, EUR-hedged)", acc: true, hedged: true, pages: ["commodities"], yahoo_first: "2012-07-03"}
+  - {from: "ALUM.MI", to: "EALU.MI", isin: "JE00B6VG2P72", provider: "WisdomTree", label: "Aluminium futures (ETC, EUR-hedged)", acc: true, hedged: true, pages: ["commodities"], yahoo_first: "2012-07-03"}
+  - {from: "ZINC.MI", to: "EZNC.MI", isin: "JE00B78NNM23", provider: "WisdomTree", label: "Zinc futures (ETC, EUR-hedged)", acc: true, hedged: true, pages: ["commodities"], yahoo_first: "2012-07-03"}
+  - {from: "SUGA.MI", to: "ESUG.MI", isin: "JE00B6X05031", provider: "WisdomTree", label: "Sugar futures (ETC, EUR-hedged)", acc: true, hedged: true, pages: ["commodities"], yahoo_first: "2012-07-03"}
+  - {from: "COFF.MI", to: "ECOF.MI", isin: "JE00B6TK3K31", provider: "WisdomTree", label: "Coffee futures (ETC, EUR-hedged)", acc: true, hedged: true, pages: ["commodities"], yahoo_first: "2012-07-03"}
+  - {from: "COTN.MI", to: "ECTN.MI", isin: "JE00B70DCH80", provider: "WisdomTree", label: "Cotton futures (ETC, EUR-hedged)", acc: true, hedged: true, pages: ["commodities"], yahoo_first: "2012-07-03", note: "largest 1-day move 24.9% on 2022-06-27, inside the 25% limit"}
+  - {from: "XAD5.MI", to: "XAD1.DE", isin: "DE000A1EK0G3", provider: "Xtrackers (DWS)", label: "Gold (physical ETC, EUR-hedged)", acc: true, hedged: true, pages: ["asset-classes", "commodities"], yahoo_first: "2010-06-15"}
+  - {from: "SPYJ.DE", to: "EPRA.PA", isin: "LU1437018838", provider: "Amundi", label: "FTSE EPRA Nareit Developed (global real estate)", acc: true, hedged: false, pages: ["asset-classes"], yahoo_first: "2016-11-11", note: "10Y fills from the run of 2026-11-11"}
+  - {from: "SXR8.DE", to: "IBCF.DE", isin: "IE00B3ZW0K18", provider: "iShares", label: "S&P 500 (EUR-hedged)", acc: true, hedged: true, pages: ["countries-regions"], yahoo_first: "2011-03-24", note: "US Majors & Factors keeps SXR8.DE (unhedged)"}
+
+m2_fund_rejected:
+  - {from: "NICK.MI", candidate: "ENIK.MI", isin: "JE00B6XL6W59", reason: "fails the 25% one-day rule: +60.2% on 2022-03-07 (real London nickel squeeze); NICK.MI stays"}
+
+# SPYD.DE (S&P High Yield Dividend Aristocrats) stays Dist (acc: false): no accumulating, unhedged EUR fund on the same or a close index was found.

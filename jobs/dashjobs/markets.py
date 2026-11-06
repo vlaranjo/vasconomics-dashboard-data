@@ -95,6 +95,7 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
         "schema_version": 1, "generated_at": now_iso, "status": "status.json",
         "sections": {**prev_manifest.get("sections", {}), **sections_meta},
         "pe": prev_manifest.get("pe", {}),
+        **({"yields": prev_manifest["yields"]} if "yields" in prev_manifest else {}),
     }
     files["status.json"] = st
     validate.validate_status(st)

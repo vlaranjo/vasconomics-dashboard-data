@@ -1,0 +1,56 @@
+# Weekly yield-curve job: official sources (plain HTTP) -> validate -> atomic swap -> commit -> Pages deploy.
+# Monday 15:47 UTC: the SNB cube is published Mondays 14:30, so every source carries the previous Friday's close.
+# France runs only if the repository secret FR_WEBSTAT_CLIENT_ID exists; without it that country is skipped quietly.
+name: yields
+
+on:
+  schedule:
+    - cron: "47 15 * * 1"     # Monday 15:47 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Fetch, build curves, validate, swap
+        env:
+          FR_WEBSTAT_CLIENT_ID: ${{ secrets.FR_WEBSTAT_CLIENT_ID }}
+          FR_WEBSTAT_CLIENT_SECRET: ${{ secrets.FR_WEBSTAT_CLIENT_SECRET }}
+        run: python jobs/run_yields.py
+      - name: Commit data (also the keep-alive heartbeat)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git commit -m "data: yields ${GITHUB_RUN_ID}" || echo "nothing to commit"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep 5
+          done
+          echo "push failed three times" >&2
+          exit 1
+
+  deploy:
+    needs: publish
+    if: github.ref_name == 'main'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages-deploy.yml

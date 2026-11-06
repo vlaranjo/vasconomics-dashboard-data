@@ -91,6 +91,34 @@ MANIFEST_SCHEMA = {
             "type": "object", "required": ["path", "as_of"]}},
         "pe": {"type": "object", "additionalProperties": {
             "type": "object", "required": ["path", "last_point"]}},
+        "yields": {"type": "object", "additionalProperties": {
+            "type": "object", "required": ["path", "as_of"]}},
+    },
+}
+
+_POINT = {
+    "type": "object", "required": ["value", "date", "kind"],
+    "properties": {"value": {"type": "number"}, "date": _DATE, "kind": {"enum": ["D", "W", "B", "A"]},
+                   "label": {"type": "string"}, "days": {"type": "integer"}},
+    "additionalProperties": False,
+}
+YIELD_SCHEMA = {
+    "type": "object",
+    "required": ["schema_version", "country", "name", "source", "source_url", "terms", "status", "fetched_at",
+                 "last_success", "stale", "stale_reason", "as_of", "tenors", "tenor_labels", "gaps", "curves"],
+    "properties": {
+        "schema_version": {"const": 1}, "country": {"type": "string"}, "name": {"type": "string"},
+        "source": {"type": "string"}, "source_url": {"type": "string"}, "terms": {"type": "string"},
+        "status": {"enum": ["ok", "untested"]}, "fetched_at": _TS, "last_success": _TS,
+        "stale": {"type": "boolean"}, "stale_reason": {"type": ["string", "null"]}, "as_of": _DATE,
+        "tenors": {"type": "array", "items": {"type": "string"}},
+        "tenor_labels": {"type": "object", "additionalProperties": {"type": "string"}},
+        "gaps": {"type": "object", "additionalProperties": {"type": "string"}},
+        "curves": {"type": "array", "minItems": 4, "maxItems": 4, "items": {
+            "type": "object", "required": ["id", "label", "date", "points"],
+            "properties": {"id": {"enum": ["latest", "1m", "3m", "1y"]}, "label": {"type": "string"}, "date": _DATE,
+                           "points": {"type": "object", "additionalProperties": _POINT}}}},
+        "state": {"type": "object"},
     },
 }
 
@@ -148,3 +176,34 @@ def validate_status(status: dict) -> None:
 
 def validate_manifest(manifest: dict) -> None:
     _check(MANIFEST_SCHEMA, manifest, "manifest")
+
+
+def validate_yield(doc: dict, *, today: date, prev: dict | None, max_age_days: int = 21,
+                   max_weekly_move_pp: float = 2.0) -> None:
+    """Schema + sanity for one country. Any failure keeps the last good file (the job marks it stale)."""
+    _check(YIELD_SCHEMA, doc, f"yields/{doc.get('country')}")
+    _walk_numbers(doc, "yield")
+    latest = doc["curves"][0]
+    if latest["id"] != "latest" or latest["date"] != doc["as_of"]:
+        raise ValidationError(f"{doc['country']}: first curve must be 'latest' dated as_of")
+    as_of = date.fromisoformat(doc["as_of"])
+    if as_of > today:
+        raise ValidationError(f"{doc['country']}: as_of {as_of} is in the future")
+    if (today - as_of).days > max_age_days:
+        raise ValidationError(f"{doc['country']}: latest observation {as_of} is {(today - as_of).days} days old")
+    if len(latest["points"]) < 3:
+        raise ValidationError(f"{doc['country']}: only {len(latest['points'])} tenors on the latest curve")
+    for c in doc["curves"]:
+        for t, p in c["points"].items():
+            if t not in doc["tenors"]:
+                raise ValidationError(f"{doc['country']}: unknown tenor {t}")
+            if not -3.0 <= p["value"] <= 40.0:
+                raise ValidationError(f"{doc['country']} {t}: {p['value']} is outside -3..40 percent")
+            if date.fromisoformat(p["date"]) > date.fromisoformat(c["date"]):
+                raise ValidationError(f"{doc['country']} {t}: point dated after its curve")
+    if prev and not prev.get("stale") and prev.get("as_of"):
+        pl = prev["curves"][0]["points"]
+        for t, p in latest["points"].items():
+            q = pl.get(t)
+            if q and p["kind"] != "A" and abs(p["value"] - q["value"]) > max_weekly_move_pp                     and (as_of - date.fromisoformat(prev["as_of"])).days <= 31:
+                raise ValidationError(f"{doc['country']} {t}: moved {p['value'] - q['value']:+.2f} pp since the last file")

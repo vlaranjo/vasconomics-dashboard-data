@@ -90,9 +90,15 @@ PROBES = [
     ("Yield", "Japan MOF jgbcme.csv",
      lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes", b'30Y' in r.content))(
          _get("https://www.mof.go.jp/english/policy/jgbs/reference/interest_rate/jgbcme.csv"))),
-    ("Yield", "Japan MOF T-bill auction xls",
-     lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes (stream head)", len(r.content) > 0))(
-         _stream_head("https://www.mof.go.jp/english/policy/jgbs/auction/past_auction_results/Auction_Results_for_T-bills.xls"))),
+    ("Yield", "Japan MOF per-auction result page (6 Nov 2026, a permanent page; the job probes recent dates)",
+     lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes", r.status_code == 200 and "国庫短期証券".encode() in r.content))(
+         _get("https://www.mof.go.jp/jgbs/auction/calendar/tbill/tbill_nyusatsu/resul20261106.htm"))),
+    ("Yield", "Japan MOF jgbcme_all.csv (history, head only)",
+     lambda: (lambda r: (r.status_code, f"stream head {len(r.content)} bytes", b'Date' in r.content or b'Interest' in r.content))(
+         _stream_head("https://www.mof.go.jp/english/policy/jgbs/reference/interest_rate/historical/jgbcme_all.csv", 4096))),
+    ("Yield", "UK DMO Treasury bill data report (expect bot protection; not used)",
+     lambda: (lambda r: (r.status_code, "BOT-PROTECTED (captcha page)" if "ShieldSquare" in r.text else f"{len(r.content)} bytes", "ShieldSquare" not in r.text and r.status_code == 200))(
+         _get("https://www.dmo.gov.uk/data/XmlDataReport?reportCode=D2.2A"))),
     ("Yield", "Bundesbank BBSIS 10Y (csv)",
      lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes", r.status_code == 200 and b'R10XX' in r.content))(
          _get(f"https://api.statistiken.bundesbank.de/rest/data/BBSIS/D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A?startPeriod={since}&format=csv&lang=en"))),
