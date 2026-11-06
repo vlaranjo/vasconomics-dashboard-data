@@ -51,6 +51,7 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
                 bars = lookback.clean_bars(fetch(meta["ticker"]), today)
                 if not bars:
                     raise ValueError("no usable bars")
+                validate.check_price_jumps(meta["ticker"], bars, vcfg["max_abs_1d_pct"], vcfg.get("jump_exceptions"))
                 rows.append(_row_record(meta, bars, now_iso))
                 fresh_ids.add(meta["id"])
                 n_fresh += 1

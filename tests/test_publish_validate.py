@@ -141,3 +141,64 @@ def test_S1_weekly_job_leaves_daily_status_block_intact(cfg, pe_cfg, tmp_path):
     assert st["heartbeat"] == "2026-11-08T03:07:00Z"
     man = json.loads((tmp_path / "data/manifest.json").read_text())
     assert "m1-demo" in man["sections"] and set(man["pe"]) == {"sp-500", "sp-500-energy"}
+
+
+# --- price-jump rule and the documented ENIK.MI exception (decision of 6 Nov 2026) ---------------------------------
+
+def _bars(*moves, start=date(2022, 3, 3), c0=100.0):
+    """Closes on consecutive days; each move is a percent change from the previous close."""
+    out, c, d = [(start, c0)], c0, start
+    for m in moves:
+        d = date.fromordinal(d.toordinal() + 1)
+        c *= 1 + m / 100
+        out.append((d, c))
+    return out
+
+
+NICKEL_EX = [{"ticker": "ENIK.MI", "dates": ["2022-03-07", "2022-03-09"], "reason": "LME nickel squeeze"}]
+
+
+def test_V9_jump_above_limit_is_rejected_without_an_exception():
+    bars = _bars(1, 1, 1, 1, 60.2)                       # 4 Mar..8 Mar; the +60.2% day is 2022-03-08 here
+    with pytest.raises(validate.ValidationError, match="above 25.0%"):
+        validate.check_price_jumps("ENIK.MI", bars, 25.0, [])
+    validate.check_price_jumps("ENIK.MI", _bars(5, -5, 24.9), 25.0, [])      # inside the limit: fine
+
+
+def test_V9b_exception_covers_only_the_named_ticker_and_dates():
+    # +60.2% exactly on 2022-03-07 and -27.4% on 2022-03-09 (the two real ENIK.MI moves)
+    real = [(date(2022, 3, 4), 100.0), (date(2022, 3, 7), 160.2), (date(2022, 3, 8), 160.2), (date(2022, 3, 9), 116.3)]
+    validate.check_price_jumps("ENIK.MI", real, 25.0, NICKEL_EX)             # allowed: both dates are listed
+    with pytest.raises(validate.ValidationError, match="NICK.MI: \+60.2%"):  # same moves, another ticker: not allowed
+        validate.check_price_jumps("NICK.MI", real, 25.0, NICKEL_EX)
+    shifted = [(date(2022, 3, 4), 100.0), (date(2022, 3, 8), 160.2)]         # the same jump on an unlisted date
+    with pytest.raises(validate.ValidationError, match="2022-03-08"):
+        validate.check_price_jumps("ENIK.MI", shifted, 25.0, NICKEL_EX)
+    other_day = [(date(2024, 5, 2), 100.0), (date(2024, 5, 3), 130.0)]       # a new 30% day in another year
+    with pytest.raises(validate.ValidationError):
+        validate.check_price_jumps("ENIK.MI", other_day, 25.0, NICKEL_EX)
+
+
+def test_V9c_config_carries_the_nickel_exception_with_a_reason():
+    import yaml
+    from pathlib import Path
+    cfg = yaml.safe_load((Path(__file__).resolve().parents[1] / "config" / "universe.yaml").read_text(encoding="utf-8"))
+    ex = {e["ticker"]: e for e in cfg["validation"]["jump_exceptions"]}
+    assert ex["ENIK.MI"]["dates"] == ["2022-03-07", "2022-03-09"]
+    assert "nickel" in ex["ENIK.MI"]["reason"].lower()
+    assert any(c["to"] == "ENIK.MI" and c["from"] == "NICK.MI" for c in cfg["m2_fund_changes"])
+    assert any(c["to"] == "ESVR.MI" and c["label"] == "Silver (futures, EUR-hedged)" for c in cfg["m2_fund_changes"])
+
+
+def test_V9d_markets_job_carries_a_row_forward_when_its_history_has_an_unlisted_jump(cfg, tmp_path):
+    run(cfg, tmp_path)                                                       # good first publish
+    jumpy = fixture_fetch()
+
+    def fetch(t):
+        bars = list(jumpy(t))
+        if t == "SXR8.DE":
+            d, c = bars[-40]
+            bars[-40] = (d, c * 1.5)                                         # a fake +50% day in the history
+        return bars
+    res = run(cfg, tmp_path, fetch=fetch)
+    assert any("SXR8.DE" in f and "jump_exceptions" in f for f in res["failed"])

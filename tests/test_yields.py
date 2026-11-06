@@ -426,3 +426,32 @@ def test_Y18_config_lists_the_launch_countries_and_every_adapter_imports():
         m = job.adapter(c)
         assert {"name", "source", "source_url", "terms"} <= set(m.META) and callable(m.fetch)
     assert "it" not in cfg["countries"] and "in" not in cfg["countries"] and "cn" not in cfg["countries"]
+
+
+# ---------------------------------------------------------------- Y19: Brazil history accumulates through the job
+
+def test_Y19_brazil_weekly_snapshots_accumulate_and_earlier_curves_fill_in(tmp_path):
+    """The real Brazil adapter through the real job, six Monday runs. The source serves only the last seven days of dates (as
+    ANBIMA does), so each earlier curve can only appear once the job's own stored history reaches back far enough."""
+    template = (YF / "anbima_20261030.csv").read_bytes().decode("latin-1")
+    mondays = [date(2026, 10, 5), date(2026, 10, 12), date(2026, 10, 19), date(2026, 10, 26), date(2026, 11, 2), date(2026, 11, 9)]
+    docs = []
+    for run_day in mondays:
+        def route(url, data, run_day=run_day):
+            d = datetime.strptime(data["Dt_Ref"], "%d/%m/%Y").date()
+            if not 1 <= (run_day - d).days <= 7 or d.weekday() > 4:
+                return b""                                                      # older dates and weekends: empty file
+            return template.replace("30/10/2026", d.strftime("%d/%m/%Y"), 1).encode("latin-1")
+        job.run({"countries": ["br"]}, FakeGetter({"CZ-down.asp": route}), today=run_day,
+                now=datetime(run_day.year, run_day.month, run_day.day, 15, 47, tzinfo=timezone.utc),
+                data_dir=tmp_path / "data", work_dir=tmp_path / "work", env={})
+        docs.append(json.loads((tmp_path / "data" / "yields" / "br.json").read_text()))
+    first, last = docs[0], docs[-1]
+    n_first, n_last = len(first["state"]["history"]), len(last["state"]["history"])
+    assert n_last > n_first >= 3                                                # snapshots are stored and kept run after run
+    assert [c["points"] == {} for c in first["curves"][1:]] == [True, True, True]      # nothing to compare with yet
+    assert last["curves"][0]["date"] == "2026-11-06" and len(last["curves"][0]["points"]) == 7
+    by = {c["id"]: c for c in last["curves"]}
+    assert len(by["1m"]["points"]) == 7 and by["1m"]["date"] == "2026-10-06"          # a month of history is enough for the 1M curve
+    assert by["3m"]["points"] == {} and by["1y"]["points"] == {}                      # not yet: left empty, never stretched
+    assert "30Y" not in by["latest"]["points"]

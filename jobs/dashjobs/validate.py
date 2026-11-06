@@ -165,6 +165,22 @@ def validate_section(section: dict, *, run_date: date, prev_as_of: str | None, n
             raise ValidationError(f"{r['ticker']}: |1D| {c1}% above {max_abs_1d_pct}% without a suspect flag")
 
 
+def check_price_jumps(ticker: str, bars, max_pct: float, exceptions=()) -> None:
+    """No close-to-close move above `max_pct` percent anywhere in the series (decision rule of 6 Nov 2026), except on the
+    dates listed for this ticker in `validation.jump_exceptions` (config/universe.yaml). An exception names the ticker and the
+    exact dates of a real market event plus the reason; it never widens the limit for other days or other tickers."""
+    allowed = set()
+    for ex in exceptions or ():
+        if ex["ticker"] == ticker:
+            allowed |= {str(d) for d in ex["dates"]}
+    prev = None
+    for d, c in bars:
+        if prev and prev > 0 and abs(c / prev - 1) * 100 > max_pct and d.isoformat() not in allowed:
+            raise ValidationError(f"{ticker}: {(c / prev - 1) * 100:+.1f}% on {d.isoformat()} is above {max_pct}% "
+                                  f"and the date is not in validation.jump_exceptions")
+        prev = c
+
+
 def validate_pe(pe: dict) -> None:
     _check(PE_SCHEMA, pe, f"pe/{pe.get('slug')}")
     _walk_numbers(pe, "pe")
