@@ -155,3 +155,37 @@ def test_U7_a_fund_row_without_its_reference_fields_is_rejected_but_an_fx_row_is
     with pytest.raises(validate.ValidationError, match="isin"):
         validate.validate_section(sec, **kw)
     validate.validate_section({**sec, "kind": "fx"}, **kw)
+
+
+def test_U8_a_ticker_that_fails_once_is_retried_after_a_cool_down_and_published_fresh(prod, tmp_path):
+    today = date(2026, 11, 6)
+    seen, sleeps = {}, []
+
+    def fetch(t):
+        seen[t] = seen.get(t, 0) + 1
+        if t in ("IBCG.DE", "LKOR.DE") and seen[t] == 1:
+            raise RuntimeError("Too Many Requests")
+        return _bars(t, today)
+
+    res = markets.run(prod, fetch, today=today, now=datetime(2026, 11, 6, 22, 40, tzinfo=timezone.utc), data_dir=tmp_path / "data",
+                      work_dir=tmp_path / "work", sleep=sleeps.append, delay=3, retry_wait=20)
+    assert res["n_fresh"] == 112 and res["failed"] == [] and seen["IBCG.DE"] == 2 and seen["LKOR.DE"] == 2
+    assert 20 in sleeps                                                   # the cool-down happened
+    sec = json.loads((tmp_path / "data" / "sections" / "equity-countries.json").read_text())
+    assert [r["ticker"] for r in sec["rows"]][:6] == ["IBCF.DE", "LYP6.DE", "SXRW.DE", "18MN.DE", "IBCG.DE", "SAUS.MI"]   # config order kept
+    assert not any(r["stale"] for r in sec["rows"])
+
+
+def test_U9_a_jump_older_than_the_ten_year_window_is_ignored_but_a_recent_one_is_not(prod, tmp_path):
+    today = date(2026, 11, 6)
+
+    def fetch(t):
+        bars = _bars(t, today, years=17)
+        if t in ("IBCJ.DE", "SXR1.DE"):
+            i = 40 if t == "IBCJ.DE" else len(bars) - 60              # IBCJ: ~2009 (outside the window); SXR1: 2026 (inside)
+            d, c = bars[i]
+            bars[i:] = [(dd, cc * 0.7) for dd, cc in bars[i:]]
+        return bars
+    res = markets.run(prod, fetch, today=today, now=datetime(2026, 11, 6, 22, 40, tzinfo=timezone.utc), data_dir=tmp_path / "data",
+                      work_dir=tmp_path / "work", sleep=lambda s: None, retry_wait=0)
+    assert [f.split(":")[0] for f in res["failed"]] == ["SXR1.DE"] and "above 25.0%" in res["failed"][0]

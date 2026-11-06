@@ -1,0 +1,207 @@
+{
+ "schema_version": 1,
+ "country": "ch",
+ "name": "Switzerland",
+ "source": "Swiss National Bank (bond yields); Federal Finance Administration (bill auctions)",
+ "source_url": "https://data.snb.ch/en/topics/ziredev/cube/rendeiduebd",
+ "terms": "SNB: data may be used for non-commercial purposes with reference to the source; commercial use needs SNB consent.",
+ "status": "ok",
+ "fetched_at": "2026-11-06T21:33:42Z",
+ "last_success": "2026-11-06T21:33:42Z",
+ "stale": false,
+ "stale_reason": null,
+ "as_of": "2026-10-30",
+ "tenors": [
+  "1M",
+  "3M",
+  "6M",
+  "1Y",
+  "3Y",
+  "5Y",
+  "10Y",
+  "30Y"
+ ],
+ "tenor_labels": {},
+ "gaps": {
+  "1M": "Switzerland auctions no bill of about one month."
+ },
+ "curves": [
+  {
+   "id": "latest",
+   "label": "Latest",
+   "date": "2026-10-30",
+   "points": {
+    "3M": {
+     "value": -0.1107,
+     "date": "2026-10-27",
+     "kind": "A",
+     "days": 91
+    },
+    "6M": {
+     "value": 0.0079,
+     "date": "2026-09-22",
+     "kind": "A",
+     "days": 182
+    },
+    "1Y": {
+     "value": 0.128,
+     "date": "2026-10-30",
+     "kind": "D"
+    },
+    "3Y": {
+     "value": 0.307,
+     "date": "2026-10-30",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 0.392,
+     "date": "2026-10-30",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 0.505,
+     "date": "2026-10-30",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 0.508,
+     "date": "2026-10-30",
+     "kind": "D"
+    }
+   }
+  },
+  {
+   "id": "1m",
+   "label": "1 month earlier",
+   "date": "2026-09-30",
+   "points": {
+    "3M": {
+     "value": -0.047,
+     "date": "2026-09-29",
+     "kind": "A",
+     "days": 91
+    },
+    "6M": {
+     "value": 0.0079,
+     "date": "2026-09-22",
+     "kind": "A",
+     "days": 182
+    },
+    "1Y": {
+     "value": 0.17,
+     "date": "2026-09-30",
+     "kind": "D"
+    },
+    "3Y": {
+     "value": 0.359,
+     "date": "2026-09-30",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 0.453,
+     "date": "2026-09-30",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 0.586,
+     "date": "2026-09-30",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 0.553,
+     "date": "2026-09-30",
+     "kind": "D"
+    }
+   }
+  },
+  {
+   "id": "3m",
+   "label": "3 months earlier",
+   "date": "2026-07-30",
+   "points": {
+    "3M": {
+     "value": -0.079,
+     "date": "2026-07-28",
+     "kind": "A",
+     "days": 91
+    },
+    "6M": {
+     "value": -0.0138,
+     "date": "2026-05-05",
+     "kind": "A",
+     "days": 182
+    },
+    "1Y": {
+     "value": 0.067,
+     "date": "2026-07-30",
+     "kind": "D"
+    },
+    "3Y": {
+     "value": 0.208,
+     "date": "2026-07-30",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 0.311,
+     "date": "2026-07-30",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 0.482,
+     "date": "2026-07-30",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 0.604,
+     "date": "2026-07-30",
+     "kind": "D"
+    }
+   }
+  },
+  {
+   "id": "1y",
+   "label": "1 year earlier",
+   "date": "2025-10-30",
+   "points": {
+    "3M": {
+     "value": -0.1147,
+     "date": "2025-10-28",
+     "kind": "A",
+     "days": 91
+    },
+    "6M": {
+     "value": -0.113,
+     "date": "2025-09-23",
+     "kind": "A",
+     "days": 182
+    },
+    "1Y": {
+     "value": -0.127,
+     "date": "2025-10-30",
+     "kind": "D"
+    },
+    "3Y": {
+     "value": -0.136,
+     "date": "2025-10-30",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": -0.058,
+     "date": "2025-10-30",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 0.181,
+     "date": "2025-10-30",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 0.269,
+     "date": "2025-10-30",
+     "kind": "D"
+    }
+   }
+  }
+ ],
+ "state": {}
+}

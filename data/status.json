@@ -1,12 +1,12 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-05T19:14:54Z",
+ "generated_at": "2026-11-06T21:33:42Z",
  "run": {
-  "workflow": "pe",
+  "workflow": "yields",
   "run_id": null,
   "run_url": null,
-  "started_at": "2026-11-05T19:14:54Z",
-  "finished_at": "2026-11-05T19:14:54Z"
+  "started_at": "2026-11-06T21:33:42Z",
+  "finished_at": "2026-11-06T21:33:42Z"
  },
  "sources": {
   "yahoo_markets": {
@@ -20,15 +20,28 @@
    "failed": []
   },
   "worldperatio": {
-   "last_attempt": "2026-11-05T19:14:54Z",
-   "last_success": "2026-11-05T19:14:54Z",
+   "last_attempt": "2026-11-06T21:29:17Z",
+   "last_success": "2026-11-06T21:29:17Z",
    "ok": true,
    "expected_cadence_hours": 168,
    "stale": false,
-   "items_ok": 2,
-   "items_total": 2,
+   "items_ok": 34,
+   "items_total": 34,
    "failed": []
+  },
+  "yield_curves": {
+   "last_attempt": "2026-11-06T21:33:42Z",
+   "last_success": "2026-11-06T21:33:42Z",
+   "ok": true,
+   "expected_cadence_hours": 168,
+   "stale": false,
+   "items_ok": 8,
+   "items_total": 8,
+   "failed": [],
+   "skipped": [
+    "fr: FR_WEBSTAT_CLIENT_ID is not set"
+   ]
   }
  },
- "heartbeat": "2026-11-05T19:14:54Z"
+ "heartbeat": "2026-11-06T21:33:42Z"
 }
