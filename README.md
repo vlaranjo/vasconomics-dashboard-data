@@ -1,5 +1,7 @@
 # vasconomics-dashboard-data
 
+Repo for Vasconomic's Dashboard Data
+
 Scheduled jobs and the published JSON for the Vasconomics macro dashboard (Milestone 1). Public, data only.
 `data/` is exactly what GitHub Pages serves. Plans and decisions live in the front-end repo's `docs/`.
 
