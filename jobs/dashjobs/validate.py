@@ -94,7 +94,28 @@ MANIFEST_SCHEMA = {
             "type": "object", "required": ["path", "last_point"]}},
         "yields": {"type": "object", "additionalProperties": {
             "type": "object", "required": ["path", "as_of"]}},
+        "history": {"type": "object", "additionalProperties": {
+            "type": "object", "required": ["path", "as_of"]}},
+        "indicators": {"type": "object", "additionalProperties": {
+            "type": "object", "required": ["path", "as_of"]}},
     },
+}
+
+_INTS = {"type": "array", "items": {"type": "integer"}}
+_NUMS = {"type": "array", "items": {"type": "number"}}
+_NUMS_NULL = {"type": "array", "items": {"type": ["number", "null"]}}
+_HEAD = {"schema_version": {"const": 1}, "section": {"type": "string"}, "generated_at": _TS, "as_of": _DATE}
+HISTORY_SCHEMA = {
+    "type": "object", "required": ["schema_version", "section", "generated_at", "as_of", "series"],
+    "properties": {**_HEAD, "series": {"type": "array", "items": {
+        "type": "object", "required": ["id", "d", "v"], "additionalProperties": False,
+        "properties": {"id": {"type": "string"}, "d": _INTS, "v": _NUMS}}}},
+}
+INDICATORS_SCHEMA = {
+    "type": "object", "required": ["schema_version", "section", "generated_at", "as_of", "series"],
+    "properties": {**_HEAD, "series": {"type": "array", "items": {
+        "type": "object", "required": ["id", "d", "p", "ma50", "ma200", "rsi"], "additionalProperties": False,
+        "properties": {"id": {"type": "string"}, "d": _INTS, "p": _NUMS, "ma50": _NUMS_NULL, "ma200": _NUMS_NULL, "rsi": _NUMS_NULL}}}},
 }
 
 _POINT = {
@@ -233,3 +254,40 @@ def validate_yield(doc: dict, *, today: date, prev: dict | None, max_age_days: i
             q = pl.get(t)
             if q and p["kind"] != "A" and abs(p["value"] - q["value"]) > max_weekly_move_pp                     and (as_of - date.fromisoformat(prev["as_of"])).days <= 31:
                 raise ValidationError(f"{doc['country']} {t}: moved {p['value'] - q['value']:+.2f} pp since the last file")
+
+
+def _check_series(doc: dict, what: str, value_keys: tuple[str, ...], section_ids: set[str] | None) -> None:
+    seen = set()
+    for s in doc["series"]:
+        sid = s["id"]
+        if sid in seen:
+            raise ValidationError(f"{what}: duplicate series {sid}")
+        seen.add(sid)
+        if section_ids is not None and sid not in section_ids:
+            raise ValidationError(f"{what}: series {sid} is not a row of the section")
+        n = len(s["d"])
+        if n < 2:
+            raise ValidationError(f"{what} {sid}: fewer than two points")
+        if any(b <= a for a, b in zip(s["d"], s["d"][1:])):
+            raise ValidationError(f"{what} {sid}: dates are not strictly increasing")
+        for k in value_keys:
+            if len(s[k]) != n:
+                raise ValidationError(f"{what} {sid}: '{k}' has {len(s[k])} values for {n} dates")
+
+
+def validate_history(doc: dict, section_ids: set[str] | None = None) -> None:
+    _check(HISTORY_SCHEMA, doc, f"history/{doc.get('section')}")
+    _check_series(doc, f"history/{doc['section']}", ("v",), section_ids)
+    for s in doc["series"]:
+        if s["v"][0] != 100 or any(v <= 0 for v in s["v"]):
+            raise ValidationError(f"history/{doc['section']} {s['id']}: must start at 100 and stay positive")
+
+
+def validate_indicators(doc: dict, section_ids: set[str] | None = None) -> None:
+    _check(INDICATORS_SCHEMA, doc, f"indicators/{doc.get('section')}")
+    _check_series(doc, f"indicators/{doc['section']}", ("p", "ma50", "ma200", "rsi"), section_ids)
+    for s in doc["series"]:
+        if s["p"][0] != 100 or any(v <= 0 for v in s["p"]):
+            raise ValidationError(f"indicators/{doc['section']} {s['id']}: level must start at 100 and stay positive")
+        if any(v is not None and not 0 <= v <= 100 for v in s["rsi"]):
+            raise ValidationError(f"indicators/{doc['section']} {s['id']}: RSI outside 0..100")

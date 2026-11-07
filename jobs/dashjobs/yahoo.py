@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import time
-from datetime import date
+from datetime import date, datetime
 
 
 class FetchError(Exception):
@@ -16,8 +16,12 @@ def _normalise(df) -> list[tuple[date, float]]:
         return []
     d = df.reset_index()
     col = "adjclose" if "adjclose" in d.columns else "close"
+    raw = list(d["date"])
+    # Yahoo marks completed daily bars with a plain date; the bar still being traded is appended with a time-of-day stamp.
+    stamped = [isinstance(v, datetime) and (v.hour, v.minute, v.second) != (0, 0, 0) for v in raw]
     dt = pd.to_datetime(d["date"], utc=True).dt.tz_convert("Europe/Berlin").dt.date
-    return [(a, float(b)) for a, b in zip(dt, d[col]) if b == b]
+    keep = [not (i == len(raw) - 1 and stamped[i] and len(raw) > 1 and not stamped[i - 1]) for i in range(len(raw))]
+    return [(a, float(b)) for a, b, k in zip(dt, d[col], keep) if k and b == b]
 
 
 def fetch_history(symbol: str, retries: int = 3, delay: float = 3.0, sleep=time.sleep) -> list[tuple[date, float]]:

@@ -7,10 +7,15 @@ import shutil
 from pathlib import Path
 
 
-def write_json(path: Path, obj) -> None:
+COMPACT_DIRS = ("history/", "indicators/")      # long numeric arrays: written without indentation to keep the files small
+
+
+def write_json(path: Path, obj, compact: bool = False) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + ".tmp")
-    tmp.write_text(json.dumps(obj, ensure_ascii=False, indent=1, allow_nan=False) + "\n", encoding="utf-8")
+    text = (json.dumps(obj, ensure_ascii=False, separators=(",", ":"), allow_nan=False) if compact
+            else json.dumps(obj, ensure_ascii=False, indent=1, allow_nan=False))
+    tmp.write_text(text + "\n", encoding="utf-8")
     os.replace(tmp, path)
 
 
@@ -36,7 +41,7 @@ def write_outputs(out_dir: Path, files: dict[str, object], manifest: dict) -> li
     """Write data files, then manifest.json LAST. Returns the write order (test V6)."""
     order = []
     for rel, obj in files.items():
-        write_json(Path(out_dir) / rel, obj)
+        write_json(Path(out_dir) / rel, obj, compact=rel.startswith(COMPACT_DIRS))
         order.append(rel)
     write_json(Path(out_dir) / "manifest.json", manifest)
     order.append("manifest.json")

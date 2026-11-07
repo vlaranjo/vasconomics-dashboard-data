@@ -6,13 +6,14 @@
 - Month/year arithmetic clamps to the last day of the month (relativedelta does this).
 - Start = last close ON OR BEFORE the anchor.
 - If the first close is after the anchor: n/a (status "na_young") with a since-launch return.
+- A bar only counts once it is COMPLETED (see `last_completed_date`): never a live quote.
 - Stale: last close 2 OR MORE business days (Mon-Fri, no holiday calendar) behind the section's latest.
 """
 from __future__ import annotations
 
 import math
 from bisect import bisect_right
-from datetime import date, timedelta
+from datetime import date, datetime, time, timedelta, timezone
 from typing import Iterable
 
 from dateutil.relativedelta import relativedelta
@@ -105,3 +106,42 @@ def business_days_behind(last_close: date, latest: date) -> int:
 
 def is_stale_close(last_close: date, section_latest: date) -> bool:
     return business_days_behind(last_close, section_latest) >= STALE_BUSINESS_DAYS
+
+
+# ---- completed bars (decisions: "Completed daily bars", 7 Nov 2026) --------------------------------------------------
+FUND_BAR_COMPLETE_UTC_HOUR = 17     # every fund line trades on Xetra, Borsa Italiana or Euronext, all closed by 16:45 UTC at the latest
+SCHEDULED_RUN_UTC = time(22, 37)    # a run described only by its date is taken to be the scheduled evening run
+
+
+def _last_sunday(year: int, month: int) -> date:
+    d = date(year, month + 1, 1) - timedelta(days=1) if month < 12 else date(year, 12, 31)
+    return d - timedelta(days=(d.weekday() + 1) % 7)
+
+
+def london_date(now_utc: datetime) -> date:
+    """Calendar date in London (BST from 01:00 UTC on the last Sunday of March to 01:00 UTC on the last Sunday of October).
+    Computed by hand so the job does not depend on a time-zone database."""
+    y = now_utc.year
+    start = datetime.combine(_last_sunday(y, 3), time(1), tzinfo=timezone.utc)
+    end = datetime.combine(_last_sunday(y, 10), time(1), tzinfo=timezone.utc)
+    return (now_utc + timedelta(hours=1)).date() if start <= now_utc < end else now_utc.date()
+
+
+def last_completed_date(kind: str, today: date, now: datetime | None = None) -> date:
+    """The latest bar date that may be used: a bar is COMPLETED when its trading day is over.
+
+    - Fund (exchange-traded) bars: the day's bar is complete once the run is at or after 17:00 UTC (all closes are earlier);
+      before that, only yesterday's bar.
+    - FX bars: Yahoo's daily FX bar is a London calendar day (hourly bars run 00:00 to 23:00 London time). It is complete only
+      after London midnight, so the latest usable bar is the one before the run's London date. Friday's bar therefore arrives
+      with the Saturday repair run.
+    - Yahoo also appends a live quote as a bar stamped with a time of day; that is removed in `yahoo._normalise` and, by
+      this rule, would in any case be dated today and excluded for FX.
+    `now` is the run time; when it does not fall on `today` (tests, backfills), the run is taken to be the 22:37 UTC evening run of `today`."""
+    if now is None or now.astimezone(timezone.utc).date() != today:
+        ref = datetime.combine(today, SCHEDULED_RUN_UTC, tzinfo=timezone.utc)
+    else:
+        ref = now.astimezone(timezone.utc)
+    if kind == "fx":
+        return london_date(ref) - timedelta(days=1)
+    return ref.date() if ref.hour >= FUND_BAR_COMPLETE_UTC_HOUR else ref.date() - timedelta(days=1)
