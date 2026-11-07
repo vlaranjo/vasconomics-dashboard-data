@@ -4,8 +4,8 @@
  "name": "S&P 500",
  "source": "worldperatio.com",
  "source_url": "https://worldperatio.com/index/sp-500/",
- "fetched_at": "2026-11-06T21:29:17Z",
- "last_success": "2026-11-06T21:29:17Z",
+ "fetched_at": "2026-11-07T18:57:18Z",
+ "last_success": "2026-11-07T18:57:18Z",
  "stale": false,
  "stale_reason": null,
  "frequency": "monthly",
@@ -7496,7 +7496,7 @@
   ],
   [
    "2026-11",
-   23.0096
+   22.9918
   ]
  ]
 }
