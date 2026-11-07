@@ -1,0 +1,723 @@
+{
+ "schema_version": 1,
+ "section": "us-sectors",
+ "title": "US sectors (GICS)",
+ "page": "us-sectors",
+ "kind": "funds",
+ "generated_at": "2026-11-07T12:02:35Z",
+ "as_of": "2026-11-06",
+ "lookbacks": [
+  "1D",
+  "1W",
+  "1M",
+  "3M",
+  "6M",
+  "1Y",
+  "2Y",
+  "3Y",
+  "5Y",
+  "10Y"
+ ],
+ "rows": [
+  {
+   "id": "iu5c",
+   "label": "Communications",
+   "ticker": "IU5C.DE",
+   "currency": "EUR",
+   "isin": "IE00BDDRF478",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "S&P 500 Capped 35/20 Communication Services",
+   "first_close": "2018-09-27",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 1.02,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 4.37,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -6.38,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -3.42,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -8.29,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": -0.53,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 18.06,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 69.57,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 49.15,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": 167.96,
+      "start": "2018-09-27"
+     }
+    }
+   }
+  },
+  {
+   "id": "qdvk",
+   "label": "Cons. Discretionary",
+   "ticker": "QDVK.DE",
+   "currency": "EUR",
+   "isin": "IE00B4MCHD36",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "S&P 500 Capped 35/20 Consumer Discretionary",
+   "first_close": "2015-12-03",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 1.07,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 2.96,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 6.62,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 3.11,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 5.3,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 5.71,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 14.22,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 52.17,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 26.35,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 247.45,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "2b7d",
+   "label": "Cons. Staples",
+   "ticker": "2B7D.DE",
+   "currency": "EUR",
+   "isin": "IE00B40B8R38",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "S&P 500 Capped 35/20 Consumer Staples",
+   "first_close": "2017-03-22",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -0.96,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 1.07,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 12.47,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 12.35,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 14.2,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 26.94,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 18.65,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 42.61,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 54.09,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": 98.55,
+      "start": "2017-03-22"
+     }
+    }
+   }
+  },
+  {
+   "id": "qdvf",
+   "label": "Energy",
+   "ticker": "QDVF.DE",
+   "currency": "EUR",
+   "isin": "IE00B42NKQ00",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "S&P 500 Capped 35/20 Energy",
+   "first_close": "2015-12-03",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -1.41,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -10.33,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -0.78,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 12.07,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 17.49,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 49.99,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 35.77,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 51.32,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 159.33,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 159.33,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "qdvh",
+   "label": "Financials",
+   "ticker": "QDVH.DE",
+   "currency": "EUR",
+   "isin": "IE00B4JNQZ49",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "S&P 500 Capped 35/20 Financials",
+   "first_close": "2015-12-03",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -0.56,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 1.55,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 7.23,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 3.44,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 17.26,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 15.39,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 15.09,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 71.1,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 59.22,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 239.76,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "qdvg",
+   "label": "Health Care",
+   "ticker": "QDVG.DE",
+   "currency": "EUR",
+   "isin": "IE00B43HR379",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "S&P 500 Capped 35/20 Health Care",
+   "first_close": "2015-12-03",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -1.25,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -0.46,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 11.46,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 17.13,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 34.67,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 33.11,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 23.43,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 44.47,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 54.21,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 217.93,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "2b7c",
+   "label": "Industrials",
+   "ticker": "2B7C.DE",
+   "currency": "EUR",
+   "isin": "IE00B4LN9N13",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "S&P 500 Capped 35/20 Industrials",
+   "first_close": "2017-03-22",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -0.94,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -3.01,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -4.05,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -8.93,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -2.16,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 11.47,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 13.97,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 60.92,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 68.61,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": 151.81,
+      "start": "2017-03-22"
+     }
+    }
+   }
+  },
+  {
+   "id": "2b7b",
+   "label": "Materials",
+   "ticker": "2B7B.DE",
+   "currency": "EUR",
+   "isin": "IE00B4MKCJ84",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "S&P 500 Capped 35/20 Materials",
+   "first_close": "2017-03-22",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -0.04,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 0.79,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 5.22,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 4.58,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 6.61,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 27.91,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 9.67,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 34.67,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 33.99,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": 112.44,
+      "start": "2017-03-22"
+     }
+    }
+   }
+  },
+  {
+   "id": "qdve",
+   "label": "Technology",
+   "ticker": "QDVE.DE",
+   "currency": "EUR",
+   "isin": "IE00B3WJKG14",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "S&P 500 Capped 35/20 Information Technology",
+   "first_close": "2015-12-03",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 0.13,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -6.14,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -14.73,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -5.44,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 5.5,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 15.12,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 36.26,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 103.88,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 131.2,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 767.24,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "2b7a",
+   "label": "Utilities",
+   "ticker": "2B7A.DE",
+   "currency": "EUR",
+   "isin": "IE00B4KBBD01",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "S&P 500 Capped 35/20 Utilities",
+   "first_close": "2017-03-22",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 0.59,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -0.51,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 6.77,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 3.29,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 0.72,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 2.95,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 12.9,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 45.1,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 51.44,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": 91.87,
+      "start": "2017-03-22"
+     }
+    }
+   }
+  }
+ ]
+}

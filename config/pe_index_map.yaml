@@ -1,0 +1,41 @@
+# Each index is fetched once and mapped to the pages that show it (decisions F9). All 34 pages of the old script
+# (PE_Ratio_Download_from_Worldperatio.py) plus Nasdaq 100 and Dow Jones. `group` feeds the selector headings on the page.
+# `first_point` is the expected first month (null = not checked).
+schema_version: 1
+user_agent: "vasconomics-dashboard/1.0 (personal, non-commercial; contact via vasconomics.com)"
+delay_seconds: 4
+indices:
+  - {slug: all-world, name: "FTSE Global All Cap", url: "https://worldperatio.com/area/all-world/", pages: ["countries-regions"], group: "Regions", display: true}
+  - {slug: united-states, name: "CRSP US Total Market", url: "https://worldperatio.com/area/united-states/", pages: ["countries-regions", "us-majors-factors"], group: "Regions", display: true}
+  - {slug: europe, name: "FTSE Developed Europe All Cap", url: "https://worldperatio.com/area/europe/", pages: ["countries-regions"], group: "Regions", display: true}
+  - {slug: japan, name: "MSCI Japan", url: "https://worldperatio.com/area/japan/", pages: ["countries-regions"], group: "Regions", display: true}
+  - {slug: asia-ex-japan, name: "MSCI AC Asia ex Japan", url: "https://worldperatio.com/area/asia-ex-japan/", pages: ["countries-regions"], group: "Regions", display: true}
+  - {slug: emerging-markets, name: "MSCI Emerging Markets", url: "https://worldperatio.com/area/emerging-markets/", pages: ["countries-regions"], group: "Regions", display: true}
+  - {slug: latin-america, name: "FTSE Latin America RIC Capped", url: "https://worldperatio.com/area/latin-america/", pages: ["countries-regions"], group: "Regions", display: true}
+  - {slug: sp-500, name: "S&P 500", url: "https://worldperatio.com/index/sp-500/", pages: ["countries-regions", "us-majors-factors", "us-sectors"], group: "Countries", display: true, first_point: "1871-01"}
+  - {slug: united-kingdom, name: "MSCI United Kingdom", url: "https://worldperatio.com/area/united-kingdom/", pages: ["countries-regions"], group: "Countries", display: true}
+  - {slug: switzerland, name: "MSCI Switzerland", url: "https://worldperatio.com/area/switzerland/", pages: ["countries-regions"], group: "Countries", display: true}
+  - {slug: australia, name: "MSCI Australia", url: "https://worldperatio.com/area/australia", pages: ["countries-regions"], group: "Countries", display: true}
+  - {slug: china, name: "FTSE China 50", url: "https://worldperatio.com/area/china", pages: ["countries-regions"], group: "Countries", display: true}
+  - {slug: india, name: "MSCI India", url: "https://worldperatio.com/area/india", pages: ["countries-regions"], group: "Countries", display: true}
+  - {slug: brazil, name: "MSCI Brazil", url: "https://worldperatio.com/area/brazil", pages: ["countries-regions"], group: "Countries", display: true}
+  - {slug: south-korea, name: "MSCI South Korea", url: "https://worldperatio.com/area/south-korea/", pages: ["countries-regions"], group: "Countries", display: true}
+  - {slug: south-africa, name: "MSCI South Africa", url: "https://worldperatio.com/area/south-africa/", pages: ["countries-regions"], group: "Countries", display: true}
+  - {slug: mexico, name: "MSCI Mexico", url: "https://worldperatio.com/area/mexico/", pages: ["countries-regions"], group: "Countries", display: true}
+  - {slug: turkey, name: "MSCI Turkey", url: "https://worldperatio.com/area/turkey/", pages: ["countries-regions"], group: "Countries", display: true}
+  - {slug: poland, name: "MSCI Poland", url: "https://worldperatio.com/area/poland/", pages: ["countries-regions"], group: "Countries", display: true}
+  - {slug: indonesia, name: "MSCI Indonesia", url: "https://worldperatio.com/area/indonesia/", pages: ["countries-regions"], group: "Countries", display: true}
+  - {slug: taiwan, name: "MSCI Taiwan", url: "https://worldperatio.com/area/taiwan/", pages: ["countries-regions"], group: "Countries", display: true}
+  - {slug: nasdaq-100, name: "Nasdaq 100", url: "https://worldperatio.com/index/nasdaq-100/", pages: ["us-majors-factors"], group: "US indices", display: true}
+  - {slug: dow-jones, name: "Dow Jones Industrial Average", url: "https://worldperatio.com/index/dow-jones/", pages: ["us-majors-factors"], group: "US indices", display: true}
+  - {slug: sp-500-information-technology, name: "S&P 500 Information Technology", url: "https://worldperatio.com/sector/sp-500-information-technology", pages: ["us-sectors"], group: "Sectors", display: true}
+  - {slug: sp-500-real-estate, name: "S&P 500 Real Estate", url: "https://worldperatio.com/sector/sp-500-real-estate", pages: ["us-sectors"], group: "Sectors", display: true}
+  - {slug: sp-500-consumer-discretionary, name: "S&P 500 Consumer Discretionary", url: "https://worldperatio.com/sector/sp-500-consumer-discretionary", pages: ["us-sectors"], group: "Sectors", display: true}
+  - {slug: sp-500-consumer-staples, name: "S&P 500 Consumer Staples", url: "https://worldperatio.com/sector/sp-500-consumer-staples", pages: ["us-sectors"], group: "Sectors", display: true}
+  - {slug: sp-500-industrials, name: "S&P 500 Industrials", url: "https://worldperatio.com/sector/sp-500-industrials", pages: ["us-sectors"], group: "Sectors", display: true}
+  - {slug: sp-500-health-care, name: "S&P 500 Health Care", url: "https://worldperatio.com/sector/sp-500-health-care", pages: ["us-sectors"], group: "Sectors", display: true}
+  - {slug: sp-500-materials, name: "S&P 500 Materials", url: "https://worldperatio.com/sector/sp-500-materials", pages: ["us-sectors"], group: "Sectors", display: true}
+  - {slug: sp-500-utilities, name: "S&P 500 Utilities", url: "https://worldperatio.com/sector/sp-500-utilities", pages: ["us-sectors"], group: "Sectors", display: true}
+  - {slug: sp-500-energy, name: "S&P 500 Energy", url: "https://worldperatio.com/sector/sp-500-energy", pages: ["us-sectors"], group: "Sectors", display: true}
+  - {slug: sp-500-communication-services, name: "S&P 500 Communication Services", url: "https://worldperatio.com/sector/sp-500-communication-services", pages: ["us-sectors"], group: "Sectors", display: true}
+  - {slug: sp-500-financials, name: "S&P 500 Financials", url: "https://worldperatio.com/sector/sp-500-financials", pages: ["us-sectors"], group: "Sectors", display: true}

@@ -1,0 +1,154 @@
+{
+ "schema_version": 1,
+ "country": "br",
+ "name": "Brazil",
+ "source": "ANBIMA, ETTJ (prefixed curve, Circular 3.361 vertices)",
+ "source_url": "https://www.anbima.com.br/pt_br/informar/curvas-de-juros-fechamento.htm",
+ "terms": "ANBIMA is a private association; terms not found, to be checked before any public use.",
+ "status": "ok",
+ "fetched_at": "2026-11-06T21:33:42Z",
+ "last_success": "2026-11-06T21:33:42Z",
+ "stale": false,
+ "stale_reason": null,
+ "as_of": "2026-11-05",
+ "tenors": [
+  "1M",
+  "3M",
+  "6M",
+  "1Y",
+  "3Y",
+  "5Y",
+  "10Y",
+  "30Y"
+ ],
+ "tenor_labels": {},
+ "gaps": {
+  "30Y": "ANBIMA publishes the prefixed curve only to 10 years."
+ },
+ "curves": [
+  {
+   "id": "latest",
+   "label": "Latest",
+   "date": "2026-11-05",
+   "points": {
+    "1M": {
+     "value": 13.5531,
+     "date": "2026-11-05",
+     "kind": "D"
+    },
+    "3M": {
+     "value": 13.6761,
+     "date": "2026-11-05",
+     "kind": "D"
+    },
+    "6M": {
+     "value": 13.8596,
+     "date": "2026-11-05",
+     "kind": "D"
+    },
+    "1Y": {
+     "value": 14.2002,
+     "date": "2026-11-05",
+     "kind": "D"
+    },
+    "3Y": {
+     "value": 15.0333,
+     "date": "2026-11-05",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 15.2802,
+     "date": "2026-11-05",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 15.158,
+     "date": "2026-11-05",
+     "kind": "D"
+    }
+   }
+  },
+  {
+   "id": "1m",
+   "label": "1 month earlier",
+   "date": "2026-10-05",
+   "points": {}
+  },
+  {
+   "id": "3m",
+   "label": "3 months earlier",
+   "date": "2026-08-05",
+   "points": {}
+  },
+  {
+   "id": "1y",
+   "label": "1 year earlier",
+   "date": "2025-11-05",
+   "points": {}
+  }
+ ],
+ "state": {
+  "history": [
+   [
+    "2026-10-29",
+    {
+     "1M": 13.4836,
+     "3M": 13.6261,
+     "6M": 13.8329,
+     "1Y": 14.2105,
+     "3Y": 15.1617,
+     "5Y": 15.4652,
+     "10Y": 15.2771
+    }
+   ],
+   [
+    "2026-10-30",
+    {
+     "1M": 13.441,
+     "3M": 13.6268,
+     "6M": 13.8844,
+     "1Y": 14.3249,
+     "3Y": 15.2998,
+     "5Y": 15.5646,
+     "10Y": 15.3849
+    }
+   ],
+   [
+    "2026-11-03",
+    {
+     "1M": 13.3964,
+     "3M": 13.6363,
+     "6M": 13.9536,
+     "1Y": 14.4617,
+     "3Y": 15.4726,
+     "5Y": 15.724,
+     "10Y": 15.5396
+    }
+   ],
+   [
+    "2026-11-04",
+    {
+     "1M": 13.4962,
+     "3M": 13.6667,
+     "6M": 13.8998,
+     "1Y": 14.2909,
+     "3Y": 15.1296,
+     "5Y": 15.3446,
+     "10Y": 15.1585
+    }
+   ],
+   [
+    "2026-11-05",
+    {
+     "1M": 13.5531,
+     "3M": 13.6761,
+     "6M": 13.8596,
+     "1Y": 14.2002,
+     "3Y": 15.0333,
+     "5Y": 15.2802,
+     "10Y": 15.158
+    }
+   ]
+  ]
+ }
+}

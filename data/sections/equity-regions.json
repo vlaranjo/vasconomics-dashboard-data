@@ -1,0 +1,571 @@
+{
+ "schema_version": 1,
+ "section": "equity-regions",
+ "title": "Equity regions",
+ "page": "countries-regions",
+ "kind": "funds",
+ "generated_at": "2026-11-07T12:02:35Z",
+ "as_of": "2026-11-06",
+ "lookbacks": [
+  "1D",
+  "1W",
+  "1M",
+  "3M",
+  "6M",
+  "1Y",
+  "2Y",
+  "3Y",
+  "5Y",
+  "10Y"
+ ],
+ "rows": [
+  {
+   "id": "acwie",
+   "label": "MSCI ACWI (EUR-hedged)",
+   "ticker": "ACWIE.MI",
+   "currency": "EUR",
+   "isin": "IE00BYM11K57",
+   "provider": "UBS",
+   "acc": true,
+   "hedged": true,
+   "holds": "MSCI ACWI (EUR-hedged, swap-based)",
+   "first_close": "2016-01-13",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -0.77,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -2.06,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -5.56,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -4.1,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 0.32,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 10.85,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 27.04,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 63.38,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 48.94,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 173.72,
+     "start": "2016-09-28",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "ubuj",
+   "label": "MSCI USA (EUR-hedged)",
+   "ticker": "UBUJ.DE",
+   "currency": "EUR",
+   "isin": "IE00BD4TYG73",
+   "provider": "UBS",
+   "acc": true,
+   "hedged": true,
+   "holds": "MSCI USA (EUR-hedged)",
+   "first_close": "2014-01-16",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -0.81,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -2.38,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -5.62,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -4.08,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 0.71,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 8.65,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 23.0,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 65.69,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 45.44,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 218.21,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "eunk",
+   "label": "MSCI Europe",
+   "ticker": "EUNK.DE",
+   "currency": "EUR",
+   "isin": "IE00B4K48X80",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI Europe",
+   "first_close": "2009-10-20",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -1.07,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 0.3,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 2.11,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -1.12,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 5.84,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 17.29,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 35.02,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 58.3,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 56.33,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 158.82,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "ibcg",
+   "label": "MSCI Japan (EUR-hedged)",
+   "ticker": "IBCG.DE",
+   "currency": "EUR",
+   "isin": "IE00B42Z5J44",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": true,
+   "holds": "MSCI Japan (EUR-hedged)",
+   "first_close": "2011-03-24",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -1.88,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -3.76,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -10.87,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -7.04,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -0.91,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 16.66,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 44.37,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 76.67,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 113.69,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 242.64,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "sxr1",
+   "label": "MSCI Pacific ex Japan",
+   "ticker": "SXR1.DE",
+   "currency": "EUR",
+   "isin": "IE00B52MJY50",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI Pacific ex Japan (not 'Asia ex Japan')",
+   "first_close": "2010-05-04",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -0.09,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -0.07,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 1.97,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 0.43,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 5.23,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 17.03,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 25.58,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 50.12,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 40.3,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 110.18,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "eunm",
+   "label": "MSCI Emerging Markets",
+   "ticker": "EUNM.DE",
+   "currency": "EUR",
+   "isin": "IE00B4L5YC18",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI Emerging Markets",
+   "first_close": "2009-10-20",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 1.29,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -2.18,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -12.02,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -5.65,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -5.79,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 15.85,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 36.07,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 61.38,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 40.39,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 112.98,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "aasi",
+   "label": "MSCI EM Asia",
+   "ticker": "AASI.MI",
+   "currency": "EUR",
+   "isin": "LU1681044480",
+   "provider": "Amundi",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI EM Asia",
+   "first_close": "2018-03-22",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 1.81,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -3.19,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -13.25,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -6.4,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -6.9,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 16.13,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 35.97,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 66.26,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 41.47,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": 81.71,
+      "start": "2018-03-22"
+     }
+    }
+   }
+  },
+  {
+   "id": "alat",
+   "label": "MSCI EM Latin America",
+   "ticker": "ALAT.PA",
+   "currency": "EUR",
+   "isin": "LU1681045024",
+   "provider": "Amundi",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI EM Latin America",
+   "first_close": "2011-04-28",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 1.78,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 0.27,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -15.0,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -4.64,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -6.55,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 15.69,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 39.86,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 32.8,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 80.86,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 73.91,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+# Each index is fetched once and mapped to the pages that show it (decisions F9).
+# M1 fetches two pages and displays one chart (S&P 500).
+schema_version: 1
+user_agent: "vasconomics-dashboard/1.0 (personal, non-commercial; contact via vasconomics.com)"
+delay_seconds: 4
+indices:
+  - {slug: sp-500, name: "S&P 500", url: "https://worldperatio.com/index/sp-500/", pages: ["us-majors", "countries"], first_point: "1871-01", display: true}
+  - {slug: sp-500-energy, name: "S&P 500 Energy", url: "https://worldperatio.com/sector/sp-500-energy", pages: ["us-sectors"], first_point: null, display: false}

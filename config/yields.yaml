@@ -1,0 +1,7 @@
+# Weekly yield-curve job (decisions 6 Nov 2026). Order = order on the page.
+# France runs only when the GitHub secret FR_WEBSTAT_CLIENT_ID exists (adapter UNTESTED until then); Italy, India, China are out.
+schema_version: 1
+countries: [us, uk, ca, jp, de, es, ch, br, fr]
+delay_seconds: 2.0      # pause between requests to the same run (polite; about 40 requests a week in steady state)
+max_age_days: 21        # a country whose latest observation is older than this fails validation (frozen source)
+max_move_pp: 2.0        # a tenor that moved more than this many percentage points since the last published file fails

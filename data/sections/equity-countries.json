@@ -1,0 +1,1215 @@
+{
+ "schema_version": 1,
+ "section": "equity-countries",
+ "title": "Equity countries",
+ "page": "countries-regions",
+ "kind": "funds",
+ "generated_at": "2026-11-07T12:02:35Z",
+ "as_of": "2026-11-06",
+ "lookbacks": [
+  "1D",
+  "1W",
+  "1M",
+  "3M",
+  "6M",
+  "1Y",
+  "2Y",
+  "3Y",
+  "5Y",
+  "10Y"
+ ],
+ "rows": [
+  {
+   "id": "ibcf",
+   "label": "S&P 500 (EUR-hedged)",
+   "ticker": "IBCF.DE",
+   "currency": "EUR",
+   "isin": "IE00B3ZW0K18",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": true,
+   "holds": "S&P 500 (EUR-hedged)",
+   "first_close": "2011-03-24",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -0.69,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -2.29,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -5.36,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -3.93,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 0.76,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 9.02,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 23.19,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 65.05,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 48.17,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 218.59,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "lyp6",
+   "label": "STOXX Europe 600",
+   "ticker": "LYP6.DE",
+   "currency": "EUR",
+   "isin": "LU0908500753",
+   "provider": "Amundi",
+   "acc": true,
+   "hedged": false,
+   "holds": "STOXX Europe 600 (not 'Euro Stoxx 500')",
+   "first_close": "2024-02-19",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -1.19,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 0.27,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 1.93,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -1.26,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 5.3,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 17.4,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 35.6,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": 43.08,
+      "start": "2024-02-19"
+     }
+    },
+    "5Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": 43.08,
+      "start": "2024-02-19"
+     }
+    },
+    "10Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": 43.08,
+      "start": "2024-02-19"
+     }
+    }
+   }
+  },
+  {
+   "id": "sxrw",
+   "label": "FTSE 100",
+   "ticker": "SXRW.DE",
+   "currency": "EUR",
+   "isin": "IE00B53HP851",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "FTSE 100",
+   "first_close": "2010-03-16",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -1.36,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -0.51,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 2.92,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 1.32,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 7.42,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 19.6,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 39.51,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 65.44,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 78.92,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 144.38,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "18mn",
+   "label": "MSCI Switzerland",
+   "ticker": "18MN.DE",
+   "currency": "EUR",
+   "isin": "LU1681044993",
+   "provider": "Amundi",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI Switzerland (CHF class)",
+   "first_close": "2012-01-02",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -1.33,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 0.43,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 9.45,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 4.51,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 11.66,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 24.41,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 33.47,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 54.14,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 38.01,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 148.07,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "ibcg",
+   "label": "MSCI Japan (EUR-hedged)",
+   "ticker": "IBCG.DE",
+   "currency": "EUR",
+   "isin": "IE00B42Z5J44",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": true,
+   "holds": "MSCI Japan (EUR-hedged)",
+   "first_close": "2011-03-24",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -1.88,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -3.76,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -10.87,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -7.04,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -0.91,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 16.66,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 44.37,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 76.67,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 113.69,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 242.64,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "saus",
+   "label": "MSCI Australia",
+   "ticker": "SAUS.MI",
+   "currency": "EUR",
+   "isin": "IE00B5377D42",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI Australia",
+   "first_close": "2014-04-29",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 0.03,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -0.3,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 4.01,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 0.58,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 4.58,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 18.65,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 18.04,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 44.49,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 41.95,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 122.72,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "xcs6",
+   "label": "MSCI China",
+   "ticker": "XCS6.DE",
+   "currency": "EUR",
+   "isin": "LU0514695690",
+   "provider": "Xtrackers (DWS)",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI China",
+   "first_close": "2011-10-04",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 0.68,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 5.8,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 0.63,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -3.95,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -5.88,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": -14.5,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 5.1,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 23.53,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": -11.06,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 34.5,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "qdv5",
+   "label": "MSCI India",
+   "ticker": "QDV5.DE",
+   "currency": "EUR",
+   "isin": "IE00BZCQB185",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI India",
+   "first_close": "2018-05-31",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 2.18,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 8.37,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 10.97,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 4.02,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 6.95,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": -2.56,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": -11.2,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 14.68,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 16.97,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": 83.48,
+      "start": "2018-05-31"
+     }
+    }
+   }
+  },
+  {
+   "id": "lbra",
+   "label": "MSCI Brazil",
+   "ticker": "LBRA.DE",
+   "currency": "EUR",
+   "isin": "LU1900066207",
+   "provider": "Amundi",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI Brazil",
+   "first_close": "2019-03-15",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 1.18,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -1.41,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -23.94,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -7.7,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -13.49,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 9.46,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 24.31,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 16.74,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 66.24,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": 16.68,
+      "start": "2019-03-15"
+     }
+    }
+   }
+  },
+  {
+   "id": "lkor",
+   "label": "MSCI Korea",
+   "ticker": "LKOR.DE",
+   "currency": "EUR",
+   "isin": "LU1900066975",
+   "provider": "Amundi",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI Korea 20/35",
+   "first_close": "2019-02-26",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -0.33,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -9.7,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -26.6,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -14.0,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -20.08,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 60.73,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 142.95,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 127.35,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 98.35,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": 154.31,
+      "start": "2019-02-26"
+     }
+    }
+   }
+  },
+  {
+   "id": "d5bi",
+   "label": "MSCI Mexico",
+   "ticker": "D5BI.DE",
+   "currency": "EUR",
+   "isin": "LU0476289466",
+   "provider": "Xtrackers (DWS)",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI Mexico",
+   "first_close": "2010-03-26",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 1.34,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 3.21,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 6.74,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 2.93,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 4.37,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 23.45,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 59.91,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 40.82,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 85.99,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 100.39,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "ibc4",
+   "label": "MSCI South Africa",
+   "ticker": "IBC4.DE",
+   "currency": "EUR",
+   "isin": "IE00B52XQP83",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI South Africa Capped",
+   "first_close": "2010-01-22",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 0.79,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 8.51,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 6.0,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 2.91,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 0.34,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 16.85,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 51.4,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 90.76,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 83.27,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 103.68,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "ltur",
+   "label": "MSCI Turkey",
+   "ticker": "LTUR.DE",
+   "currency": "EUR",
+   "isin": "LU1900067601",
+   "provider": "Amundi",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI Turkey",
+   "first_close": "2019-03-15",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 2.44,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 4.52,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -8.19,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -6.0,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -14.25,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 11.74,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 8.0,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 16.37,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 102.41,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": 52.93,
+      "start": "2019-03-15"
+     }
+    }
+   }
+  },
+  {
+   "id": "iuss",
+   "label": "MSCI Saudi Arabia",
+   "ticker": "IUSS.DE",
+   "currency": "EUR",
+   "isin": "IE00BYYR0489",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI Saudi Arabia 20/35",
+   "first_close": "2019-04-18",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 0.76,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 2.13,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -2.43,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -1.35,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 0.77,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": -0.46,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": -7.98,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": -0.8,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": -1.3,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": 19.67,
+      "start": "2019-04-18"
+     }
+    }
+   }
+  },
+  {
+   "id": "ibcj",
+   "label": "MSCI Poland",
+   "ticker": "IBCJ.DE",
+   "currency": "EUR",
+   "isin": "IE00B4M7GH52",
+   "provider": "iShares",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI Poland",
+   "first_close": "2011-01-21",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -0.97,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -1.11,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -2.79,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 1.5,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 14.32,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 38.89,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 100.22,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 124.1,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 108.77,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 166.41,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "indo",
+   "label": "MSCI Indonesia",
+   "ticker": "INDO.MI",
+   "currency": "EUR",
+   "isin": "LU1900065811",
+   "provider": "Amundi",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI Indonesia",
+   "first_close": "2019-03-15",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 4.17,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 2.32,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -12.27,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -17.39,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -27.32,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": -45.99,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": -55.06,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": -55.39,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": -49.52,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": null,
+     "start": null,
+     "status": "na_young",
+     "since_launch": {
+      "value": -51.52,
+      "start": "2019-03-15"
+     }
+    }
+   }
+  },
+  {
+   "id": "dbx5",
+   "label": "MSCI Taiwan",
+   "ticker": "DBX5.DE",
+   "currency": "EUR",
+   "isin": "LU0292109187",
+   "provider": "Xtrackers (DWS)",
+   "acc": true,
+   "hedged": false,
+   "holds": "MSCI Taiwan 20/35",
+   "first_close": "2008-01-02",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 3.02,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -10.12,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -23.04,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -9.41,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -1.09,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 50.53,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 77.58,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 154.18,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 133.02,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 460.05,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  }
+ ]
+}

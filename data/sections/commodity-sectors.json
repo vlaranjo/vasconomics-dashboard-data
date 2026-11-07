@@ -1,0 +1,363 @@
+{
+ "schema_version": 1,
+ "section": "commodity-sectors",
+ "title": "Commodity sectors",
+ "page": "commodities",
+ "kind": "funds",
+ "generated_at": "2026-11-07T12:02:35Z",
+ "as_of": "2026-11-06",
+ "lookbacks": [
+  "1D",
+  "1W",
+  "1M",
+  "3M",
+  "6M",
+  "1Y",
+  "2Y",
+  "3Y",
+  "5Y",
+  "10Y"
+ ],
+ "rows": [
+  {
+   "id": "aige",
+   "label": "Energy",
+   "ticker": "AIGE.MI",
+   "currency": "EUR",
+   "isin": "GB00B15KYB02",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": false,
+   "holds": "Energy commodity index (futures-based ETC)",
+   "first_close": "2008-01-02",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": 1.22,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -10.47,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": 1.28,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 27.99,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 20.31,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 78.44,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 66.98,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 37.53,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 60.02,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 75.63,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "aiga",
+   "label": "Agriculture",
+   "ticker": "AIGA.MI",
+   "currency": "EUR",
+   "isin": "GB00B15KYH63",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": false,
+   "holds": "Agriculture commodity index (futures-based ETC)",
+   "first_close": "2008-01-02",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -0.55,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -3.32,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -9.7,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 0.12,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 2.29,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 6.62,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 1.96,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": -9.56,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 14.46,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 13.56,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "eimt",
+   "label": "Industrial Metals",
+   "ticker": "EIMT.MI",
+   "currency": "EUR",
+   "isin": "JE00B78NPW60",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": true,
+   "holds": "Industrial Metals futures (ETC, EUR-hedged)",
+   "first_close": "2012-07-03",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -0.67,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -1.17,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -2.41,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -4.98,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -4.9,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 13.47,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 17.56,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 24.85,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 6.73,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 47.37,
+     "start": "2016-11-04",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "aigp",
+   "label": "Precious Metals",
+   "ticker": "AIGP.MI",
+   "currency": "EUR",
+   "isin": "GB00B15KYF40",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": false,
+   "holds": "Precious Metals commodity index (futures-based ETC)",
+   "first_close": "2008-01-02",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -0.59,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": 4.56,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -3.91,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": -3.78,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": -13.63,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 9.4,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 48.97,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 97.93,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 117.13,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 152.43,
+     "start": "2016-11-02",
+     "status": "ok"
+    }
+   }
+  },
+  {
+   "id": "aigs",
+   "label": "Softs",
+   "ticker": "AIGS.MI",
+   "currency": "EUR",
+   "isin": "GB00B15KYJ87",
+   "provider": "WisdomTree",
+   "acc": true,
+   "hedged": false,
+   "holds": "Softs commodity index (futures-based ETC)",
+   "first_close": "2008-01-02",
+   "last_close": "2026-11-06",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-07T12:02:35Z",
+   "returns": {
+    "1D": {
+     "value": -0.51,
+     "start": "2026-11-05",
+     "status": "ok"
+    },
+    "1W": {
+     "value": -3.71,
+     "start": "2026-10-30",
+     "status": "ok"
+    },
+    "1M": {
+     "value": -8.26,
+     "start": "2026-10-06",
+     "status": "ok"
+    },
+    "3M": {
+     "value": 1.73,
+     "start": "2026-08-06",
+     "status": "ok"
+    },
+    "6M": {
+     "value": 13.59,
+     "start": "2026-05-06",
+     "status": "ok"
+    },
+    "1Y": {
+     "value": 3.79,
+     "start": "2025-11-06",
+     "status": "ok"
+    },
+    "2Y": {
+     "value": 10.61,
+     "start": "2024-11-06",
+     "status": "ok"
+    },
+    "3Y": {
+     "value": 23.37,
+     "start": "2023-11-06",
+     "status": "ok"
+    },
+    "5Y": {
+     "value": 61.03,
+     "start": "2021-11-05",
+     "status": "ok"
+    },
+    "10Y": {
+     "value": 30.48,
+     "start": "2016-11-03",
+     "status": "ok"
+    }
+   }
+  }
+ ]
+}

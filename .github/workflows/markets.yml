@@ -1,0 +1,53 @@
+# Daily markets job: Yahoo -> returns -> validate -> atomic swap of data/ -> one commit -> Pages deploy.
+# A manual run (workflow_dispatch) on the dev branch commits to dev and does NOT deploy.
+name: markets
+
+on:
+  schedule:
+    - cron: "37 22 * * 1-5"   # 22:37 UTC Mon-Fri, after every European close
+    - cron: "47 5 * * 2-6"    # repair run for a missed or late day
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Fetch, compute, validate, swap
+        run: python jobs/run_markets.py
+      - name: Commit data (also the keep-alive heartbeat)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git commit -m "data: markets ${GITHUB_RUN_ID}" || echo "nothing to commit"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep 5
+          done
+          echo "push failed three times" >&2
+          exit 1
+
+  deploy:
+    needs: publish
+    if: github.ref_name == 'main'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages-deploy.yml

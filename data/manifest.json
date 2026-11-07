@@ -1,0 +1,504 @@
+{
+ "schema_version": 1,
+ "generated_at": "2026-11-07T12:02:35Z",
+ "status": "status.json",
+ "sections": {
+  "asset-classes": {
+   "path": "sections/asset-classes.json",
+   "as_of": "2026-11-06"
+  },
+  "equity-regions": {
+   "path": "sections/equity-regions.json",
+   "as_of": "2026-11-06"
+  },
+  "equity-countries": {
+   "path": "sections/equity-countries.json",
+   "as_of": "2026-11-06"
+  },
+  "us-majors": {
+   "path": "sections/us-majors.json",
+   "as_of": "2026-11-06"
+  },
+  "us-factors": {
+   "path": "sections/us-factors.json",
+   "as_of": "2026-11-06"
+  },
+  "us-sectors": {
+   "path": "sections/us-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "eu-sectors": {
+   "path": "sections/eu-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "fixed-income": {
+   "path": "sections/fixed-income.json",
+   "as_of": "2026-11-06"
+  },
+  "commodity-sectors": {
+   "path": "sections/commodity-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "commodity-components": {
+   "path": "sections/commodity-components.json",
+   "as_of": "2026-11-06"
+  },
+  "fx": {
+   "path": "sections/fx.json",
+   "as_of": "2026-11-06"
+  }
+ },
+ "history": {
+  "asset-classes": {
+   "path": "history/asset-classes.json",
+   "as_of": "2026-11-06"
+  },
+  "equity-regions": {
+   "path": "history/equity-regions.json",
+   "as_of": "2026-11-06"
+  },
+  "equity-countries": {
+   "path": "history/equity-countries.json",
+   "as_of": "2026-11-06"
+  },
+  "us-majors": {
+   "path": "history/us-majors.json",
+   "as_of": "2026-11-06"
+  },
+  "us-factors": {
+   "path": "history/us-factors.json",
+   "as_of": "2026-11-06"
+  },
+  "us-sectors": {
+   "path": "history/us-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "eu-sectors": {
+   "path": "history/eu-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "fixed-income": {
+   "path": "history/fixed-income.json",
+   "as_of": "2026-11-06"
+  },
+  "commodity-sectors": {
+   "path": "history/commodity-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "commodity-components": {
+   "path": "history/commodity-components.json",
+   "as_of": "2026-11-06"
+  },
+  "fx": {
+   "path": "history/fx.json",
+   "as_of": "2026-11-06"
+  }
+ },
+ "indicators": {
+  "equity-regions": {
+   "path": "indicators/equity-regions.json",
+   "as_of": "2026-11-06"
+  },
+  "equity-countries": {
+   "path": "indicators/equity-countries.json",
+   "as_of": "2026-11-06"
+  },
+  "us-majors": {
+   "path": "indicators/us-majors.json",
+   "as_of": "2026-11-06"
+  },
+  "us-factors": {
+   "path": "indicators/us-factors.json",
+   "as_of": "2026-11-06"
+  },
+  "us-sectors": {
+   "path": "indicators/us-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "eu-sectors": {
+   "path": "indicators/eu-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "commodity-sectors": {
+   "path": "indicators/commodity-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "commodity-components": {
+   "path": "indicators/commodity-components.json",
+   "as_of": "2026-11-06"
+  },
+  "fx": {
+   "path": "indicators/fx.json",
+   "as_of": "2026-11-06"
+  }
+ },
+ "pe": {
+  "sp-500": {
+   "path": "pe/sp-500.json",
+   "last_point": "2026-11",
+   "name": "S&P 500",
+   "group": "Countries",
+   "pages": [
+    "countries-regions",
+    "us-majors-factors",
+    "us-sectors"
+   ]
+  },
+  "sp-500-energy": {
+   "path": "pe/sp-500-energy.json",
+   "last_point": "2026-11",
+   "name": "S&P 500 Energy",
+   "group": "Sectors",
+   "pages": [
+    "us-sectors"
+   ]
+  },
+  "all-world": {
+   "path": "pe/all-world.json",
+   "last_point": "2026-11",
+   "name": "FTSE Global All Cap",
+   "group": "Regions",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "united-states": {
+   "path": "pe/united-states.json",
+   "last_point": "2026-11",
+   "name": "CRSP US Total Market",
+   "group": "Regions",
+   "pages": [
+    "countries-regions",
+    "us-majors-factors"
+   ]
+  },
+  "europe": {
+   "path": "pe/europe.json",
+   "last_point": "2026-11",
+   "name": "FTSE Developed Europe All Cap",
+   "group": "Regions",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "japan": {
+   "path": "pe/japan.json",
+   "last_point": "2026-11",
+   "name": "MSCI Japan",
+   "group": "Regions",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "asia-ex-japan": {
+   "path": "pe/asia-ex-japan.json",
+   "last_point": "2026-11",
+   "name": "MSCI AC Asia ex Japan",
+   "group": "Regions",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "emerging-markets": {
+   "path": "pe/emerging-markets.json",
+   "last_point": "2026-11",
+   "name": "MSCI Emerging Markets",
+   "group": "Regions",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "latin-america": {
+   "path": "pe/latin-america.json",
+   "last_point": "2026-11",
+   "name": "FTSE Latin America RIC Capped",
+   "group": "Regions",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "united-kingdom": {
+   "path": "pe/united-kingdom.json",
+   "last_point": "2026-11",
+   "name": "MSCI United Kingdom",
+   "group": "Countries",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "switzerland": {
+   "path": "pe/switzerland.json",
+   "last_point": "2026-11",
+   "name": "MSCI Switzerland",
+   "group": "Countries",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "australia": {
+   "path": "pe/australia.json",
+   "last_point": "2026-11",
+   "name": "MSCI Australia",
+   "group": "Countries",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "china": {
+   "path": "pe/china.json",
+   "last_point": "2026-11",
+   "name": "FTSE China 50",
+   "group": "Countries",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "india": {
+   "path": "pe/india.json",
+   "last_point": "2026-11",
+   "name": "MSCI India",
+   "group": "Countries",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "brazil": {
+   "path": "pe/brazil.json",
+   "last_point": "2026-11",
+   "name": "MSCI Brazil",
+   "group": "Countries",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "south-korea": {
+   "path": "pe/south-korea.json",
+   "last_point": "2026-11",
+   "name": "MSCI South Korea",
+   "group": "Countries",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "south-africa": {
+   "path": "pe/south-africa.json",
+   "last_point": "2026-11",
+   "name": "MSCI South Africa",
+   "group": "Countries",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "mexico": {
+   "path": "pe/mexico.json",
+   "last_point": "2026-11",
+   "name": "MSCI Mexico",
+   "group": "Countries",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "turkey": {
+   "path": "pe/turkey.json",
+   "last_point": "2026-11",
+   "name": "MSCI Turkey",
+   "group": "Countries",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "poland": {
+   "path": "pe/poland.json",
+   "last_point": "2026-11",
+   "name": "MSCI Poland",
+   "group": "Countries",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "indonesia": {
+   "path": "pe/indonesia.json",
+   "last_point": "2026-11",
+   "name": "MSCI Indonesia",
+   "group": "Countries",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "taiwan": {
+   "path": "pe/taiwan.json",
+   "last_point": "2026-11",
+   "name": "MSCI Taiwan",
+   "group": "Countries",
+   "pages": [
+    "countries-regions"
+   ]
+  },
+  "nasdaq-100": {
+   "path": "pe/nasdaq-100.json",
+   "last_point": "2026-11",
+   "name": "Nasdaq 100",
+   "group": "US indices",
+   "pages": [
+    "us-majors-factors"
+   ]
+  },
+  "dow-jones": {
+   "path": "pe/dow-jones.json",
+   "last_point": "2026-11",
+   "name": "Dow Jones Industrial Average",
+   "group": "US indices",
+   "pages": [
+    "us-majors-factors"
+   ]
+  },
+  "sp-500-information-technology": {
+   "path": "pe/sp-500-information-technology.json",
+   "last_point": "2026-11",
+   "name": "S&P 500 Information Technology",
+   "group": "Sectors",
+   "pages": [
+    "us-sectors"
+   ]
+  },
+  "sp-500-real-estate": {
+   "path": "pe/sp-500-real-estate.json",
+   "last_point": "2026-11",
+   "name": "S&P 500 Real Estate",
+   "group": "Sectors",
+   "pages": [
+    "us-sectors"
+   ]
+  },
+  "sp-500-consumer-discretionary": {
+   "path": "pe/sp-500-consumer-discretionary.json",
+   "last_point": "2026-11",
+   "name": "S&P 500 Consumer Discretionary",
+   "group": "Sectors",
+   "pages": [
+    "us-sectors"
+   ]
+  },
+  "sp-500-consumer-staples": {
+   "path": "pe/sp-500-consumer-staples.json",
+   "last_point": "2026-11",
+   "name": "S&P 500 Consumer Staples",
+   "group": "Sectors",
+   "pages": [
+    "us-sectors"
+   ]
+  },
+  "sp-500-industrials": {
+   "path": "pe/sp-500-industrials.json",
+   "last_point": "2026-11",
+   "name": "S&P 500 Industrials",
+   "group": "Sectors",
+   "pages": [
+    "us-sectors"
+   ]
+  },
+  "sp-500-health-care": {
+   "path": "pe/sp-500-health-care.json",
+   "last_point": "2026-11",
+   "name": "S&P 500 Health Care",
+   "group": "Sectors",
+   "pages": [
+    "us-sectors"
+   ]
+  },
+  "sp-500-materials": {
+   "path": "pe/sp-500-materials.json",
+   "last_point": "2026-11",
+   "name": "S&P 500 Materials",
+   "group": "Sectors",
+   "pages": [
+    "us-sectors"
+   ]
+  },
+  "sp-500-utilities": {
+   "path": "pe/sp-500-utilities.json",
+   "last_point": "2026-11",
+   "name": "S&P 500 Utilities",
+   "group": "Sectors",
+   "pages": [
+    "us-sectors"
+   ]
+  },
+  "sp-500-communication-services": {
+   "path": "pe/sp-500-communication-services.json",
+   "last_point": "2026-11",
+   "name": "S&P 500 Communication Services",
+   "group": "Sectors",
+   "pages": [
+    "us-sectors"
+   ]
+  },
+  "sp-500-financials": {
+   "path": "pe/sp-500-financials.json",
+   "last_point": "2026-11",
+   "name": "S&P 500 Financials",
+   "group": "Sectors",
+   "pages": [
+    "us-sectors"
+   ]
+  }
+ },
+ "yields": {
+  "us": {
+   "path": "yields/us.json",
+   "as_of": "2026-11-06",
+   "stale": false,
+   "status": "ok",
+   "name": "United States"
+  },
+  "uk": {
+   "path": "yields/uk.json",
+   "as_of": "2026-11-05",
+   "stale": false,
+   "status": "ok",
+   "name": "United Kingdom"
+  },
+  "ca": {
+   "path": "yields/ca.json",
+   "as_of": "2026-11-05",
+   "stale": false,
+   "status": "ok",
+   "name": "Canada"
+  },
+  "jp": {
+   "path": "yields/jp.json",
+   "as_of": "2026-10-30",
+   "stale": false,
+   "status": "ok",
+   "name": "Japan"
+  },
+  "de": {
+   "path": "yields/de.json",
+   "as_of": "2026-11-06",
+   "stale": false,
+   "status": "ok",
+   "name": "Germany"
+  },
+  "es": {
+   "path": "yields/es.json",
+   "as_of": "2026-11-04",
+   "stale": false,
+   "status": "ok",
+   "name": "Spain"
+  },
+  "ch": {
+   "path": "yields/ch.json",
+   "as_of": "2026-10-30",
+   "stale": false,
+   "status": "ok",
+   "name": "Switzerland"
+  },
+  "br": {
+   "path": "yields/br.json",
+   "as_of": "2026-11-05",
+   "stale": false,
+   "status": "ok",
+   "name": "Brazil"
+  }
+ }
+}

@@ -1,0 +1,203 @@
+{
+ "schema_version": 1,
+ "country": "de",
+ "name": "Germany",
+ "source": "Deutsche Bundesbank (term structure); Deutsche Finanzagentur (Bubill auctions)",
+ "source_url": "https://www.bundesbank.de/en/statistics/money-and-capital-markets/interest-rates-and-yields",
+ "terms": "Bundesbank: source must be quoted ('Source: Deutsche Bundesbank'); exact reuse terms for this series not confirmed.",
+ "status": "ok",
+ "fetched_at": "2026-11-06T21:33:42Z",
+ "last_success": "2026-11-06T21:33:42Z",
+ "stale": false,
+ "stale_reason": null,
+ "as_of": "2026-11-06",
+ "tenors": [
+  "1M",
+  "3M",
+  "6M",
+  "1Y",
+  "3Y",
+  "5Y",
+  "10Y",
+  "30Y"
+ ],
+ "tenor_labels": {},
+ "gaps": {
+  "1M": "No Bubill with about one month left is auctioned."
+ },
+ "curves": [
+  {
+   "id": "latest",
+   "label": "Latest",
+   "date": "2026-11-06",
+   "points": {
+    "3M": {
+     "value": 2.67,
+     "date": "2026-11-02",
+     "kind": "A",
+     "days": 105
+    },
+    "6M": {
+     "value": 2.75,
+     "date": "2026-11-06",
+     "kind": "D"
+    },
+    "1Y": {
+     "value": 2.87,
+     "date": "2026-11-06",
+     "kind": "D"
+    },
+    "3Y": {
+     "value": 2.97,
+     "date": "2026-11-06",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 3.02,
+     "date": "2026-11-06",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 3.29,
+     "date": "2026-11-06",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 3.72,
+     "date": "2026-11-06",
+     "kind": "D"
+    }
+   }
+  },
+  {
+   "id": "1m",
+   "label": "1 month earlier",
+   "date": "2026-10-06",
+   "points": {
+    "3M": {
+     "value": 2.586,
+     "date": "2026-10-05",
+     "kind": "A",
+     "days": 98
+    },
+    "6M": {
+     "value": 2.74,
+     "date": "2026-10-06",
+     "kind": "D"
+    },
+    "1Y": {
+     "value": 2.93,
+     "date": "2026-10-06",
+     "kind": "D"
+    },
+    "3Y": {
+     "value": 3.13,
+     "date": "2026-10-06",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 3.21,
+     "date": "2026-10-06",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 3.52,
+     "date": "2026-10-06",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 3.92,
+     "date": "2026-10-06",
+     "kind": "D"
+    }
+   }
+  },
+  {
+   "id": "3m",
+   "label": "3 months earlier",
+   "date": "2026-08-06",
+   "points": {
+    "3M": {
+     "value": 2.28,
+     "date": "2026-07-06",
+     "kind": "A",
+     "days": 98
+    },
+    "6M": {
+     "value": 2.5,
+     "date": "2026-08-06",
+     "kind": "D"
+    },
+    "1Y": {
+     "value": 2.62,
+     "date": "2026-08-06",
+     "kind": "D"
+    },
+    "3Y": {
+     "value": 2.74,
+     "date": "2026-08-06",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 2.82,
+     "date": "2026-08-06",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 3.17,
+     "date": "2026-08-06",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 3.73,
+     "date": "2026-08-06",
+     "kind": "D"
+    }
+   }
+  },
+  {
+   "id": "1y",
+   "label": "1 year earlier",
+   "date": "2025-11-06",
+   "points": {
+    "3M": {
+     "value": 1.711,
+     "date": "2025-10-20",
+     "kind": "A",
+     "days": 84
+    },
+    "6M": {
+     "value": 1.92,
+     "date": "2025-11-06",
+     "kind": "D"
+    },
+    "1Y": {
+     "value": 1.93,
+     "date": "2025-11-06",
+     "kind": "D"
+    },
+    "3Y": {
+     "value": 2.05,
+     "date": "2025-11-06",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 2.25,
+     "date": "2025-11-06",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 2.74,
+     "date": "2025-11-06",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 3.28,
+     "date": "2025-11-06",
+     "kind": "D"
+    }
+   }
+  }
+ ],
+ "state": {}
+}

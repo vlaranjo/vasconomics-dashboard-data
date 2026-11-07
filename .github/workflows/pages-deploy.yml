@@ -1,0 +1,38 @@
+# Publishes data/ to GitHub Pages (source: GitHub Actions). Used by markets.yml and pe.yml, and on its own whenever
+# data/ changes on main (for example when you merge dev into main, or if a different machine pushes data).
+# Never deploys from a branch other than main.
+name: pages-deploy
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["data/**"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: data
+      - id: deployment
+        uses: actions/deploy-pages@v4
