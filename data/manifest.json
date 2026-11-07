@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-07T18:57:18Z",
+ "generated_at": "2026-11-07T19:03:05Z",
  "status": "status.json",
  "sections": {
   "asset-classes": {
@@ -411,7 +411,7 @@
   },
   "br": {
    "path": "yields/br.json",
-   "as_of": "2026-11-05",
+   "as_of": "2026-11-06",
    "stale": false,
    "status": "ok",
    "name": "Brazil"
