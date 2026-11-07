@@ -36,7 +36,7 @@ sections:
       - {id: ubuj, label: "MSCI USA (EUR-hedged)", ticker: "UBUJ.DE", isin: "IE00BD4TYG73", provider: "UBS", currency: "EUR", acc: true, hedged: true, holds: "MSCI USA (EUR-hedged)"}
       - {id: eunk, label: "MSCI Europe", ticker: "EUNK.DE", isin: "IE00B4K48X80", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe"}
       - {id: ibcg, label: "MSCI Japan (EUR-hedged)", ticker: "IBCG.DE", isin: "IE00B42Z5J44", provider: "iShares", currency: "EUR", acc: true, hedged: true, holds: "MSCI Japan (EUR-hedged)"}
-      - {id: sxr1, label: "MSCI Pacific ex Japan", ticker: "SXR1.DE", isin: "IE00B52MJY50", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Pacific ex Japan (not 'Asia ex Japan')"}
+      - {id: sxr1, label: "MSCI Pacific ex Japan", ticker: "SXR1.DE", isin: "IE00B52MJY50", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Pacific ex Japan"}
       - {id: eunm, label: "MSCI Emerging Markets", ticker: "EUNM.DE", isin: "IE00B4L5YC18", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Emerging Markets"}
       - {id: aasi, label: "MSCI EM Asia", ticker: "AASI.MI", isin: "LU1681044480", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI EM Asia"}
       - {id: alat, label: "MSCI EM Latin America", ticker: "ALAT.PA", isin: "LU1681045024", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI EM Latin America"}
@@ -44,11 +44,12 @@ sections:
     indicators: true       # indicator chart (moving averages + RSI), as on the old app's page
     page: countries-regions
     title: "Equity countries"
+    default_visible: [ibcf, lyp6, sxrw, ibcg, xcs6, qdv5, lbra, lkor]   # series switched on in the re-based chart; the rest are one click away in the legend (at most 8)
     rows:
       - {id: ibcf, label: "S&P 500 (EUR-hedged)", ticker: "IBCF.DE", isin: "IE00B3ZW0K18", provider: "iShares", currency: "EUR", acc: true, hedged: true, holds: "S&P 500 (EUR-hedged)"}
-      - {id: lyp6, label: "STOXX Europe 600", ticker: "LYP6.DE", isin: "LU0908500753", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "STOXX Europe 600 (not 'Euro Stoxx 500')"}
+      - {id: lyp6, label: "STOXX Europe 600", ticker: "LYP6.DE", isin: "LU0908500753", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "STOXX Europe 600"}
       - {id: sxrw, label: "FTSE 100", ticker: "SXRW.DE", isin: "IE00B53HP851", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "FTSE 100"}
-      - {id: 18mn, label: "MSCI Switzerland", ticker: "18MN.DE", isin: "LU1681044993", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI Switzerland (CHF class)"}
+      - {id: 18mn, label: "MSCI Switzerland", ticker: "18MN.DE", isin: "LU1681044993", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI Switzerland"}
       - {id: ibcg, label: "MSCI Japan (EUR-hedged)", ticker: "IBCG.DE", isin: "IE00B42Z5J44", provider: "iShares", currency: "EUR", acc: true, hedged: true, holds: "MSCI Japan (EUR-hedged)"}
       - {id: saus, label: "MSCI Australia", ticker: "SAUS.MI", isin: "IE00B5377D42", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Australia"}
       - {id: xcs6, label: "MSCI China", ticker: "XCS6.DE", isin: "LU0514695690", provider: "Xtrackers (DWS)", currency: "EUR", acc: true, hedged: false, holds: "MSCI China"}
@@ -82,13 +83,14 @@ sections:
       - {id: qdvc, label: "Mid-Cap Equal Weighted", ticker: "QDVC.DE", isin: "IE00BD1F4K20", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA Mid-Cap Equal Weighted"}
       - {id: qdvb, label: "Quality", ticker: "QDVB.DE", isin: "IE00BD1F4L37", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA Sector Neutral Quality"}
       - {id: qdva, label: "Momentum", ticker: "QDVA.DE", isin: "IE00BD1F4N50", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA Momentum"}
-      - {id: spyd, label: "High Dividend Aristocrats", ticker: "SPYD.DE", isin: "IE00B6YX5D40", provider: "SPDR (SSGA)", currency: "EUR", acc: false, hedged: false, holds: "S&P High Yield Dividend Aristocrats')"}
+      - {id: spyd, label: "High Dividend Aristocrats", ticker: "SPYD.DE", isin: "IE00B6YX5D40", provider: "SPDR (SSGA)", currency: "EUR", acc: false, hedged: false, holds: "S&P High Yield Dividend Aristocrats"}
       - {id: mvea, label: "Min Vol Advanced Select", ticker: "MVEA.DE", isin: "IE00BKVL7331", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA Min Vol Advanced Select"}
   # ---- page: US Sectors ----
   - id: us-sectors
     indicators: true       # indicator chart (moving averages + RSI), as on the old app's page
     page: us-sectors
     title: "US sectors (GICS)"
+    default_visible: [iu5c, qdvk, qdvf, qdvh, qdvg, "2b7c", qdve, "2b7a"]   # series switched on in the re-based chart; the rest are one click away in the legend (at most 8)
     rows:
       - {id: iu5c, label: "Communications", ticker: "IU5C.DE", isin: "IE00BDDRF478", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Communication Services"}
       - {id: qdvk, label: "Cons. Discretionary", ticker: "QDVK.DE", isin: "IE00B4MCHD36", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Consumer Discretionary"}
@@ -105,6 +107,7 @@ sections:
     indicators: true       # indicator chart (moving averages + RSI), as on the old app's page
     page: eu-sectors
     title: "European sectors"
+    default_visible: [sttx, strx, stnx, stzx, stwx, stqx, stkx, stux]   # series switched on in the re-based chart; the rest are one click away in the legend (at most 8)
     rows:
       - {id: sttx, label: "Communications", ticker: "STTX.MI", isin: "IE00BKWQ0N82", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Communication Services 20/35 Capped"}
       - {id: strx, label: "Cons. Discretionary", ticker: "STRX.MI", isin: "IE00BKWQ0C77", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Consumer Discretionary 20/35 Capped"}
@@ -120,6 +123,7 @@ sections:
   - id: fixed-income
     page: fixed-income
     title: "Fixed income"
+    default_visible: [sybt, vgea, iust, iglt, spfa, ibcd, ihyu, veca]   # series switched on in the re-based chart; the rest are one click away in the legend (at most 8)
     rows:
       - {id: sybt, label: "US Treasuries", ticker: "SYBT.DE", isin: "IE00B44CND37", provider: "SPDR (SSGA)", currency: "EUR", acc: false, hedged: false, holds: "Bloomberg US Treasury"}
       - {id: vgea, label: "EUR Govies", ticker: "VGEA.DE", isin: "IE00BH04GL39", provider: "Vanguard", currency: "EUR", acc: true, hedged: false, holds: "Bloomberg Euro Aggregate Treasury"}
@@ -148,6 +152,7 @@ sections:
     indicators: true       # indicator chart (moving averages + RSI), as on the old app's page
     page: commodities
     title: "Commodity components"
+    default_visible: [ebrt, engs, ecrn, esoy, xad1, esvr, ecop, ealu]   # series switched on in the re-based chart; the rest are one click away in the legend (at most 8)
     rows:
       - {id: ebrt, label: "Brent Crude Oil", ticker: "EBRT.MI", isin: "JE00B7305Z55", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Brent crude futures (ETC, EUR-hedged)"}
       - {id: engs, label: "Natural Gas", ticker: "ENGS.MI", isin: "JE00B6XF0923", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Natural gas futures (ETC, EUR-hedged)"}
@@ -170,6 +175,7 @@ sections:
     page: fx
     kind: fx
     title: "Currency pairs (foreign units per 1 EUR)"
+    default_visible: [eurusd, eurgbp, eurchf, eurpln, eursek, eurjpy, eurcny, euraud]   # series switched on in the re-based chart; the rest are one click away in the legend (at most 8)
     rows:
       - {id: eurusd, label: "EURUSD", ticker: "EURUSD=X", currency: "USD", holds: "Euro against the USD"}
       - {id: eurgbp, label: "EURGBP", ticker: "EURGBP=X", currency: "GBP", holds: "Euro against the GBP"}

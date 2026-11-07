@@ -4,7 +4,7 @@
  "title": "US style factors",
  "page": "us-majors-factors",
  "kind": "funds",
- "generated_at": "2026-11-07T12:02:35Z",
+ "generated_at": "2026-11-07T19:09:28Z",
  "as_of": "2026-11-06",
  "lookbacks": [
   "1D",
@@ -33,7 +33,7 @@
    "last_close": "2026-11-06",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-07T12:02:35Z",
+   "last_success": "2026-11-07T19:09:28Z",
    "returns": {
     "1D": {
      "value": 0.04,
@@ -101,7 +101,7 @@
    "last_close": "2026-11-06",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-07T12:02:35Z",
+   "last_success": "2026-11-07T19:09:28Z",
    "returns": {
     "1D": {
      "value": -0.84,
@@ -169,7 +169,7 @@
    "last_close": "2026-11-06",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-07T12:02:35Z",
+   "last_success": "2026-11-07T19:09:28Z",
    "returns": {
     "1D": {
      "value": -0.6,
@@ -237,7 +237,7 @@
    "last_close": "2026-11-06",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-07T12:02:35Z",
+   "last_success": "2026-11-07T19:09:28Z",
    "returns": {
     "1D": {
      "value": -0.29,
@@ -305,7 +305,7 @@
    "last_close": "2026-11-06",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-07T12:02:35Z",
+   "last_success": "2026-11-07T19:09:28Z",
    "returns": {
     "1D": {
      "value": -0.19,
@@ -368,12 +368,12 @@
    "provider": "SPDR (SSGA)",
    "acc": false,
    "hedged": false,
-   "holds": "S&P High Yield Dividend Aristocrats')",
+   "holds": "S&P High Yield Dividend Aristocrats",
    "first_close": "2011-10-14",
    "last_close": "2026-11-06",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-07T12:02:35Z",
+   "last_success": "2026-11-07T19:09:28Z",
    "returns": {
     "1D": {
      "value": -0.92,
@@ -441,7 +441,7 @@
    "last_close": "2026-11-06",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-07T12:02:35Z",
+   "last_success": "2026-11-07T19:09:28Z",
    "returns": {
     "1D": {
      "value": -0.68,

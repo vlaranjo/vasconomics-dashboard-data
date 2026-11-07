@@ -486,3 +486,16 @@ def test_Y19_brazil_weekly_snapshots_accumulate_and_earlier_curves_fill_in(tmp_p
     assert len(by["1m"]["points"]) == 7 and by["1m"]["date"] == "2026-10-06"          # a month of history is enough for the 1M curve
     assert by["3m"]["points"] == {} and by["1y"]["points"] == {}                      # not yet: left empty, never stretched
     assert "30Y" not in by["latest"]["points"]
+
+
+def test_Y18_yield_and_pe_runs_keep_the_history_and_indicator_entries_in_the_manifest(tmp_path, monkeypatch, cfg):
+    """Regression found on the live site: a yields/pe run rewrote the manifest without 'history' and 'indicators'."""
+    from conftest import fixture_fetch
+    today = date(2026, 11, 4)
+    markets.run(cfg, fixture_fetch(today), today=today, now=datetime(2026, 11, 4, 22, 41, tzinfo=timezone.utc),
+                data_dir=tmp_path / "data", work_dir=tmp_path / "work", delay=0, sleep=lambda s: None)
+    before = json.loads((tmp_path / "data" / "manifest.json").read_text())
+    assert before["history"]
+    run_job(tmp_path, {"aa": stub("aa")}, monkeypatch)
+    after = json.loads((tmp_path / "data" / "manifest.json").read_text())
+    assert after["history"] == before["history"] and after["indicators"] == before["indicators"]

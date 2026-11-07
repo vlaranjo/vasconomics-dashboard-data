@@ -126,6 +126,7 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
             "schema_version": 1, "section": sec["id"], "title": sec["title"], "page": sec.get("page", sec["id"]),
             "kind": sec.get("kind", "funds"), "generated_at": now_iso,
             "as_of": latest.isoformat(), "lookbacks": cfg["lookbacks"], "rows": rows,
+            **({"default_visible": [i for i in sec["default_visible"] if i in by_id]} if sec.get("default_visible") else {}),
         }
         files[rel] = section
         sections_meta[sec["id"]] = {"path": rel, "as_of": section["as_of"]}

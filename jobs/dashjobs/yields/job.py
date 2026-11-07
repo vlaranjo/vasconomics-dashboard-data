@@ -80,7 +80,8 @@ def run(cfg: dict, getter, *, today: date, now: datetime | None = None, data_dir
         status.run_info(workflow, now, now, env), now)
     manifest = {
         "schema_version": 1, "generated_at": now_iso, "status": "status.json",
-        "sections": prev_manifest.get("sections", {}), "pe": prev_manifest.get("pe", {}),
+        "sections": prev_manifest.get("sections", {}),
+        **{k: prev_manifest[k] for k in ("history", "indicators") if k in prev_manifest}, "pe": prev_manifest.get("pe", {}),
         "yields": {**prev_manifest.get("yields", {}), **meta_out},
     }
     files["status.json"] = st

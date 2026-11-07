@@ -203,3 +203,16 @@ def test_U10_a_row_with_an_old_close_does_not_mark_the_whole_run_stale(prod, tmp
     sec = json.loads((tmp_path / "data" / "sections" / "fixed-income.json").read_text())
     assert next(r for r in sec["rows"] if r["ticker"] == "MUNI.MI")["stale_reason"] == "old_close"
     assert st["sources"]["yahoo_markets"]["stale"] is False
+
+
+def test_U_default_visible_rules(prod):
+    """Sections with more than 8 funds name at most 8 series switched on by default, all among the first 10 positions
+    (the 10 fixed hues, so the default lines never share a hue or need a dash)."""
+    for s in prod["sections"]:
+        ids = [r["id"] for r in s["rows"]]
+        dv = s.get("default_visible")
+        if len(ids) <= 8:
+            assert dv is None or set(dv) <= set(ids)
+            continue
+        assert dv and len(dv) <= 8 and len(set(dv)) == len(dv), s["id"]
+        assert all(i in ids[:10] for i in dv), s["id"]
