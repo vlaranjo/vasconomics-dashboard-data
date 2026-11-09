@@ -4,8 +4,8 @@
  "title": "European sectors",
  "page": "eu-sectors",
  "kind": "funds",
- "generated_at": "2026-11-09T16:30:35Z",
- "as_of": "2026-11-06",
+ "generated_at": "2026-11-09T20:25:36Z",
+ "as_of": "2026-11-09",
  "lookbacks": [
   "1D",
   "1W",
@@ -28,60 +28,60 @@
    "provider": "SPDR (SSGA)",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI Europe Communication Services 20/35 Capped",
+   "fund_name": "State Street SPDR MSCI Europe Communication Services UCITS ETF EUR",
    "first_close": "2015-01-08",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T16:30:35Z",
+   "last_success": "2026-11-09T20:25:36Z",
    "returns": {
     "1D": {
-     "value": -1.79,
-     "start": "2026-11-05",
+     "value": -0.27,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 1.11,
-     "start": "2026-10-30",
+     "value": 0.93,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 8.15,
-     "start": "2026-10-06",
+     "value": 8.17,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 2.83,
-     "start": "2026-08-06",
+     "value": 2.26,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 5.2,
-     "start": "2026-05-06",
+     "value": 5.02,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 7.01,
-     "start": "2025-11-06",
+     "value": 6.82,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 13.07,
-     "start": "2024-11-06",
+     "value": 12.62,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 37.25,
-     "start": "2023-11-06",
+     "value": 36.11,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 35.51,
-     "start": "2021-11-05",
+     "value": 34.93,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 32.63,
+     "value": 32.27,
      "start": "2016-11-01",
      "status": "ok"
     }
@@ -96,61 +96,61 @@
    "provider": "SPDR (SSGA)",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI Europe Consumer Discretionary 20/35 Capped",
+   "fund_name": "State Street SPDR MSCI Europe Consumer Discretionary UCITS ETF EUR",
    "first_close": "2014-12-19",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T16:30:35Z",
+   "last_success": "2026-11-09T20:25:36Z",
    "returns": {
     "1D": {
-     "value": 0.0,
-     "start": "2026-11-05",
+     "value": -1.67,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 5.71,
-     "start": "2026-10-30",
+     "value": 2.02,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 8.34,
-     "start": "2026-10-06",
+     "value": 6.43,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -3.44,
-     "start": "2026-08-06",
+     "value": -5.46,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 3.68,
-     "start": "2026-05-06",
+     "value": 1.77,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -7.06,
-     "start": "2025-11-06",
+     "value": -8.52,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": -4.6,
-     "start": "2024-11-06",
+     "value": -5.79,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 2.07,
-     "start": "2023-11-06",
+     "value": -1.01,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": -9.16,
-     "start": "2021-11-05",
+     "value": -10.16,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 61.14,
-     "start": "2016-10-27",
+     "value": 60.61,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -164,60 +164,60 @@
    "provider": "SPDR (SSGA)",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI Europe Consumer Staples 20/35 Capped",
+   "fund_name": "State Street SPDR MSCI Europe Consumer Staples UCITS ETF EUR",
    "first_close": "2014-12-22",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T16:30:35Z",
+   "last_success": "2026-11-09T20:25:36Z",
    "returns": {
     "1D": {
-     "value": -1.47,
-     "start": "2026-11-05",
+     "value": -0.29,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 2.39,
-     "start": "2026-10-30",
+     "value": 1.26,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 14.99,
-     "start": "2026-10-06",
+     "value": 11.88,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 7.99,
-     "start": "2026-08-06",
+     "value": 7.63,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 13.91,
-     "start": "2026-05-06",
+     "value": 15.88,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 15.47,
-     "start": "2025-11-06",
+     "value": 14.53,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 22.62,
-     "start": "2024-11-06",
+     "value": 22.26,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 21.67,
-     "start": "2023-11-06",
+     "value": 19.99,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 15.65,
-     "start": "2021-11-05",
+     "value": 15.52,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 60.54,
+     "value": 60.08,
      "start": "2016-10-26",
      "status": "ok"
     }
@@ -232,61 +232,61 @@
    "provider": "SPDR (SSGA)",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI Europe Energy 20/35 Capped",
+   "fund_name": "State Street SPDR MSCI Europe Energy UCITS ETF EUR",
    "first_close": "2014-12-12",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T16:30:35Z",
+   "last_success": "2026-11-09T20:25:36Z",
    "returns": {
     "1D": {
-     "value": -1.59,
-     "start": "2026-11-05",
+     "value": -0.79,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -8.56,
-     "start": "2026-10-30",
+     "value": -6.22,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 2.53,
-     "start": "2026-10-06",
+     "value": -2.08,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 12.22,
-     "start": "2026-08-06",
+     "value": 12.0,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 14.51,
-     "start": "2026-05-06",
+     "value": 16.04,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 50.83,
-     "start": "2025-11-06",
+     "value": 49.32,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 70.69,
-     "start": "2024-11-06",
+     "value": 70.73,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 59.75,
-     "start": "2023-11-06",
+     "value": 62.96,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 142.96,
-     "start": "2021-11-05",
+     "value": 141.08,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 209.96,
-     "start": "2016-11-02",
+     "value": 199.79,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -300,61 +300,61 @@
    "provider": "SPDR (SSGA)",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI Europe Financials 20/35 Capped",
+   "fund_name": "State Street SPDR MSCI Europe Financials UCITS ETF EUR",
    "first_close": "2014-12-11",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T16:30:35Z",
+   "last_success": "2026-11-09T20:25:36Z",
    "returns": {
     "1D": {
-     "value": -1.5,
-     "start": "2026-11-05",
+     "value": 1.68,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 2.99,
-     "start": "2026-10-30",
+     "value": 3.77,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -1.22,
-     "start": "2026-10-06",
+     "value": 3.55,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -4.92,
-     "start": "2026-08-06",
+     "value": -3.42,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 9.81,
-     "start": "2026-05-06",
+     "value": 13.29,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 23.54,
-     "start": "2025-11-06",
+     "value": 26.86,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 71.07,
-     "start": "2024-11-06",
+     "value": 75.81,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 130.74,
-     "start": "2023-11-06",
+     "value": 132.91,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 146.21,
-     "start": "2021-11-05",
+     "value": 152.91,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 250.5,
-     "start": "2016-11-04",
+     "value": 237.34,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -368,61 +368,61 @@
    "provider": "SPDR (SSGA)",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI Europe Health Care 20/35 Capped",
+   "fund_name": "State Street SPDR MSCI Europe Health Care UCITS ETF EUR",
    "first_close": "2014-12-10",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T16:30:35Z",
+   "last_success": "2026-11-09T20:25:36Z",
    "returns": {
     "1D": {
-     "value": -0.64,
-     "start": "2026-11-05",
+     "value": 0.82,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 1.11,
-     "start": "2026-10-30",
+     "value": 2.54,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 16.17,
-     "start": "2026-10-06",
+     "value": 15.99,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 11.01,
-     "start": "2026-08-06",
+     "value": 10.72,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 15.46,
-     "start": "2026-05-06",
+     "value": 18.87,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 20.77,
-     "start": "2025-11-06",
+     "value": 22.41,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 16.31,
-     "start": "2024-11-06",
+     "value": 17.1,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 30.94,
-     "start": "2023-11-06",
+     "value": 31.49,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 33.25,
-     "start": "2021-11-05",
+     "value": 34.05,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 132.62,
-     "start": "2016-11-03",
+     "value": 123.03,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -436,61 +436,61 @@
    "provider": "SPDR (SSGA)",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI Europe Industrials 20/35 Capped",
+   "fund_name": "State Street SPDR MSCI Europe Industrials UCITS ETF EUR",
    "first_close": "2014-12-16",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T16:30:35Z",
+   "last_success": "2026-11-09T20:25:36Z",
    "returns": {
     "1D": {
-     "value": -0.6,
-     "start": "2026-11-05",
+     "value": 2.35,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -0.96,
-     "start": "2026-10-30",
+     "value": -0.07,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -3.38,
-     "start": "2026-10-06",
+     "value": 0.3,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -8.47,
-     "start": "2026-08-06",
+     "value": -6.68,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": -6.35,
-     "start": "2026-05-06",
+     "value": -0.76,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 7.18,
-     "start": "2025-11-06",
+     "value": 10.74,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 30.98,
-     "start": "2024-11-06",
+     "value": 33.14,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 75.36,
-     "start": "2023-11-06",
+     "value": 75.29,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 64.84,
-     "start": "2021-11-05",
+     "value": 67.96,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 203.85,
-     "start": "2016-10-19",
+     "value": 216.48,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -504,61 +504,61 @@
    "provider": "SPDR (SSGA)",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI Europe Materials 20/35 Capped",
+   "fund_name": "State Street SPDR MSCI Europe Materials UCITS ETF EUR",
    "first_close": "2015-01-23",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T16:30:35Z",
+   "last_success": "2026-11-09T20:25:36Z",
    "returns": {
     "1D": {
-     "value": -0.21,
-     "start": "2026-11-05",
+     "value": 1.63,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 2.44,
-     "start": "2026-10-30",
+     "value": 2.45,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 1.06,
-     "start": "2026-10-06",
+     "value": 2.45,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 0.25,
-     "start": "2026-08-06",
+     "value": 1.68,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 4.13,
-     "start": "2026-05-06",
+     "value": 7.02,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 26.87,
-     "start": "2025-11-06",
+     "value": 29.21,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 27.75,
-     "start": "2024-11-06",
+     "value": 30.13,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 43.58,
-     "start": "2023-11-06",
+     "value": 45.54,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 42.47,
-     "start": "2021-11-05",
+     "value": 43.92,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 156.9,
-     "start": "2016-10-03",
+     "value": 149.38,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -572,61 +572,61 @@
    "provider": "SPDR (SSGA)",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI Europe Information Technology 20/35 Capped",
+   "fund_name": "State Street SPDR MSCI Europe Technology UCITS ETF EUR",
    "first_close": "2015-01-05",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T16:30:35Z",
+   "last_success": "2026-11-09T20:25:36Z",
    "returns": {
     "1D": {
-     "value": 0.55,
-     "start": "2026-11-05",
+     "value": 3.03,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -6.6,
-     "start": "2026-10-30",
+     "value": -3.86,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -15.02,
-     "start": "2026-10-06",
+     "value": -9.79,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -7.53,
-     "start": "2026-08-06",
+     "value": -5.52,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": -1.09,
-     "start": "2026-05-06",
+     "value": 2.2,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 27.0,
-     "start": "2025-11-06",
+     "value": 33.22,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 51.56,
-     "start": "2024-11-06",
+     "value": 53.54,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 75.17,
-     "start": "2023-11-06",
+     "value": 75.83,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 41.52,
-     "start": "2021-11-05",
+     "value": 46.67,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 262.45,
-     "start": "2016-10-27",
+     "value": 283.57,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -640,61 +640,61 @@
    "provider": "SPDR (SSGA)",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI Europe Utilities 20/35 Capped",
+   "fund_name": "State Street SPDR MSCI Europe Utilities UCITS ETF EUR",
    "first_close": "2014-12-23",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T16:30:35Z",
+   "last_success": "2026-11-09T20:25:36Z",
    "returns": {
     "1D": {
-     "value": -0.66,
-     "start": "2026-11-05",
+     "value": 1.16,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 2.02,
-     "start": "2026-10-30",
+     "value": 3.28,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 7.68,
-     "start": "2026-10-06",
+     "value": 8.75,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 4.01,
-     "start": "2026-08-06",
+     "value": 5.0,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 3.93,
-     "start": "2026-05-06",
+     "value": 7.29,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 23.4,
-     "start": "2025-11-06",
+     "value": 25.65,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 60.92,
-     "start": "2024-11-06",
+     "value": 62.88,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 78.55,
-     "start": "2023-11-06",
+     "value": 80.31,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 80.3,
-     "start": "2021-11-05",
+     "value": 84.22,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 201.75,
-     "start": "2016-10-26",
+     "value": 218.89,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
