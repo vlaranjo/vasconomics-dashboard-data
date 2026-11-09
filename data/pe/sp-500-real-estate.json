@@ -4,15 +4,15 @@
  "name": "S&P 500 Real Estate",
  "source": "worldperatio.com",
  "source_url": "https://worldperatio.com/sector/sp-500-real-estate",
- "fetched_at": "2026-11-08T10:09:42Z",
- "last_success": "2026-11-08T10:09:42Z",
+ "fetched_at": "2026-11-09T20:38:07Z",
+ "last_success": "2026-11-09T20:38:07Z",
  "stale": false,
  "stale_reason": null,
  "frequency": "monthly",
  "last_point": "2026-11",
  "n_points": 251,
- "avg_10y": 38.03,
- "avg_full": 37.38,
+ "avg_10y": 38.02,
+ "avg_full": 37.37,
  "series": [
   [
    "2006-01",
@@ -1016,7 +1016,7 @@
   ],
   [
    "2026-11",
-   31.4517
+   29.3829
   ]
  ]
 }

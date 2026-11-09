@@ -4,15 +4,15 @@
  "name": "S&P 500 Information Technology",
  "source": "worldperatio.com",
  "source_url": "https://worldperatio.com/sector/sp-500-information-technology",
- "fetched_at": "2026-11-08T10:09:42Z",
- "last_success": "2026-11-08T10:09:42Z",
+ "fetched_at": "2026-11-09T20:38:07Z",
+ "last_success": "2026-11-09T20:38:07Z",
  "stale": false,
  "stale_reason": null,
  "frequency": "monthly",
  "last_point": "2026-11",
  "n_points": 382,
- "avg_10y": 26.89,
- "avg_full": 22.69,
+ "avg_10y": 26.94,
+ "avg_full": 22.71,
  "series": [
   [
    "1995-02",
@@ -1540,7 +1540,7 @@
   ],
   [
    "2026-11",
-   26.6876
+   32.7285
   ]
  ]
 }

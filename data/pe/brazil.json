@@ -4,15 +4,15 @@
  "name": "MSCI Brazil",
  "source": "worldperatio.com",
  "source_url": "https://worldperatio.com/area/brazil",
- "fetched_at": "2026-11-08T10:09:42Z",
- "last_success": "2026-11-08T10:09:42Z",
+ "fetched_at": "2026-11-09T20:38:07Z",
+ "last_success": "2026-11-09T20:38:07Z",
  "stale": false,
  "stale_reason": null,
  "frequency": "monthly",
  "last_point": "2026-11",
  "n_points": 383,
- "avg_10y": 9.97,
- "avg_full": 9.75,
+ "avg_10y": 9.99,
+ "avg_full": 9.76,
  "series": [
   [
    "1995-01",
@@ -1544,7 +1544,7 @@
   ],
   [
    "2026-11",
-   8.0569
+   10.5601
   ]
  ]
 }

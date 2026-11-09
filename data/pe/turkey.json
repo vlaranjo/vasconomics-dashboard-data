@@ -4,15 +4,15 @@
  "name": "MSCI Turkey",
  "source": "worldperatio.com",
  "source_url": "https://worldperatio.com/area/turkey/",
- "fetched_at": "2026-11-08T10:09:42Z",
- "last_success": "2026-11-08T10:09:42Z",
+ "fetched_at": "2026-11-09T20:38:07Z",
+ "last_success": "2026-11-09T20:38:07Z",
  "stale": false,
  "stale_reason": null,
  "frequency": "monthly",
  "last_point": "2026-11",
  "n_points": 383,
- "avg_10y": 7.19,
- "avg_full": 8.37,
+ "avg_10y": 7.2,
+ "avg_full": 8.38,
  "series": [
   [
    "1995-01",
@@ -1544,7 +1544,7 @@
   ],
   [
    "2026-11",
-   10.7632
+   11.9167
   ]
  ]
 }
