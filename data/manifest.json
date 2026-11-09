@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-09T20:44:35Z",
+ "generated_at": "2026-11-09T23:51:35Z",
  "status": "status.json",
  "sections": {
   "asset-classes": {
@@ -446,7 +446,7 @@
  "yields": {
   "us": {
    "path": "yields/us.json",
-   "as_of": "2026-11-06",
+   "as_of": "2026-11-09",
    "stale": false,
    "status": "ok",
    "name": "United States"
@@ -495,7 +495,7 @@
   },
   "br": {
    "path": "yields/br.json",
-   "as_of": "2026-11-06",
+   "as_of": "2026-11-09",
    "stale": false,
    "status": "ok",
    "name": "Brazil"
