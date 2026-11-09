@@ -13,7 +13,7 @@ class NothingFetched(Exception):
 
 
 def run(cfg: dict, fetch_text, *, today: date, now: datetime | None = None, data_dir, work_dir, env=None,
-        sleep=time.sleep, workflow: str = "pe") -> dict:
+        sleep=time.sleep, workflow: str = "pe", universe: dict | None = None) -> dict:
     now = now or datetime.now(timezone.utc)
     started = now
     data_dir, work_dir = Path(data_dir), Path(work_dir)
@@ -61,17 +61,13 @@ def run(cfg: dict, fetch_text, *, today: date, now: datetime | None = None, data
         status.source_block(now=now, last_success=last_success, items_ok=ok, items_total=len(cfg["indices"]),
                             failed=failed, cadence_hours=168, stale=bool(failed)),
         status.run_info(workflow, started, now, env), now)
-    manifest = {
-        "schema_version": 1, "generated_at": now_iso, "status": "status.json",
-        "sections": prev_manifest.get("sections", {}),
-        **{k: prev_manifest[k] for k in ("history", "indicators") if k in prev_manifest},
-        "pe": {**{k: v for k, v in prev_manifest.get("pe", {}).items() if k in {i["slug"] for i in cfg["indices"]}}, **pe_meta},
-        **({"yields": prev_manifest["yields"]} if "yields" in prev_manifest else {}),
-    }
+    manifest = publish.merge_manifest(prev_manifest, generated_at=now_iso, updates={"pe": pe_meta},
+                                      keep={"pe": {i["slug"] for i in cfg["indices"]}})
     files["status.json"] = st
     validate.validate_status(st)
-    validate.validate_manifest(manifest)
+    validate.validate_manifest(manifest, universe=universe)
     publish.stage(data_dir, out_dir)
     order = publish.write_outputs(out_dir, files, manifest)
+    validate.validate_manifest_files(out_dir, manifest)
     publish.atomic_swap(data_dir, out_dir)
     return {"ok": ok, "failed": failed, "order": order}

@@ -76,7 +76,7 @@ def _mini_cfg():
             "validation": {"min_fresh_fraction": 0.5, "max_close_age_days": 5, "max_abs_1d_pct": 25.0},
             "sections": [
                 {"id": "f", "page": "p", "title": "F", "indicators": True,
-                 "rows": [{"id": "a", "label": "A", "ticker": "A.DE", "isin": "X", "provider": "P", "currency": "EUR", "acc": True, "hedged": False}]},
+                 "rows": [{"id": "a", "label": "A", "ticker": "A.DE", "isin": "X", "provider": "P", "currency": "EUR", "acc": True, "hedged": False, "fund_name": "A fund"}]},
                 {"id": "x", "page": "q", "kind": "fx", "title": "X", "indicators": True,
                  "rows": [{"id": "eurjpy", "label": "EURJPY", "ticker": "EURJPY=X", "currency": "JPY"}]}]}
 

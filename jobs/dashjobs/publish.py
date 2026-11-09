@@ -26,6 +26,29 @@ def read_json(path: Path):
     return json.loads(p.read_text(encoding="utf-8"))
 
 
+MANIFEST_BLOCKS = ("sections", "history", "indicators", "pe", "yields")
+
+
+def merge_manifest(prev: dict | None, *, generated_at: str, updates: dict[str, dict], keep: dict[str, set] | None = None) -> dict:
+    """The new manifest = the published one, with ONLY the blocks this job owns replaced entry by entry.
+
+    Every job goes through here, so no job can drop another job's entries: the starting point is a copy of what is published
+    (all blocks, and any key this code does not know), `updates` adds or replaces entries by id, and `keep` (block -> ids still
+    in the job's own config) removes entries of rows the config no longer has. Nothing is ever rebuilt from scratch.
+    Tests M1-M3 in tests/test_publish_validate.py."""
+    m = {k: v for k, v in (prev or {}).items()}
+    for b in MANIFEST_BLOCKS:
+        m[b] = dict(m.get(b) or {})
+    for b, entries in updates.items():
+        if b not in MANIFEST_BLOCKS:
+            raise ValueError(f"unknown manifest block {b!r}")
+        m[b].update(entries)
+    for b, ids in (keep or {}).items():
+        m[b] = {k: v for k, v in m[b].items() if k in ids}
+    m.update({"schema_version": 1, "generated_at": generated_at, "status": "status.json"})
+    return m
+
+
 def stage(data_dir: Path, out_dir: Path) -> None:
     """Fresh copy of the published data into the staging folder."""
     data_dir, out_dir = Path(data_dir), Path(out_dir)

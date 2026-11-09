@@ -17,6 +17,11 @@ from dashjobs.yields import job  # noqa: E402
 from dashjobs.yields.http import Getter  # noqa: E402
 
 
+def load_universe(root: Path) -> dict:
+    """The markets config: the manifest must keep an entry for every section in it, whichever job runs."""
+    return yaml.safe_load((root / "config" / "universe.yaml").read_text(encoding="utf-8"))
+
+
 def main(argv=None) -> int:
     root = Path(__file__).resolve().parent.parent
     ap = argparse.ArgumentParser()
@@ -31,7 +36,7 @@ def main(argv=None) -> int:
     only = [c.strip() for c in a.countries.split(",")] if a.countries else None
     g = Getter(delay=cfg.get("delay_seconds", 2.0))
     try:
-        res = job.run(cfg, g, today=today, data_dir=a.data_dir, work_dir=a.work_dir, env=dict(os.environ), only=only)
+        res = job.run(cfg, g, today=today, data_dir=a.data_dir, work_dir=a.work_dir, env=dict(os.environ), only=only, universe=load_universe(root))
     except (job.NothingFetched, validate.ValidationError) as e:
         print(f"FAILED, nothing published: {e}", file=sys.stderr)
         return 1

@@ -12,6 +12,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from dashjobs import pe, validate, worldperatio  # noqa: E402
 
 
+def load_universe(root: Path) -> dict:
+    """The markets config: the manifest must keep an entry for every section in it, whichever job runs."""
+    return yaml.safe_load((root / "config" / "universe.yaml").read_text(encoding="utf-8"))
+
+
 def main(argv=None) -> int:
     root = Path(__file__).resolve().parent.parent
     ap = argparse.ArgumentParser()
@@ -32,7 +37,7 @@ def main(argv=None) -> int:
         sleep_fn = time.sleep
         fetch = lambda url: worldperatio.fetch_page(url, cfg["user_agent"])  # noqa: E731
     try:
-        res = pe.run(cfg, fetch, today=today, data_dir=a.data_dir, work_dir=a.work_dir, sleep=sleep_fn)
+        res = pe.run(cfg, fetch, today=today, data_dir=a.data_dir, work_dir=a.work_dir, sleep=sleep_fn, universe=load_universe(root))
     except (pe.NothingFetched, validate.ValidationError) as e:
         print(f"FAILED, nothing published: {e}", file=sys.stderr)
         return 1
