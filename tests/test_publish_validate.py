@@ -219,3 +219,87 @@ def test_V10_a_return_below_minus_100_percent_is_rejected(cfg, tmp_path):
             cell["value"] = -100.01
         with pytest.raises(validate.ValidationError, match="below -100%"):
             validate.validate_section(bad, **_kw())
+
+
+# --- manifest: merge, never rebuild (the "no data yet" bug of 9 Nov 2026) -------------------------------------------
+
+import copy  # noqa: E402
+import yaml  # noqa: E402
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def _prod():
+    return yaml.safe_load((ROOT / "config" / "universe.yaml").read_text(encoding="utf-8"))
+
+
+def _full_manifest(prod):
+    return {"schema_version": 1, "generated_at": "2026-11-05T00:00:00Z", "status": "status.json",
+            "sections": {s["id"]: {"path": f"sections/{s['id']}.json", "as_of": "2026-11-04"} for s in prod["sections"]},
+            "history": {s["id"]: {"path": f"history/{s['id']}.json", "as_of": "2026-11-04"} for s in prod["sections"]},
+            "indicators": {s["id"]: {"path": f"indicators/{s['id']}.json", "as_of": "2026-11-04"} for s in prod["sections"] if s.get("indicators")},
+            "pe": {"sp-500": {"path": "pe/sp-500.json", "last_point": "2026-11"}}, "yields": {"us": {"path": "yields/us.json", "as_of": "2026-11-02"}}}
+
+
+def test_M1_merge_keeps_every_block_the_job_does_not_own():
+    prod = _prod()
+    prev = _full_manifest(prod)
+    prev["something_new"] = {"x": 1}
+    m = publish.merge_manifest(prev, generated_at="2026-11-09T00:00:00Z", updates={"pe": {"nasdaq-100": {"path": "pe/nasdaq-100.json", "last_point": "2026-11"}}})
+    for b in ("sections", "history", "indicators", "yields"):
+        assert m[b] == prev[b], b
+    assert set(m["pe"]) == {"sp-500", "nasdaq-100"} and m["something_new"] == {"x": 1} and m["generated_at"] == "2026-11-09T00:00:00Z"
+    assert prev["pe"].keys() == {"sp-500"}                       # the input is not modified
+
+
+def test_M2_merge_prunes_only_what_the_jobs_own_config_dropped():
+    m = publish.merge_manifest(_full_manifest(_prod()), generated_at="2026-11-09T00:00:00Z", updates={},
+                               keep={"pe": set()})
+    assert m["pe"] == {} and m["sections"] and m["yields"]
+
+
+def test_M3_validation_fails_when_a_section_lacks_its_history_or_indicators_entry():
+    prod = _prod()
+    good = _full_manifest(prod)
+    validate.validate_manifest(good, universe=prod)
+    for block, sid in (("history", "fx"), ("indicators", "us-sectors"), ("sections", "asset-classes")):
+        bad = copy.deepcopy(good)
+        del bad[block][sid]
+        with pytest.raises(validate.ValidationError, match=f"{block}/{sid}"):
+            validate.validate_manifest(bad, universe=prod)
+    bad = copy.deepcopy(good)
+    bad["history"] = {}
+    bad["indicators"] = {}                                       # what a rebuild-from-scratch job used to publish
+    with pytest.raises(validate.ValidationError, match="missing entries"):
+        validate.validate_manifest(bad, universe=prod)
+    assert "fixed-income" not in good["indicators"]
+    validate.validate_manifest(good, universe=prod)              # a section without indicators needs no indicators entry
+
+
+def test_M4_every_job_publishes_a_complete_manifest_and_a_pe_or_yield_run_cannot_drop_chart_entries(tmp_path, pe_cfg):
+    prod = _prod()
+    today = date(2026, 11, 6)
+    markets.run(prod, lambda t: __import__("test_universe")._bars(t, today), today=today, now=datetime(2026, 11, 6, 22, 40, tzinfo=timezone.utc),
+                data_dir=tmp_path / "data", work_dir=tmp_path / "work", sleep=lambda s: None)
+    full = json.loads((tmp_path / "data/manifest.json").read_text())
+    validate.validate_manifest(full, universe=prod)
+    pages = {i["url"]: (FIX / "pe" / f"{i['slug']}.html").read_text(encoding="utf-8") for i in pe_cfg["indices"]}
+    pe.run(pe_cfg, lambda u: pages[u], today=date(2026, 11, 7), now=datetime(2026, 11, 8, 3, 7, tzinfo=timezone.utc),
+           data_dir=tmp_path / "data", work_dir=tmp_path / "work", sleep=lambda s: None, universe=prod)
+    after = json.loads((tmp_path / "data/manifest.json").read_text())
+    assert after["history"] == full["history"] and after["indicators"] == full["indicators"] and after["sections"] == full["sections"]
+    # a manifest that already lost its chart entries (a broken earlier run) is refused instead of being republished
+    (tmp_path / "data/manifest.json").write_text(json.dumps({**after, "history": {}, "indicators": {}}))
+    with pytest.raises(validate.ValidationError, match="missing entries"):
+        pe.run(pe_cfg, lambda u: pages[u], today=date(2026, 11, 7), now=datetime(2026, 11, 8, 3, 7, tzinfo=timezone.utc),
+               data_dir=tmp_path / "data", work_dir=tmp_path / "work", sleep=lambda s: None, universe=prod)
+
+
+def test_M5_the_committed_data_folder_is_complete():
+    """Checks data/ itself (skipped on a fresh clone with no data): complete manifest, every named file present and valid."""
+    d = ROOT / "data"
+    if not (d / "manifest.json").exists():
+        pytest.skip("no data folder")
+    m = json.loads((d / "manifest.json").read_text(encoding="utf-8"))
+    validate.validate_manifest(m, universe=_prod())
+    validate.validate_manifest_files(d, m)

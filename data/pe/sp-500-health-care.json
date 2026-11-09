@@ -4,15 +4,15 @@
  "name": "S&P 500 Health Care",
  "source": "worldperatio.com",
  "source_url": "https://worldperatio.com/sector/sp-500-health-care",
- "fetched_at": "2026-11-07T18:57:18Z",
- "last_success": "2026-11-07T18:57:18Z",
+ "fetched_at": "2026-11-09T17:58:50Z",
+ "last_success": "2026-11-09T17:58:50Z",
  "stale": false,
  "stale_reason": null,
  "frequency": "monthly",
  "last_point": "2026-11",
  "n_points": 382,
- "avg_10y": 22.38,
- "avg_full": 19.81,
+ "avg_10y": 22.36,
+ "avg_full": 19.8,
  "series": [
   [
    "1995-02",
@@ -1540,7 +1540,7 @@
   ],
   [
    "2026-11",
-   32.9796
+   30.6953
   ]
  ]
 }

@@ -9,7 +9,7 @@ from . import history, lookback, publish, status, validate
 
 
 def _row_record(meta: dict, bars, now_iso: str) -> dict:
-    extra = {k: meta[k] for k in ("isin", "provider", "acc", "hedged", "holds") if k in meta}
+    extra = {k: meta[k] for k in ("isin", "provider", "acc", "hedged", "fund_name", "etc") if k in meta}
     return {
         "id": meta["id"], "label": meta["label"], "ticker": meta["ticker"], "currency": meta["currency"], **extra,
         "first_close": bars[0][0].isoformat(), "last_close": bars[-1][0].isoformat(),
@@ -163,20 +163,18 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
         status.source_block(now=now, last_success=last_success, items_ok=n_fresh, items_total=n_total,
                             failed=failed + [f"{t}: missing" for t in missing], cadence_hours=24, stale=bool(failed or missing)),
         status.run_info(workflow, started, finished, env), now)
-    manifest = {
-        "schema_version": 1, "generated_at": now_iso, "status": "status.json",
-        "sections": {**{k: v for k, v in prev_manifest.get("sections", {}).items() if k in {x["id"] for x in cfg["sections"]}},
-                     **sections_meta},
-        "history": history_meta, "indicators": indicators_meta,
-        "pe": prev_manifest.get("pe", {}),
-        **({"yields": prev_manifest["yields"]} if "yields" in prev_manifest else {}),
-    }
+    manifest = publish.merge_manifest(
+        prev_manifest, generated_at=now_iso,
+        updates={"sections": sections_meta, "history": history_meta, "indicators": indicators_meta},
+        keep={"sections": {x["id"] for x in cfg["sections"]}, "history": {x["id"] for x in cfg["sections"]},
+              "indicators": {x["id"] for x in cfg["sections"] if x.get("indicators")}})
     files["status.json"] = st
     validate.validate_status(st)
-    validate.validate_manifest(manifest)
+    validate.validate_manifest(manifest, universe=cfg)
 
     publish.stage(data_dir, out_dir)
     order = publish.write_outputs(out_dir, files, manifest)
+    validate.validate_manifest_files(out_dir, manifest)
     publish.atomic_swap(data_dir, out_dir)
     return {"n_fresh": n_fresh, "n_total": n_total, "failed": failed, "missing": missing, "order": order,
             "as_of": section_for_validation["as_of"] if section_for_validation else None}

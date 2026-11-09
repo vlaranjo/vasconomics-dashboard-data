@@ -16,9 +16,9 @@ sections:
   - id: m1-demo
     title: "M1 demo"
     rows:
-      - {id: sxr8, label: "S&P 500", ticker: "SXR8.DE", isin: "IE00B5BMR087", provider: "iShares", currency: "EUR", acc: true, hedged: false}
-      - {id: eunk, label: "MSCI Europe", ticker: "EUNK.DE", isin: "IE00B4K48X80", provider: "iShares", currency: "EUR", acc: true, hedged: false}
-      - {id: mvea, label: "MSCI USA Min Vol Advanced Select", ticker: "MVEA.DE", isin: "IE00BKVL7331", provider: "iShares", currency: "EUR", acc: true, hedged: false}
+      - {id: sxr8, label: "S&P 500", ticker: "SXR8.DE", isin: "IE00B5BMR087", provider: "iShares", currency: "EUR", acc: true, hedged: false, fund_name: "Test fund"}
+      - {id: eunk, label: "MSCI Europe", ticker: "EUNK.DE", isin: "IE00B4K48X80", provider: "iShares", currency: "EUR", acc: true, hedged: false, fund_name: "Test fund"}
+      - {id: mvea, label: "MSCI USA Min Vol Advanced Select", ticker: "MVEA.DE", isin: "IE00BKVL7331", provider: "iShares", currency: "EUR", acc: true, hedged: false, fund_name: "Test fund"}
 
 # ---------------------------------------------------------------------------------------------
 # Final fund decisions of 6 Nov 2026 for the FULL universe (milestone 2+). The M1 job ignores this block;

@@ -42,7 +42,7 @@ def test_U1_shape_every_page_has_sections_and_every_fund_row_is_complete(prod):
             continue
         for r in s["rows"]:
             assert re.fullmatch(r"[A-Z]{2}[A-Z0-9]{9}\d", r["isin"]), (r["ticker"], r["isin"])
-            assert r["provider"] and r["holds"] and isinstance(r["acc"], bool) and isinstance(r["hedged"], bool), r["ticker"]
+            assert r["provider"] and r["holds"] and r["fund_name"] and isinstance(r["acc"], bool) and isinstance(r["hedged"], bool), r["ticker"]
             assert r["currency"] == "EUR"
             assert re.fullmatch(r"[A-Z0-9]+\.(DE|MI|PA|AS|F)", r["ticker"]), r["ticker"]
 
@@ -122,7 +122,9 @@ def test_U5_full_offline_run_publishes_all_sections_and_fetches_each_ticker_once
     fx = json.loads((tmp_path / "data" / "sections" / "fx.json").read_text())
     assert fx["kind"] == "fx" and fx["page"] == "fx" and "isin" not in fx["rows"][0] and len(fx["rows"]) == 18
     reg = json.loads((tmp_path / "data" / "sections" / "equity-regions.json").read_text())
-    assert reg["rows"][0]["holds"] and reg["rows"][0]["isin"]
+    assert reg["rows"][0]["fund_name"] and reg["rows"][0]["isin"] and "holds" not in reg["rows"][0]
+    gold = next(r for r in json.loads((tmp_path / "data" / "sections" / "asset-classes.json").read_text())["rows"] if r["ticker"] == "XAD1.DE")
+    assert gold["etc"] is True
 
 
 def test_U6_old_demo_section_is_dropped_from_the_manifest_but_other_runs_keep_carry_forward(prod, tmp_path):

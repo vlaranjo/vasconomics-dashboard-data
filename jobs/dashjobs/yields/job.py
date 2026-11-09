@@ -36,7 +36,7 @@ def build_doc(code: str, raw: core.Raw, *, today: date, now_iso: str, meta: dict
 
 
 def run(cfg: dict, getter, *, today: date, now: datetime | None = None, data_dir, work_dir, env=None,
-        workflow: str = "yields", only: list[str] | None = None) -> dict:
+        workflow: str = "yields", only: list[str] | None = None, universe: dict | None = None) -> dict:
     now = now or datetime.now(timezone.utc)
     env = {} if env is None else env
     data_dir, work_dir = Path(data_dir), Path(work_dir)
@@ -78,16 +78,12 @@ def run(cfg: dict, getter, *, today: date, now: datetime | None = None, data_dir
         status.source_block(now=now, last_success=last_success, items_ok=len(ok), items_total=attempted, failed=failed,
                             cadence_hours=168, stale=bool(failed)) | {"skipped": skipped},
         status.run_info(workflow, now, now, env), now)
-    manifest = {
-        "schema_version": 1, "generated_at": now_iso, "status": "status.json",
-        "sections": prev_manifest.get("sections", {}),
-        **{k: prev_manifest[k] for k in ("history", "indicators") if k in prev_manifest}, "pe": prev_manifest.get("pe", {}),
-        "yields": {**prev_manifest.get("yields", {}), **meta_out},
-    }
+    manifest = publish.merge_manifest(prev_manifest, generated_at=now_iso, updates={"yields": meta_out})
     files["status.json"] = st
     validate.validate_status(st)
-    validate.validate_manifest(manifest)
+    validate.validate_manifest(manifest, universe=universe)
     publish.stage(data_dir, out_dir)
     order = publish.write_outputs(out_dir, files, manifest)
+    validate.validate_manifest_files(out_dir, manifest)
     publish.atomic_swap(data_dir, out_dir)
     return {"ok": ok, "failed": failed, "skipped": skipped, "order": order}

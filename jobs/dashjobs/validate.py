@@ -45,7 +45,7 @@ SECTION_SCHEMA = {
             "properties": {
                 "id": {"type": "string"}, "label": {"type": "string"}, "ticker": {"type": "string"},
                 "isin": {"type": "string"}, "provider": {"type": "string"}, "currency": {"type": "string"},
-                "acc": {"type": "boolean"}, "hedged": {"type": "boolean"}, "holds": {"type": "string"},
+                "acc": {"type": "boolean"}, "hedged": {"type": "boolean"}, "fund_name": {"type": "string"}, "etc": {"type": "boolean"},
                 "first_close": _DATE, "last_close": _DATE, "stale": {"type": "boolean"},
                 "stale_reason": {"type": ["string", "null"]}, "last_success": _TS,
                 "suspect": {"type": "boolean"},
@@ -173,7 +173,7 @@ def validate_section(section: dict, *, run_date: date, prev_as_of: str | None, n
     _walk_numbers(section, "section")
     if section.get("kind", "funds") == "funds":                          # fund rows must carry the reference-table fields
         for r in section["rows"]:
-            for k in ("isin", "provider", "acc", "hedged"):
+            for k in ("isin", "provider", "acc", "hedged", "fund_name"):
                 if k not in r:
                     raise ValidationError(f"{r['ticker']}: fund row without '{k}'")
     ids = [r["id"] for r in section["rows"]]
@@ -224,8 +224,34 @@ def validate_status(status: dict) -> None:
     _check(STATUS_SCHEMA, status, "status")
 
 
-def validate_manifest(manifest: dict) -> None:
+def validate_manifest(manifest: dict, universe: dict | None = None) -> None:
+    """Schema, and (when the universe config is given) completeness: every section of the config must have its returns entry
+    and its history entry, and every section with indicators its indicators entry. A job that would publish a manifest
+    without them fails here and publishes nothing (the "no data yet" bug of 9 Nov 2026)."""
     _check(MANIFEST_SCHEMA, manifest, "manifest")
+    if universe is None:
+        return
+    missing = []
+    for sec in universe["sections"]:
+        sid = sec["id"]
+        need = ["sections", "history"] + (["indicators"] if sec.get("indicators") else [])
+        missing += [f"{b}/{sid}" for b in need if sid not in (manifest.get(b) or {})]
+    if missing:
+        raise ValidationError("manifest is missing entries: " + ", ".join(missing))
+
+
+def validate_manifest_files(root, manifest: dict) -> None:
+    """Every path the manifest names exists under `root` (the staged folder) and parses as JSON."""
+    import json
+    from pathlib import Path
+    root = Path(root)
+    paths = [manifest["status"]] + [v["path"] for b in ("sections", "history", "indicators", "pe", "yields")
+                                    for v in (manifest.get(b) or {}).values()]
+    for rel in paths:
+        p = root / rel
+        if not p.is_file():
+            raise ValidationError(f"manifest names {rel}, which does not exist")
+        json.loads(p.read_text(encoding="utf-8"))
 
 
 def validate_yield(doc: dict, *, today: date, prev: dict | None, max_age_days: int = 21,

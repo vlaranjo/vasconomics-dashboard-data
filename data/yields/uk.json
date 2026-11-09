@@ -6,11 +6,11 @@
  "source_url": "https://www.bankofengland.co.uk/statistics/yield-curves",
  "terms": "Bank of England database: re-use for non-commercial purposes; credit 'Source: Bank of England'.",
  "status": "ok",
- "fetched_at": "2026-11-07T19:03:05Z",
- "last_success": "2026-11-07T19:03:05Z",
+ "fetched_at": "2026-11-09T18:01:22Z",
+ "last_success": "2026-11-09T18:01:22Z",
  "stale": false,
  "stale_reason": null,
- "as_of": "2026-11-05",
+ "as_of": "2026-11-06",
  "tenors": [
   "1M",
   "3M",
@@ -30,36 +30,36 @@
   {
    "id": "latest",
    "label": "Latest",
-   "date": "2026-11-05",
+   "date": "2026-11-06",
    "points": {
     "6M": {
-     "value": 4.1739,
-     "date": "2026-11-05",
+     "value": 4.1434,
+     "date": "2026-11-06",
      "kind": "D"
     },
     "1Y": {
-     "value": 4.332,
-     "date": "2026-11-05",
+     "value": 4.3058,
+     "date": "2026-11-06",
      "kind": "D"
     },
     "3Y": {
-     "value": 4.6523,
-     "date": "2026-11-05",
+     "value": 4.6565,
+     "date": "2026-11-06",
      "kind": "D"
     },
     "5Y": {
-     "value": 4.7566,
-     "date": "2026-11-05",
+     "value": 4.7652,
+     "date": "2026-11-06",
      "kind": "D"
     },
     "10Y": {
-     "value": 5.1317,
-     "date": "2026-11-05",
+     "value": 5.1419,
+     "date": "2026-11-06",
      "kind": "D"
     },
     "30Y": {
-     "value": 5.6261,
-     "date": "2026-11-05",
+     "value": 5.6243,
+     "date": "2026-11-06",
      "kind": "D"
     }
    }
@@ -67,36 +67,36 @@
   {
    "id": "1m",
    "label": "1 month earlier",
-   "date": "2026-10-05",
+   "date": "2026-10-06",
    "points": {
     "6M": {
-     "value": 4.1858,
-     "date": "2026-10-05",
+     "value": 4.1847,
+     "date": "2026-10-06",
      "kind": "D"
     },
     "1Y": {
-     "value": 4.4053,
-     "date": "2026-10-05",
+     "value": 4.394,
+     "date": "2026-10-06",
      "kind": "D"
     },
     "3Y": {
-     "value": 4.7573,
-     "date": "2026-10-05",
+     "value": 4.725,
+     "date": "2026-10-06",
      "kind": "D"
     },
     "5Y": {
-     "value": 4.9372,
-     "date": "2026-10-05",
+     "value": 4.8964,
+     "date": "2026-10-06",
      "kind": "D"
     },
     "10Y": {
-     "value": 5.4191,
-     "date": "2026-10-05",
+     "value": 5.3677,
+     "date": "2026-10-06",
      "kind": "D"
     },
     "30Y": {
-     "value": 6.0103,
-     "date": "2026-10-05",
+     "value": 5.9597,
+     "date": "2026-10-06",
      "kind": "D"
     }
    }
@@ -104,36 +104,36 @@
   {
    "id": "3m",
    "label": "3 months earlier",
-   "date": "2026-08-05",
+   "date": "2026-08-06",
    "points": {
     "6M": {
-     "value": 3.9587,
-     "date": "2026-08-05",
+     "value": 3.9831,
+     "date": "2026-08-06",
      "kind": "D"
     },
     "1Y": {
-     "value": 4.0477,
-     "date": "2026-08-05",
+     "value": 4.0806,
+     "date": "2026-08-06",
      "kind": "D"
     },
     "3Y": {
-     "value": 4.2155,
-     "date": "2026-08-05",
+     "value": 4.258,
+     "date": "2026-08-06",
      "kind": "D"
     },
     "5Y": {
-     "value": 4.3956,
-     "date": "2026-08-05",
+     "value": 4.4359,
+     "date": "2026-08-06",
      "kind": "D"
     },
     "10Y": {
-     "value": 4.9563,
-     "date": "2026-08-05",
+     "value": 4.9939,
+     "date": "2026-08-06",
      "kind": "D"
     },
     "30Y": {
-     "value": 5.7751,
-     "date": "2026-08-05",
+     "value": 5.8073,
+     "date": "2026-08-06",
      "kind": "D"
     }
    }
@@ -141,31 +141,31 @@
   {
    "id": "1y",
    "label": "1 year earlier",
-   "date": "2025-11-05",
+   "date": "2025-11-06",
    "points": {
     "1Y": {
-     "value": 3.6997,
-     "date": "2025-11-05",
+     "value": 3.6863,
+     "date": "2025-11-06",
      "kind": "D"
     },
     "3Y": {
-     "value": 3.7164,
-     "date": "2025-11-05",
+     "value": 3.6872,
+     "date": "2025-11-06",
      "kind": "D"
     },
     "5Y": {
-     "value": 3.9008,
-     "date": "2025-11-05",
+     "value": 3.869,
+     "date": "2025-11-06",
      "kind": "D"
     },
     "10Y": {
-     "value": 4.5312,
-     "date": "2025-11-05",
+     "value": 4.5025,
+     "date": "2025-11-06",
      "kind": "D"
     },
     "30Y": {
-     "value": 5.3963,
-     "date": "2025-11-05",
+     "value": 5.3666,
+     "date": "2025-11-06",
      "kind": "D"
     }
    }

@@ -4,8 +4,8 @@
  "title": "US style factors",
  "page": "us-majors-factors",
  "kind": "funds",
- "generated_at": "2026-11-07T18:48:55Z",
- "as_of": "2026-11-06",
+ "generated_at": "2026-11-09T17:51:27Z",
+ "as_of": "2026-11-09",
  "lookbacks": [
   "1D",
   "1W",
@@ -28,61 +28,61 @@
    "provider": "iShares",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI USA",
+   "fund_name": "iShares MSCI USA UCITS ETF (Acc)",
    "first_close": "2010-03-16",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-07T18:48:55Z",
+   "last_success": "2026-11-09T17:51:27Z",
    "returns": {
     "1D": {
-     "value": 0.04,
-     "start": "2026-11-05",
+     "value": 0.81,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -2.24,
-     "start": "2026-10-30",
+     "value": -1.52,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -4.44,
-     "start": "2026-10-06",
+     "value": -3.75,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -0.45,
-     "start": "2026-08-06",
+     "value": 0.02,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 7.03,
-     "start": "2026-05-06",
+     "value": 7.46,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 14.86,
-     "start": "2025-11-06",
+     "value": 17.59,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 23.06,
-     "start": "2024-11-06",
+     "value": 22.09,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 69.27,
-     "start": "2023-11-06",
+     "value": 69.23,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 69.4,
-     "start": "2021-11-05",
+     "value": 71.81,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 296.76,
-     "start": "2016-11-04",
+     "value": 282.57,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -96,61 +96,61 @@
    "provider": "iShares",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI USA Enhanced Value",
+   "fund_name": "iShares Edge MSCI USA Value Factor UCITS ETF",
    "first_close": "2016-10-24",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-07T18:48:55Z",
+   "last_success": "2026-11-09T17:51:27Z",
    "returns": {
     "1D": {
-     "value": -0.84,
-     "start": "2026-11-05",
+     "value": 1.33,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -5.57,
-     "start": "2026-10-30",
+     "value": -4.18,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -7.71,
-     "start": "2026-10-06",
+     "value": -5.99,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -3.5,
-     "start": "2026-08-06",
+     "value": -1.7,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 10.46,
-     "start": "2026-05-06",
+     "value": 9.94,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 49.55,
-     "start": "2025-11-06",
+     "value": 52.66,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 64.14,
-     "start": "2024-11-06",
+     "value": 64.91,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 106.3,
-     "start": "2023-11-06",
+     "value": 110.73,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 99.04,
-     "start": "2021-11-05",
+     "value": 102.46,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 255.57,
-     "start": "2016-11-04",
+     "value": 243.65,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -164,61 +164,61 @@
    "provider": "iShares",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI USA Mid-Cap Equal Weighted",
+   "fund_name": "iShares MSCI USA Mid-Cap Equal Weight UCITS ETF USD (Acc)",
    "first_close": "2016-10-24",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-07T18:48:55Z",
+   "last_success": "2026-11-09T17:51:27Z",
    "returns": {
     "1D": {
-     "value": -0.6,
-     "start": "2026-11-05",
+     "value": 1.57,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -0.86,
-     "start": "2026-10-30",
+     "value": -0.28,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 1.32,
-     "start": "2026-10-06",
+     "value": 2.58,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 0.28,
-     "start": "2026-08-06",
+     "value": 1.18,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 8.08,
-     "start": "2026-05-06",
+     "value": 11.04,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 15.35,
-     "start": "2025-11-06",
+     "value": 18.09,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 10.7,
-     "start": "2024-11-06",
+     "value": 10.68,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 48.25,
-     "start": "2023-11-06",
+     "value": 50.2,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 30.05,
-     "start": "2021-11-05",
+     "value": 31.79,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 172.77,
-     "start": "2016-11-04",
+     "value": 165.91,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -232,61 +232,61 @@
    "provider": "iShares",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI USA Sector Neutral Quality",
+   "fund_name": "iShares Edge MSCI USA Quality Factor UCITS ETF",
    "first_close": "2016-10-24",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-07T18:48:55Z",
+   "last_success": "2026-11-09T17:51:27Z",
    "returns": {
     "1D": {
-     "value": -0.29,
-     "start": "2026-11-05",
+     "value": 0.59,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -1.03,
-     "start": "2026-10-30",
+     "value": -0.37,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -1.68,
-     "start": "2026-10-06",
+     "value": -1.73,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 1.75,
-     "start": "2026-08-06",
+     "value": 2.13,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 11.39,
-     "start": "2026-05-06",
+     "value": 11.7,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 19.01,
-     "start": "2025-11-06",
+     "value": 21.49,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 19.06,
-     "start": "2024-11-06",
+     "value": 17.54,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 60.98,
-     "start": "2023-11-06",
+     "value": 59.79,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 65.28,
-     "start": "2021-11-05",
+     "value": 66.87,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 278.65,
-     "start": "2016-11-04",
+     "value": 264.27,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -300,61 +300,61 @@
    "provider": "iShares",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI USA Momentum",
+   "fund_name": "iShares Edge MSCI USA Momentum Factor UCITS ETF",
    "first_close": "2016-10-24",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-07T18:48:55Z",
+   "last_success": "2026-11-09T17:51:27Z",
    "returns": {
     "1D": {
-     "value": -0.19,
-     "start": "2026-11-05",
+     "value": 3.31,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -9.76,
-     "start": "2026-10-30",
+     "value": -5.66,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -20.81,
-     "start": "2026-10-06",
+     "value": -16.97,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -15.89,
-     "start": "2026-08-06",
+     "value": -12.18,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": -9.3,
-     "start": "2026-05-06",
+     "value": -6.91,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 7.39,
-     "start": "2025-11-06",
+     "value": 12.7,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 14.89,
-     "start": "2024-11-06",
+     "value": 16.06,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 67.08,
-     "start": "2023-11-06",
+     "value": 70.3,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 39.33,
-     "start": "2021-11-05",
+     "value": 46.17,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 261.25,
-     "start": "2016-11-04",
+     "value": 260.9,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -368,61 +368,61 @@
    "provider": "SPDR (SSGA)",
    "acc": false,
    "hedged": false,
-   "holds": "S&P High Yield Dividend Aristocrats",
+   "fund_name": "State Street SPDR S&P U.S. Dividend Aristocrats UCITS ETF USD Unhedged (Dist)",
    "first_close": "2011-10-14",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-07T18:48:55Z",
+   "last_success": "2026-11-09T17:51:27Z",
    "returns": {
     "1D": {
-     "value": -0.92,
-     "start": "2026-11-05",
+     "value": 0.66,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 0.3,
-     "start": "2026-10-30",
+     "value": 0.36,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 9.65,
-     "start": "2026-10-06",
+     "value": 9.61,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 6.9,
-     "start": "2026-08-06",
+     "value": 7.62,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 15.2,
-     "start": "2026-05-06",
+     "value": 16.83,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 25.05,
-     "start": "2025-11-06",
+     "value": 26.17,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 15.45,
-     "start": "2024-11-06",
+     "value": 15.42,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 44.29,
-     "start": "2023-11-06",
+     "value": 46.23,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 47.91,
-     "start": "2021-11-05",
+     "value": 49.51,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 157.33,
-     "start": "2016-11-04",
+     "value": 148.32,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -436,56 +436,56 @@
    "provider": "iShares",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI USA Min Vol Advanced Select",
+   "fund_name": "iShares Edge MSCI USA Minimum Volatility Advanced UCITS ETF",
    "first_close": "2020-04-24",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-07T18:48:55Z",
+   "last_success": "2026-11-09T17:51:27Z",
    "returns": {
     "1D": {
-     "value": -0.68,
-     "start": "2026-11-05",
+     "value": 0.47,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -1.27,
-     "start": "2026-10-30",
+     "value": -0.81,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 2.71,
-     "start": "2026-10-06",
+     "value": 2.01,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 6.61,
-     "start": "2026-08-06",
+     "value": 6.32,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 15.1,
-     "start": "2026-05-06",
+     "value": 16.34,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 15.97,
-     "start": "2025-11-06",
+     "value": 16.79,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 5.9,
-     "start": "2024-11-06",
+     "value": 4.14,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 33.39,
-     "start": "2023-11-06",
+     "value": 33.65,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 36.98,
-     "start": "2021-11-05",
+     "value": 37.9,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
@@ -493,7 +493,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 84.13,
+      "value": 85.0,
       "start": "2020-04-24"
      }
     }
