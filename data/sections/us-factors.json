@@ -368,7 +368,7 @@
    "provider": "SPDR (SSGA)",
    "acc": false,
    "hedged": false,
-   "holds": "S&P High Yield Dividend Aristocrats')",
+   "holds": "S&P High Yield Dividend Aristocrats",
    "first_close": "2011-10-14",
    "last_close": "2026-11-06",
    "stale": false,

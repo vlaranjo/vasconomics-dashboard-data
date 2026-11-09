@@ -1039,5 +1039,15 @@
     }
    }
   }
+ ],
+ "default_visible": [
+  "ebrt",
+  "engs",
+  "ecrn",
+  "esoy",
+  "xad1",
+  "esvr",
+  "ecop",
+  "ealu"
  ]
 }

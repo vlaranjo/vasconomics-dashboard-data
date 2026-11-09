@@ -96,7 +96,7 @@
    "provider": "Amundi",
    "acc": true,
    "hedged": false,
-   "holds": "STOXX Europe 600 (not 'Euro Stoxx 500')",
+   "holds": "STOXX Europe 600",
    "first_close": "2024-02-19",
    "last_close": "2026-11-06",
    "stale": false,
@@ -244,7 +244,7 @@
    "provider": "Amundi",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI Switzerland (CHF class)",
+   "holds": "MSCI Switzerland",
    "first_close": "2012-01-02",
    "last_close": "2026-11-06",
    "stale": false,
@@ -1211,5 +1211,15 @@
     }
    }
   }
+ ],
+ "default_visible": [
+  "ibcf",
+  "lyp6",
+  "sxrw",
+  "ibcg",
+  "xcs6",
+  "qdv5",
+  "lbra",
+  "lkor"
  ]
 }

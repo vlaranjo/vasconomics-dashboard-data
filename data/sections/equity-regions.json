@@ -300,7 +300,7 @@
    "provider": "iShares",
    "acc": true,
    "hedged": false,
-   "holds": "MSCI Pacific ex Japan (not 'Asia ex Japan')",
+   "holds": "MSCI Pacific ex Japan",
    "first_close": "2010-05-04",
    "last_close": "2026-11-06",
    "stale": false,

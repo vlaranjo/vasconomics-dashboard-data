@@ -1171,5 +1171,15 @@
     }
    }
   }
+ ],
+ "default_visible": [
+  "eurusd",
+  "eurgbp",
+  "eurchf",
+  "eurpln",
+  "eursek",
+  "eurjpy",
+  "eurcny",
+  "euraud"
  ]
 }

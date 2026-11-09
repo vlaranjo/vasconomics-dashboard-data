@@ -35,6 +35,7 @@ SECTION_SCHEMA = {
         "schema_version": {"const": 1},
         "section": {"type": "string"}, "title": {"type": "string"},
         "page": {"type": "string"}, "kind": {"enum": ["funds", "fx"]},
+        "default_visible": {"type": "array", "items": {"type": "string"}, "maxItems": 8},
         "generated_at": _TS, "as_of": _DATE,
         "lookbacks": {"type": "array", "items": {"type": "string"}},
         "rows": {"type": "array", "items": {
@@ -178,6 +179,8 @@ def validate_section(section: dict, *, run_date: date, prev_as_of: str | None, n
     ids = [r["id"] for r in section["rows"]]
     if len(ids) != len(set(ids)):
         raise ValidationError("row ids are not unique")
+    if any(i not in ids for i in section.get("default_visible", [])):
+        raise ValidationError("default_visible names a row that is not in the section")
     if n_total and n_fresh / n_total < min_fresh_fraction:
         raise ValidationError(f"coverage {n_fresh}/{n_total} is below the threshold {min_fresh_fraction}")
     if prev_as_of and section["as_of"] < prev_as_of:

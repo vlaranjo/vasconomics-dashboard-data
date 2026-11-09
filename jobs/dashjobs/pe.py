@@ -64,6 +64,7 @@ def run(cfg: dict, fetch_text, *, today: date, now: datetime | None = None, data
     manifest = {
         "schema_version": 1, "generated_at": now_iso, "status": "status.json",
         "sections": prev_manifest.get("sections", {}),
+        **{k: prev_manifest[k] for k in ("history", "indicators") if k in prev_manifest},
         "pe": {**{k: v for k, v in prev_manifest.get("pe", {}).items() if k in {i["slug"] for i in cfg["indices"]}}, **pe_meta},
         **({"yields": prev_manifest["yields"]} if "yields" in prev_manifest else {}),
     }
