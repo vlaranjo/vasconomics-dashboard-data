@@ -1,50 +1,134 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-09T18:01:22Z",
+ "generated_at": "2026-11-09T16:30:35Z",
  "status": "status.json",
  "sections": {
   "asset-classes": {
    "path": "sections/asset-classes.json",
-   "as_of": "2026-11-09"
+   "as_of": "2026-11-06"
   },
   "equity-regions": {
    "path": "sections/equity-regions.json",
-   "as_of": "2026-11-09"
+   "as_of": "2026-11-06"
   },
   "equity-countries": {
    "path": "sections/equity-countries.json",
-   "as_of": "2026-11-09"
+   "as_of": "2026-11-06"
   },
   "us-majors": {
    "path": "sections/us-majors.json",
-   "as_of": "2026-11-09"
+   "as_of": "2026-11-06"
   },
   "us-factors": {
    "path": "sections/us-factors.json",
-   "as_of": "2026-11-09"
+   "as_of": "2026-11-06"
   },
   "us-sectors": {
    "path": "sections/us-sectors.json",
-   "as_of": "2026-11-09"
+   "as_of": "2026-11-06"
   },
   "eu-sectors": {
    "path": "sections/eu-sectors.json",
-   "as_of": "2026-11-09"
+   "as_of": "2026-11-06"
   },
   "fixed-income": {
    "path": "sections/fixed-income.json",
-   "as_of": "2026-11-09"
+   "as_of": "2026-11-06"
   },
   "commodity-sectors": {
    "path": "sections/commodity-sectors.json",
-   "as_of": "2026-11-09"
+   "as_of": "2026-11-06"
   },
   "commodity-components": {
    "path": "sections/commodity-components.json",
-   "as_of": "2026-11-09"
+   "as_of": "2026-11-06"
   },
   "fx": {
    "path": "sections/fx.json",
+   "as_of": "2026-11-06"
+  }
+ },
+ "history": {
+  "asset-classes": {
+   "path": "history/asset-classes.json",
+   "as_of": "2026-11-06"
+  },
+  "equity-regions": {
+   "path": "history/equity-regions.json",
+   "as_of": "2026-11-06"
+  },
+  "equity-countries": {
+   "path": "history/equity-countries.json",
+   "as_of": "2026-11-06"
+  },
+  "us-majors": {
+   "path": "history/us-majors.json",
+   "as_of": "2026-11-06"
+  },
+  "us-factors": {
+   "path": "history/us-factors.json",
+   "as_of": "2026-11-06"
+  },
+  "us-sectors": {
+   "path": "history/us-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "eu-sectors": {
+   "path": "history/eu-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "fixed-income": {
+   "path": "history/fixed-income.json",
+   "as_of": "2026-11-06"
+  },
+  "commodity-sectors": {
+   "path": "history/commodity-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "commodity-components": {
+   "path": "history/commodity-components.json",
+   "as_of": "2026-11-06"
+  },
+  "fx": {
+   "path": "history/fx.json",
+   "as_of": "2026-11-06"
+  }
+ },
+ "indicators": {
+  "equity-regions": {
+   "path": "indicators/equity-regions.json",
+   "as_of": "2026-11-06"
+  },
+  "equity-countries": {
+   "path": "indicators/equity-countries.json",
+   "as_of": "2026-11-06"
+  },
+  "us-majors": {
+   "path": "indicators/us-majors.json",
+   "as_of": "2026-11-06"
+  },
+  "us-factors": {
+   "path": "indicators/us-factors.json",
+   "as_of": "2026-11-06"
+  },
+  "us-sectors": {
+   "path": "indicators/us-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "eu-sectors": {
+   "path": "indicators/eu-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "commodity-sectors": {
+   "path": "indicators/commodity-sectors.json",
+   "as_of": "2026-11-06"
+  },
+  "commodity-components": {
+   "path": "indicators/commodity-components.json",
+   "as_of": "2026-11-06"
+  },
+  "fx": {
+   "path": "indicators/fx.json",
    "as_of": "2026-11-06"
   }
  },
@@ -369,14 +453,14 @@
   },
   "uk": {
    "path": "yields/uk.json",
-   "as_of": "2026-11-06",
+   "as_of": "2026-11-05",
    "stale": false,
    "status": "ok",
    "name": "United Kingdom"
   },
   "ca": {
    "path": "yields/ca.json",
-   "as_of": "2026-11-06",
+   "as_of": "2026-11-05",
    "stale": false,
    "status": "ok",
    "name": "Canada"
@@ -390,7 +474,7 @@
   },
   "de": {
    "path": "yields/de.json",
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-06",
    "stale": false,
    "status": "ok",
    "name": "Germany"
@@ -415,90 +499,6 @@
    "stale": false,
    "status": "ok",
    "name": "Brazil"
-  }
- },
- "history": {
-  "asset-classes": {
-   "path": "history/asset-classes.json",
-   "as_of": "2026-11-09"
-  },
-  "equity-regions": {
-   "path": "history/equity-regions.json",
-   "as_of": "2026-11-09"
-  },
-  "equity-countries": {
-   "path": "history/equity-countries.json",
-   "as_of": "2026-11-09"
-  },
-  "us-majors": {
-   "path": "history/us-majors.json",
-   "as_of": "2026-11-09"
-  },
-  "us-factors": {
-   "path": "history/us-factors.json",
-   "as_of": "2026-11-09"
-  },
-  "us-sectors": {
-   "path": "history/us-sectors.json",
-   "as_of": "2026-11-09"
-  },
-  "eu-sectors": {
-   "path": "history/eu-sectors.json",
-   "as_of": "2026-11-09"
-  },
-  "fixed-income": {
-   "path": "history/fixed-income.json",
-   "as_of": "2026-11-09"
-  },
-  "commodity-sectors": {
-   "path": "history/commodity-sectors.json",
-   "as_of": "2026-11-09"
-  },
-  "commodity-components": {
-   "path": "history/commodity-components.json",
-   "as_of": "2026-11-09"
-  },
-  "fx": {
-   "path": "history/fx.json",
-   "as_of": "2026-11-06"
-  }
- },
- "indicators": {
-  "equity-regions": {
-   "path": "indicators/equity-regions.json",
-   "as_of": "2026-11-09"
-  },
-  "equity-countries": {
-   "path": "indicators/equity-countries.json",
-   "as_of": "2026-11-09"
-  },
-  "us-majors": {
-   "path": "indicators/us-majors.json",
-   "as_of": "2026-11-09"
-  },
-  "us-factors": {
-   "path": "indicators/us-factors.json",
-   "as_of": "2026-11-09"
-  },
-  "us-sectors": {
-   "path": "indicators/us-sectors.json",
-   "as_of": "2026-11-09"
-  },
-  "eu-sectors": {
-   "path": "indicators/eu-sectors.json",
-   "as_of": "2026-11-09"
-  },
-  "commodity-sectors": {
-   "path": "indicators/commodity-sectors.json",
-   "as_of": "2026-11-09"
-  },
-  "commodity-components": {
-   "path": "indicators/commodity-components.json",
-   "as_of": "2026-11-09"
-  },
-  "fx": {
-   "path": "indicators/fx.json",
-   "as_of": "2026-11-06"
   }
  }
 }

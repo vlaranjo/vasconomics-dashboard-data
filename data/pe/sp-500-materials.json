@@ -4,15 +4,15 @@
  "name": "S&P 500 Materials",
  "source": "worldperatio.com",
  "source_url": "https://worldperatio.com/sector/sp-500-materials",
- "fetched_at": "2026-11-09T17:58:50Z",
- "last_success": "2026-11-09T17:58:50Z",
+ "fetched_at": "2026-11-08T10:09:42Z",
+ "last_success": "2026-11-08T10:09:42Z",
  "stale": false,
  "stale_reason": null,
  "frequency": "monthly",
  "last_point": "2026-11",
  "n_points": 383,
- "avg_10y": 19.32,
- "avg_full": 16.55,
+ "avg_10y": 19.33,
+ "avg_full": 16.56,
  "series": [
   [
    "1995-01",
@@ -1544,7 +1544,7 @@
   ],
   [
    "2026-11",
-   22.4531
+   23.9242
   ]
  ]
 }
