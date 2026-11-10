@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-10T18:18:19Z",
+ "generated_at": "2026-11-10T18:22:19Z",
  "status": "status.json",
  "sections": {
   "asset-classes": {
@@ -453,14 +453,14 @@
   },
   "uk": {
    "path": "yields/uk.json",
-   "as_of": "2026-11-06",
+   "as_of": "2026-11-09",
    "stale": false,
    "status": "ok",
    "name": "United Kingdom"
   },
   "ca": {
    "path": "yields/ca.json",
-   "as_of": "2026-11-06",
+   "as_of": "2026-11-09",
    "stale": false,
    "status": "ok",
    "name": "Canada"
@@ -474,14 +474,14 @@
   },
   "de": {
    "path": "yields/de.json",
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-10",
    "stale": false,
    "status": "ok",
    "name": "Germany"
   },
   "es": {
    "path": "yields/es.json",
-   "as_of": "2026-11-04",
+   "as_of": "2026-11-06",
    "stale": false,
    "status": "ok",
    "name": "Spain"
