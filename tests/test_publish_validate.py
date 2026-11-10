@@ -52,12 +52,7 @@ def test_V2_one_ticker_fails_is_carried_forward_stale(cfg, tmp_path):
     assert st["sources"]["yahoo_markets"]["items_ok"] == 2 and st["sources"]["yahoo_markets"]["stale"] is True
 
 
-def test_V3_output_earlier_than_published_is_rejected(cfg, tmp_path):
-    run(cfg, tmp_path)
-    before = tree_hash(tmp_path / "data")
-    with pytest.raises(validate.ValidationError, match="earlier than the published"):
-        run(cfg, tmp_path, fetch=fixture_fetch(date(2026, 10, 30)), today=date(2026, 11, 1))
-    assert tree_hash(tmp_path / "data") == before
+# V3 (an earlier as_of fails the whole run) was replaced on 10 Nov 2026 by tests/test_regression.py R2-R9: the section is kept, the run succeeds.
 
 
 def _section(cfg, tmp_path):
@@ -384,3 +379,36 @@ def test_N7_an_override_without_a_reason_is_refused_by_the_job(tmp_path):
     cfg = _names_cfg(override="X", reason=None)
     with pytest.raises(validate.ValidationError, match="name_reason"):
         _run_names(tmp_path, cfg, lambda ts: {})
+
+
+def test_N8_legal_entity_prefixes_are_stripped_by_a_rule_and_nothing_else_is_touched():
+    from dashjobs.markets import clean_name
+    cases = {
+        "iShares VII PLC - iShares Core MSCI Pac ex-Jpn ETF USD Acc": "iShares Core MSCI Pac ex-Jpn ETF USD Acc",          # abbreviation left as Yahoo has it
+        "Xtrackers (IE) Plc - Xtrackers MSCI World UCITS ETF 1C": "Xtrackers MSCI World UCITS ETF 1C",
+        "Amundi Index Solutions - Amundi MSCI Switzerland UCITS ETF-C CHF": "Amundi MSCI Switzerland UCITS ETF-C CHF",
+        "Vanguard Funds plc - Vanguard FTSE All-World UCITS ETF": "Vanguard FTSE All-World UCITS ETF",
+        "Invesco Markets III plc - Invesco Euro Cash 3 Months UCITS ETF": "Invesco Euro Cash 3 Months UCITS ETF",
+        "WisdomTree Industrial Metals - EUR Daily Hedged": "WisdomTree Industrial Metals - EUR Daily Hedged",                    # a share-class suffix, not an entity
+        "iShares S&P 500 EUR Hedged UCITS ETF (Acc)": "iShares S&P 500 EUR Hedged UCITS ETF (Acc)",
+        "Amundi MSCI Brazil UCITS ETF Acc": "Amundi MSCI Brazil UCITS ETF Acc",
+        "iShares VII PLC - ": "iShares VII PLC -",                                                                          # nothing after the prefix: never emptied
+        "  iShares   VII PLC  -  iShares Core FTSE 100 ETF GBP Acc ": "iShares Core FTSE 100 ETF GBP Acc",                  # whitespace is normalised
+        "": "",
+    }
+    for raw, want in cases.items():
+        assert clean_name(raw) == want, raw
+
+
+def test_N9_the_job_publishes_cleaned_names_and_cleans_a_previously_published_one(tmp_path):
+    got = _run_names(tmp_path, _names_cfg(), lambda ts: {"A.DE": {"longName": "iShares VII PLC - iShares Core A ETF USD Acc", "shortName": None},
+                                                       "B.DE": {"longName": None, "shortName": "Amundi Index Solutions - Amundi B"}})
+    assert got == {"a": "iShares Core A ETF USD Acc", "b": "Amundi B"}
+    assert _run_names(tmp_path, _names_cfg(), lambda ts: {}) == got                                       # failed call: the cleaned last good name stays
+
+
+def test_N10_clean_name_never_reduces_a_name_to_a_bare_share_class():
+    from dashjobs.markets import clean_name
+    for keep in ("Some Index Fund - USD Acc", "Fund - Class A", "Global Trust - EUR Hedged", "Xtrackers II - Xtrackers EUR Overnight Rate Swap UCITS ETF 1D"):
+        assert clean_name(keep) == keep, keep
+    assert clean_name("Xtrackers II plc - Xtrackers EUR Overnight Rate Swap UCITS ETF 1D") == "Xtrackers EUR Overnight Rate Swap UCITS ETF 1D"

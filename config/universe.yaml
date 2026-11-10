@@ -26,7 +26,7 @@ sections:
       - {id: epra, label: "Global Real Estate", ticker: "EPRA.PA", isin: "LU1437018838", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "FTSE EPRA Nareit Developed (global real estate)"}
       - {id: cmoe, label: "Commodities", ticker: "CMOE.MI", isin: "IE00BF4J0300", provider: "Invesco", currency: "EUR", acc: true, hedged: true, holds: "Bloomberg Commodity (EUR-hedged)"}
       - {id: xad1, label: "Gold", ticker: "XAD1.DE", isin: "DE000A1EK0G3", provider: "Xtrackers (DWS)", currency: "EUR", acc: true, hedged: true, holds: "Gold (physical ETC, EUR-hedged)", etc: true}
-      - {id: peu, label: "Euro Money Market", ticker: "PEU.PA", isin: "IE00B3BPCH51", provider: "Invesco", currency: "EUR", acc: true, hedged: false, holds: "Euro cash: gov't bills 0-6M", name_override: "Invesco Euro Cash 3 Months UCITS ETF Acc", name_reason: "Yahoo still shows the pre-rename name (Invesco EuroMTS Cash 3 Months UCITS ETF); the fund is now called Euro Cash 3 Months (justETF profile, checked 6 Nov 2026)"}
+      - {id: peu, label: "Euro Money Market", ticker: "PEU.PA", isin: "IE00B3BPCH51", provider: "Invesco", currency: "EUR", acc: true, hedged: false, holds: "Euro cash: gov't bills 0-6M", name_override: "Invesco Euro Cash 3 Months UCITS ETF Acc", name_reason: "Yahoo still shows the pre-rename name (Invesco EuroMTS Cash 3 Months UCITS ETF). Invesco's product-page title in search results (10 Nov 2026) reads Invesco Euro Cash 3 Months UCITS ETF Acc; the page itself redirected when opened, so this is not confirmed on the page"}
   # ---- page: Countries & Regions ----
   - id: equity-regions
     indicators: true       # indicator chart (moving averages + RSI), as on the old app's page

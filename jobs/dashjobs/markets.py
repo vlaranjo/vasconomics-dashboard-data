@@ -1,11 +1,35 @@
 """Daily markets job: fetch -> returns -> carry-forward -> stage -> validate -> atomic swap."""
 from __future__ import annotations
 
+import re
 import time
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 from . import history, lookback, publish, status, validate
+
+
+class OlderData(ValueError):
+    """Yahoo's answer ends before the row's published last close (a lagging or cached response). Never published over newer data."""
+
+    def __init__(self, new: str, published: str, cutoff: str, raw_last: str):
+        super().__init__(f"newest usable bar {new} is older than the published {published}")
+        self.new, self.published, self.cutoff, self.raw_last = new, published, cutoff, raw_last
+
+
+# A legal-entity prefix Yahoo puts in front of the fund's own name: "iShares VII PLC - iShares Core ...", "Xtrackers (IE) Plc - Xtrackers ...",
+# "Amundi Index Solutions - Amundi ...". The prefix is the text before the FIRST " - " when it ends in one of these entity words.
+# "WisdomTree Industrial Metals - EUR Daily Hedged" is a share-class suffix, not an entity, and is left alone.
+_ENTITY_END = re.compile(r"(?:\bplc|\bicav|\bsicav|\bindex solutions|\bfunds?|\btrust|\bumbrella)$", re.I)
+
+
+def clean_name(name: str) -> str:
+    name = " ".join((name or "").split())
+    head, sep, rest = name.partition(" - ")
+    brand = head.split()[0].lower() if head.split() else ""
+    if sep and rest and _ENTITY_END.search(head.strip()) and re.match(r"[A-Za-z0-9$\u20ac]", rest) and brand in rest.lower():
+        return rest.strip()
+    return name
 
 
 def pick_name(meta: dict, fetched: dict | None, last_good: str | None) -> str:
@@ -17,10 +41,10 @@ def pick_name(meta: dict, fetched: dict | None, last_good: str | None) -> str:
         return meta["name_override"]
     f = fetched or {}
     for k in ("longName", "shortName"):
-        n = (f.get(k) or "").strip()
+        n = clean_name(f.get(k) or "")
         if n:
             return n
-    return last_good or ""
+    return clean_name(last_good or "")
 
 
 def _row_record(meta: dict, bars, now_iso: str) -> dict:
@@ -58,6 +82,8 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
     all_fresh_ids: set[str] = set()
     last_success = (prev_status or {}).get("sources", {}).get("yahoo_markets", {}).get("last_success")
     section_for_validation = None
+    kept_sections: dict[str, dict] = {}                 # sections left as published because the new data was older
+    older_rows: list[str] = []                          # rows left as published, inside sections that were refreshed
     cache: dict[str, object] = {}                       # a ticker used on several pages is fetched once per run
 
     def fetch_once(ticker):
@@ -103,6 +129,11 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
             bars = lookback.clean_bars(raw, cutoff)
             if not bars:
                 raise ValueError("no usable bars")
+            pub = prev_rows.get(meta["id"])
+            if pub and bars[-1][0].isoformat() < pub["last_close"]:          # never replace a row with one whose last close is older
+                cache.pop(meta["ticker"], None)                               # so that the retry asks Yahoo again
+                raw_last = max((d for d, _ in raw), default=None)
+                raise OlderData(bars[-1][0].isoformat(), pub["last_close"], cutoff.isoformat(), raw_last.isoformat() if raw_last else "none")
             # Only the window the figures use is checked: a bar older than the 10Y anchor (plus a month of margin) never enters a number.
             window_start = date(today.year - 10, today.month, 1) - timedelta(days=31)
             validate.check_price_jumps(meta["ticker"], [b for b in bars if b[0] >= window_start], vcfg["max_abs_1d_pct"], vcfg.get("jump_exceptions"))
@@ -115,6 +146,7 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
             return rec
 
         errors: dict[str, str] = {}
+        older: dict[str, OlderData] = {}
         for meta in sec["rows"]:
             n_total += 1
             if meta["ticker"] not in cache and waited_once:
@@ -123,19 +155,48 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
             try:
                 by_id[meta["id"]] = attempt(meta)
                 fresh_ids.add(meta["id"])
+            except OlderData as e:
+                older[meta["id"]] = e
             except Exception as e:  # noqa: BLE001 - any fetch/parse failure is retried once below, then carried forward
                 errors[meta["id"]] = str(e)[:120]
-        if errors and retry_wait:                         # one cool-down, then one more try for what failed (Yahoo throttles bursts)
+        if (errors or older) and retry_wait:              # one cool-down, then one more try for what failed (Yahoo throttles bursts, lags)
             sleep(retry_wait)
             for meta in sec["rows"]:
-                if meta["id"] in errors:
+                if meta["id"] in errors or meta["id"] in older:
                     sleep(delay)
                     try:
                         by_id[meta["id"]] = attempt(meta)
                         fresh_ids.add(meta["id"])
-                        del errors[meta["id"]]
+                        errors.pop(meta["id"], None)
+                        older.pop(meta["id"], None)
+                    except OlderData as e:
+                        errors.pop(meta["id"], None)
+                        older[meta["id"]] = e
                     except Exception as e:  # noqa: BLE001
+                        older.pop(meta["id"], None)
                         errors[meta["id"]] = str(e)[:120]
+        tick_of = {m["id"]: m["ticker"] for m in sec["rows"]}
+        if older:
+            new_asof = max((by_id[i]["last_close"] for i in fresh_ids), default=None)
+            if prev_section and not fresh_ids:
+                # The section's new as_of would be earlier than the published one: keep the published section (rows, charts,
+                # manifest entry) untouched and carry on with the others. The row-level stale rule shows it if it stays old.
+                failed.extend(f"{tick_of[i]}: {errors[i]}" for i in errors)
+                missing.extend(m["ticker"] for m in sec["rows"] if m["id"] not in prev_rows)       # new in the config, nothing published to keep
+                kept_sections[sec["id"]] = {
+                    "published_as_of": prev_section["as_of"], "new_as_of": new_asof, "cutoff": cutoff.isoformat(),
+                    "tickers": [f"{tick_of[i]} (newest bar {e.new}, published {e.published}, Yahoo's last raw bar {e.raw_last})" for i, e in older.items()]}
+                continue
+            for i, e in older.items():                    # partly older: those rows stay as published, the rest is refreshed
+                older_rows.append(f"{sec['id']}/{tick_of[i]}: newest bar {e.new} is older than the published {e.published}")
+                by_id[i] = dict(prev_rows[i])
+                if kind == "funds":
+                    mi = next(m for m in sec["rows"] if m["id"] == i)
+                    by_id[i]["fund_name"] = pick_name(mi, fetched_names.get(mi["ticker"]), by_id[i].get("fund_name") or last_names.get(mi["ticker"]))
+                if i in prev_hist:
+                    hist_by_id[i] = prev_hist[i]
+                if want_ind and i in prev_ind:
+                    ind_by_id[i] = prev_ind[i]
         n_fresh += len(fresh_ids)
         for meta in sec["rows"]:
             if meta["id"] in errors:
@@ -182,7 +243,7 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
         all_fresh_ids |= fresh_ids
         try:
             validate.validate_section(
-                section, run_date=today, prev_as_of=(prev_section or {}).get("as_of"), n_fresh=len(fresh_ids),
+                section, run_date=today, prev_as_of=(prev_section or {}).get("as_of"), n_fresh=len(fresh_ids) + len(older),
                 n_total=len(sec["rows"]), min_fresh_fraction=vcfg["min_fresh_fraction"],
                 max_close_age_days=vcfg["max_close_age_days"], max_abs_1d_pct=vcfg["max_abs_1d_pct"], fresh_ids=fresh_ids)
         except validate.ValidationError as e:
@@ -199,7 +260,10 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
         prev_status, "yahoo_markets",
         # a lagging row (old close) is shown on its own row; only fetch failures mark the run stale
         status.source_block(now=now, last_success=last_success, items_ok=n_fresh, items_total=n_total,
-                            failed=failed + [f"{t}: missing" for t in missing], cadence_hours=24, stale=bool(failed or missing)),
+                            failed=failed + [f"{t}: missing" for t in missing]
+                            + [f"{sid}: kept as published, newer data not available ({'; '.join(k['tickers'])})" for sid, k in kept_sections.items()]
+                            + older_rows,
+                            cadence_hours=24, stale=bool(failed or missing)),
         status.run_info(workflow, started, finished, env), now)
     manifest = publish.merge_manifest(
         prev_manifest, generated_at=now_iso,
@@ -215,4 +279,5 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
     validate.validate_manifest_files(out_dir, manifest)
     publish.atomic_swap(data_dir, out_dir)
     return {"n_fresh": n_fresh, "n_total": n_total, "failed": failed, "missing": missing, "order": order,
+            "kept_sections": kept_sections, "older_rows": older_rows,
             "as_of": section_for_validation["as_of"] if section_for_validation else None}

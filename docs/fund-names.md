@@ -1,31 +1,31 @@
 # Fund names (from Yahoo)
 
-Generated 2026-11-09 by `jobs/report_fund_names.py`. The markets job reads each ticker's `longName` and `shortName` from Yahoo (the same
+Generated 2026-11-10 by `jobs/report_fund_names.py`. The markets job reads each ticker's `longName` and `shortName` from Yahoo (the same
 source as the prices) and shows `longName`, falling back to `shortName` only if `longName` is missing. A ticker can carry `name_override` plus a one-line
-`name_reason` in `config/universe.yaml` for a name Yahoo has wrong. If Yahoo's name call fails in a run, the last published name is kept (never blanked).
+`name_reason` in `config/universe.yaml` for a name Yahoo has wrong. A legal-entity prefix ("iShares VII PLC - ", "Amundi Index Solutions - ") is stripped by a rule in the job (`clean_name`), not by overrides; the longName column below is Yahoo's raw text. Abbreviations are left as Yahoo has them. If Yahoo's name call fails in a run, the last published name is kept (never blanked).
 
-91 funds, 14 with a flag. Flags are automatic (missing, truncated, outdated brand, share class or hedge contradicting the config, legal-entity
-prefix) plus hand-written remarks from a comparison with the justETF profile name for the same ISIN (the names the config used before this round).
+91 funds, 12 with a flag. Flags are automatic (missing, truncated, outdated brand, share class or hedge contradicting the config, legal-entity
+prefix still present) plus hand-written remarks from a comparison with the justETF profile name for the same ISIN (the names the config used before this round).
 
 | Ticker | ISIN | longName | shortName | Name shown | Flag |
 |---|---|---|---|---|---|
 | ACWIE.MI | IE00BYM11K57 | UBS MSCI ACWI SF UCITS ETF hEUR acc | UBS MSCI ACWI SF UCITS ETF hEUR | UBS MSCI ACWI SF UCITS ETF hEUR acc |  |
 | VAGF.DE | IE00BG47KH54 | Vanguard Global Aggregate Bond UCITS ETF EUR Hedged Accumulation | Vanguard Fds-Gl.Aggr.Bd UC.ETFR | Vanguard Global Aggregate Bond UCITS ETF EUR Hedged Accumulation |  |
-| EPRA.PA | LU1437018838 | Amundi Index Solutions - Amundi FTSE EPRA NAREIT Global UCITS ETF DR | Amundi FTSE EPRA NAREIT Global | Amundi Index Solutions - Amundi FTSE EPRA NAREIT Global UCITS ETF DR | legal-entity prefix in the name |
+| EPRA.PA | LU1437018838 | Amundi Index Solutions - Amundi FTSE EPRA NAREIT Global UCITS ETF DR | Amundi FTSE EPRA NAREIT Global | Amundi FTSE EPRA NAREIT Global UCITS ETF DR |  |
 | CMOE.MI | IE00BF4J0300 | Invesco Bloomberg Commodity UCITS ETF EUR Hedged | INVESCO BLOOM COMMODIT UCITS ET | Invesco Bloomberg Commodity UCITS ETF EUR Hedged |  |
 | XAD1.DE | DE000A1EK0G3 | Xtrackers Physical Gold EUR Hedged ETC | DB ETC PLC                    E | Xtrackers Physical Gold EUR Hedged ETC |  |
-| PEU.PA | IE00B3BPCH51 | Invesco EuroMTS Cash 3 Months UCITS ETF | Invesco EuroMTS Cash 3 Months U | Invesco Euro Cash 3 Months UCITS ETF Acc | overridden: Yahoo still shows the pre-rename name (Invesco EuroMTS Cash 3 Months UCITS ETF); the fund is now called Euro Cash 3 Months (justETF profile, checked 6 Nov 2026) |
+| PEU.PA | IE00B3BPCH51 | Invesco EuroMTS Cash 3 Months UCITS ETF | Invesco EuroMTS Cash 3 Months U | Invesco Euro Cash 3 Months UCITS ETF Acc | overridden: Yahoo still shows the pre-rename name (Invesco EuroMTS Cash 3 Months UCITS ETF). Invesco's product-page title in search results (10 Nov 2026) reads Invesco Euro Cash 3 Months UCITS ETF Acc; the page itself redirected when opened, so this is not confirmed on the page |
 | UBUJ.DE | IE00BD4TYG73 | UBS Core MSCI USA hEUR UCITS ETF EUR acc | UBS(I)ETF-UBS C.M.USA hEO ETF R | UBS Core MSCI USA hEUR UCITS ETF EUR acc |  |
 | EUNK.DE | IE00B4K48X80 | iShares Core MSCI Europe UCITS ETF EUR (Acc) | iShsIII-C.MSCI Eu.U.E.EUR Acc R | iShares Core MSCI Europe UCITS ETF EUR (Acc) |  |
 | IBCG.DE | IE00B42Z5J44 | iShares MSCI Japan EUR Hedged UCITS ETF (Acc) | iShsV-MSCI Jap.EUR Hdg U-ETF AR | iShares MSCI Japan EUR Hedged UCITS ETF (Acc) |  |
-| SXR1.DE | IE00B52MJY50 | iShares VII PLC - iShares Core MSCI Pac ex-Jpn ETF USD Acc | iShs VII-Co.MSCI Pac.xJP U.ETFR | iShares VII PLC - iShares Core MSCI Pac ex-Jpn ETF USD Acc | legal-entity prefix in the name; abbreviated ("Pac ex-Jpn"), no "UCITS"; same ISIN as justETF's "Core MSCI Pacific ex Japan" |
+| SXR1.DE | IE00B52MJY50 | iShares VII PLC - iShares Core MSCI Pac ex-Jpn ETF USD Acc | iShs VII-Co.MSCI Pac.xJP U.ETFR | iShares Core MSCI Pac ex-Jpn ETF USD Acc | abbreviated ("Pac ex-Jpn"), no "UCITS"; same ISIN as justETF's "Core MSCI Pacific ex Japan" |
 | EUNM.DE | IE00B4L5YC18 | iShares MSCI EM UCITS ETF USD (Acc) | iShsIII-MSCI EM U.ETF USD(Acc)R | iShares MSCI EM UCITS ETF USD (Acc) |  |
-| AASI.MI | LU1681044480 | Amundi Index Solutions - Amundi MSCI Em Asia UCITS ETF-C EUR | AMUNDI MSCI EM ASIA UCITS ETF - | Amundi Index Solutions - Amundi MSCI Em Asia UCITS ETF-C EUR | legal-entity prefix in the name; wording differs from justETF ("Em Asia" vs "Emerging Markets Asia"); same fund |
-| ALAT.PA | LU1681045024 | Amundi Index Solutions - Amundi MSCI Em Latin America UCITS ETF-C EUR | AMUNDI MSCI EM LATIN AMERICA UC | Amundi Index Solutions - Amundi MSCI Em Latin America UCITS ETF-C EUR | legal-entity prefix in the name; wording differs from justETF ("Em" abbreviation); same fund |
+| AASI.MI | LU1681044480 | Amundi Index Solutions - Amundi MSCI Em Asia UCITS ETF-C EUR | AMUNDI MSCI EM ASIA UCITS ETF - | Amundi MSCI Em Asia UCITS ETF-C EUR | wording differs from justETF ("Em Asia" vs "Emerging Markets Asia"); same fund |
+| ALAT.PA | LU1681045024 | Amundi Index Solutions - Amundi MSCI Em Latin America UCITS ETF-C EUR | AMUNDI MSCI EM LATIN AMERICA UC | Amundi MSCI Em Latin America UCITS ETF-C EUR | wording differs from justETF ("Em" abbreviation); same fund |
 | IBCF.DE | IE00B3ZW0K18 | iShares S&P 500 EUR Hedged UCITS ETF (Acc) | iShsV-S&P500 EUR Hgd U.ETF AccR | iShares S&P 500 EUR Hedged UCITS ETF (Acc) |  |
 | LYP6.DE | LU0908500753 | Amundi Core Stoxx Europe 600 UCITS ETF Acc | AIS-Amundi Core Stoxx Eur.600 A | Amundi Core Stoxx Europe 600 UCITS ETF Acc |  |
-| SXRW.DE | IE00B53HP851 | iShares VII PLC - iShares Core FTSE 100 ETF GBP Acc | iShs VII-C.FTSE 100 E.GBP     R | iShares VII PLC - iShares Core FTSE 100 ETF GBP Acc | legal-entity prefix in the name; no "UCITS" in the name; same fund as justETF's "Core FTSE 100 UCITS ETF GBP (Acc)" |
-| 18MN.DE | LU1681044993 | Amundi Index Solutions - Amundi MSCI Switzerland UCITS ETF-C CHF | AIS-Amundi MSCI Switzerland   N | Amundi Index Solutions - Amundi MSCI Switzerland UCITS ETF-C CHF | legal-entity prefix in the name |
+| SXRW.DE | IE00B53HP851 | iShares VII PLC - iShares Core FTSE 100 ETF GBP Acc | iShs VII-C.FTSE 100 E.GBP     R | iShares Core FTSE 100 ETF GBP Acc | no "UCITS" in the name; same fund as justETF's "Core FTSE 100 UCITS ETF GBP (Acc)" |
+| 18MN.DE | LU1681044993 | Amundi Index Solutions - Amundi MSCI Switzerland UCITS ETF-C CHF | AIS-Amundi MSCI Switzerland   N | Amundi MSCI Switzerland UCITS ETF-C CHF |  |
 | SAUS.MI | IE00B5377D42 | iShares MSCI Australia UCITS ETF USD (Acc) | ISHARES MSCI AUSTRALIA UCITS ET | iShares MSCI Australia UCITS ETF USD (Acc) |  |
 | XCS6.DE | LU0514695690 | Xtrackers MSCI China UCITS ETF 1C | xtrackers MSCI China          I | Xtrackers MSCI China UCITS ETF 1C |  |
 | QDV5.DE | IE00BZCQB185 | iShares MSCI India UCITS ETF USD Acc | iShs IV-iShs MSCI India UC.ETFR | iShares MSCI India UCITS ETF USD Acc |  |
@@ -40,9 +40,9 @@ prefix) plus hand-written remarks from a comparison with the justETF profile nam
 | DBX5.DE | LU0292109187 | Xtrackers MSCI Taiwan UCITS ETF 1C | Xtrackers MSCI Taiwan         I | Xtrackers MSCI Taiwan UCITS ETF 1C |  |
 | SXR8.DE | IE00B5BMR087 | iShares Core S&P 500 UCITS ETF USD (Acc) | iShs VII-Core S&P 500 U.ETF   R | iShares Core S&P 500 UCITS ETF USD (Acc) |  |
 | SXRV.DE | IE00B53SZB19 | iShares NASDAQ 100 UCITS ETF USD (Acc) | iShsVII-NASDAQ 100 UCITS ETF  R | iShares NASDAQ 100 UCITS ETF USD (Acc) |  |
-| SXRU.DE | IE00B53L4350 | iShares VII PLC - iShares Dow Jones Indust Avg ETF USD Acc | iShsVII-DJ Indl Average U.ETF R | iShares VII PLC - iShares Dow Jones Indust Avg ETF USD Acc | legal-entity prefix in the name; abbreviated ("Indust Avg"), no "UCITS"; same ISIN as justETF's "Dow Jones Industrial Average" |
+| SXRU.DE | IE00B53L4350 | iShares VII PLC - iShares Dow Jones Indust Avg ETF USD Acc | iShsVII-DJ Indl Average U.ETF R | iShares Dow Jones Indust Avg ETF USD Acc | abbreviated ("Indust Avg"), no "UCITS"; same ISIN as justETF's "Dow Jones Industrial Average" |
 | ZPRR.DE | IE00BJ38QD84 | State Street SPDR Russell 2000 US Small Cap UCITS ETF | SPDR Russell2000US.S.Cap U.ETFR | State Street SPDR Russell 2000 US Small Cap UCITS ETF |  |
-| SXR4.DE | IE00B52SFT06 | iShares VII PLC - iShares MSCI USA ETF USD Acc | iShsVII-MSCI USA UCITS ETF    R | iShares VII PLC - iShares MSCI USA ETF USD Acc | legal-entity prefix in the name; no "UCITS" in the name; same ISIN as justETF's "MSCI USA UCITS ETF (Acc)" |
+| SXR4.DE | IE00B52SFT06 | iShares VII PLC - iShares MSCI USA ETF USD Acc | iShsVII-MSCI USA UCITS ETF    R | iShares MSCI USA ETF USD Acc | no "UCITS" in the name; same ISIN as justETF's "MSCI USA UCITS ETF (Acc)" |
 | QDVI.DE | IE00BD1F4M44 | iShares Edge MSCI USA Value Factor UCITS ETF USD (Acc) | iShsIV-Edge MSCI USA V.F.U.ETFR | iShares Edge MSCI USA Value Factor UCITS ETF USD (Acc) |  |
 | QDVC.DE | IE00BD1F4K20 | iShares MSCI USA Mid-Cap Equal Weight UCITS ETF | iShsIV-MSCI USA M-C E.W.U.ETF R | iShares MSCI USA Mid-Cap Equal Weight UCITS ETF | share class (Acc) not in the name |
 | QDVB.DE | IE00BD1F4L37 | iShares Edge MSCI USA Quality Factor UCITS ETF USD (Acc) | iShsIV-Edge MSCI USA Q.F.U.ETFR | iShares Edge MSCI USA Quality Factor UCITS ETF USD (Acc) |  |

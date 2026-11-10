@@ -48,9 +48,14 @@ def main(argv=None) -> int:
     except validate.ValidationError as e:
         print(f"VALIDATION FAILED, nothing published: {e}", file=sys.stderr)
         return 1
-    print(f"published: {res['n_fresh']}/{res['n_total']} fresh, as_of {res['as_of']}")
+    print(f"published: {res['n_fresh']}/{res['n_total']} fresh, as_of {res['as_of'] or 'unchanged (no section had newer data)'}")
     for f in res["failed"]:
         print(f"  carried forward / failed: {f}")
+    for sid, k in res["kept_sections"].items():
+        print(f"  SECTION KEPT AS PUBLISHED: {sid} (published as_of {k['published_as_of']}; the new data ended {k['new_as_of'] or 'earlier'}, completed-bar cutoff {k['cutoff']}): "
+              + "; ".join(k["tickers"]))
+    for o in res["older_rows"]:
+        print(f"  ROW KEPT AS PUBLISHED: {o}")
     return 0
 
 
