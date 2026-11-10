@@ -36,7 +36,7 @@ def build_doc(code: str, raw: core.Raw, *, today: date, now_iso: str, meta: dict
 
 
 def run(cfg: dict, getter, *, today: date, now: datetime | None = None, data_dir, work_dir, env=None,
-        workflow: str = "yields", only: list[str] | None = None, universe: dict | None = None) -> dict:
+        workflow: str = "yields", only: list[str] | None = None, universe: dict) -> dict:
     now = now or datetime.now(timezone.utc)
     env = {} if env is None else env
     data_dir, work_dir = Path(data_dir), Path(work_dir)

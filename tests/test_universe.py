@@ -42,7 +42,7 @@ def test_U1_shape_every_page_has_sections_and_every_fund_row_is_complete(prod):
             continue
         for r in s["rows"]:
             assert re.fullmatch(r"[A-Z]{2}[A-Z0-9]{9}\d", r["isin"]), (r["ticker"], r["isin"])
-            assert r["provider"] and r["holds"] and r["fund_name"] and isinstance(r["acc"], bool) and isinstance(r["hedged"], bool), r["ticker"]
+            assert r["provider"] and r["holds"] and "fund_name" not in r and isinstance(r["acc"], bool) and isinstance(r["hedged"], bool), r["ticker"]
             assert r["currency"] == "EUR"
             assert re.fullmatch(r"[A-Z0-9]+\.(DE|MI|PA|AS|F)", r["ticker"]), r["ticker"]
 
@@ -113,7 +113,7 @@ def test_U5_full_offline_run_publishes_all_sections_and_fetches_each_ticker_once
         return _bars(t, today)
 
     res = markets.run(prod, fetch, today=today, now=datetime(2026, 11, 6, 22, 40, tzinfo=timezone.utc), data_dir=tmp_path / "data",
-                      work_dir=tmp_path / "work", sleep=lambda s: None)
+                      work_dir=tmp_path / "work", sleep=lambda s: None, fetch_names=lambda ts: {t: {"longName": f"{t} Long Name", "shortName": "short"} for t in ts})
     all_tickers = [r["ticker"] for s in prod["sections"] for r in s["rows"]]
     assert res["n_total"] == 112 and res["n_fresh"] == 112 and not res["failed"]
     assert len(calls) == len(set(all_tickers)) == 109 and sorted(calls) == sorted(set(all_tickers))   # shared tickers fetched once
@@ -122,7 +122,7 @@ def test_U5_full_offline_run_publishes_all_sections_and_fetches_each_ticker_once
     fx = json.loads((tmp_path / "data" / "sections" / "fx.json").read_text())
     assert fx["kind"] == "fx" and fx["page"] == "fx" and "isin" not in fx["rows"][0] and len(fx["rows"]) == 18
     reg = json.loads((tmp_path / "data" / "sections" / "equity-regions.json").read_text())
-    assert reg["rows"][0]["fund_name"] and reg["rows"][0]["isin"] and "holds" not in reg["rows"][0]
+    assert reg["rows"][0]["fund_name"] == reg["rows"][0]["ticker"] + " Long Name" and reg["rows"][0]["isin"] and "holds" not in reg["rows"][0]
     gold = next(r for r in json.loads((tmp_path / "data" / "sections" / "asset-classes.json").read_text())["rows"] if r["ticker"] == "XAD1.DE")
     assert gold["etc"] is True
 

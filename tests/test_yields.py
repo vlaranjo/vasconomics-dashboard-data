@@ -10,7 +10,7 @@ from types import SimpleNamespace
 import openpyxl
 import pytest
 
-from conftest import FIX
+from conftest import FIX, seed_markets
 from dashjobs import markets, publish, validate
 from dashjobs.yields import br, ca, core, de, es, fr, jp, uk, us, ch
 from dashjobs.yields import job
@@ -359,8 +359,12 @@ def stub(code, last="2026-10-30", value=4.0, fail=None, skip=False, n=4):
 
 def run_job(tmp_path, stubs, monkeypatch, cfg=None, env=None, today=TODAY, now=NOW):
     monkeypatch.setattr(job, "adapter", lambda code: stubs[code])
+    import yaml
+    uni = yaml.safe_load((Path(__file__).resolve().parent / "fixtures" / "config" / "universe_m1.yaml").read_text(encoding="utf-8"))
+    if not (tmp_path / "data" / "manifest.json").exists():
+        seed_markets(tmp_path, uni)
     return job.run(cfg or {"countries": list(stubs)}, None, today=today, now=now, data_dir=tmp_path / "data",
-                   work_dir=tmp_path / "work", env=env or {})
+                   work_dir=tmp_path / "work", env=env or {}, universe=uni)
 
 
 def test_Y11_all_countries_publish_manifest_and_status(tmp_path, monkeypatch):
@@ -445,7 +449,8 @@ def test_Y17_files_are_staged_not_written_in_place(tmp_path, monkeypatch):
         return SimpleNamespace(fetch=fetch, META={})
     monkeypatch.setattr(job, "adapter", spy)
     with pytest.raises(job.NothingFetched):
-        job.run({"countries": ["aa"]}, None, today=TODAY, now=NOW, data_dir=tmp_path / "data", work_dir=tmp_path / "work", env={})
+        job.run({"countries": ["aa"]}, None, today=TODAY, now=NOW, data_dir=tmp_path / "data", work_dir=tmp_path / "work", env={},
+                universe={"sections": [{"id": "x"}]})
     assert seen["data_hash"] == before and tree_hash(tmp_path / "data") == before
 
 
@@ -461,12 +466,13 @@ def test_Y18_config_lists_the_launch_countries_and_every_adapter_imports():
 
 # ---------------------------------------------------------------- Y19: Brazil history accumulates through the job
 
-def test_Y19_brazil_weekly_snapshots_accumulate_and_earlier_curves_fill_in(tmp_path):
+def test_Y19_brazil_weekly_snapshots_accumulate_and_earlier_curves_fill_in(tmp_path, cfg):
     """The real Brazil adapter through the real job, six Monday runs. The source serves only the last seven days of dates (as
     ANBIMA does), so each earlier curve can only appear once the job's own stored history reaches back far enough."""
     template = (YF / "anbima_20261030.csv").read_bytes().decode("latin-1")
     mondays = [date(2026, 10, 5), date(2026, 10, 12), date(2026, 10, 19), date(2026, 10, 26), date(2026, 11, 2), date(2026, 11, 9)]
     docs = []
+    uni = seed_markets(tmp_path, cfg)
     for run_day in mondays:
         def route(url, data, run_day=run_day):
             d = datetime.strptime(data["Dt_Ref"], "%d/%m/%Y").date()
@@ -475,7 +481,7 @@ def test_Y19_brazil_weekly_snapshots_accumulate_and_earlier_curves_fill_in(tmp_p
             return template.replace("30/10/2026", d.strftime("%d/%m/%Y"), 1).encode("latin-1")
         job.run({"countries": ["br"]}, FakeGetter({"CZ-down.asp": route}), today=run_day,
                 now=datetime(run_day.year, run_day.month, run_day.day, 15, 47, tzinfo=timezone.utc),
-                data_dir=tmp_path / "data", work_dir=tmp_path / "work", env={})
+                data_dir=tmp_path / "data", work_dir=tmp_path / "work", env={}, universe=uni)
         docs.append(json.loads((tmp_path / "data" / "yields" / "br.json").read_text()))
     first, last = docs[0], docs[-1]
     n_first, n_last = len(first["state"]["history"]), len(last["state"]["history"])

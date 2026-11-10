@@ -3,8 +3,8 @@
 Rebased chart (`history/<section>.json`)
   - One series per fund: levels indexed to 100 at the series' first point. The page re-bases to the chosen period.
   - Window: from the last close on or before the 10Y calendar anchor (or the fund's first close, if younger) to the last close.
-  - Points: every trading day from the 1Y start; for older dates the last close of each ISO week. The start bar of the 3Y, 5Y
-    and 10Y look-backs is always kept, so a period starts on exactly the bar the heatmap uses (same anchor rule).
+  - Points: every trading day from the 1Y start; for older dates the last close of each ISO week. The start bar of the 2Y, 5Y
+    and 10Y look-backs (YTD and the shorter ones fall inside the daily part) is always kept, so a period starts on exactly the bar the heatmap uses (same anchor rule).
 
 Indicator chart (`indicators/<section>.json`)
   - Computed on the adjusted close over trading days, on the fund's full history, then cut to the last two years.
@@ -92,7 +92,7 @@ def history_points(bars: list[tuple[date, float]]) -> dict:
         iso = dates[i].isocalendar()
         week_last[(iso[0], iso[1])] = i
     keep |= set(week_last.values())
-    for key in ("3Y", "5Y", "10Y"):
+    for key in ("2Y", "5Y", "10Y"):
         if dates[0] <= anchor_for(end, key):
             keep.add(_start_index(dates, end, key))
     keep.add(i0)

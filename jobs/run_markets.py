@@ -39,12 +39,12 @@ def main(argv=None) -> int:
     cfg = yaml.safe_load(Path(a.config).read_text(encoding="utf-8"))
     today = date.fromisoformat(a.today) if a.today else datetime.now(timezone.utc).date()
     if a.fixture_dir:
-        fetch, delay = csv_fetcher(Path(a.fixture_dir)), 0
+        fetch, delay, names = csv_fetcher(Path(a.fixture_dir)), 0, None
     else:
         from dashjobs import yahoo
-        fetch, delay = yahoo.fetch_history, a.delay
+        fetch, delay, names = yahoo.fetch_history, a.delay, yahoo.fetch_names
     try:
-        res = markets.run(cfg, fetch, today=today, data_dir=a.data_dir, work_dir=a.work_dir, delay=delay)
+        res = markets.run(cfg, fetch, today=today, data_dir=a.data_dir, work_dir=a.work_dir, delay=delay, fetch_names=names)
     except validate.ValidationError as e:
         print(f"VALIDATION FAILED, nothing published: {e}", file=sys.stderr)
         return 1

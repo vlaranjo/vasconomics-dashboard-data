@@ -2,7 +2,7 @@
 # Labels are by what the fund holds (fund-audit.md, decisions F2). acc / hedged feed the
 # "Acc" and "EUR-hedged" reference-table columns (decisions F4).
 schema_version: 1
-lookbacks: ["1D", "1W", "1M", "3M", "6M", "1Y", "2Y", "3Y", "5Y", "10Y"]
+lookbacks: ["1D", "1W", "1M", "3M", "6M", "YTD", "1Y", "2Y", "5Y", "10Y"]
 validation:
   min_fresh_fraction: 0.66      # at least 2 of 3 tickers fresh in this run (85% for the full set)
   max_close_age_days: 5         # a fresh row's last close within 5 calendar days of the run date
