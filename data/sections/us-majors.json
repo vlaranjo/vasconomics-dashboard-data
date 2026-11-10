@@ -4,17 +4,17 @@
  "title": "Major US indices",
  "page": "us-majors-factors",
  "kind": "funds",
- "generated_at": "2026-11-10T13:47:15Z",
- "as_of": "2026-11-09",
+ "generated_at": "2026-11-10T18:09:44Z",
+ "as_of": "2026-11-10",
  "lookbacks": [
   "1D",
   "1W",
   "1M",
   "3M",
   "6M",
+  "YTD",
   "1Y",
   "2Y",
-  "3Y",
   "5Y",
   "10Y"
  ],
@@ -30,59 +30,59 @@
    "hedged": false,
    "fund_name": "iShares Core S&P 500 UCITS ETF USD (Acc)",
    "first_close": "2010-05-19",
-   "last_close": "2026-11-09",
+   "last_close": "2026-11-10",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-10T13:47:15Z",
+   "last_success": "2026-11-10T18:09:44Z",
    "returns": {
     "1D": {
-     "value": 0.75,
-     "start": "2026-11-06",
+     "value": 0.21,
+     "start": "2026-11-09",
      "status": "ok"
     },
     "1W": {
-     "value": -1.47,
-     "start": "2026-11-02",
+     "value": -0.58,
+     "start": "2026-11-03",
      "status": "ok"
     },
     "1M": {
-     "value": -3.57,
+     "value": -3.36,
      "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 0.2,
-     "start": "2026-08-07",
+     "value": 0.31,
+     "start": "2026-08-10",
      "status": "ok"
     },
     "6M": {
-     "value": 7.37,
+     "value": 7.6,
      "start": "2026-05-08",
      "status": "ok"
     },
+    "YTD": {
+     "value": 15.39,
+     "start": "2025-12-30",
+     "status": "ok"
+    },
     "1Y": {
-     "value": 17.97,
-     "start": "2025-11-07",
+     "value": 15.71,
+     "start": "2025-11-10",
      "status": "ok"
     },
     "2Y": {
-     "value": 22.4,
+     "value": 22.66,
      "start": "2024-11-08",
      "status": "ok"
     },
-    "3Y": {
-     "value": 69.09,
-     "start": "2023-11-09",
-     "status": "ok"
-    },
     "5Y": {
-     "value": 75.87,
-     "start": "2021-11-09",
+     "value": 75.39,
+     "start": "2021-11-10",
      "status": "ok"
     },
     "10Y": {
-     "value": 289.51,
-     "start": "2016-11-09",
+     "value": 287.34,
+     "start": "2016-11-10",
      "status": "ok"
     }
    }
@@ -96,61 +96,61 @@
    "provider": "iShares",
    "acc": true,
    "hedged": false,
-   "fund_name": "iShares Nasdaq 100 UCITS ETF (Acc)",
+   "fund_name": "iShares NASDAQ 100 UCITS ETF USD (Acc)",
    "first_close": "2010-05-07",
-   "last_close": "2026-11-09",
+   "last_close": "2026-11-10",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-10T13:47:15Z",
+   "last_success": "2026-11-10T18:09:44Z",
    "returns": {
     "1D": {
-     "value": 1.54,
-     "start": "2026-11-06",
+     "value": 0.24,
+     "start": "2026-11-09",
      "status": "ok"
     },
     "1W": {
-     "value": -2.89,
-     "start": "2026-11-02",
+     "value": -1.41,
+     "start": "2026-11-03",
      "status": "ok"
     },
     "1M": {
-     "value": -10.02,
+     "value": -9.8,
      "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -3.66,
-     "start": "2026-08-07",
+     "value": -3.31,
+     "start": "2026-08-10",
      "status": "ok"
     },
     "6M": {
-     "value": 0.37,
+     "value": 0.61,
      "start": "2026-05-08",
      "status": "ok"
     },
+    "YTD": {
+     "value": 14.57,
+     "start": "2025-12-30",
+     "status": "ok"
+    },
     "1Y": {
-     "value": 16.45,
-     "start": "2025-11-07",
+     "value": 13.21,
+     "start": "2025-11-10",
      "status": "ok"
     },
     "2Y": {
-     "value": 26.49,
+     "value": 26.8,
      "start": "2024-11-08",
      "status": "ok"
     },
-    "3Y": {
-     "value": 74.41,
-     "start": "2023-11-09",
-     "status": "ok"
-    },
     "5Y": {
-     "value": 79.51,
-     "start": "2021-11-09",
+     "value": 80.1,
+     "start": "2021-11-10",
      "status": "ok"
     },
     "10Y": {
-     "value": 486.26,
-     "start": "2016-11-09",
+     "value": 495.91,
+     "start": "2016-11-10",
      "status": "ok"
     }
    }
@@ -164,61 +164,61 @@
    "provider": "iShares",
    "acc": true,
    "hedged": false,
-   "fund_name": "iShares Dow Jones Industrial Average UCITS ETF (Acc)",
+   "fund_name": "iShares VII PLC - iShares Dow Jones Indust Avg ETF USD Acc",
    "first_close": "2010-03-11",
-   "last_close": "2026-11-09",
+   "last_close": "2026-11-10",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-10T13:47:15Z",
+   "last_success": "2026-11-10T18:09:44Z",
    "returns": {
     "1D": {
-     "value": 0.67,
-     "start": "2026-11-06",
+     "value": 0.25,
+     "start": "2026-11-09",
      "status": "ok"
     },
     "1W": {
-     "value": -0.25,
-     "start": "2026-11-02",
+     "value": 0.92,
+     "start": "2026-11-03",
      "status": "ok"
     },
     "1M": {
-     "value": 1.34,
+     "value": 1.59,
      "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 0.04,
-     "start": "2026-08-07",
+     "value": 0.05,
+     "start": "2026-08-10",
      "status": "ok"
     },
     "6M": {
-     "value": 10.9,
+     "value": 11.17,
      "start": "2026-05-08",
      "status": "ok"
     },
+    "YTD": {
+     "value": 14.08,
+     "start": "2025-12-30",
+     "status": "ok"
+    },
     "1Y": {
-     "value": 16.8,
-     "start": "2025-11-07",
+     "value": 15.95,
+     "start": "2025-11-10",
      "status": "ok"
     },
     "2Y": {
-     "value": 15.84,
+     "value": 16.13,
      "start": "2024-11-08",
      "status": "ok"
     },
-    "3Y": {
-     "value": 51.21,
-     "start": "2023-11-09",
-     "status": "ok"
-    },
     "5Y": {
-     "value": 58.38,
-     "start": "2021-11-09",
+     "value": 57.76,
+     "start": "2021-11-10",
      "status": "ok"
     },
     "10Y": {
-     "value": 218.08,
-     "start": "2016-11-09",
+     "value": 212.99,
+     "start": "2016-11-10",
      "status": "ok"
     }
    }
@@ -232,61 +232,61 @@
    "provider": "SPDR (SSGA)",
    "acc": true,
    "hedged": false,
-   "fund_name": "State Street SPDR Russell 2000 U.S. Small Cap UCITS ETF USD",
+   "fund_name": "State Street SPDR Russell 2000 US Small Cap UCITS ETF",
    "first_close": "2014-11-10",
-   "last_close": "2026-11-09",
+   "last_close": "2026-11-10",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-10T13:47:15Z",
+   "last_success": "2026-11-10T18:09:44Z",
    "returns": {
     "1D": {
-     "value": 2.25,
-     "start": "2026-11-06",
+     "value": -0.19,
+     "start": "2026-11-09",
      "status": "ok"
     },
     "1W": {
-     "value": -0.65,
-     "start": "2026-11-02",
+     "value": -0.2,
+     "start": "2026-11-03",
      "status": "ok"
     },
     "1M": {
-     "value": 0.72,
+     "value": 0.53,
      "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -3.74,
-     "start": "2026-08-07",
+     "value": -3.58,
+     "start": "2026-08-10",
      "status": "ok"
     },
     "6M": {
-     "value": 4.42,
+     "value": 4.22,
      "start": "2026-05-08",
      "status": "ok"
     },
+    "YTD": {
+     "value": 18.11,
+     "start": "2025-12-30",
+     "status": "ok"
+    },
     "1Y": {
-     "value": 23.46,
-     "start": "2025-11-07",
+     "value": 19.8,
+     "start": "2025-11-10",
      "status": "ok"
     },
     "2Y": {
-     "value": 15.25,
+     "value": 15.03,
      "start": "2024-11-08",
      "status": "ok"
     },
-    "3Y": {
-     "value": 62.38,
-     "start": "2023-11-09",
-     "status": "ok"
-    },
     "5Y": {
-     "value": 26.12,
-     "start": "2021-11-09",
+     "value": 25.43,
+     "start": "2021-11-10",
      "status": "ok"
     },
     "10Y": {
-     "value": 147.63,
-     "start": "2016-11-09",
+     "value": 139.6,
+     "start": "2016-11-10",
      "status": "ok"
     }
    }
