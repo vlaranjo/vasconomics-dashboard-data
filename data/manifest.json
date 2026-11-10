@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-09T23:51:35Z",
+ "generated_at": "2026-11-10T13:47:15Z",
  "status": "status.json",
  "sections": {
   "asset-classes": {
@@ -45,7 +45,7 @@
   },
   "fx": {
    "path": "sections/fx.json",
-   "as_of": "2026-11-06"
+   "as_of": "2026-11-09"
   }
  },
  "history": {
@@ -91,7 +91,7 @@
   },
   "fx": {
    "path": "history/fx.json",
-   "as_of": "2026-11-06"
+   "as_of": "2026-11-09"
   }
  },
  "indicators": {
@@ -129,7 +129,7 @@
   },
   "fx": {
    "path": "indicators/fx.json",
-   "as_of": "2026-11-06"
+   "as_of": "2026-11-09"
   }
  },
  "pe": {

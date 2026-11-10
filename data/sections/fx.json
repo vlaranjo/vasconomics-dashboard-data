@@ -4,8 +4,8 @@
  "title": "Currency pairs (foreign units per 1 EUR)",
  "page": "fx",
  "kind": "fx",
- "generated_at": "2026-11-09T20:25:36Z",
- "as_of": "2026-11-06",
+ "generated_at": "2026-11-10T13:47:15Z",
+ "as_of": "2026-11-09",
  "lookbacks": [
   "1D",
   "1W",
@@ -25,59 +25,59 @@
    "ticker": "EURUSD=X",
    "currency": "USD",
    "first_close": "2003-12-01",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": -0.06,
-     "start": "2026-11-05",
+     "value": -0.72,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 0.41,
-     "start": "2026-10-30",
+     "value": -0.09,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 0.1,
-     "start": "2026-10-06",
+     "value": -0.59,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -2.85,
-     "start": "2026-08-06",
+     "value": -3.28,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": -4.16,
-     "start": "2026-05-06",
+     "value": -4.98,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -2.34,
-     "start": "2025-11-06",
+     "value": -3.48,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 2.69,
-     "start": "2024-11-06",
+     "value": 3.26,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 4.62,
-     "start": "2023-11-06",
+     "value": 4.08,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": -2.83,
-     "start": "2021-11-05",
+     "value": -3.83,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 1.13,
-     "start": "2016-11-04",
+     "value": 1.16,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -88,59 +88,59 @@
    "ticker": "EURGBP=X",
    "currency": "GBP",
    "first_close": "1999-01-04",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": 0.09,
-     "start": "2026-11-05",
+     "value": -0.0,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -0.17,
-     "start": "2026-10-30",
+     "value": 0.11,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -1.67,
-     "start": "2026-10-06",
+     "value": -1.55,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -2.75,
-     "start": "2026-08-06",
+     "value": -2.58,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": -3.37,
-     "start": "2026-05-06",
+     "value": -3.58,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -5.27,
-     "start": "2025-11-06",
+     "value": -5.06,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": -0.46,
-     "start": "2024-11-06",
+     "value": 0.35,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": -3.8,
-     "start": "2023-11-06",
+     "value": -4.29,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": -2.45,
-     "start": "2021-11-05",
+     "value": -2.32,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": -6.28,
-     "start": "2016-11-04",
+     "value": -6.18,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -151,59 +151,59 @@
    "ticker": "EURCHF=X",
    "currency": "CHF",
    "first_close": "2003-01-23",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": -0.18,
-     "start": "2026-11-05",
+     "value": -0.22,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -0.58,
-     "start": "2026-10-30",
+     "value": -0.71,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -1.81,
-     "start": "2026-10-06",
+     "value": -2.01,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -1.79,
-     "start": "2026-08-06",
+     "value": -2.42,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 0.02,
-     "start": "2026-05-06",
+     "value": -0.21,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -1.64,
-     "start": "2025-11-06",
+     "value": -1.86,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": -2.9,
-     "start": "2024-11-06",
+     "value": -3.03,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": -5.11,
-     "start": "2023-11-06",
+     "value": -5.13,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": -13.17,
-     "start": "2021-11-05",
+     "value": -13.68,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": -15.34,
-     "start": "2016-11-04",
+     "value": -15.33,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -214,59 +214,59 @@
    "ticker": "EURHUF=X",
    "currency": "HUF",
    "first_close": "2003-12-01",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": 0.51,
-     "start": "2026-11-05",
+     "value": -0.43,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -0.36,
-     "start": "2026-10-30",
+     "value": -0.74,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -0.81,
-     "start": "2026-10-06",
+     "value": -0.72,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 0.69,
-     "start": "2026-08-06",
+     "value": -0.65,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 0.83,
-     "start": "2026-05-06",
+     "value": 1.75,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -5.92,
-     "start": "2025-11-06",
+     "value": -6.12,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": -10.82,
-     "start": "2024-11-06",
+     "value": -10.44,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": -3.6,
-     "start": "2023-11-06",
+     "value": -4.39,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 1.12,
-     "start": "2021-11-05",
+     "value": 0.38,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 18.57,
-     "start": "2016-11-04",
+     "value": 18.65,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -277,59 +277,59 @@
    "ticker": "EURPLN=X",
    "currency": "PLN",
    "first_close": "2002-04-01",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": 0.39,
-     "start": "2026-11-05",
+     "value": -0.21,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 0.28,
-     "start": "2026-10-30",
+     "value": -0.4,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 0.49,
-     "start": "2026-10-06",
+     "value": 0.37,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 2.4,
-     "start": "2026-08-06",
+     "value": 2.22,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 3.71,
-     "start": "2026-05-06",
+     "value": 3.82,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 3.47,
-     "start": "2025-11-06",
+     "value": 3.36,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 1.13,
-     "start": "2024-11-06",
+     "value": 1.87,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": -1.13,
-     "start": "2023-11-06",
+     "value": -1.04,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": -4.28,
-     "start": "2021-11-05",
+     "value": -4.3,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 2.0,
-     "start": "2016-11-04",
+     "value": 1.42,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -340,59 +340,59 @@
    "ticker": "EURNOK=X",
    "currency": "NOK",
    "first_close": "2000-03-15",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": -0.01,
-     "start": "2026-11-05",
+     "value": 0.98,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 0.99,
-     "start": "2026-10-30",
+     "value": 2.58,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -2.96,
-     "start": "2026-10-06",
+     "value": -1.66,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -5.13,
-     "start": "2026-08-06",
+     "value": -4.03,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": -3.62,
-     "start": "2026-05-06",
+     "value": -3.3,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -11.03,
-     "start": "2025-11-06",
+     "value": -10.44,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": -12.71,
-     "start": "2024-11-06",
+     "value": -10.16,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": -11.72,
-     "start": "2023-11-06",
+     "value": -11.9,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 5.72,
-     "start": "2021-11-05",
+     "value": 7.04,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 14.87,
-     "start": "2016-11-04",
+     "value": 16.43,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -403,59 +403,59 @@
    "ticker": "EURSEK=X",
    "currency": "SEK",
    "first_close": "1998-11-18",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": 0.74,
-     "start": "2026-11-05",
+     "value": 0.11,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 0.05,
-     "start": "2026-10-30",
+     "value": 0.64,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -2.17,
-     "start": "2026-10-06",
+     "value": -1.34,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 0.52,
-     "start": "2026-08-06",
+     "value": 0.6,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 1.73,
-     "start": "2026-05-06",
+     "value": 1.33,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 0.3,
-     "start": "2025-11-06",
+     "value": -0.22,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": -5.68,
-     "start": "2024-11-06",
+     "value": -4.41,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": -5.66,
-     "start": "2023-11-06",
+     "value": -5.44,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 11.05,
-     "start": "2021-11-05",
+     "value": 11.0,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 10.65,
-     "start": "2016-11-04",
+     "value": 11.5,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -466,59 +466,59 @@
    "ticker": "EURJPY=X",
    "currency": "JPY",
    "first_close": "2003-01-23",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": -0.61,
-     "start": "2026-11-05",
+     "value": -0.21,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 0.2,
-     "start": "2026-10-30",
+     "value": 0.3,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -0.2,
-     "start": "2026-10-06",
+     "value": -0.44,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -2.92,
-     "start": "2026-08-06",
+     "value": -3.34,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": -4.29,
-     "start": "2026-05-06",
+     "value": -4.09,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -0.17,
-     "start": "2025-11-06",
+     "value": -0.11,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 6.79,
-     "start": "2024-11-06",
+     "value": 6.71,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 10.25,
-     "start": "2023-11-06",
+     "value": 9.21,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 34.44,
-     "start": "2021-11-05",
+     "value": 34.45,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 54.59,
-     "start": "2016-11-04",
+     "value": 52.5,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -529,59 +529,59 @@
    "ticker": "EURCNY=X",
    "currency": "CNY",
    "first_close": "2003-12-01",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": 0.15,
-     "start": "2026-11-05",
+     "value": -0.9,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 0.82,
-     "start": "2026-10-30",
+     "value": 0.14,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -0.15,
-     "start": "2026-10-06",
+     "value": -0.97,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -3.73,
-     "start": "2026-08-06",
+     "value": -4.31,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": -6.16,
-     "start": "2026-05-06",
+     "value": -6.72,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -8.34,
-     "start": "2025-11-06",
+     "value": -9.48,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": -3.29,
-     "start": "2024-11-06",
+     "value": -3.47,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": -2.14,
-     "start": "2023-11-06",
+     "value": -3.11,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 1.73,
-     "start": "2021-11-05",
+     "value": 0.6,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 0.12,
-     "start": "2016-11-04",
+     "value": -0.32,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -592,59 +592,59 @@
    "ticker": "EURAUD=X",
    "currency": "AUD",
    "first_close": "2003-12-01",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": 1.0,
-     "start": "2026-11-05",
+     "value": 0.17,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 1.8,
-     "start": "2026-10-30",
+     "value": 2.24,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 0.63,
-     "start": "2026-10-06",
+     "value": 0.72,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -1.07,
-     "start": "2026-08-06",
+     "value": -0.96,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": -0.38,
-     "start": "2026-05-06",
+     "value": -0.27,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -8.26,
-     "start": "2025-11-06",
+     "value": -8.88,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": -1.6,
-     "start": "2024-11-06",
+     "value": 0.38,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": -1.63,
-     "start": "2023-11-06",
+     "value": -2.9,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 3.89,
-     "start": "2021-11-05",
+     "value": 3.84,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 12.17,
-     "start": "2016-11-04",
+     "value": 14.1,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -655,59 +655,59 @@
    "ticker": "EURNZD=X",
    "currency": "NZD",
    "first_close": "2003-12-01",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": 0.45,
-     "start": "2026-11-05",
+     "value": -0.06,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 1.06,
-     "start": "2026-10-30",
+     "value": 1.11,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 0.16,
-     "start": "2026-10-06",
+     "value": 0.24,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 2.23,
-     "start": "2026-08-06",
+     "value": 2.12,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 1.11,
-     "start": "2026-05-06",
+     "value": 1.52,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -1.08,
-     "start": "2025-11-06",
+     "value": -2.08,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 10.42,
-     "start": "2024-11-06",
+     "value": 11.87,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 12.12,
-     "start": "2023-11-06",
+     "value": 10.7,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 23.53,
-     "start": "2021-11-05",
+     "value": 23.95,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 32.55,
-     "start": "2016-11-04",
+     "value": 34.17,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -718,59 +718,59 @@
    "ticker": "EURINR=X",
    "currency": "INR",
    "first_close": "2003-12-01",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": -0.15,
-     "start": "2026-11-05",
+     "value": -1.38,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -0.36,
-     "start": "2026-10-30",
+     "value": -1.26,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -1.8,
-     "start": "2026-10-06",
+     "value": -3.61,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -3.5,
-     "start": "2026-08-06",
+     "value": -4.6,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": -4.89,
-     "start": "2026-05-06",
+     "value": -5.38,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 4.2,
-     "start": "2025-11-06",
+     "value": 2.17,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 15.36,
-     "start": "2024-11-06",
+     "value": 14.97,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 18.96,
-     "start": "2023-11-06",
+     "value": 17.39,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 23.3,
-     "start": "2021-11-05",
+     "value": 22.16,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 43.34,
-     "start": "2016-11-04",
+     "value": 43.41,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -781,59 +781,59 @@
    "ticker": "EURCAD=X",
    "currency": "CAD",
    "first_close": "2003-12-01",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": 0.27,
-     "start": "2026-11-05",
+     "value": -0.01,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 0.62,
-     "start": "2026-10-30",
+     "value": 0.97,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -1.63,
-     "start": "2026-10-06",
+     "value": -1.33,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -2.79,
-     "start": "2026-08-06",
+     "value": -2.55,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": -1.26,
-     "start": "2026-05-06",
+     "value": -1.8,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -2.92,
-     "start": "2025-11-06",
+     "value": -3.43,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 4.04,
-     "start": "2024-11-06",
+     "value": 5.13,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 7.35,
-     "start": "2023-11-06",
+     "value": 6.53,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 9.38,
-     "start": "2021-11-05",
+     "value": 9.15,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 5.89,
-     "start": "2016-11-04",
+     "value": 7.44,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -844,59 +844,59 @@
    "ticker": "EURBRL=X",
    "currency": "BRL",
    "first_close": "2003-12-01",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": 0.74,
-     "start": "2026-11-05",
+     "value": -0.67,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 2.55,
-     "start": "2026-10-30",
+     "value": 1.08,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 10.12,
-     "start": "2026-10-06",
+     "value": 9.06,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 4.07,
-     "start": "2026-08-06",
+     "value": 3.99,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 7.04,
-     "start": "2026-05-06",
+     "value": 5.82,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": 0.31,
-     "start": "2025-11-06",
+     "value": -0.67,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": -1.54,
-     "start": "2024-11-06",
+     "value": -0.12,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 17.55,
-     "start": "2023-11-06",
+     "value": 16.84,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": -4.59,
-     "start": "2021-11-05",
+     "value": -4.51,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 70.79,
-     "start": "2016-11-04",
+     "value": 75.74,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -907,59 +907,59 @@
    "ticker": "EURMXN=X",
    "currency": "MXN",
    "first_close": "2003-12-01",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": 0.87,
-     "start": "2026-11-05",
+     "value": -1.48,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -0.05,
-     "start": "2026-10-30",
+     "value": -0.92,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": 4.01,
-     "start": "2026-10-06",
+     "value": 1.87,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 5.89,
-     "start": "2026-08-06",
+     "value": 4.79,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 3.82,
-     "start": "2026-05-06",
+     "value": 2.43,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -1.34,
-     "start": "2025-11-06",
+     "value": -3.12,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": -4.22,
-     "start": "2024-11-06",
+     "value": -2.78,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 12.46,
-     "start": "2023-11-06",
+     "value": 10.61,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": -11.18,
-     "start": "2021-11-05",
+     "value": -11.83,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": -0.83,
-     "start": "2016-11-04",
+     "value": 3.0,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -970,59 +970,59 @@
    "ticker": "EURCLP=X",
    "currency": "CLP",
    "first_close": "2006-05-16",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": -0.81,
-     "start": "2026-11-05",
+     "value": 1.13,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -2.14,
-     "start": "2026-10-30",
+     "value": -1.67,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -2.57,
-     "start": "2026-10-06",
+     "value": -0.27,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 3.11,
-     "start": "2026-08-06",
+     "value": 3.95,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": 0.14,
-     "start": "2026-05-06",
+     "value": 2.79,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -1.96,
-     "start": "2025-11-06",
+     "value": -0.54,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": 2.84,
-     "start": "2024-11-06",
+     "value": 4.95,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": 12.79,
-     "start": "2023-11-06",
+     "value": 13.77,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 13.53,
-     "start": "2021-11-05",
+     "value": 15.48,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 49.7,
-     "start": "2016-11-04",
+     "value": 50.51,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -1033,59 +1033,59 @@
    "ticker": "EURCOP=X",
    "currency": "COP",
    "first_close": "2002-04-01",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": -1.15,
-     "start": "2026-11-05",
+     "value": -0.07,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": 2.65,
-     "start": "2026-10-30",
+     "value": 1.81,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -1.67,
-     "start": "2026-10-06",
+     "value": -0.31,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -2.1,
-     "start": "2026-08-06",
+     "value": -1.61,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": -19.16,
-     "start": "2026-05-06",
+     "value": -19.39,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -20.55,
-     "start": "2025-11-06",
+     "value": -20.34,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": -27.2,
-     "start": "2024-11-06",
+     "value": -25.97,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": -17.75,
-     "start": "2023-11-06",
+     "value": -17.83,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": -20.47,
-     "start": "2021-11-05",
+     "value": -21.52,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 3.93,
-     "start": "2016-11-04",
+     "value": 5.25,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
@@ -1096,59 +1096,59 @@
    "ticker": "EURZAR=X",
    "currency": "ZAR",
    "first_close": "2000-03-09",
-   "last_close": "2026-11-06",
+   "last_close": "2026-11-09",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-09T20:25:36Z",
+   "last_success": "2026-11-10T13:47:15Z",
    "returns": {
     "1D": {
-     "value": 0.39,
-     "start": "2026-11-05",
+     "value": -0.35,
+     "start": "2026-11-06",
      "status": "ok"
     },
     "1W": {
-     "value": -0.42,
-     "start": "2026-10-30",
+     "value": -1.04,
+     "start": "2026-11-02",
      "status": "ok"
     },
     "1M": {
-     "value": -0.95,
-     "start": "2026-10-06",
+     "value": -0.94,
+     "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -1.89,
-     "start": "2026-08-06",
+     "value": -2.18,
+     "start": "2026-08-07",
      "status": "ok"
     },
     "6M": {
-     "value": -4.83,
-     "start": "2026-05-06",
+     "value": -4.49,
+     "start": "2026-05-08",
      "status": "ok"
     },
     "1Y": {
-     "value": -7.52,
-     "start": "2025-11-06",
+     "value": -8.05,
+     "start": "2025-11-07",
      "status": "ok"
     },
     "2Y": {
-     "value": -2.7,
-     "start": "2024-11-06",
+     "value": -1.24,
+     "start": "2024-11-08",
      "status": "ok"
     },
     "3Y": {
-     "value": -5.61,
-     "start": "2023-11-06",
+     "value": -6.94,
+     "start": "2023-11-09",
      "status": "ok"
     },
     "5Y": {
-     "value": 5.42,
-     "start": "2021-11-05",
+     "value": 6.83,
+     "start": "2021-11-09",
      "status": "ok"
     },
     "10Y": {
-     "value": 24.01,
-     "start": "2016-11-04",
+     "value": 26.46,
+     "start": "2016-11-09",
      "status": "ok"
     }
    }
