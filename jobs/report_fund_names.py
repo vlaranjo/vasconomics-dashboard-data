@@ -14,7 +14,7 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from dashjobs.markets import pick_name  # noqa: E402
+from dashjobs.markets import _ENTITY_END, pick_name  # noqa: E402
 
 OUTDATED = re.compile(r"lyxor|comstage|db x-?trackers|\bsource\b|deutsche|multi units", re.I)
 DIST = re.compile(r"\b(dist|dis|distributing|distribution|income)\b|\(d\)", re.I)
@@ -41,8 +41,8 @@ def flags_for(meta: dict, long_name, short_name, shown: str, notes: dict) -> lis
         out.append("hedge: config says EUR-hedged, name does not")
     if meta.get("hedged") is False and HEDGED.search(shown) and "unhedged" not in shown.lower():
         out.append("hedge: name says hedged, config says not")
-    if re.search(r"\bplc\b\s*-|index solutions\s*-", shown, re.I):
-        out.append("legal-entity prefix in the name")
+    if _ENTITY_END.search(shown.partition(" - ")[0].strip()) and " - " in shown:
+        out.append("legal-entity prefix still in the name")
     if meta.get("name_override"):
         out.append("overridden: " + meta.get("name_reason", "NO REASON GIVEN"))
     if meta["ticker"] in notes:
@@ -87,10 +87,10 @@ def main(argv=None) -> int:
 
 Generated {date.today().isoformat()} by `jobs/report_fund_names.py`. The markets job reads each ticker's `longName` and `shortName` from Yahoo (the same
 source as the prices) and shows `longName`, falling back to `shortName` only if `longName` is missing. A ticker can carry `name_override` plus a one-line
-`name_reason` in `config/universe.yaml` for a name Yahoo has wrong. If Yahoo's name call fails in a run, the last published name is kept (never blanked).
+`name_reason` in `config/universe.yaml` for a name Yahoo has wrong. A legal-entity prefix ("iShares VII PLC - ", "Amundi Index Solutions - ") is stripped by a rule in the job (`clean_name`), not by overrides; the longName column below is Yahoo's raw text. Abbreviations are left as Yahoo has them. If Yahoo's name call fails in a run, the last published name is kept (never blanked).
 
 {len(lines)} funds, {n_flag} with a flag. Flags are automatic (missing, truncated, outdated brand, share class or hedge contradicting the config, legal-entity
-prefix) plus hand-written remarks from a comparison with the justETF profile name for the same ISIN (the names the config used before this round).
+prefix still present) plus hand-written remarks from a comparison with the justETF profile name for the same ISIN (the names the config used before this round).
 
 | Ticker | ISIN | longName | shortName | Name shown | Flag |
 |---|---|---|---|---|---|
