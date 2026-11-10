@@ -13,7 +13,7 @@ class NothingFetched(Exception):
 
 
 def run(cfg: dict, fetch_text, *, today: date, now: datetime | None = None, data_dir, work_dir, env=None,
-        sleep=time.sleep, workflow: str = "pe", universe: dict | None = None) -> dict:
+        sleep=time.sleep, workflow: str = "pe", universe: dict) -> dict:
     now = now or datetime.now(timezone.utc)
     started = now
     data_dir, work_dir = Path(data_dir), Path(work_dir)

@@ -8,6 +8,21 @@ from pathlib import Path
 from . import history, lookback, publish, status, validate
 
 
+def pick_name(meta: dict, fetched: dict | None, last_good: str | None) -> str:
+    """The fund name shown: the config's name_override if there is one (with a reason in the config), else Yahoo's longName,
+    else its shortName, else the last good name already published. Never blank it when an earlier name exists."""
+    if meta.get("name_override"):
+        if not meta.get("name_reason"):
+            raise validate.ValidationError(f"{meta['ticker']}: name_override needs a one-line name_reason in config/universe.yaml")
+        return meta["name_override"]
+    f = fetched or {}
+    for k in ("longName", "shortName"):
+        n = (f.get(k) or "").strip()
+        if n:
+            return n
+    return last_good or ""
+
+
 def _row_record(meta: dict, bars, now_iso: str) -> dict:
     extra = {k: meta[k] for k in ("isin", "provider", "acc", "hedged", "fund_name", "etc") if k in meta}
     return {
@@ -19,12 +34,16 @@ def _row_record(meta: dict, bars, now_iso: str) -> dict:
 
 
 def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir, work_dir,
-        env=None, sleep=time.sleep, delay: float = 3.0, retry_wait: float = 20.0, workflow: str = "markets") -> dict:
+        env=None, sleep=time.sleep, delay: float = 3.0, retry_wait: float = 20.0, workflow: str = "markets", fetch_names=None) -> dict:
     now = now or datetime.now(timezone.utc)
     started = now
     data_dir, work_dir = Path(data_dir), Path(work_dir)
     out_dir = work_dir / "out"
     vcfg = cfg["validation"]
+    for sec0 in cfg["sections"]:                          # checked up front: a failure inside the per-fund fetch would be mistaken for a fetch error
+        for m0 in sec0["rows"]:
+            if m0.get("name_override") and not m0.get("name_reason"):
+                raise validate.ValidationError(f"{m0['ticker']}: name_override needs a one-line name_reason in config/universe.yaml")
     now_iso = status.iso(now)
 
     prev_manifest = publish.read_json(data_dir / "manifest.json") or {}
@@ -47,6 +66,21 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
         bars_raw = fetch(ticker)
         cache[ticker] = bars_raw
         return bars_raw, True
+
+    # Fund names come from Yahoo too (longName, then shortName). One batch for the whole run; if the call fails or skips a ticker,
+    # the last published name for that ticker is kept.
+    last_names: dict[str, str] = {}
+    for rel0 in (prev_manifest.get("sections") or {}).values():
+        for r in (publish.read_json(data_dir / rel0["path"]) or {}).get("rows", []):
+            if r.get("fund_name"):
+                last_names[r["ticker"]] = r["fund_name"]
+    fund_tickers = sorted({m["ticker"] for s in cfg["sections"] if s.get("kind", "funds") == "funds" for m in s["rows"]})
+    fetched_names: dict = {}
+    if fetch_names is not None:
+        try:
+            fetched_names = fetch_names(fund_tickers) or {}
+        except Exception:  # noqa: BLE001
+            fetched_names = {}
 
     waited_once = False
     for sec in cfg["sections"]:
@@ -72,6 +106,8 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
             # Only the window the figures use is checked: a bar older than the 10Y anchor (plus a month of margin) never enters a number.
             window_start = date(today.year - 10, today.month, 1) - timedelta(days=31)
             validate.check_price_jumps(meta["ticker"], [b for b in bars if b[0] >= window_start], vcfg["max_abs_1d_pct"], vcfg.get("jump_exceptions"))
+            if kind == "funds":
+                meta = {**meta, "fund_name": pick_name(meta, fetched_names.get(meta["ticker"]), last_names.get(meta["ticker"]))}
             rec = _row_record(meta, bars, now_iso)
             hist_by_id[meta["id"]] = {"id": meta["id"], **history.history_points(bars)}
             if want_ind:
@@ -108,6 +144,8 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
                 if old:
                     old = dict(old)
                     old["stale"], old["stale_reason"] = True, "fetch_failed"
+                    if kind == "funds":                            # rows published before names existed get one now; an existing name is never blanked
+                        old["fund_name"] = pick_name(meta, fetched_names.get(meta["ticker"]), old.get("fund_name") or last_names.get(meta["ticker"]))
                     by_id[meta["id"]] = old
                     if meta["id"] in prev_hist:                    # chart series are carried forward with the row
                         hist_by_id[meta["id"]] = prev_hist[meta["id"]]

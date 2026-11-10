@@ -3,6 +3,7 @@
 - End = the instrument's last close in the run (never "today").
 - 1D = previous trading row.
 - 1W = end - 7 calendar days; 1M/3M/6M = end - n calendar months; 1Y..10Y = end - n calendar years.
+- YTD = 31 December of the previous calendar year (of the end date); the start is the last close on or before it.
 - Month/year arithmetic clamps to the last day of the month (relativedelta does this).
 - Start = last close ON OR BEFORE the anchor.
 - If the first close is after the anchor: n/a (status "na_young") with a since-launch return.
@@ -18,7 +19,7 @@ from typing import Iterable
 
 from dateutil.relativedelta import relativedelta
 
-LOOKBACKS = ["1D", "1W", "1M", "3M", "6M", "1Y", "2Y", "3Y", "5Y", "10Y"]
+LOOKBACKS = ["1D", "1W", "1M", "3M", "6M", "YTD", "1Y", "2Y", "5Y", "10Y"]
 
 _SPAN = {
     "1W": relativedelta(days=7),
@@ -27,7 +28,6 @@ _SPAN = {
     "6M": relativedelta(months=6),
     "1Y": relativedelta(years=1),
     "2Y": relativedelta(years=2),
-    "3Y": relativedelta(years=3),
     "5Y": relativedelta(years=5),
     "10Y": relativedelta(years=10),
 }
@@ -52,6 +52,8 @@ def clean_bars(bars: Iterable[tuple[date, float]], run_date: date | None = None)
 
 
 def anchor_for(end: date, key: str) -> date:
+    if key == "YTD":
+        return date(end.year - 1, 12, 31)
     return end - _SPAN[key]
 
 

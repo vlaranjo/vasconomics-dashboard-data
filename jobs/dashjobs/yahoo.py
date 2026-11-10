@@ -43,3 +43,25 @@ def fetch_history(symbol: str, retries: int = 3, delay: float = 3.0, sleep=time.
         if attempt < retries:
             sleep(delay * attempt)
     raise FetchError(f"{symbol}: failed after {retries} tries: {last_err}")
+
+
+def fetch_names(symbols: list[str], chunk: int = 40, sleep=time.sleep, pause: float = 2.0) -> dict[str, dict]:
+    """{symbol: {"longName": str|None, "shortName": str|None}} from Yahoo's quote-type module (the same source as the prices).
+    A few symbols per request, with a pause between requests. A symbol Yahoo does not answer for is simply absent; the
+    caller keeps its last good name. Never raises: a failed call returns what was got so far."""
+    from yahooquery import Ticker
+
+    out: dict[str, dict] = {}
+    for i in range(0, len(symbols), chunk):
+        part = symbols[i:i + chunk]
+        try:
+            res = Ticker(part).quote_type
+        except Exception:  # noqa: BLE001 - names are decoration; the run goes on
+            res = None
+        if isinstance(res, dict):
+            for sym, q in res.items():
+                if isinstance(q, dict):
+                    out[sym] = {"longName": q.get("longName") or None, "shortName": q.get("shortName") or None}
+        if i + chunk < len(symbols):
+            sleep(pause)
+    return out

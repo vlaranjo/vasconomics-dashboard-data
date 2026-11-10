@@ -152,7 +152,7 @@ def test_H9_history_points_daily_for_one_year_weekly_before_and_anchor_bars_kept
     assert len(in_year) >= 250 and len(dates) < 262 + 10 * 53 + 5      # daily for a year, then roughly one point a week
     assert h["v"][0] == 100 and h["d"] == sorted(set(h["d"]))
     allset = {d for d, _ in bars}
-    for key in ("3Y", "5Y", "10Y"):
+    for key in ("2Y", "5Y", "10Y"):
         start = max(d for d in allset if d <= lookback.anchor_for(end, key))
         assert start in dates                                       # the heatmap's start bar for this look-back is a published point
     assert dates[0] == max(d for d in allset if d <= lookback.anchor_for(end, "10Y"))
@@ -164,7 +164,7 @@ def test_H10_history_end_point_matches_the_heatmap_return_for_every_lookback():
     h = history.history_points(bars)
     by_date = dict(zip((date.fromordinal(x + history.EPOCH_ORDINAL) for x in h["d"]), h["v"]))
     end_level = h["v"][-1]
-    for key in ("1M", "3M", "6M", "1Y", "3Y", "5Y", "10Y"):
+    for key in ("1M", "3M", "6M", "YTD", "1Y", "2Y", "5Y", "10Y"):
         start = date.fromisoformat(ret[key]["start"])
         assert (end_level / by_date[start] - 1) * 100 == pytest.approx(ret[key]["value"], abs=0.05), key
 

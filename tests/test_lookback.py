@@ -121,3 +121,61 @@ def test_L13_closed_form_all_ten_lookbacks():
             expect = ((1 + g) ** days - 1) * 100
         assert r[k]["status"] == "ok"
         assert math.isclose(r[k]["value"], round(expect, 2), abs_tol=0.011), (k, r[k]["value"], expect)
+
+
+# ---- YTD (9 Nov 2026): anchor = 31 December of the previous calendar year ---------------------------------------------------------
+def _bdays(first, last, skip=()):
+    out, d, c = [], first, 100.0
+    while d <= last:
+        if d.weekday() < 5 and d not in skip:
+            out.append((d, round(c, 4)))
+            c *= 1.0007
+        d += timedelta(days=1)
+    return out
+
+
+def _indep_ytd(bars, end):
+    """Independent calculation: scan the closes backwards for the last one dated on or before 31 Dec of the previous year."""
+    cutoff = date(end.year - 1, 12, 31)
+    prior = [(d, c) for d, c in bars if d <= cutoff]
+    last = [c for d, c in bars if d == end][0]
+    return None if not prior else (prior[-1][0], round((last / prior[-1][1] - 1) * 100, 2))
+
+
+def test_L14_ytd_is_in_the_lookback_list_and_3y_is_gone():
+    assert lb.LOOKBACKS == ["1D", "1W", "1M", "3M", "6M", "YTD", "1Y", "2Y", "5Y", "10Y"]
+    assert lb.anchor_for(date(2026, 11, 6), "YTD") == date(2025, 12, 31)
+
+
+def test_L15_ytd_normal_run_starts_at_the_last_close_of_the_previous_year():
+    bars = _bdays(date(2024, 1, 1), date(2026, 11, 6))
+    r = lb.compute_returns(bars)["YTD"]
+    d0, v = _indep_ytd(bars, date(2026, 11, 6))
+    assert d0 == date(2025, 12, 31) and r == {"value": v, "start": "2025-12-31", "status": "ok"}
+
+
+def test_L16_ytd_in_the_first_week_of_january_spans_only_a_few_days():
+    bars = _bdays(date(2024, 1, 1), date(2027, 1, 5))                # 31 Dec 2026 is a Thursday; 1 Jan is a holiday-free Friday here
+    r = lb.compute_returns(bars)["YTD"]
+    d0, v = _indep_ytd(bars, date(2027, 1, 5))
+    assert r["start"] == "2026-12-31" == d0.isoformat() and r["value"] == v and 0 < v < 0.5
+    on_jan_1 = _bdays(date(2024, 1, 1), date(2027, 1, 1))            # the very first bar of the year: YTD is the move of that one day
+    assert lb.compute_returns(on_jan_1)["YTD"]["start"] == "2026-12-31"
+
+
+def test_L17_ytd_when_31_december_is_a_weekend_or_a_holiday_uses_the_last_close_before_it():
+    sat = _bdays(date(2021, 6, 1), date(2023, 3, 15))                 # 31 Dec 2022 is a Saturday
+    r = lb.compute_returns(sat)["YTD"]
+    assert date(2022, 12, 31).weekday() == 5 and r["start"] == "2022-12-30" and r["value"] == _indep_ytd(sat, date(2023, 3, 15))[1]
+    hol = _bdays(date(2024, 6, 3), date(2026, 11, 6), skip={date(2025, 12, 31), date(2025, 12, 30)})     # closed on Tue 30 and Wed 31 Dec
+    r = lb.compute_returns(hol)["YTD"]
+    assert r["start"] == "2025-12-29" and r["value"] == _indep_ytd(hol, date(2026, 11, 6))[1]
+
+
+def test_L18_a_fund_launched_this_year_has_no_ytd_but_shows_its_since_launch_figure():
+    bars = _bdays(date(2026, 3, 2), date(2026, 11, 6))
+    r = lb.compute_returns(bars)["YTD"]
+    assert r["status"] == "na_young" and r["value"] is None and r["start"] is None
+    assert r["since_launch"] == {"value": round((bars[-1][1] / bars[0][1] - 1) * 100, 2), "start": "2026-03-02"}
+    on_anchor = _bdays(date(2025, 12, 31), date(2026, 11, 6))          # first close exactly on 31 Dec: a full YTD
+    assert lb.compute_returns(on_anchor)["YTD"]["status"] == "ok"

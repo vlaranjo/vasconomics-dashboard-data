@@ -224,13 +224,13 @@ def validate_status(status: dict) -> None:
     _check(STATUS_SCHEMA, status, "status")
 
 
-def validate_manifest(manifest: dict, universe: dict | None = None) -> None:
-    """Schema, and (when the universe config is given) completeness: every section of the config must have its returns entry
+def validate_manifest(manifest: dict, universe: dict) -> None:
+    """Schema and completeness. The universe config is MANDATORY (no default, no None): a job that cannot load it cannot publish. every section of the config must have its returns entry
     and its history entry, and every section with indicators its indicators entry. A job that would publish a manifest
     without them fails here and publishes nothing (the "no data yet" bug of 9 Nov 2026)."""
     _check(MANIFEST_SCHEMA, manifest, "manifest")
-    if universe is None:
-        return
+    if not isinstance(universe, dict) or not universe.get("sections"):
+        raise ValidationError("the universe config (config/universe.yaml) is required to validate the manifest and has no sections")
     missing = []
     for sec in universe["sections"]:
         sid = sec["id"]

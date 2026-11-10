@@ -1,10 +1,11 @@
 # Full universe (milestone 2 data): every section of every page, with the decided fund changes applied (fund-audit.md; decisions G1, H1-H3, F1).
 # Built by _scratch/build_universe.py from the old app's lists and the audit table; edit this file directly from now on.
-# `holds` = what the fund tracks (reference table). `page` says which page shows the section.
+# Fund names are NOT kept here: the markets job reads each ticker's longName (then shortName) from Yahoo. `name_override` (with a one-line
+# `name_reason`) is the exception, only for a name Yahoo has wrong. `holds` = what the fund tracks (reference table). `page` says which page shows the section.
 # Labels are by what the fund holds (fund-audit.md, decisions F2). acc / hedged feed the
 # "Acc" and "EUR-hedged" reference-table columns (decisions F4).
 schema_version: 1
-lookbacks: ["1D", "1W", "1M", "3M", "6M", "1Y", "2Y", "3Y", "5Y", "10Y"]
+lookbacks: ["1D", "1W", "1M", "3M", "6M", "YTD", "1Y", "2Y", "5Y", "10Y"]
 validation:
   min_fresh_fraction: 0.85      # per section: at least 85% of its rows fresh in this run
   max_close_age_days: 5         # a fresh row's last close within 5 calendar days of the run date
@@ -20,71 +21,71 @@ sections:
     page: asset-classes
     title: "Asset classes"
     rows:
-      - {id: acwie, label: "Global Equities", ticker: "ACWIE.MI", isin: "IE00BYM11K57", provider: "UBS", currency: "EUR", acc: true, hedged: true, holds: "MSCI ACWI (EUR-hedged, swap-based)", fund_name: "UBS MSCI ACWI SF UCITS ETF hEUR acc"}
-      - {id: vagf, label: "Global Bond Aggregate", ticker: "VAGF.DE", isin: "IE00BG47KH54", provider: "Vanguard", currency: "EUR", acc: true, hedged: true, holds: "Global Aggregate bonds (EUR-hedged)", fund_name: "Vanguard Global Aggregate Bond UCITS ETF EUR Hedged Accumulating"}
-      - {id: epra, label: "Global Real Estate", ticker: "EPRA.PA", isin: "LU1437018838", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "FTSE EPRA Nareit Developed (global real estate)", fund_name: "Amundi FTSE EPRA NAREIT Global UCITS ETF Acc"}
-      - {id: cmoe, label: "Commodities", ticker: "CMOE.MI", isin: "IE00BF4J0300", provider: "Invesco", currency: "EUR", acc: true, hedged: true, holds: "Bloomberg Commodity (EUR-hedged)", fund_name: "Invesco Bloomberg Commodity UCITS ETF EUR hedged Acc"}
-      - {id: xad1, label: "Gold", ticker: "XAD1.DE", isin: "DE000A1EK0G3", provider: "Xtrackers (DWS)", currency: "EUR", acc: true, hedged: true, holds: "Gold (physical ETC, EUR-hedged)", fund_name: "Xtrackers Physical Gold EUR Hedged ETC", etc: true}
-      - {id: peu, label: "Euro Money Market", ticker: "PEU.PA", isin: "IE00B3BPCH51", provider: "Invesco", currency: "EUR", acc: true, hedged: false, holds: "Euro cash: gov't bills 0-6M", fund_name: "Invesco Euro Cash 3 Months UCITS ETF Acc"}
+      - {id: acwie, label: "Global Equities", ticker: "ACWIE.MI", isin: "IE00BYM11K57", provider: "UBS", currency: "EUR", acc: true, hedged: true, holds: "MSCI ACWI (EUR-hedged, swap-based)"}
+      - {id: vagf, label: "Global Bond Aggregate", ticker: "VAGF.DE", isin: "IE00BG47KH54", provider: "Vanguard", currency: "EUR", acc: true, hedged: true, holds: "Global Aggregate bonds (EUR-hedged)"}
+      - {id: epra, label: "Global Real Estate", ticker: "EPRA.PA", isin: "LU1437018838", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "FTSE EPRA Nareit Developed (global real estate)"}
+      - {id: cmoe, label: "Commodities", ticker: "CMOE.MI", isin: "IE00BF4J0300", provider: "Invesco", currency: "EUR", acc: true, hedged: true, holds: "Bloomberg Commodity (EUR-hedged)"}
+      - {id: xad1, label: "Gold", ticker: "XAD1.DE", isin: "DE000A1EK0G3", provider: "Xtrackers (DWS)", currency: "EUR", acc: true, hedged: true, holds: "Gold (physical ETC, EUR-hedged)", etc: true}
+      - {id: peu, label: "Euro Money Market", ticker: "PEU.PA", isin: "IE00B3BPCH51", provider: "Invesco", currency: "EUR", acc: true, hedged: false, holds: "Euro cash: gov't bills 0-6M", name_override: "Invesco Euro Cash 3 Months UCITS ETF Acc", name_reason: "Yahoo still shows the pre-rename name (Invesco EuroMTS Cash 3 Months UCITS ETF); the fund is now called Euro Cash 3 Months (justETF profile, checked 6 Nov 2026)"}
   # ---- page: Countries & Regions ----
   - id: equity-regions
     indicators: true       # indicator chart (moving averages + RSI), as on the old app's page
     page: countries-regions
     title: "Equity regions"
     rows:
-      - {id: acwie, label: "MSCI ACWI (EUR-hedged)", ticker: "ACWIE.MI", isin: "IE00BYM11K57", provider: "UBS", currency: "EUR", acc: true, hedged: true, holds: "MSCI ACWI (EUR-hedged, swap-based)", fund_name: "UBS MSCI ACWI SF UCITS ETF hEUR acc"}
-      - {id: ubuj, label: "MSCI USA (EUR-hedged)", ticker: "UBUJ.DE", isin: "IE00BD4TYG73", provider: "UBS", currency: "EUR", acc: true, hedged: true, holds: "MSCI USA (EUR-hedged)", fund_name: "UBS Core MSCI USA UCITS ETF EUR Hedged acc"}
-      - {id: eunk, label: "MSCI Europe", ticker: "EUNK.DE", isin: "IE00B4K48X80", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe", fund_name: "iShares Core MSCI Europe UCITS ETF EUR (Acc)"}
-      - {id: ibcg, label: "MSCI Japan (EUR-hedged)", ticker: "IBCG.DE", isin: "IE00B42Z5J44", provider: "iShares", currency: "EUR", acc: true, hedged: true, holds: "MSCI Japan (EUR-hedged)", fund_name: "iShares MSCI Japan EUR Hedged UCITS ETF (Acc)"}
-      - {id: sxr1, label: "MSCI Pacific ex Japan", ticker: "SXR1.DE", isin: "IE00B52MJY50", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Pacific ex Japan", fund_name: "iShares Core MSCI Pacific ex Japan UCITS ETF (Acc)"}
-      - {id: eunm, label: "MSCI Emerging Markets", ticker: "EUNM.DE", isin: "IE00B4L5YC18", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Emerging Markets", fund_name: "iShares MSCI EM UCITS ETF (Acc)"}
-      - {id: aasi, label: "MSCI EM Asia", ticker: "AASI.MI", isin: "LU1681044480", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI EM Asia", fund_name: "Amundi MSCI Emerging Markets Asia UCITS ETF EUR (C)"}
-      - {id: alat, label: "MSCI EM Latin America", ticker: "ALAT.PA", isin: "LU1681045024", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI EM Latin America", fund_name: "Amundi MSCI Emerging Markets Latin America UCITS ETF EUR (C)"}
+      - {id: acwie, label: "MSCI ACWI (EUR-hedged)", ticker: "ACWIE.MI", isin: "IE00BYM11K57", provider: "UBS", currency: "EUR", acc: true, hedged: true, holds: "MSCI ACWI (EUR-hedged, swap-based)"}
+      - {id: ubuj, label: "MSCI USA (EUR-hedged)", ticker: "UBUJ.DE", isin: "IE00BD4TYG73", provider: "UBS", currency: "EUR", acc: true, hedged: true, holds: "MSCI USA (EUR-hedged)"}
+      - {id: eunk, label: "MSCI Europe", ticker: "EUNK.DE", isin: "IE00B4K48X80", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe"}
+      - {id: ibcg, label: "MSCI Japan (EUR-hedged)", ticker: "IBCG.DE", isin: "IE00B42Z5J44", provider: "iShares", currency: "EUR", acc: true, hedged: true, holds: "MSCI Japan (EUR-hedged)"}
+      - {id: sxr1, label: "MSCI Pacific ex Japan", ticker: "SXR1.DE", isin: "IE00B52MJY50", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Pacific ex Japan"}
+      - {id: eunm, label: "MSCI Emerging Markets", ticker: "EUNM.DE", isin: "IE00B4L5YC18", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Emerging Markets"}
+      - {id: aasi, label: "MSCI EM Asia", ticker: "AASI.MI", isin: "LU1681044480", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI EM Asia"}
+      - {id: alat, label: "MSCI EM Latin America", ticker: "ALAT.PA", isin: "LU1681045024", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI EM Latin America"}
   - id: equity-countries
     indicators: true       # indicator chart (moving averages + RSI), as on the old app's page
     page: countries-regions
     title: "Equity countries"
     default_visible: [ibcf, lyp6, sxrw, ibcg, xcs6, qdv5, lbra, lkor]   # series switched on in the re-based chart; the rest are one click away in the legend (at most 8)
     rows:
-      - {id: ibcf, label: "S&P 500 (EUR-hedged)", ticker: "IBCF.DE", isin: "IE00B3ZW0K18", provider: "iShares", currency: "EUR", acc: true, hedged: true, holds: "S&P 500 (EUR-hedged)", fund_name: "iShares S&P 500 EUR Hedged UCITS ETF (Acc)"}
-      - {id: lyp6, label: "STOXX Europe 600", ticker: "LYP6.DE", isin: "LU0908500753", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "STOXX Europe 600", fund_name: "Amundi Core Stoxx Europe 600 UCITS ETF Acc"}
-      - {id: sxrw, label: "FTSE 100", ticker: "SXRW.DE", isin: "IE00B53HP851", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "FTSE 100", fund_name: "iShares Core FTSE 100 UCITS ETF GBP (Acc)"}
-      - {id: 18mn, label: "MSCI Switzerland", ticker: "18MN.DE", isin: "LU1681044993", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI Switzerland", fund_name: "Amundi MSCI Switzerland UCITS ETF CHF"}
-      - {id: ibcg, label: "MSCI Japan (EUR-hedged)", ticker: "IBCG.DE", isin: "IE00B42Z5J44", provider: "iShares", currency: "EUR", acc: true, hedged: true, holds: "MSCI Japan (EUR-hedged)", fund_name: "iShares MSCI Japan EUR Hedged UCITS ETF (Acc)"}
-      - {id: saus, label: "MSCI Australia", ticker: "SAUS.MI", isin: "IE00B5377D42", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Australia", fund_name: "iShares MSCI Australia UCITS ETF"}
-      - {id: xcs6, label: "MSCI China", ticker: "XCS6.DE", isin: "LU0514695690", provider: "Xtrackers (DWS)", currency: "EUR", acc: true, hedged: false, holds: "MSCI China", fund_name: "Xtrackers MSCI China UCITS ETF 1C"}
-      - {id: qdv5, label: "MSCI India", ticker: "QDV5.DE", isin: "IE00BZCQB185", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI India", fund_name: "iShares MSCI India UCITS ETF USD (Acc)"}
-      - {id: lbra, label: "MSCI Brazil", ticker: "LBRA.DE", isin: "LU1900066207", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI Brazil", fund_name: "Amundi MSCI Brazil UCITS ETF Acc"}
-      - {id: lkor, label: "MSCI Korea", ticker: "LKOR.DE", isin: "LU1900066975", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI Korea 20/35", fund_name: "Amundi MSCI Korea UCITS ETF Acc"}
-      - {id: d5bi, label: "MSCI Mexico", ticker: "D5BI.DE", isin: "LU0476289466", provider: "Xtrackers (DWS)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Mexico", fund_name: "Xtrackers MSCI Mexico UCITS ETF 1C"}
-      - {id: ibc4, label: "MSCI South Africa", ticker: "IBC4.DE", isin: "IE00B52XQP83", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI South Africa Capped", fund_name: "iShares MSCI South Africa UCITS ETF"}
-      - {id: ltur, label: "MSCI Turkey", ticker: "LTUR.DE", isin: "LU1900067601", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI Turkey", fund_name: "Amundi MSCI Turkey UCITS ETF Acc"}
-      - {id: iuss, label: "MSCI Saudi Arabia", ticker: "IUSS.DE", isin: "IE00BYYR0489", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Saudi Arabia 20/35", fund_name: "iShares MSCI Saudi Arabia Capped UCITS ETF USD (Acc)"}
-      - {id: ibcj, label: "MSCI Poland", ticker: "IBCJ.DE", isin: "IE00B4M7GH52", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Poland", fund_name: "iShares MSCI Poland UCITS ETF USD (Acc)"}
-      - {id: indo, label: "MSCI Indonesia", ticker: "INDO.MI", isin: "LU1900065811", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI Indonesia", fund_name: "Amundi MSCI Indonesia UCITS ETF Acc"}
-      - {id: dbx5, label: "MSCI Taiwan", ticker: "DBX5.DE", isin: "LU0292109187", provider: "Xtrackers (DWS)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Taiwan 20/35", fund_name: "Xtrackers MSCI Taiwan UCITS ETF 1C"}
+      - {id: ibcf, label: "S&P 500 (EUR-hedged)", ticker: "IBCF.DE", isin: "IE00B3ZW0K18", provider: "iShares", currency: "EUR", acc: true, hedged: true, holds: "S&P 500 (EUR-hedged)"}
+      - {id: lyp6, label: "STOXX Europe 600", ticker: "LYP6.DE", isin: "LU0908500753", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "STOXX Europe 600"}
+      - {id: sxrw, label: "FTSE 100", ticker: "SXRW.DE", isin: "IE00B53HP851", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "FTSE 100"}
+      - {id: 18mn, label: "MSCI Switzerland", ticker: "18MN.DE", isin: "LU1681044993", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI Switzerland"}
+      - {id: ibcg, label: "MSCI Japan (EUR-hedged)", ticker: "IBCG.DE", isin: "IE00B42Z5J44", provider: "iShares", currency: "EUR", acc: true, hedged: true, holds: "MSCI Japan (EUR-hedged)"}
+      - {id: saus, label: "MSCI Australia", ticker: "SAUS.MI", isin: "IE00B5377D42", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Australia"}
+      - {id: xcs6, label: "MSCI China", ticker: "XCS6.DE", isin: "LU0514695690", provider: "Xtrackers (DWS)", currency: "EUR", acc: true, hedged: false, holds: "MSCI China"}
+      - {id: qdv5, label: "MSCI India", ticker: "QDV5.DE", isin: "IE00BZCQB185", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI India"}
+      - {id: lbra, label: "MSCI Brazil", ticker: "LBRA.DE", isin: "LU1900066207", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI Brazil"}
+      - {id: lkor, label: "MSCI Korea", ticker: "LKOR.DE", isin: "LU1900066975", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI Korea 20/35"}
+      - {id: d5bi, label: "MSCI Mexico", ticker: "D5BI.DE", isin: "LU0476289466", provider: "Xtrackers (DWS)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Mexico"}
+      - {id: ibc4, label: "MSCI South Africa", ticker: "IBC4.DE", isin: "IE00B52XQP83", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI South Africa Capped"}
+      - {id: ltur, label: "MSCI Turkey", ticker: "LTUR.DE", isin: "LU1900067601", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI Turkey"}
+      - {id: iuss, label: "MSCI Saudi Arabia", ticker: "IUSS.DE", isin: "IE00BYYR0489", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Saudi Arabia 20/35"}
+      - {id: ibcj, label: "MSCI Poland", ticker: "IBCJ.DE", isin: "IE00B4M7GH52", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Poland"}
+      - {id: indo, label: "MSCI Indonesia", ticker: "INDO.MI", isin: "LU1900065811", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI Indonesia"}
+      - {id: dbx5, label: "MSCI Taiwan", ticker: "DBX5.DE", isin: "LU0292109187", provider: "Xtrackers (DWS)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Taiwan 20/35"}
   # ---- page: US Majors & Factors ----
   - id: us-majors
     indicators: true       # indicator chart (moving averages + RSI), as on the old app's page
     page: us-majors-factors
     title: "Major US indices"
     rows:
-      - {id: sxr8, label: "S&P 500", ticker: "SXR8.DE", isin: "IE00B5BMR087", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500", fund_name: "iShares Core S&P 500 UCITS ETF USD (Acc)"}
-      - {id: sxrv, label: "Nasdaq 100", ticker: "SXRV.DE", isin: "IE00B53SZB19", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "Nasdaq 100", fund_name: "iShares Nasdaq 100 UCITS ETF (Acc)"}
-      - {id: sxru, label: "Dow Jones Ind. Avg.", ticker: "SXRU.DE", isin: "IE00B53L4350", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "Dow Jones Industrial Average", fund_name: "iShares Dow Jones Industrial Average UCITS ETF (Acc)"}
-      - {id: zprr, label: "Russell 2000", ticker: "ZPRR.DE", isin: "IE00BJ38QD84", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "Russell 2000", fund_name: "State Street SPDR Russell 2000 U.S. Small Cap UCITS ETF USD"}
+      - {id: sxr8, label: "S&P 500", ticker: "SXR8.DE", isin: "IE00B5BMR087", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500"}
+      - {id: sxrv, label: "Nasdaq 100", ticker: "SXRV.DE", isin: "IE00B53SZB19", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "Nasdaq 100"}
+      - {id: sxru, label: "Dow Jones Ind. Avg.", ticker: "SXRU.DE", isin: "IE00B53L4350", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "Dow Jones Industrial Average"}
+      - {id: zprr, label: "Russell 2000", ticker: "ZPRR.DE", isin: "IE00BJ38QD84", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "Russell 2000"}
   - id: us-factors
     indicators: true       # indicator chart (moving averages + RSI), as on the old app's page
     page: us-majors-factors
     title: "US style factors"
     rows:
-      - {id: sxr4, label: "Market", ticker: "SXR4.DE", isin: "IE00B52SFT06", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA", fund_name: "iShares MSCI USA UCITS ETF (Acc)"}
-      - {id: qdvi, label: "Value", ticker: "QDVI.DE", isin: "IE00BD1F4M44", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA Enhanced Value", fund_name: "iShares Edge MSCI USA Value Factor UCITS ETF"}
-      - {id: qdvc, label: "Mid-Cap Equal Weighted", ticker: "QDVC.DE", isin: "IE00BD1F4K20", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA Mid-Cap Equal Weighted", fund_name: "iShares MSCI USA Mid-Cap Equal Weight UCITS ETF USD (Acc)"}
-      - {id: qdvb, label: "Quality", ticker: "QDVB.DE", isin: "IE00BD1F4L37", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA Sector Neutral Quality", fund_name: "iShares Edge MSCI USA Quality Factor UCITS ETF"}
-      - {id: qdva, label: "Momentum", ticker: "QDVA.DE", isin: "IE00BD1F4N50", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA Momentum", fund_name: "iShares Edge MSCI USA Momentum Factor UCITS ETF"}
-      - {id: spyd, label: "High Dividend Aristocrats", ticker: "SPYD.DE", isin: "IE00B6YX5D40", provider: "SPDR (SSGA)", currency: "EUR", acc: false, hedged: false, holds: "S&P High Yield Dividend Aristocrats", fund_name: "State Street SPDR S&P U.S. Dividend Aristocrats UCITS ETF USD Unhedged (Dist)"}
-      - {id: mvea, label: "Min Vol Advanced Select", ticker: "MVEA.DE", isin: "IE00BKVL7331", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA Min Vol Advanced Select", fund_name: "iShares Edge MSCI USA Minimum Volatility Advanced UCITS ETF"}
+      - {id: sxr4, label: "Market", ticker: "SXR4.DE", isin: "IE00B52SFT06", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA"}
+      - {id: qdvi, label: "Value", ticker: "QDVI.DE", isin: "IE00BD1F4M44", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA Enhanced Value"}
+      - {id: qdvc, label: "Mid-Cap Equal Weighted", ticker: "QDVC.DE", isin: "IE00BD1F4K20", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA Mid-Cap Equal Weighted"}
+      - {id: qdvb, label: "Quality", ticker: "QDVB.DE", isin: "IE00BD1F4L37", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA Sector Neutral Quality"}
+      - {id: qdva, label: "Momentum", ticker: "QDVA.DE", isin: "IE00BD1F4N50", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA Momentum"}
+      - {id: spyd, label: "High Dividend Aristocrats", ticker: "SPYD.DE", isin: "IE00B6YX5D40", provider: "SPDR (SSGA)", currency: "EUR", acc: false, hedged: false, holds: "S&P High Yield Dividend Aristocrats"}
+      - {id: mvea, label: "Min Vol Advanced Select", ticker: "MVEA.DE", isin: "IE00BKVL7331", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI USA Min Vol Advanced Select"}
   # ---- page: US Sectors ----
   - id: us-sectors
     indicators: true       # indicator chart (moving averages + RSI), as on the old app's page
@@ -92,16 +93,16 @@ sections:
     title: "US sectors (GICS)"
     default_visible: [iu5c, qdvk, qdvf, qdvh, qdvg, "2b7c", qdve, "2b7a"]   # series switched on in the re-based chart; the rest are one click away in the legend (at most 8)
     rows:
-      - {id: iu5c, label: "Communications", ticker: "IU5C.DE", isin: "IE00BDDRF478", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Communication Services", fund_name: "iShares S&P 500 Communication Sector UCITS ETF USD (Acc)"}
-      - {id: qdvk, label: "Cons. Discretionary", ticker: "QDVK.DE", isin: "IE00B4MCHD36", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Consumer Discretionary", fund_name: "iShares S&P 500 Consumer Discretionary Sector UCITS ETF (Acc)"}
-      - {id: 2b7d, label: "Cons. Staples", ticker: "2B7D.DE", isin: "IE00B40B8R38", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Consumer Staples", fund_name: "iShares S&P 500 Consumer Staples Sector UCITS ETF"}
-      - {id: qdvf, label: "Energy", ticker: "QDVF.DE", isin: "IE00B42NKQ00", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Energy", fund_name: "iShares S&P 500 Energy Sector UCITS ETF (Acc)"}
-      - {id: qdvh, label: "Financials", ticker: "QDVH.DE", isin: "IE00B4JNQZ49", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Financials", fund_name: "iShares S&P 500 Financials Sector UCITS ETF (Acc)"}
-      - {id: qdvg, label: "Health Care", ticker: "QDVG.DE", isin: "IE00B43HR379", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Health Care", fund_name: "iShares S&P 500 Health Care Sector UCITS ETF (Acc)"}
-      - {id: 2b7c, label: "Industrials", ticker: "2B7C.DE", isin: "IE00B4LN9N13", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Industrials", fund_name: "iShares S&P 500 Industrials Sector UCITS ETF"}
-      - {id: 2b7b, label: "Materials", ticker: "2B7B.DE", isin: "IE00B4MKCJ84", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Materials", fund_name: "iShares S&P 500 Materials Sector UCITS ETF USD (Acc)"}
-      - {id: qdve, label: "Technology", ticker: "QDVE.DE", isin: "IE00B3WJKG14", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Information Technology", fund_name: "iShares S&P 500 Information Technology Sector UCITS ETF USD (Acc)"}
-      - {id: 2b7a, label: "Utilities", ticker: "2B7A.DE", isin: "IE00B4KBBD01", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Utilities", fund_name: "iShares S&P 500 Utilities Sector UCITS ETF USD (Acc)"}
+      - {id: iu5c, label: "Communications", ticker: "IU5C.DE", isin: "IE00BDDRF478", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Communication Services"}
+      - {id: qdvk, label: "Cons. Discretionary", ticker: "QDVK.DE", isin: "IE00B4MCHD36", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Consumer Discretionary"}
+      - {id: 2b7d, label: "Cons. Staples", ticker: "2B7D.DE", isin: "IE00B40B8R38", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Consumer Staples"}
+      - {id: qdvf, label: "Energy", ticker: "QDVF.DE", isin: "IE00B42NKQ00", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Energy"}
+      - {id: qdvh, label: "Financials", ticker: "QDVH.DE", isin: "IE00B4JNQZ49", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Financials"}
+      - {id: qdvg, label: "Health Care", ticker: "QDVG.DE", isin: "IE00B43HR379", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Health Care"}
+      - {id: 2b7c, label: "Industrials", ticker: "2B7C.DE", isin: "IE00B4LN9N13", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Industrials"}
+      - {id: 2b7b, label: "Materials", ticker: "2B7B.DE", isin: "IE00B4MKCJ84", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Materials"}
+      - {id: qdve, label: "Technology", ticker: "QDVE.DE", isin: "IE00B3WJKG14", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Information Technology"}
+      - {id: 2b7a, label: "Utilities", ticker: "2B7A.DE", isin: "IE00B4KBBD01", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "S&P 500 Capped 35/20 Utilities"}
   # ---- page: EU Sectors ----
   - id: eu-sectors
     indicators: true       # indicator chart (moving averages + RSI), as on the old app's page
@@ -109,66 +110,66 @@ sections:
     title: "European sectors"
     default_visible: [sttx, strx, stnx, stzx, stwx, stqx, stkx, stux]   # series switched on in the re-based chart; the rest are one click away in the legend (at most 8)
     rows:
-      - {id: sttx, label: "Communications", ticker: "STTX.MI", isin: "IE00BKWQ0N82", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Communication Services 20/35 Capped", fund_name: "State Street SPDR MSCI Europe Communication Services UCITS ETF EUR"}
-      - {id: strx, label: "Cons. Discretionary", ticker: "STRX.MI", isin: "IE00BKWQ0C77", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Consumer Discretionary 20/35 Capped", fund_name: "State Street SPDR MSCI Europe Consumer Discretionary UCITS ETF EUR"}
-      - {id: stsx, label: "Cons. Staples", ticker: "STSX.MI", isin: "IE00BKWQ0D84", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Consumer Staples 20/35 Capped", fund_name: "State Street SPDR MSCI Europe Consumer Staples UCITS ETF EUR"}
-      - {id: stnx, label: "Energy", ticker: "STNX.MI", isin: "IE00BKWQ0F09", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Energy 20/35 Capped", fund_name: "State Street SPDR MSCI Europe Energy UCITS ETF EUR"}
-      - {id: stzx, label: "Financials", ticker: "STZX.MI", isin: "IE00BKWQ0G16", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Financials 20/35 Capped", fund_name: "State Street SPDR MSCI Europe Financials UCITS ETF EUR"}
-      - {id: stwx, label: "Health Care", ticker: "STWX.MI", isin: "IE00BKWQ0H23", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Health Care 20/35 Capped", fund_name: "State Street SPDR MSCI Europe Health Care UCITS ETF EUR"}
-      - {id: stqx, label: "Industrials", ticker: "STQX.MI", isin: "IE00BKWQ0J47", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Industrials 20/35 Capped", fund_name: "State Street SPDR MSCI Europe Industrials UCITS ETF EUR"}
-      - {id: stpx, label: "Materials", ticker: "STPX.MI", isin: "IE00BKWQ0L68", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Materials 20/35 Capped", fund_name: "State Street SPDR MSCI Europe Materials UCITS ETF EUR"}
-      - {id: stkx, label: "Technology", ticker: "STKX.MI", isin: "IE00BKWQ0K51", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Information Technology 20/35 Capped", fund_name: "State Street SPDR MSCI Europe Technology UCITS ETF EUR"}
-      - {id: stux, label: "Utilities", ticker: "STUX.MI", isin: "IE00BKWQ0P07", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Utilities 20/35 Capped", fund_name: "State Street SPDR MSCI Europe Utilities UCITS ETF EUR"}
+      - {id: sttx, label: "Communications", ticker: "STTX.MI", isin: "IE00BKWQ0N82", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Communication Services 20/35 Capped"}
+      - {id: strx, label: "Cons. Discretionary", ticker: "STRX.MI", isin: "IE00BKWQ0C77", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Consumer Discretionary 20/35 Capped"}
+      - {id: stsx, label: "Cons. Staples", ticker: "STSX.MI", isin: "IE00BKWQ0D84", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Consumer Staples 20/35 Capped"}
+      - {id: stnx, label: "Energy", ticker: "STNX.MI", isin: "IE00BKWQ0F09", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Energy 20/35 Capped"}
+      - {id: stzx, label: "Financials", ticker: "STZX.MI", isin: "IE00BKWQ0G16", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Financials 20/35 Capped"}
+      - {id: stwx, label: "Health Care", ticker: "STWX.MI", isin: "IE00BKWQ0H23", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Health Care 20/35 Capped"}
+      - {id: stqx, label: "Industrials", ticker: "STQX.MI", isin: "IE00BKWQ0J47", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Industrials 20/35 Capped"}
+      - {id: stpx, label: "Materials", ticker: "STPX.MI", isin: "IE00BKWQ0L68", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Materials 20/35 Capped"}
+      - {id: stkx, label: "Technology", ticker: "STKX.MI", isin: "IE00BKWQ0K51", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Information Technology 20/35 Capped"}
+      - {id: stux, label: "Utilities", ticker: "STUX.MI", isin: "IE00BKWQ0P07", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "MSCI Europe Utilities 20/35 Capped"}
   # ---- page: Fixed Income ----
   - id: fixed-income
     page: fixed-income
     title: "Fixed income"
     default_visible: [sybt, vgea, iust, iglt, spfa, ibcd, ihyu, veca]   # series switched on in the re-based chart; the rest are one click away in the legend (at most 8)
     rows:
-      - {id: sybt, label: "US Treasuries", ticker: "SYBT.DE", isin: "IE00B44CND37", provider: "SPDR (SSGA)", currency: "EUR", acc: false, hedged: false, holds: "Bloomberg US Treasury", fund_name: "State Street SPDR Bloomberg U.S. Treasury Bond UCITS ETF USD Unhedged (Dist)"}
-      - {id: vgea, label: "EUR Govies", ticker: "VGEA.DE", isin: "IE00BH04GL39", provider: "Vanguard", currency: "EUR", acc: true, hedged: false, holds: "Bloomberg Euro Aggregate Treasury", fund_name: "Vanguard EUR Eurozone Government Bond UCITS ETF Accumulating"}
-      - {id: iust, label: "US TIPS", ticker: "IUST.DE", isin: "IE00B1FZSC47", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "Bloomberg US Government Inflation-Linked Bond", fund_name: "iShares USD TIPS UCITS ETF USD (Acc)"}
-      - {id: ibci, label: "EUR Infl. Protected Bonds", ticker: "IBCI.AS", isin: "IE00B0M62X26", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "Bloomberg Euro Government Inflation-Linked Bond", fund_name: "iShares Euro Inflation Linked Government Bond UCITS ETF"}
-      - {id: iglt, label: "UK Gilts", ticker: "IGLT.MI", isin: "IE00B1FZSB30", provider: "iShares", currency: "EUR", acc: false, hedged: false, holds: "FTSE Actuaries UK Conventional Gilts All Stocks", fund_name: "iShares Core UK Gilts UCITS ETF"}
-      - {id: spfa, label: "EM Govies Local CCY", ticker: "SPFA.DE", isin: "IE00BFWFPY67", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "Bloomberg Emerging Markets Local Currency Liquid Government Bond", fund_name: "State Street SPDR Bloomberg Emerging Markets Local Bond UCITS ETF USD Unhedged (Acc)"}
-      - {id: ibcd, label: "US IG Bonds", ticker: "IBCD.DE", isin: "IE0032895942", provider: "iShares", currency: "EUR", acc: false, hedged: false, holds: "iBoxx® USD Liquid Investment Grade", fund_name: "iShares USD Corporate Bond UCITS ETF (Dist)"}
-      - {id: ihyu, label: "US HY Bonds", ticker: "IHYU.MI", isin: "IE00B4PY7Y77", provider: "iShares", currency: "EUR", acc: false, hedged: false, holds: "iBoxx® USD Liquid High Yield Capped", fund_name: "iShares USD High Yield Corporate Bond UCITS ETF USD (Dist)"}
-      - {id: veca, label: "EUR IG Bonds", ticker: "VECA.DE", isin: "IE00BGYWT403", provider: "Vanguard", currency: "EUR", acc: true, hedged: false, holds: "Bloomberg Euro Corporate Bond", fund_name: "Vanguard EUR Corporate Bond UCITS ETF Accumulating"}
-      - {id: ihyg, label: "EUR HY Bonds", ticker: "IHYG.MI", isin: "IE00B66F4759", provider: "iShares", currency: "EUR", acc: false, hedged: false, holds: "iBoxx® EUR Liquid High Yield", fund_name: "iShares EUR High Yield Corporate Bond UCITS ETF EUR (Dist)"}
-      - {id: qdvp, label: "US MBS", ticker: "QDVP.DE", isin: "IE00BZ6V7883", provider: "iShares", currency: "EUR", acc: false, hedged: false, holds: "Bloomberg US Mortgage Backed Securities", fund_name: "iShares US Mortgage Backed Securities UCITS ETF"}
-      - {id: muni, label: "US Muni Bonds", ticker: "MUNI.MI", isin: "IE00BNG70R26", provider: "Invesco", currency: "EUR", acc: false, hedged: false, holds: "ICE BofA U.S. Taxable Municipal Securities Plus", fund_name: "Invesco US Municipal Bond UCITS ETF Dist"}
+      - {id: sybt, label: "US Treasuries", ticker: "SYBT.DE", isin: "IE00B44CND37", provider: "SPDR (SSGA)", currency: "EUR", acc: false, hedged: false, holds: "Bloomberg US Treasury"}
+      - {id: vgea, label: "EUR Govies", ticker: "VGEA.DE", isin: "IE00BH04GL39", provider: "Vanguard", currency: "EUR", acc: true, hedged: false, holds: "Bloomberg Euro Aggregate Treasury"}
+      - {id: iust, label: "US TIPS", ticker: "IUST.DE", isin: "IE00B1FZSC47", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "Bloomberg US Government Inflation-Linked Bond"}
+      - {id: ibci, label: "EUR Infl. Protected Bonds", ticker: "IBCI.AS", isin: "IE00B0M62X26", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "Bloomberg Euro Government Inflation-Linked Bond"}
+      - {id: iglt, label: "UK Gilts", ticker: "IGLT.MI", isin: "IE00B1FZSB30", provider: "iShares", currency: "EUR", acc: false, hedged: false, holds: "FTSE Actuaries UK Conventional Gilts All Stocks"}
+      - {id: spfa, label: "EM Govies Local CCY", ticker: "SPFA.DE", isin: "IE00BFWFPY67", provider: "SPDR (SSGA)", currency: "EUR", acc: true, hedged: false, holds: "Bloomberg Emerging Markets Local Currency Liquid Government Bond"}
+      - {id: ibcd, label: "US IG Bonds", ticker: "IBCD.DE", isin: "IE0032895942", provider: "iShares", currency: "EUR", acc: false, hedged: false, holds: "iBoxx® USD Liquid Investment Grade"}
+      - {id: ihyu, label: "US HY Bonds", ticker: "IHYU.MI", isin: "IE00B4PY7Y77", provider: "iShares", currency: "EUR", acc: false, hedged: false, holds: "iBoxx® USD Liquid High Yield Capped"}
+      - {id: veca, label: "EUR IG Bonds", ticker: "VECA.DE", isin: "IE00BGYWT403", provider: "Vanguard", currency: "EUR", acc: true, hedged: false, holds: "Bloomberg Euro Corporate Bond"}
+      - {id: ihyg, label: "EUR HY Bonds", ticker: "IHYG.MI", isin: "IE00B66F4759", provider: "iShares", currency: "EUR", acc: false, hedged: false, holds: "iBoxx® EUR Liquid High Yield"}
+      - {id: qdvp, label: "US MBS", ticker: "QDVP.DE", isin: "IE00BZ6V7883", provider: "iShares", currency: "EUR", acc: false, hedged: false, holds: "Bloomberg US Mortgage Backed Securities"}
+      - {id: muni, label: "US Muni Bonds", ticker: "MUNI.MI", isin: "IE00BNG70R26", provider: "Invesco", currency: "EUR", acc: false, hedged: false, holds: "ICE BofA U.S. Taxable Municipal Securities Plus"}
   # ---- page: Commodities ----
   - id: commodity-sectors
     indicators: true       # indicator chart (moving averages + RSI), as on the old app's page
     page: commodities
     title: "Commodity sectors"
     rows:
-      - {id: aige, label: "Energy", ticker: "AIGE.MI", isin: "GB00B15KYB02", provider: "WisdomTree", currency: "EUR", acc: true, hedged: false, holds: "Energy commodity index (futures-based ETC)", fund_name: "WisdomTree Energy", etc: true}
-      - {id: aiga, label: "Agriculture", ticker: "AIGA.MI", isin: "GB00B15KYH63", provider: "WisdomTree", currency: "EUR", acc: true, hedged: false, holds: "Agriculture commodity index (futures-based ETC)", fund_name: "WisdomTree Agriculture", etc: true}
-      - {id: eimt, label: "Industrial Metals", ticker: "EIMT.MI", isin: "JE00B78NPW60", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Industrial Metals futures (ETC, EUR-hedged)", fund_name: "WisdomTree Industrial Metals - EUR Daily Hedged", etc: true}
-      - {id: aigp, label: "Precious Metals", ticker: "AIGP.MI", isin: "GB00B15KYF40", provider: "WisdomTree", currency: "EUR", acc: true, hedged: false, holds: "Precious Metals commodity index (futures-based ETC)", fund_name: "WisdomTree Precious Metals", etc: true}
-      - {id: aigs, label: "Softs", ticker: "AIGS.MI", isin: "GB00B15KYJ87", provider: "WisdomTree", currency: "EUR", acc: true, hedged: false, holds: "Softs commodity index (futures-based ETC)", fund_name: "WisdomTree Softs", etc: true}
+      - {id: aige, label: "Energy", ticker: "AIGE.MI", isin: "GB00B15KYB02", provider: "WisdomTree", currency: "EUR", acc: true, hedged: false, holds: "Energy commodity index (futures-based ETC)", etc: true}
+      - {id: aiga, label: "Agriculture", ticker: "AIGA.MI", isin: "GB00B15KYH63", provider: "WisdomTree", currency: "EUR", acc: true, hedged: false, holds: "Agriculture commodity index (futures-based ETC)", etc: true}
+      - {id: eimt, label: "Industrial Metals", ticker: "EIMT.MI", isin: "JE00B78NPW60", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Industrial Metals futures (ETC, EUR-hedged)", etc: true}
+      - {id: aigp, label: "Precious Metals", ticker: "AIGP.MI", isin: "GB00B15KYF40", provider: "WisdomTree", currency: "EUR", acc: true, hedged: false, holds: "Precious Metals commodity index (futures-based ETC)", etc: true}
+      - {id: aigs, label: "Softs", ticker: "AIGS.MI", isin: "GB00B15KYJ87", provider: "WisdomTree", currency: "EUR", acc: true, hedged: false, holds: "Softs commodity index (futures-based ETC)", etc: true}
   - id: commodity-components
     indicators: true       # indicator chart (moving averages + RSI), as on the old app's page
     page: commodities
     title: "Commodity components"
     default_visible: [ebrt, engs, ecrn, esoy, xad1, esvr, ecop, ealu]   # series switched on in the re-based chart; the rest are one click away in the legend (at most 8)
     rows:
-      - {id: ebrt, label: "Brent Crude Oil", ticker: "EBRT.MI", isin: "JE00B7305Z55", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Brent crude futures (ETC, EUR-hedged)", fund_name: "WisdomTree Brent Crude Oil - EUR Daily Hedged", etc: true}
-      - {id: engs, label: "Natural Gas", ticker: "ENGS.MI", isin: "JE00B6XF0923", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Natural gas futures (ETC, EUR-hedged)", fund_name: "WisdomTree Natural Gas - EUR Daily Hedged", etc: true}
-      - {id: ecrn, label: "Corn", ticker: "ECRN.MI", isin: "JE00B3ZQRP79", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Corn futures (ETC, EUR-hedged)", fund_name: "WisdomTree Corn - EUR Daily Hedged", etc: true}
-      - {id: esoy, label: "Soybeans", ticker: "ESOY.MI", isin: "JE00B6SLJ210", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Soybeans futures (ETC, EUR-hedged)", fund_name: "WisdomTree Soybeans - EUR Daily Hedged", etc: true}
-      - {id: ewat, label: "Wheat", ticker: "EWAT.MI", isin: "JE00B78NNK09", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Wheat futures (ETC, EUR-hedged)", fund_name: "WisdomTree Wheat - EUR Daily Hedged", etc: true}
-      - {id: xad1, label: "Gold", ticker: "XAD1.DE", isin: "DE000A1EK0G3", provider: "Xtrackers (DWS)", currency: "EUR", acc: true, hedged: true, holds: "Gold (physical ETC, EUR-hedged)", fund_name: "Xtrackers Physical Gold EUR Hedged ETC", etc: true}
-      - {id: esvr, label: "Silver", ticker: "ESVR.MI", isin: "JE00B5SV2703", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Silver (futures, EUR-hedged)", fund_name: "WisdomTree Silver - EUR Daily Hedged", etc: true}
-      - {id: phpt, label: "Platinum", ticker: "PHPT.MI", isin: "JE00B1VS2W53", provider: "WisdomTree", currency: "EUR", acc: true, hedged: false, holds: "Physical platinum (ETC)", fund_name: "WisdomTree Physical Platinum", etc: true}
-      - {id: ecop, label: "Copper", ticker: "ECOP.MI", isin: "JE00B4PDKD43", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Copper futures (ETC, EUR-hedged)", fund_name: "WisdomTree Copper - EUR Daily Hedged", etc: true}
-      - {id: ealu, label: "Aluminium", ticker: "EALU.MI", isin: "JE00B6VG2P72", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Aluminium futures (ETC, EUR-hedged)", fund_name: "WisdomTree Aluminium - EUR Daily Hedged", etc: true}
-      - {id: eznc, label: "Zinc", ticker: "EZNC.MI", isin: "JE00B78NNM23", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Zinc futures (ETC, EUR-hedged)", fund_name: "WisdomTree Zinc - EUR Daily Hedged", etc: true}
-      - {id: enik, label: "Nickel", ticker: "ENIK.MI", isin: "JE00B6XL6W59", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Nickel futures (ETC, EUR-hedged)", fund_name: "WisdomTree Nickel - EUR Daily Hedged", etc: true}
-      - {id: esug, label: "Sugar", ticker: "ESUG.MI", isin: "JE00B6X05031", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Sugar futures (ETC, EUR-hedged)", fund_name: "WisdomTree Sugar - EUR Daily Hedged", etc: true}
-      - {id: ecof, label: "Coffee", ticker: "ECOF.MI", isin: "JE00B6TK3K31", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Coffee futures (ETC, EUR-hedged)", fund_name: "WisdomTree Coffee - EUR Daily Hedged", etc: true}
-      - {id: ectn, label: "Cotton", ticker: "ECTN.MI", isin: "JE00B70DCH80", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Cotton futures (ETC, EUR-hedged)", fund_name: "WisdomTree Cotton - EUR Daily Hedged", etc: true}
+      - {id: ebrt, label: "Brent Crude Oil", ticker: "EBRT.MI", isin: "JE00B7305Z55", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Brent crude futures (ETC, EUR-hedged)", etc: true}
+      - {id: engs, label: "Natural Gas", ticker: "ENGS.MI", isin: "JE00B6XF0923", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Natural gas futures (ETC, EUR-hedged)", etc: true}
+      - {id: ecrn, label: "Corn", ticker: "ECRN.MI", isin: "JE00B3ZQRP79", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Corn futures (ETC, EUR-hedged)", etc: true}
+      - {id: esoy, label: "Soybeans", ticker: "ESOY.MI", isin: "JE00B6SLJ210", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Soybeans futures (ETC, EUR-hedged)", etc: true}
+      - {id: ewat, label: "Wheat", ticker: "EWAT.MI", isin: "JE00B78NNK09", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Wheat futures (ETC, EUR-hedged)", etc: true}
+      - {id: xad1, label: "Gold", ticker: "XAD1.DE", isin: "DE000A1EK0G3", provider: "Xtrackers (DWS)", currency: "EUR", acc: true, hedged: true, holds: "Gold (physical ETC, EUR-hedged)", etc: true}
+      - {id: esvr, label: "Silver", ticker: "ESVR.MI", isin: "JE00B5SV2703", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Silver (futures, EUR-hedged)", etc: true}
+      - {id: phpt, label: "Platinum", ticker: "PHPT.MI", isin: "JE00B1VS2W53", provider: "WisdomTree", currency: "EUR", acc: true, hedged: false, holds: "Physical platinum (ETC)", etc: true}
+      - {id: ecop, label: "Copper", ticker: "ECOP.MI", isin: "JE00B4PDKD43", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Copper futures (ETC, EUR-hedged)", etc: true}
+      - {id: ealu, label: "Aluminium", ticker: "EALU.MI", isin: "JE00B6VG2P72", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Aluminium futures (ETC, EUR-hedged)", etc: true}
+      - {id: eznc, label: "Zinc", ticker: "EZNC.MI", isin: "JE00B78NNM23", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Zinc futures (ETC, EUR-hedged)", etc: true}
+      - {id: enik, label: "Nickel", ticker: "ENIK.MI", isin: "JE00B6XL6W59", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Nickel futures (ETC, EUR-hedged)", etc: true}
+      - {id: esug, label: "Sugar", ticker: "ESUG.MI", isin: "JE00B6X05031", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Sugar futures (ETC, EUR-hedged)", etc: true}
+      - {id: ecof, label: "Coffee", ticker: "ECOF.MI", isin: "JE00B6TK3K31", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Coffee futures (ETC, EUR-hedged)", etc: true}
+      - {id: ectn, label: "Cotton", ticker: "ECTN.MI", isin: "JE00B70DCH80", provider: "WisdomTree", currency: "EUR", acc: true, hedged: true, holds: "Cotton futures (ETC, EUR-hedged)", etc: true}
   # ---- page: FX ----
   - id: fx
     indicators: true       # indicator chart (moving averages + RSI), as on the old app's page
