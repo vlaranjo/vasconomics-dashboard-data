@@ -321,3 +321,71 @@ def test_Y25_italy_excluded_instruments_in_any_case_and_warnings_reach_status_js
     run_job(tmp_path, {"aa": s}, monkeypatch)
     st = json.loads((tmp_path / "data" / "status.json").read_text())["sources"]["yield_curves"]
     assert st["warnings"] == ["aa: 2 auction-result file(s) could not be read"] and st["ok"] is True
+
+
+# ---------------------------------------------------------------- Y26: Italy, only standard fixed-rate instruments (12 Nov 2026)
+
+BTP_BODY = """
+ISIN Code IT0005729931
+Coupon 4.00%
+Maturity Date October 01, 2036
+Auction Date October 29, 2026
+Settlement Date November 02, 2026
+Gross Yield 4.49%
+"""
+
+
+@pytest.mark.parametrize("head", [
+    "BTP€i 10 YEARS", "BTPei 10 YEARS", "BTP€I 15 YEARS (10 YEAR RESIDUAL MATURITY)",       # inflation-linked
+    "BTP Italia", "BTP ITALIA 6 YEARS",                                                     # inflation-linked retail
+    "BTP Valore", "BTP VALORE 4 YEARS",                                                     # retail, step-up coupons
+    "BTP Più", "BTP PIU 8 YEARS",                                                           # retail
+    "BTP Green 2037", "BTP GREEN 20 YEARS",                                                 # green
+    "CCTeu", "CCTEU 7 YEARS",                                                               # floating rate
+    "BTP Futura",                                                                           # retail, step-up
+])
+def test_Y26_italy_non_standard_issues_are_never_used(head):
+    assert it.instrument(head) == "excluded"
+    assert it.parse_result(f"Auction Results: {head}\n{BTP_BODY}") == []
+
+
+@pytest.mark.parametrize("head", [
+    "BTP 10 YEARS", "BTP 7 YEARS (5 YEAR RESIDUAL MATURITY)", "BTP Short Term", "BTP 50 YEARS",
+    "6 MONTH BOTS", "12 MONTH BOTS (1 MONTH RESIDUAL MATURITY", "CTZ 24 MONTHS",
+])
+def test_Y26_italy_standard_bot_ctz_and_nominal_btp_are_used(head):
+    assert it.instrument(head) == "standard"
+
+
+def test_Y26_italy_unknown_instrument_or_btp_without_fixed_coupon_is_reported_not_used():
+    with pytest.raises(ValueError, match="not recognised as a standard"):
+        it.parse_result(f"Auction Results: BTP Domani 6 YEARS\n{BTP_BODY}")
+    with pytest.raises(ValueError, match="without a fixed coupon"):
+        it.parse_result("Auction Results: BTP 10 YEARS\n" + BTP_BODY.replace("Coupon 4.00%\n", ""))
+    r = it.parse_result(f"Auction Results: BTP 10 YEARS\n{BTP_BODY}")[0]
+    assert (r["isin"], r["coupon"], r["days"], r["value"], r["what"]) == ("IT0005729931", 4.0, 3621, 4.49, "BTP 10 YEARS")
+    real = it.parse_result(it.pdf_text((YF / "mef_btp10_20261030.pdf").read_bytes()))[0]
+    assert real["coupon"] == 4.0 and real["isin"] == "IT0005729931"
+    assert it.parse_result(text("mef_bot6m_20260928.txt"))[0]["coupon"] is None
+
+
+def test_Y26_italy_an_unreadable_file_from_an_earlier_year_is_retried_by_its_address():
+    """Later runs list only this year's pages; a 2025 file that failed once must still be read again (12 Nov 2026)."""
+    old = "https://www.dt.mef.gov.it/export/x/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-30-31.10.2025.pdf"
+    body = BTP_BODY.replace("October 29, 2026", "October 30, 2025").replace("November 02, 2026", "November 03, 2025")
+    got = []
+
+    def route(url, params):
+        got.append(url)
+        if url.endswith("index.html"):
+            return b"<html></html>"
+        return b"fake pdf"
+    import dashjobs.yields.it as itmod
+    orig = itmod.pdf_text
+    itmod.pdf_text = lambda blob: f"Auction Results: BTP 10 YEARS\n{body}"
+    try:
+        raw = it.fetch(FakeGetter({"dt.mef.gov.it": route}), TODAY, prev={"auction_log": [], "seen": ["x"], "unreadable": {old: "ValueError: old"}})
+    finally:
+        itmod.pdf_text = orig
+    assert old in got and raw.extra["unreadable"] == {} and old in raw.extra["seen"]
+    assert [(a["date"], a["value"], a["coupon"]) for a in raw.extra["auction_log"]] == [("2025-10-30", 4.49, 4.0)]

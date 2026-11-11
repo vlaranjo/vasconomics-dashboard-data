@@ -80,26 +80,52 @@ def pdf_text(blob: bytes) -> str:
     return "\n".join(p.extract_text() or "" for p in pypdf.PdfReader(io.BytesIO(blob)).pages)
 
 
+# Only standard fixed-rate instruments count (decided 12 Nov 2026): BOT and CTZ (short end) and nominal BTP, including "BTP Short
+# Term" and re-openings of any of them ("BTP 7 YEARS (5 YEAR RESIDUAL MATURITY)"). The heading of the result file must match
+# STANDARD; the known non-standard families are named in EXCLUDED (and skipped quietly); any other heading is an unknown
+# instrument and the file is reported as unreadable (status.json warnings), never used.
+EXCLUDED = re.compile(r"BTP\s*(?:€|EUR|E)\s*I\b|BTPI\b|ITALIA|VALORE|PI[UÙ]\b|GREEN|CCT|FUTURA|INDEX|INFLAZ|INFLATION|RETAIL|FLOAT", re.I)
+_RESIDUAL = r"(?:\s*\(\s*\d+\s+(?:MONTHS?|YEARS?)\s+RESIDUAL[\s_]+MATURIT(?:Y|IES)?\s*\)?)?"
+STANDARD = re.compile(r"(?:\d+\s+MONTHS?\s+BOTS?|BOTS?(?:\s+\d+\s+MONTHS?)?|CTZ(?:\s+\d+\s+MONTHS?)?|BTP\s+SHORT\s+TERM|BTP\s+\d+\s+YEARS?)"
+                      + _RESIDUAL, re.I)
+
+
+def instrument(head: str) -> str:
+    """'standard', 'excluded' (a known non-standard family) or 'unknown'."""
+    h = re.sub(r"\s+", " ", head).strip()
+    if EXCLUDED.search(h):
+        return "excluded"
+    return "standard" if STANDARD.fullmatch(h) else "unknown"
+
+
 def parse_result(text: str) -> list[dict]:
-    """One dict per security in an auction-result PDF. Raises ValueError if the layout is not recognised."""
+    """One dict per security in an auction-result PDF. Raises ValueError if the layout or the instrument is not recognised."""
     if "Auction Results:" not in text:
         raise ValueError("not an auction-result file")
-    head = re.search(r"Auction Results:\s*([^\n]+)", text).group(1)
-    if re.search(r"BTP\s*\S?i\b|CCT|Italia|Valore|Green", head, re.I):
-        return []                                       # real, floating, retail or green: never used
+    head = re.search(r"Auction Results:\s*([^\n]+)", text).group(1).strip()
+    kind = instrument(head)
+    if kind == "excluded":
+        return []                                       # inflation-linked, retail, green or floating: never used
+    if kind == "unknown":
+        raise ValueError(f"instrument not recognised as a standard BOT, CTZ or nominal BTP: {head[:60]!r}")
     auc = re.findall(r"Auction Date\s+" + _DATE, text)
     sett = re.findall(r"Settlement Date\s+" + _DATE, text)
     mat = re.findall(r"Maturity Date\s+" + _DATE, text)
     ys = re.findall(r"Weighted Average Yield\s+(-?[\d.]+)\s*%", text) or re.findall(r"Gross Yield\s+(-?[\d.]+)\s*%", text)
     isin = re.findall(r"ISIN Code\s+(\w{12})", text)
+    coupon = re.findall(r"Coupon\s*(?:\(\s*\*+\s*\))?\s*(-?[\d.]+)\s*%", text)     # "Coupon 4.00%", "Coupon(*) 3.95%" (footnoted)
     n = len(auc)
     if not n or not (len(sett) == len(mat) == len(ys) == n):
         raise ValueError(f"auction-result layout not recognised ({head[:40]!r}: {n}/{len(sett)}/{len(mat)}/{len(ys)})")
+    is_btp = head.upper().startswith("BTP")
+    if is_btp and len(coupon) != n:
+        raise ValueError(f"nominal BTP without a fixed coupon in the file ({head[:40]!r})")
     out = []
     for i in range(n):
         s, m = _d(sett[i]), _d(mat[i])
         out.append({"date": _d(auc[i]).isoformat(), "settle": s.isoformat(), "maturity": m.isoformat(), "days": (m - s).days,
-                    "value": float(ys[i]), "isin": isin[i] if i < len(isin) else None, "what": head.strip()[:40]})
+                    "value": float(ys[i]), "isin": isin[i] if i < len(isin) else None, "what": re.sub(r"\s+", " ", head)[:60],
+                    "coupon": float(coupon[i]) if is_btp else None})
     return out
 
 
@@ -111,6 +137,20 @@ def fetch(g, today: date, env=None, prev=None) -> Raw:
     floor = window_start(today) - timedelta(days=100)       # a year back plus the 90-day auction rule
     first = not log and not seen
     years = list(range(floor.year, today.year + 1)) if first else sorted({today.year, (today - timedelta(days=31)).year})
+    tried = set()
+
+    def read(url):
+        tried.add(url)
+        blob = g.get(url)                  # a fetch error fails the country (last good file kept, marked stale; retried next run)
+        try:
+            rows = parse_result(pdf_text(blob))
+        except Exception as e:  # noqa: BLE001 - an unreadable PDF (layout change, damaged file) is retried next run
+            unreadable[url] = f"{type(e).__name__}: {str(e)[:80]}"
+            return []
+        unreadable.pop(url, None)
+        seen.append(url)
+        return [r | {"url": url} for r in rows]
+
     for cat in CATEGORIES:
         for y in years:
             html = g.get(PAGE.format(cat=cat), params={"selezione-anno": str(y)}).decode("utf-8", errors="replace")
@@ -118,15 +158,11 @@ def fetch(g, today: date, env=None, prev=None) -> Raw:
                 nd = name_date(url)
                 if url in seen or (nd and nd < floor):
                     continue
-                blob = g.get(url)              # a fetch error fails the country (last good file kept, marked stale; retried next run)
-                try:
-                    rows = parse_result(pdf_text(blob))
-                except Exception as e:  # noqa: BLE001 - an unreadable PDF (layout change, damaged file) is retried next run
-                    unreadable[url] = f"{type(e).__name__}: {str(e)[:80]}"
-                    continue
-                unreadable.pop(url, None)
-                seen.append(url)
-                log += [r | {"url": url} for r in rows]
+                log += read(url)
+    # A file that could not be read before is retried by its own address, also when it sits on an earlier year's page that
+    # later runs no longer list (found 12 Nov 2026: eleven 2025 BTP files were never retried).
+    for url in [u for u in list(unreadable) if u not in tried and (not name_date(u) or name_date(u) >= floor)]:
+        log += read(url)
     cutoff = (today - timedelta(days=KEEP_DAYS)).isoformat()
     uniq = {(a["date"], a.get("isin"), a["maturity"]): a for a in log if a["date"] >= cutoff}
     log = sorted(uniq.values(), key=lambda a: (a["date"], a["days"]))
