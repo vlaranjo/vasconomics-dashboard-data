@@ -1,7 +1,9 @@
 """Yield-curve core: series types, the auction rule, the earlier-curve anchors, and the per-country document.
 
 Cell kinds: D daily official observation, W weekly official observation, B bucket (the bucket is named in `label`),
-M monthly average (named in `label`, e.g. France's 13-week BTF auctions), A auction yield (own date, residual days).
+M monthly average (named in `label`, e.g. France's 13-week BTF auctions), A auction yield (own date, residual days),
+C calculated: an earlier value derived from a source's change column (worldgovernmentbonds.com: Last minus Chg 1M/6M/12M; the
+column is named in `label`). D is also used for the latest worldgovernmentbonds.com quote (the source line names the site).
 A tenor with no usable point is simply absent from `points`.
 """
 from __future__ import annotations
@@ -25,7 +27,8 @@ AUCTION_WINDOWS.update({t: (lo * YEAR_DAYS, hi * YEAR_DAYS) for t, (lo, hi) in L
 AUCTION_MAX_AGE_DAYS = 90
 
 CURVE_DEFS = [("latest", "Latest", None), ("1m", "1 month earlier", relativedelta(months=1)),
-              ("3m", "3 months earlier", relativedelta(months=3)), ("1y", "1 year earlier", relativedelta(years=1))]
+              ("6m", "6 months earlier", relativedelta(months=6)), ("1y", "1 year earlier", relativedelta(years=1))]
+# Round 17 (11 Nov 2026): the comparison curves are 1 month, 6 months and 1 year earlier (was 3 months), for every source.
 
 
 class Skipped(Exception):
@@ -34,7 +37,7 @@ class Skipped(Exception):
 
 @dataclass
 class Series:
-    kind: str                                   # D, W, B or M
+    kind: str                                   # D, W, B, M or C
     points: list[tuple[date, float]]            # ascending by date
     max_lag: int = 4                            # a value may be this many days older than the date asked for
     label: str | None = None                    # tooltip text for buckets ("1-3 month bucket")

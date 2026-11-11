@@ -11,7 +11,7 @@ Scheduled jobs and the published JSON for the Vasconomics macro dashboard (Miles
 |---|---|---|
 | `markets` | 17:47, 19:47 and 22:37 Mon-Fri; 05:47 and 11:47 Tue-Sat (five slots because GitHub starts runs hours late; a run with nothing newer keeps the published data); manual | Yahoo -> returns (D7 rule) -> validate -> atomic swap of `data/` -> one commit -> Pages deploy |
 | `pe` | Sunday 03:07, manual | worldperatio.com (plain HTTP) -> validate -> atomic swap -> commit -> deploy |
-| `yields` | Monday 15:47, manual | Official yield-curve sources for 11 countries (+ France when the secret `FR_WEBSTAT_CLIENT_ID` exists: a Webstat API key, sent only as a request header; France's 3M is a monthly average, 1M and 6M are empty). Italy and India come from auction results only (MEF PDFs read with `pypdf`; RBI press releases), Australia from RBA tables F2 and F16 -> four curves per country -> validate -> atomic swap -> commit -> deploy. One country failing keeps its last good file and marks it stale. |
+| `yields` | Monday 15:47, manual | 13 countries (China included) from worldgovernmentbonds.com, each page read in a headless Chromium (Playwright; browser defaults, one page at a time, 5 s apart): latest = the table's Last, 1 month, 6 months and 1 year earlier = Last minus its change columns. Per country, `config/yields.yaml` `source:` can switch back to the official adapter (treasuries, central banks; France needs the secret `FR_WEBSTAT_CLIENT_ID`) -> four curves per country -> validate -> atomic swap -> commit -> deploy. One country failing keeps its last good file and marks it stale; a challenge page stops every further page load of the site. |
 | `probe-sources` | manual only | Fetches one item from Yahoo, worldperatio and every yield-curve source and reports reachability. Publishes nothing. |
 | `pages-deploy` | called by the three above; on push to `main` touching `data/**` | Deploys `data/` to Pages. Only ever from `main`. |
 
@@ -27,11 +27,12 @@ pip install -r requirements-dev.txt
 python -m pytest tests -q                 # unit tests, no network
 python jobs/run_markets.py --today 2026-11-04
 python jobs/run_pe.py
-python jobs/run_yields.py                 # weekly yield curves (network)
+python -m playwright install chromium     # once, for the yields job
+python jobs/run_yields.py                 # weekly yield curves (network; --headed shows the browser)
 python jobs/probe_sources.py              # reachability from this machine
 ```
 
 `config/universe.yaml` lists the funds (labels, ISIN, Acc, EUR-hedged); `config/pe_index_map.yaml` lists the P/E indices.
-One optional secret, `FR_WEBSTAT_CLIENT_ID` (France; passed only to the yields step). The built-in `GITHUB_TOKEN` covers commits and Pages.
+One optional secret, `FR_WEBSTAT_CLIENT_ID` (France's official adapter, off by default since round 17; passed only to the yields step). The built-in `GITHUB_TOKEN` covers commits and Pages.
 
 Price data: Yahoo Finance. P/E data: worldperatio.com.

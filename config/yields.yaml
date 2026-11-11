@@ -1,8 +1,26 @@
-# Weekly yield-curve job (decisions 6 Nov 2026). Order = order on the page.
-# France runs only when the GitHub secret FR_WEBSTAT_CLIENT_ID exists (tested live 11 Nov 2026; 3M is a monthly average, 1M and 6M are gaps).
-# Italy and India come from auction results only (decisions 11 Nov 2026); Australia from RBA tables F2 and F16. China is out (terms).
+# Weekly yield-curve job (decisions 6 Nov 2026; source switch round 17, 11 Nov 2026). Order = order on the page.
+# source: per country, wgb = worldgovernmentbonds.com read in a real browser (jobs/dashjobs/yields/wgb.py: latest = Last, the
+# 1-month, 6-month and 1-year earlier curves = Last minus the site's change columns), or official = the country's own adapter
+# (us.py, uk.py, ...: treasuries, central banks, debt offices). Switch a country back with one line. China has no official
+# adapter (terms), so it is wgb only.
+# Official adapters, when switched on: France runs only if the GitHub secret FR_WEBSTAT_CLIENT_ID exists; Italy and India use
+# auction results only; Australia uses RBA tables F2 and F16.
 schema_version: 1
-countries: [us, uk, ca, jp, de, es, ch, br, fr, it, au, in]
-delay_seconds: 2.0      # pause between requests (polite; about 55 a week in steady state; Italy and India read ~150 each on their first run)
+countries: [us, uk, ca, jp, de, es, ch, br, fr, it, au, in, cn]
+source:
+  us: wgb
+  uk: wgb
+  ca: wgb
+  jp: wgb
+  de: wgb
+  es: wgb
+  ch: wgb
+  br: wgb
+  fr: wgb
+  it: wgb
+  au: wgb
+  in: wgb
+  cn: wgb
+delay_seconds: 2.0      # official adapters: pause between plain requests (wgb pages are at least 5 s apart, wgb.MIN_GAP_S)
 max_age_days: 21        # a country whose latest observation is older than this fails validation (frozen source)
 max_move_pp: 2.0        # a tenor that moved more than this many percentage points since the last published file fails

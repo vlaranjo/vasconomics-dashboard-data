@@ -100,7 +100,8 @@ def test_Y22_australia_f2_daily_and_f16_bond_buckets():
     doc = job.build_doc("au", raw, today=TODAY, now_iso="2026-11-11T15:47:00Z", meta=au.META)
     validate.validate_yield(doc, today=TODAY, prev=None)
     cur = {c["id"]: c for c in doc["curves"]}
-    assert doc["as_of"] == "2026-11-04" and "1Y" not in cur["3m"]["points"]          # 4 Aug: no bond had 0.8-1.2 years left
+    assert doc["as_of"] == "2026-11-04" and cur["6m"]["date"] == "2026-05-04"
+    assert cur["6m"]["points"]["1Y"]["label"].startswith("Treasury Bond 136")          # 4 May: TB136 (21 Apr 2027) had 0.96 years left
     assert cur["1y"]["points"]["1Y"]["label"].startswith("Treasury Bond 164")           # the bucket follows the date
     assert "Indexed" not in json.dumps(doc)
 

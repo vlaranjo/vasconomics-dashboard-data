@@ -1,5 +1,10 @@
 """Weekly yield-curve job: per country fetch -> build four curves -> validate -> stage -> atomic swap.
-One country failing keeps its last good file and marks it stale; a missing optional secret skips that country quietly."""
+One country failing keeps its last good file and marks it stale; a missing optional secret skips that country quietly.
+
+Source per country (config `source:`, round 17): `wgb` reads worldgovernmentbonds.com in a browser (wgb.py), `official` runs the
+country's own adapter (us.py, uk.py, ...). China has no official adapter (its sources' terms forbid reuse), so only `wgb`.
+A challenge page on worldgovernmentbonds.com stops every further load of that site in the run: the remaining `wgb` countries
+keep their last good files and go stale; `official` countries still run."""
 from __future__ import annotations
 
 import importlib
@@ -7,11 +12,13 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 from .. import publish, status, validate
-from . import core
+from . import core, wgb
 from .core import Skipped
 
-COUNTRIES = ["us", "uk", "ca", "jp", "de", "es", "ch", "br", "fr", "it", "au", "in"]
+COUNTRIES = ["us", "uk", "ca", "jp", "de", "es", "ch", "br", "fr", "it", "au", "in", "cn"]
 MODULES = {"in": "india"}          # `in` is a Python keyword
+NO_OFFICIAL = {"cn": "China has no official adapter (ChinaBond and CFETS terms forbid reuse); set its source to wgb."}
+SOURCES = ("wgb", "official")
 
 
 class NothingFetched(Exception):
@@ -36,8 +43,17 @@ def build_doc(code: str, raw: core.Raw, *, today: date, now_iso: str, meta: dict
     return doc
 
 
+def source_of(cfg: dict, code: str) -> str:
+    src = (cfg.get("source") or {}).get(code, "official")
+    if src not in SOURCES:
+        raise ValueError(f"unknown source {src!r} for {code} in config (use wgb or official)")
+    return src
+
+
 def run(cfg: dict, getter, *, today: date, now: datetime | None = None, data_dir, work_dir, env=None,
-        workflow: str = "yields", only: list[str] | None = None, universe: dict) -> dict:
+        workflow: str = "yields", only: list[str] | None = None, universe: dict, pager=None, pager_factory=None) -> dict:
+    """`pager` (tests) or `pager_factory` (run_yields.py) gives the browser for `wgb` countries; it is opened only if one runs."""
+    pager_factory = pager_factory or wgb.BrowserPager
     now = now or datetime.now(timezone.utc)
     env = {} if env is None else env
     data_dir, work_dir = Path(data_dir), Path(work_dir)
@@ -49,28 +65,44 @@ def run(cfg: dict, getter, *, today: date, now: datetime | None = None, data_dir
     files: dict[str, object] = {}
     meta_out: dict[str, dict] = {}
     ok, failed, skipped, warnings = [], [], [], []
-    for code in codes:
-        mod = adapter(code)
-        rel = f"yields/{code}.json"
-        prev = publish.read_json(data_dir / rel)
-        try:
-            raw = mod.fetch(getter, today, env, (prev or {}).get("state"))
-            warnings += [f"{code}: {w}" for w in raw.warnings]
-            doc = build_doc(code, raw, today=today, now_iso=now_iso, meta=mod.META)
-            validate.validate_yield(doc, today=today, prev=prev, max_age_days=cfg.get("max_age_days", 21),
-                                    max_weekly_move_pp=cfg.get("max_move_pp", 2.0))
-            ok.append(code)
-        except Skipped as e:
-            skipped.append(f"{code}: {e}")
-            continue
-        except Exception as e:  # noqa: BLE001 - any failure keeps the last good file
-            failed.append(f"{code}: {str(e)[:160]}")
-            if not prev:
+    opened = None
+    try:
+        for code in codes:
+            rel = f"yields/{code}.json"
+            prev = publish.read_json(data_dir / rel)
+            try:
+                src = source_of(cfg, code)
+                if src == "wgb":
+                    if pager is None:
+                        pager = opened = pager_factory()
+                    raw, meta = wgb.fetch(code, pager, today, (prev or {}).get("state")), wgb.meta(code)
+                else:
+                    if code in NO_OFFICIAL:
+                        raise ValueError(NO_OFFICIAL[code])
+                    mod = adapter(code)
+                    raw, meta = mod.fetch(getter, today, env, (prev or {}).get("state")), mod.META
+                warnings += [f"{code}: {w}" for w in raw.warnings]
+                doc = build_doc(code, raw, today=today, now_iso=now_iso, meta=meta)
+                validate.validate_yield(doc, today=today, prev=prev, max_age_days=cfg.get("max_age_days", 21),
+                                        max_weekly_move_pp=cfg.get("max_move_pp", 2.0))
+                ok.append(code)
+            except Skipped as e:
+                skipped.append(f"{code}: {e}")
                 continue
-            doc = dict(prev)
-            doc["stale"], doc["stale_reason"], doc["fetched_at"] = True, "fetch_or_parse_failed", now_iso
-        files[rel] = doc
-        meta_out[code] = {"path": rel, "as_of": doc["as_of"], "stale": doc["stale"], "status": doc["status"], "name": doc["name"]}
+            except Exception as e:  # noqa: BLE001 - any failure (a challenge page included) keeps the last good file
+                failed.append(f"{code}: {type(e).__name__ + ': ' if isinstance(e, (wgb.Challenge, wgb.LayoutChanged)) else ''}{str(e)[:160]}")
+                if not prev:
+                    continue
+                doc = dict(prev)
+                doc["stale"], doc["stale_reason"], doc["fetched_at"] = True, "fetch_or_parse_failed", now_iso
+            files[rel] = doc
+            meta_out[code] = {"path": rel, "as_of": doc["as_of"], "stale": doc["stale"], "status": doc["status"], "name": doc["name"]}
+    finally:
+        if opened is not None:
+            try:
+                opened.close()
+            except Exception:  # noqa: BLE001 - closing the browser must never cost the run its results
+                pass
     attempted = len(ok) + len(failed)
     if attempted and not ok:
         raise NothingFetched("; ".join(failed))
