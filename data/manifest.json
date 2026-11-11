@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-11T12:57:51Z",
+ "generated_at": "2026-11-11T15:12:46Z",
  "status": "status.json",
  "sections": {
   "asset-classes": {
@@ -446,14 +446,14 @@
  "yields": {
   "us": {
    "path": "yields/us.json",
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-10",
    "stale": false,
    "status": "ok",
    "name": "United States"
   },
   "uk": {
    "path": "yields/uk.json",
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-10",
    "stale": false,
    "status": "ok",
    "name": "United Kingdom"
@@ -474,14 +474,14 @@
   },
   "de": {
    "path": "yields/de.json",
-   "as_of": "2026-11-10",
+   "as_of": "2026-11-11",
    "stale": false,
    "status": "ok",
    "name": "Germany"
   },
   "es": {
    "path": "yields/es.json",
-   "as_of": "2026-11-06",
+   "as_of": "2026-11-09",
    "stale": false,
    "status": "ok",
    "name": "Spain"
@@ -495,10 +495,17 @@
   },
   "br": {
    "path": "yields/br.json",
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-10",
    "stale": false,
    "status": "ok",
    "name": "Brazil"
+  },
+  "fr": {
+   "path": "yields/fr.json",
+   "as_of": "2026-11-10",
+   "stale": false,
+   "status": "ok",
+   "name": "France"
   }
  }
 }

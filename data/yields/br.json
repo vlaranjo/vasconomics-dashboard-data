@@ -6,11 +6,11 @@
  "source_url": "https://www.anbima.com.br/pt_br/informar/curvas-de-juros-fechamento.htm",
  "terms": "ANBIMA is a private association; terms not found, to be checked before any public use.",
  "status": "ok",
- "fetched_at": "2026-11-10T18:22:19Z",
- "last_success": "2026-11-10T18:22:19Z",
+ "fetched_at": "2026-11-11T15:12:46Z",
+ "last_success": "2026-11-11T15:12:46Z",
  "stale": false,
  "stale_reason": null,
- "as_of": "2026-11-09",
+ "as_of": "2026-11-10",
  "tenors": [
   "1M",
   "3M",
@@ -29,41 +29,41 @@
   {
    "id": "latest",
    "label": "Latest",
-   "date": "2026-11-09",
+   "date": "2026-11-10",
    "points": {
     "1M": {
-     "value": 13.6025,
-     "date": "2026-11-09",
+     "value": 13.6105,
+     "date": "2026-11-10",
      "kind": "D"
     },
     "3M": {
-     "value": 13.6736,
-     "date": "2026-11-09",
+     "value": 13.6621,
+     "date": "2026-11-10",
      "kind": "D"
     },
     "6M": {
-     "value": 13.8039,
-     "date": "2026-11-09",
+     "value": 13.7826,
+     "date": "2026-11-10",
      "kind": "D"
     },
     "1Y": {
-     "value": 14.0922,
-     "date": "2026-11-09",
+     "value": 14.0821,
+     "date": "2026-11-10",
      "kind": "D"
     },
     "3Y": {
-     "value": 14.9155,
-     "date": "2026-11-09",
+     "value": 14.961,
+     "date": "2026-11-10",
      "kind": "D"
     },
     "5Y": {
-     "value": 15.1846,
-     "date": "2026-11-09",
+     "value": 15.2449,
+     "date": "2026-11-10",
      "kind": "D"
     },
     "10Y": {
-     "value": 15.0986,
-     "date": "2026-11-09",
+     "value": 15.1672,
+     "date": "2026-11-10",
      "kind": "D"
     }
    }
@@ -71,19 +71,19 @@
   {
    "id": "1m",
    "label": "1 month earlier",
-   "date": "2026-10-09",
+   "date": "2026-10-10",
    "points": {}
   },
   {
    "id": "3m",
    "label": "3 months earlier",
-   "date": "2026-08-09",
+   "date": "2026-08-10",
    "points": {}
   },
   {
    "id": "1y",
    "label": "1 year earlier",
-   "date": "2025-11-09",
+   "date": "2025-11-10",
    "points": {}
   }
  ],
@@ -171,6 +171,18 @@
      "3Y": 14.9155,
      "5Y": 15.1846,
      "10Y": 15.0986
+    }
+   ],
+   [
+    "2026-11-10",
+    {
+     "1M": 13.6105,
+     "3M": 13.6621,
+     "6M": 13.7826,
+     "1Y": 14.0821,
+     "3Y": 14.961,
+     "5Y": 15.2449,
+     "10Y": 15.1672
     }
    ]
   ]

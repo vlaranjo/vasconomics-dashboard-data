@@ -1,0 +1,161 @@
+{
+ "schema_version": 1,
+ "country": "fr",
+ "name": "France",
+ "source": "Banque de France, Webstat (TEC constant-maturity yields)",
+ "source_url": "https://webstat.banque-france.fr/",
+ "terms": "Source must be credited ('Source: Banque de France'); data stays the Banque de France's property, no distortion; licence is per dataset (none stated in the API metadata).",
+ "status": "ok",
+ "fetched_at": "2026-11-11T15:12:46Z",
+ "last_success": "2026-11-11T15:12:46Z",
+ "stale": false,
+ "stale_reason": null,
+ "as_of": "2026-11-10",
+ "tenors": [
+  "1M",
+  "3M",
+  "6M",
+  "1Y",
+  "3Y",
+  "5Y",
+  "10Y",
+  "30Y"
+ ],
+ "tenor_labels": {},
+ "gaps": {
+  "1M": "The Banque de France stopped publishing the 'taux indicatifs' of Treasury bills on 10 July 2024 and Webstat has no daily bill series; left empty.",
+  "3M": "The Banque de France stopped publishing the 'taux indicatifs' of Treasury bills on 10 July 2024 and Webstat has no daily bill series; left empty.",
+  "6M": "The Banque de France stopped publishing the 'taux indicatifs' of Treasury bills on 10 July 2024 and Webstat has no daily bill series; left empty."
+ },
+ "curves": [
+  {
+   "id": "latest",
+   "label": "Latest",
+   "date": "2026-11-10",
+   "points": {
+    "1Y": {
+     "value": 3.258,
+     "date": "2026-11-10",
+     "kind": "D"
+    },
+    "3Y": {
+     "value": 3.712,
+     "date": "2026-11-10",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 4.055,
+     "date": "2026-11-10",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 4.664,
+     "date": "2026-11-10",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 5.215,
+     "date": "2026-11-10",
+     "kind": "D"
+    }
+   }
+  },
+  {
+   "id": "1m",
+   "label": "1 month earlier",
+   "date": "2026-10-10",
+   "points": {
+    "1Y": {
+     "value": 3.251,
+     "date": "2026-10-09",
+     "kind": "D"
+    },
+    "3Y": {
+     "value": 3.782,
+     "date": "2026-10-09",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 4.111,
+     "date": "2026-10-09",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 4.795,
+     "date": "2026-10-09",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 5.357,
+     "date": "2026-10-09",
+     "kind": "D"
+    }
+   }
+  },
+  {
+   "id": "3m",
+   "label": "3 months earlier",
+   "date": "2026-08-10",
+   "points": {
+    "1Y": {
+     "value": 2.771,
+     "date": "2026-08-10",
+     "kind": "D"
+    },
+    "3Y": {
+     "value": 3.005,
+     "date": "2026-08-10",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 3.25,
+     "date": "2026-08-10",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 3.897,
+     "date": "2026-08-10",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 4.693,
+     "date": "2026-08-10",
+     "kind": "D"
+    }
+   }
+  },
+  {
+   "id": "1y",
+   "label": "1 year earlier",
+   "date": "2025-11-10",
+   "points": {
+    "1Y": {
+     "value": 2.08,
+     "date": "2025-11-10",
+     "kind": "D"
+    },
+    "3Y": {
+     "value": 2.36,
+     "date": "2025-11-10",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 2.69,
+     "date": "2025-11-10",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 3.45,
+     "date": "2025-11-10",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 4.33,
+     "date": "2025-11-10",
+     "kind": "D"
+    }
+   }
+  }
+ ],
+ "state": {}
+}

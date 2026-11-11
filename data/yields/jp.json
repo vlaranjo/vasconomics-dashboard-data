@@ -6,8 +6,8 @@
  "source_url": "https://www.mof.go.jp/english/policy/jgbs/reference/interest_rate/index.htm",
  "terms": "Copyright Ministry of Finance Japan; Public Data License 1.0 where no other right is stated (attribution wording not confirmed).",
  "status": "ok",
- "fetched_at": "2026-11-10T18:22:19Z",
- "last_success": "2026-11-10T18:22:19Z",
+ "fetched_at": "2026-11-11T15:12:46Z",
+ "last_success": "2026-11-11T15:12:46Z",
  "stale": false,
  "stale_reason": null,
  "as_of": "2026-10-30",
@@ -205,13 +205,6 @@
  ],
  "state": {
   "auction_log": [
-   {
-    "date": "2025-08-07",
-    "no": 1323,
-    "issue": "2025-08-12",
-    "days": 182,
-    "value": 0.4945
-   },
    {
     "date": "2025-08-08",
     "no": 1324,
@@ -878,6 +871,6 @@
     "value": 1.3847
    }
   ],
-  "scanned_through": "2026-11-09"
+  "scanned_through": "2026-11-10"
  }
 }
