@@ -1,0 +1,32 @@
+
+Ministero dell'Economia e delle Finanze
+Auction Results: 6 MONTH BOTS
+Date: September 25, 2026 - September 28, 2026
+ISIN Code IT0005733115
+Tranche 1st - 2nd
+Days to Maturity 182
+Issue date September 30, 2026
+Maturity Date March 31, 2027
+Auction Date September 25, 2026
+Settlement Date September 30, 2026
+Amount Offered 7,500.000
+Amount Bid 10,966.510
+Amount Allotted 7,500.000
+Weighted Average Price 98.568
+Weighted Average Yield 2.873%
+Maximum Accepted Yield 2.875%
+Minimum Accepted Yield 2.871%
+Bid To Cover Ratio 1.46
+Cut-off Yield 3.873%
+Gross Compound Yield 2.893%
+Price for fiscal purpose 98.568
+Amount Offered to Specialists 750.000
+Amount Bid to Specialists 0.000
+Amount Allotted to Specialists 0.000
+Issue Volume
+Outstanding 7,500.000
+Allotted to Specialists in supplementary
+placements 0.000
+Nominal Amounts are expressed in millions of Euros.
+Gross Yields are calculated on 360 days basis.
+If not specified, yields are intended as simple gross yields.

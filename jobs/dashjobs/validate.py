@@ -121,7 +121,7 @@ INDICATORS_SCHEMA = {
 
 _POINT = {
     "type": "object", "required": ["value", "date", "kind"],
-    "properties": {"value": {"type": "number"}, "date": _DATE, "kind": {"enum": ["D", "W", "B", "A"]},
+    "properties": {"value": {"type": "number"}, "date": _DATE, "kind": {"enum": ["D", "W", "B", "M", "A"]},
                    "label": {"type": "string"}, "days": {"type": "integer"}},
     "additionalProperties": False,
 }

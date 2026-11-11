@@ -1,7 +1,8 @@
 """Yield-curve core: series types, the auction rule, the earlier-curve anchors, and the per-country document.
 
 Cell kinds: D daily official observation, W weekly official observation, B bucket (the bucket is named in `label`),
-A auction yield (own date, residual days). A tenor with no usable point is simply absent from `points`.
+M monthly average (named in `label`, e.g. France's 13-week BTF auctions), A auction yield (own date, residual days).
+A tenor with no usable point is simply absent from `points`.
 """
 from __future__ import annotations
 
@@ -16,6 +17,11 @@ TENORS = ["1M", "3M", "6M", "1Y", "3Y", "5Y", "10Y", "30Y"]
 # Auction rule (decided 6 Nov 2026): the most recent auction whose residual maturity at settlement falls inside the
 # window, not older than AUCTION_MAX_AGE_DAYS before the reference date.
 AUCTION_WINDOWS = {"1M": (20, 45), "3M": (70, 110), "6M": (160, 200)}
+# Long tenors (decided 11 Nov 2026), ONLY for a country with no daily official source for that tenor (Italy, India): the same
+# rule, with the window in years of remaining maturity at settlement. An adapter opts in by giving auctions for the tenor.
+YEAR_DAYS = 365.25
+LONG_AUCTION_YEARS = {"1Y": (0.8, 1.2), "3Y": (2.5, 3.5), "5Y": (4.0, 6.0), "10Y": (8.5, 11.5), "30Y": (25.0, 35.0)}
+AUCTION_WINDOWS.update({t: (lo * YEAR_DAYS, hi * YEAR_DAYS) for t, (lo, hi) in LONG_AUCTION_YEARS.items()})
 AUCTION_MAX_AGE_DAYS = 90
 
 CURVE_DEFS = [("latest", "Latest", None), ("1m", "1 month earlier", relativedelta(months=1)),
@@ -28,11 +34,12 @@ class Skipped(Exception):
 
 @dataclass
 class Series:
-    kind: str                                   # D, W or B
+    kind: str                                   # D, W, B or M
     points: list[tuple[date, float]]            # ascending by date
     max_lag: int = 4                            # a value may be this many days older than the date asked for
     label: str | None = None                    # tooltip text for buckets ("1-3 month bucket")
     tenor_label: str | None = None              # axis/legend label override (Canada: "long-term benchmark")
+    labels: dict | None = None                  # per-date label, when the bucket changes with the date (Australia's bond buckets)
 
     def __post_init__(self):
         self.points = sorted(self.points)
@@ -67,6 +74,8 @@ class Raw:
     auctions: dict[str, list[Auction]] = field(default_factory=dict)   # tenor -> all known auctions (any residual days)
     gaps: dict[str, str] = field(default_factory=dict)                 # tenor -> why it is empty
     extra: dict = field(default_factory=dict)                          # adapter state to keep in the document
+    warnings: list[str] = field(default_factory=list)                  # shown in status.json (e.g. files that could not be read)
+    auction_dated: bool = False        # Italy, India: no series at all, so the latest in-window auction dates the curve
 
 
 def pick_auction(auctions: list[Auction], tenor: str, ref: date) -> Auction | None:
@@ -90,20 +99,29 @@ def point_at(raw: Raw, tenor: str, target: date) -> dict | None:
         if hit:
             d, v = hit
             p = {"value": round(float(v), 4), "date": d.isoformat(), "kind": s.kind}
-            if s.label:
-                p["label"] = s.label
+            label = (s.labels or {}).get(d) or s.label
+            if label:
+                p["label"] = label
             return p
     if tenor in AUCTION_WINDOWS and raw.auctions.get(tenor) is not None:
         a = pick_auction(raw.auctions[tenor], tenor, target)
         if a:
-            return {"value": round(float(a.value), 4), "date": a.date.isoformat(), "kind": "A", "days": a.days}
+            return {"value": round(float(a.value), 4), "date": a.date.isoformat(), "kind": "A", "days": int(a.days)}
     return None
 
 
 def curve_date(raw: Raw) -> date | None:
-    """The country's own latest observation among its daily/weekly/bucket series (auctions never set it)."""
+    """The country's own latest observation among its daily/weekly/bucket series (auctions and monthly averages never set it).
+    Only an adapter that says so (`auction_dated`: Italy, India, auctions only) is dated by its latest in-window auction; any
+    other country with no series fails as before (Japan with an empty curve file must not publish its bills alone)."""
     last = [s.last_date for cands in raw.series.values() for s in cands if s.kind in ("D", "W", "B") and s.last_date]
-    return max(last) if last else None
+    if last:
+        return max(last)
+    if not raw.auction_dated:
+        return None
+    aus = [a.date for t, lst in raw.auctions.items() if t in AUCTION_WINDOWS for a in lst
+           if AUCTION_WINDOWS[t][0] <= a.days <= AUCTION_WINDOWS[t][1]]
+    return max(aus) if aus else None
 
 
 def build_curves(raw: Raw, as_of: date) -> list[dict]:

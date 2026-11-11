@@ -350,12 +350,14 @@ def test_Y10_france_key_only_in_authorization_header():
     assert "KEY-1234" not in url and "KEY-1234" not in json.dumps(params)    # never in the URL or the query
     for n in (1, 3, 5, 10, 30):
         assert fr.tec_key(n) in params["where"]
+    assert fr.TMB_KEY in params["where"]                                    # the monthly 13-week BTF rate, same request
 
 
 def test_Y10_france_parses_real_response_nulls_and_gaps():
     raw = fr.fetch(_fr_fake(), TODAY, env={"FR_WEBSTAT_CLIENT_ID": "k"})
     assert set(raw.series) == {"1Y", "3Y", "5Y", "10Y", "30Y"}              # TEC 3 exists, so 3Y is filled
-    assert set(raw.gaps) == {"1M", "3M", "6M"} and "10 July 2024" in raw.gaps["3M"]
+    assert set(raw.gaps) == {"1M", "3M", "6M"} and "10 July 2024" in raw.gaps["6M"]       # this fixture has no TMB rows: 3M empty
+    assert "monthly 13-week" in raw.gaps["3M"] and "11 to 52 weeks" in raw.gaps["1M"]
     pts = dict(raw.series["10Y"][0].points)
     assert pts[D("2026-10-30")] == 4.93 and pts[D("2026-11-10")] == 4.664
     assert D("2026-11-08") not in pts and D("2026-10-31") not in pts         # weekend rows (null values) are dropped
@@ -364,7 +366,7 @@ def test_Y10_france_parses_real_response_nulls_and_gaps():
     got = {t: core.point_at(raw, t, D("2026-10-30"))["value"] for t in raw.series}
     assert got == {"1Y": 3.364, "3Y": 3.91, "5Y": 4.29, "10Y": 4.93, "30Y": 5.427}
     assert core.point_at(raw, "10Y", D("2026-11-02"))["date"] == "2026-11-02"
-    assert fr.META["status"] == "ok" and fr.BILL_KEYS == {}
+    assert fr.META["status"] == "ok" and fr.TMB_KEY == "FM.M.FR.EUR.FR2.MM.TMB.HSTA"
 
 
 def test_Y10_france_series_without_data_becomes_a_gap_and_stale_series_is_not_filled():
@@ -498,11 +500,11 @@ def test_Y17_files_are_staged_not_written_in_place(tmp_path, monkeypatch):
 def test_Y18_config_lists_the_launch_countries_and_every_adapter_imports():
     import yaml
     cfg = yaml.safe_load((Path(__file__).resolve().parent.parent / "config" / "yields.yaml").read_text())
-    assert cfg["countries"] == ["us", "uk", "ca", "jp", "de", "es", "ch", "br", "fr"]
+    assert cfg["countries"] == ["us", "uk", "ca", "jp", "de", "es", "ch", "br", "fr", "it", "au", "in"]
     for c in cfg["countries"]:
         m = job.adapter(c)
         assert {"name", "source", "source_url", "terms"} <= set(m.META) and callable(m.fetch)
-    assert "it" not in cfg["countries"] and "in" not in cfg["countries"] and "cn" not in cfg["countries"]
+    assert "cn" not in cfg["countries"] and job.adapter("in").__name__.endswith(".india")     # `in` is a keyword: india.py
 
 
 # ---------------------------------------------------------------- Y19: Brazil history accumulates through the job
