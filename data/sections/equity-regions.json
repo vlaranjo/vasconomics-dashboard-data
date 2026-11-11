@@ -4,7 +4,7 @@
  "title": "Equity regions",
  "page": "countries-regions",
  "kind": "funds",
- "generated_at": "2026-11-10T18:09:44Z",
+ "generated_at": "2026-11-11T12:57:51Z",
  "as_of": "2026-11-10",
  "lookbacks": [
   "1D",
@@ -33,7 +33,7 @@
    "last_close": "2026-11-10",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-10T18:09:44Z",
+   "last_success": "2026-11-11T12:57:51Z",
    "returns": {
     "1D": {
      "value": -0.2,
@@ -101,7 +101,7 @@
    "last_close": "2026-11-10",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-10T18:09:44Z",
+   "last_success": "2026-11-11T12:57:51Z",
    "returns": {
     "1D": {
      "value": -0.31,
@@ -169,7 +169,7 @@
    "last_close": "2026-11-10",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-10T18:09:44Z",
+   "last_success": "2026-11-11T12:57:51Z",
    "returns": {
     "1D": {
      "value": 0.15,
@@ -237,7 +237,7 @@
    "last_close": "2026-11-10",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-10T18:09:44Z",
+   "last_success": "2026-11-11T12:57:51Z",
    "returns": {
     "1D": {
      "value": -0.69,
@@ -300,12 +300,12 @@
    "provider": "iShares",
    "acc": true,
    "hedged": false,
-   "fund_name": "iShares VII PLC - iShares Core MSCI Pac ex-Jpn ETF USD Acc",
+   "fund_name": "iShares Core MSCI Pac ex-Jpn ETF USD Acc",
    "first_close": "2010-05-04",
    "last_close": "2026-11-10",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-10T18:09:44Z",
+   "last_success": "2026-11-11T12:57:51Z",
    "returns": {
     "1D": {
      "value": -0.23,
@@ -373,7 +373,7 @@
    "last_close": "2026-11-10",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-10T18:09:44Z",
+   "last_success": "2026-11-11T12:57:51Z",
    "returns": {
     "1D": {
      "value": 0.14,
@@ -436,12 +436,12 @@
    "provider": "Amundi",
    "acc": true,
    "hedged": false,
-   "fund_name": "Amundi Index Solutions - Amundi MSCI Em Asia UCITS ETF-C EUR",
+   "fund_name": "Amundi MSCI Em Asia UCITS ETF-C EUR",
    "first_close": "2018-03-22",
    "last_close": "2026-11-10",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-10T18:09:44Z",
+   "last_success": "2026-11-11T12:57:51Z",
    "returns": {
     "1D": {
      "value": 0.09,
@@ -508,12 +508,12 @@
    "provider": "Amundi",
    "acc": true,
    "hedged": false,
-   "fund_name": "Amundi Index Solutions - Amundi MSCI Em Latin America UCITS ETF-C EUR",
+   "fund_name": "Amundi MSCI Em Latin America UCITS ETF-C EUR",
    "first_close": "2011-04-28",
    "last_close": "2026-11-10",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-10T18:09:44Z",
+   "last_success": "2026-11-11T12:57:51Z",
    "returns": {
     "1D": {
      "value": -0.34,
