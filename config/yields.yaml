@@ -1,5 +1,5 @@
 # Weekly yield-curve job (decisions 6 Nov 2026). Order = order on the page.
-# France runs only when the GitHub secret FR_WEBSTAT_CLIENT_ID exists (adapter UNTESTED until then); Italy, India, China are out.
+# France runs only when the GitHub secret FR_WEBSTAT_CLIENT_ID exists (adapter tested live on 11 Nov 2026; 1M, 3M, 6M are gaps); Italy, India, China are out.
 schema_version: 1
 countries: [us, uk, ca, jp, de, es, ch, br, fr]
 delay_seconds: 2.0      # pause between requests to the same run (polite; about 40 requests a week in steady state)

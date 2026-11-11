@@ -1,11 +1,18 @@
-# Daily markets job: Yahoo -> returns -> validate -> atomic swap of data/ -> one commit -> Pages deploy.
+# Markets job: Yahoo -> returns -> validate -> atomic swap of data/ -> one commit -> Pages deploy.
+# Five runs a week-day (UTC) because GitHub starts scheduled runs hours late (5-8 h seen in Nov 2026): at least one then lands
+# near its slot. Every run is safe to repeat: only COMPLETED bars are used (funds from 17:00 UTC, FX from London midnight), and
+# a run whose data is not newer than what is published keeps the published data. 17:47, 19:47 and 22:37 Mon-Fri cover the
+# day's close; 05:47 and 11:47 Tue-Sat repair a missed day (Friday's FX bar only completes on Saturday).
 # A manual run (workflow_dispatch) on the dev branch commits to dev and does NOT deploy.
 name: markets
 
 on:
   schedule:
-    - cron: "37 22 * * 1-5"   # 22:37 UTC Mon-Fri, after every European close
-    - cron: "47 5 * * 2-6"    # repair run for a missed or late day
+    - cron: "47 17 * * 1-5"   # 17:47 UTC Mon-Fri, after every European close
+    - cron: "47 19 * * 1-5"   # 19:47 UTC Mon-Fri
+    - cron: "37 22 * * 1-5"   # 22:37 UTC Mon-Fri, after the US close
+    - cron: "47 5 * * 2-6"    # 05:47 UTC Tue-Sat, repair run for the previous day
+    - cron: "47 11 * * 2-6"   # 11:47 UTC Tue-Sat, second repair run
   workflow_dispatch:
 
 permissions:

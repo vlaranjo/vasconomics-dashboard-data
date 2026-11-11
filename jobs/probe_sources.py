@@ -105,9 +105,9 @@ PROBES = [
     ("Yield", "Finanzagentur Bubill auction results xlsx",
      lambda: (lambda r: (r.status_code, f"stream head {r.content[:2]!r}", r.content[:2] == b'PK'))(
          _stream_head("https://www.deutsche-finanzagentur.de/fileadmin/user_upload/Institutionelle-investoren/auktionen/emissionsergebnisse_aktuell_en.xlsx"))),
-    ("Yield", "Banque de France Webstat API (expects 401 without a client id)",
-     lambda: (lambda r: (r.status_code, "reachable; " + ("401 = key required, as expected" if r.status_code == 401 else r.text[:60]), r.status_code in (200, 401)))(
-         _get("https://api.webstat.banque-france.fr/webstat-en/v1/data/FM/FM.D.FR.EUR.FR2.BB.FR10YT_RR.YLD?format=csv"))),
+    ("Yield", "Banque de France Webstat Explore API (anonymous call is refused: 401/403/404)",
+     lambda: (lambda r: (r.status_code, "reachable; refused without a key, as expected" if r.status_code in (401, 403, 404) else r.text[:60], r.status_code in (200, 401, 403, 404)))(
+         _get("https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets/observations/records?limit=1"))),
     ("Yield", "Banca d'Italia Infostat (expects a protected page)",
      lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes; {'protected resource page' if 'Risorsa Protetta' in r.text else 'other'}", r.status_code == 200 and 'Risorsa Protetta' not in r.text))(
          _get("https://a2a.bancaditalia.it/infostat/dataservices/rest/dataflow"))),
