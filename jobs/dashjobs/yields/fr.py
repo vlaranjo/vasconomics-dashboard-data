@@ -14,7 +14,9 @@ Series: TEC (taux de l'echeance constante, daily, dataset FM) FM.D.FR.EUR.FR2.BB
 (1Y, 3Y, 5Y, 10Y, 30Y). TEC 3 exists and is current, so 3Y is filled from it. Weekends and holidays come back as rows
 with obs_value null (status M): they are skipped.
 The 1M, 3M and 6M "taux indicatifs des bons du Tresor" are GAPS and stay gaps: the Banque de France stopped publishing them on
-10 July 2024 and Webstat holds no daily bill series (searched 11 Nov 2026), so BILL_KEYS is empty. Never filled from elsewhere.
+10 July 2024 and Webstat holds no daily bill series (searched 11 Nov 2026), so BILL_KEYS is empty. The Agence France Tresor (aft.gouv.fr) BTF auction results were checked on 11 Nov 2026: every page answers
+an honest non-browser request with HTTP 403 (bot protection), which is not circumvented, so there is no auction fallback either.
+Never filled from elsewhere.
 """
 from __future__ import annotations
 
@@ -34,7 +36,8 @@ URL = "https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets/observ
 TEC = {"1Y": 1, "3Y": 3, "5Y": 5, "10Y": 10, "30Y": 30}
 BILL_KEYS: dict[str, str] = {}      # none exist: see the docstring
 BILL_GAP = ("The Banque de France stopped publishing the 'taux indicatifs' of Treasury bills on 10 July 2024 and Webstat has no "
-            "daily bill series; left empty.")
+            "daily bill series; the Agence France Tresor's auction results are not readable without a browser (its site refuses "
+            "non-browser requests, HTTP 403), so no auction yield is used; left empty.")
 GAPS = {"1M": BILL_GAP, "3M": BILL_GAP, "6M": BILL_GAP}
 
 
