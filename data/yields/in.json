@@ -1,0 +1,2583 @@
+{
+ "schema_version": 1,
+ "country": "in",
+ "name": "India",
+ "source": "Reserve Bank of India (Treasury bill and Government Stock auction results)",
+ "source_url": "https://www.rbi.org.in/",
+ "terms": "No reuse licence stated. RBI's terms: caching, linking and framing are prohibited except that the home page may be linked after notifying the RBI in writing; deep links need prior permission.",
+ "status": "ok",
+ "fetched_at": "2026-11-11T19:02:19Z",
+ "last_success": "2026-11-11T19:02:19Z",
+ "stale": false,
+ "stale_reason": null,
+ "as_of": "2026-11-11",
+ "tenors": [
+  "1M",
+  "3M",
+  "6M",
+  "1Y",
+  "3Y",
+  "5Y",
+  "10Y",
+  "30Y"
+ ],
+ "tenor_labels": {},
+ "gaps": {
+  "1M": "India issues no regular one-month bill (Cash Management Bills are irregular); left empty."
+ },
+ "curves": [
+  {
+   "id": "latest",
+   "label": "Latest",
+   "date": "2026-11-11",
+   "points": {
+    "3M": {
+     "value": 5.8594,
+     "date": "2026-11-11",
+     "kind": "A",
+     "days": 91
+    },
+    "6M": {
+     "value": 6.5059,
+     "date": "2026-11-11",
+     "kind": "A",
+     "days": 182
+    },
+    "1Y": {
+     "value": 6.6176,
+     "date": "2026-11-11",
+     "kind": "A",
+     "days": 364
+    },
+    "3Y": {
+     "value": 7.1014,
+     "date": "2026-10-30",
+     "kind": "A",
+     "days": 1019
+    },
+    "5Y": {
+     "value": 7.3437,
+     "date": "2026-10-23",
+     "kind": "A",
+     "days": 1777
+    },
+    "10Y": {
+     "value": 7.3925,
+     "date": "2026-10-16",
+     "kind": "A",
+     "days": 3492
+    },
+    "30Y": {
+     "value": 7.8415,
+     "date": "2026-10-30",
+     "kind": "A",
+     "days": 10910
+    }
+   }
+  },
+  {
+   "id": "1m",
+   "label": "1 month earlier",
+   "date": "2026-10-11",
+   "points": {
+    "3M": {
+     "value": 5.5607,
+     "date": "2026-10-07",
+     "kind": "A",
+     "days": 91
+    },
+    "6M": {
+     "value": 6.0645,
+     "date": "2026-10-07",
+     "kind": "A",
+     "days": 182
+    },
+    "1Y": {
+     "value": 6.2587,
+     "date": "2026-10-07",
+     "kind": "A",
+     "days": 364
+    },
+    "3Y": {
+     "value": 6.7374,
+     "date": "2026-10-01",
+     "kind": "A",
+     "days": 1047
+    },
+    "5Y": {
+     "value": 6.5163,
+     "date": "2026-09-04",
+     "kind": "A",
+     "days": 1826
+    },
+    "10Y": {
+     "value": 7.1421,
+     "date": "2026-09-25",
+     "kind": "A",
+     "days": 3513
+    },
+    "30Y": {
+     "value": 7.6835,
+     "date": "2026-10-01",
+     "kind": "A",
+     "days": 10938
+    }
+   }
+  },
+  {
+   "id": "3m",
+   "label": "3 months earlier",
+   "date": "2026-08-11",
+   "points": {
+    "3M": {
+     "value": 5.2529,
+     "date": "2026-08-05",
+     "kind": "A",
+     "days": 91
+    },
+    "6M": {
+     "value": 5.5452,
+     "date": "2026-08-05",
+     "kind": "A",
+     "days": 182
+    },
+    "1Y": {
+     "value": 5.6837,
+     "date": "2026-08-05",
+     "kind": "A",
+     "days": 364
+    },
+    "3Y": {
+     "value": 6.164,
+     "date": "2026-07-17",
+     "kind": "A",
+     "days": 922
+    },
+    "5Y": {
+     "value": 6.357,
+     "date": "2026-08-07",
+     "kind": "A",
+     "days": 1651
+    },
+    "10Y": {
+     "value": 6.8089,
+     "date": "2026-07-31",
+     "kind": "A",
+     "days": 3569
+    },
+    "30Y": {
+     "value": 7.3889,
+     "date": "2026-07-17",
+     "kind": "A",
+     "days": 10621
+    }
+   }
+  },
+  {
+   "id": "1y",
+   "label": "1 year earlier",
+   "date": "2025-11-11",
+   "points": {
+    "3M": {
+     "value": 5.4453,
+     "date": "2025-11-06",
+     "kind": "A",
+     "days": 91
+    },
+    "6M": {
+     "value": 5.582,
+     "date": "2025-11-06",
+     "kind": "A",
+     "days": 182
+    },
+    "1Y": {
+     "value": 5.5789,
+     "date": "2025-11-06",
+     "kind": "A",
+     "days": 364
+    },
+    "3Y": {
+     "value": 5.8239,
+     "date": "2025-10-31",
+     "kind": "A",
+     "days": 970
+    },
+    "5Y": {
+     "value": 6.1178,
+     "date": "2025-10-17",
+     "kind": "A",
+     "days": 1735
+    },
+    "10Y": {
+     "value": 6.4775,
+     "date": "2025-11-07",
+     "kind": "A",
+     "days": 3617
+    },
+    "30Y": {
+     "value": 7.2346,
+     "date": "2025-10-31",
+     "kind": "A",
+     "days": 10880
+    }
+   }
+  }
+ ],
+ "state": {
+  "auction_log": [
+   {
+    "date": "2025-08-06",
+    "days": 91,
+    "value": 5.4292,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-08-06",
+    "days": 182,
+    "value": 5.5401,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-08-06",
+    "days": 364,
+    "value": 5.5733,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-08-08",
+    "days": 2529,
+    "value": 6.3349,
+    "what": "6.28% GS 2032",
+    "settle": "2025-08-11",
+    "maturity": "2032-07-14"
+   },
+   {
+    "date": "2025-08-08",
+    "days": 18003,
+    "value": 7.1673,
+    "what": "7.09% GS 2074",
+    "settle": "2025-08-11",
+    "maturity": "2074-11-25"
+   },
+   {
+    "date": "2025-08-13",
+    "days": 91,
+    "value": 5.4757,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-08-13",
+    "days": 182,
+    "value": 5.5587,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-08-13",
+    "days": 364,
+    "value": 5.5827,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-08-14",
+    "days": 1798,
+    "value": 6.2476,
+    "what": "6.01% GS 2030",
+    "settle": "2025-08-18",
+    "maturity": "2030-07-21"
+   },
+   {
+    "date": "2025-08-14",
+    "days": 10957,
+    "value": 7.2299,
+    "what": "New GS 2055",
+    "settle": "2025-08-18",
+    "maturity": "2055-08-18"
+   },
+   {
+    "date": "2025-08-20",
+    "days": 91,
+    "value": 5.4762,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-08-20",
+    "days": 182,
+    "value": 5.5662,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-08-20",
+    "days": 364,
+    "value": 5.588,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-08-22",
+    "days": 1040,
+    "value": 5.9994,
+    "what": "5.91% GS 2028",
+    "settle": "2025-08-25",
+    "maturity": "2028-06-30"
+   },
+   {
+    "date": "2025-08-22",
+    "days": 3540,
+    "value": 6.5496,
+    "what": "6.33% GS 2035",
+    "settle": "2025-08-25",
+    "maturity": "2035-05-05"
+   },
+   {
+    "date": "2025-08-28",
+    "days": 91,
+    "value": 5.4947,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-08-28",
+    "days": 182,
+    "value": 5.5892,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-08-28",
+    "days": 364,
+    "value": 5.6124,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-08-29",
+    "days": 5423,
+    "value": 6.9491,
+    "what": "6.68% GS 2040",
+    "settle": "2025-09-01",
+    "maturity": "2040-07-07"
+   },
+   {
+    "date": "2025-08-29",
+    "days": 14471,
+    "value": 7.3645,
+    "what": "6.90% GS 2065",
+    "settle": "2025-09-01",
+    "maturity": "2065-04-15"
+   },
+   {
+    "date": "2025-09-03",
+    "days": 91,
+    "value": 5.505,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-09-03",
+    "days": 182,
+    "value": 5.6096,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-09-03",
+    "days": 364,
+    "value": 5.6468,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-09-04",
+    "days": 2501,
+    "value": 6.5423,
+    "what": "6.28% GS 2032",
+    "settle": "2025-09-08",
+    "maturity": "2032-07-14"
+   },
+   {
+    "date": "2025-09-04",
+    "days": 17975,
+    "value": 7.3765,
+    "what": "7.09% GS 2074",
+    "settle": "2025-09-08",
+    "maturity": "2074-11-25"
+   },
+   {
+    "date": "2025-09-10",
+    "days": 91,
+    "value": 5.4935,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-09-10",
+    "days": 182,
+    "value": 5.6068,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-09-10",
+    "days": 364,
+    "value": 5.6469,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-09-12",
+    "days": 1770,
+    "value": 6.2693,
+    "what": "6.01% GS 2030",
+    "settle": "2025-09-15",
+    "maturity": "2030-07-21"
+   },
+   {
+    "date": "2025-09-12",
+    "days": 10929,
+    "value": 7.2336,
+    "what": "7.24% GS 2055",
+    "settle": "2025-09-15",
+    "maturity": "2055-08-18"
+   },
+   {
+    "date": "2025-09-17",
+    "days": 91,
+    "value": 5.4914,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-09-17",
+    "days": 182,
+    "value": 5.5971,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-09-17",
+    "days": 364,
+    "value": 5.6347,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-09-19",
+    "days": 1012,
+    "value": 5.8781,
+    "what": "5.91% GS 2028",
+    "settle": "2025-09-22",
+    "maturity": "2028-06-30"
+   },
+   {
+    "date": "2025-09-19",
+    "days": 3512,
+    "value": 6.517,
+    "what": "6.33% GS 2035",
+    "settle": "2025-09-22",
+    "maturity": "2035-05-05"
+   },
+   {
+    "date": "2025-09-24",
+    "days": 91,
+    "value": 5.4646,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-09-24",
+    "days": 182,
+    "value": 5.5678,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-09-24",
+    "days": 364,
+    "value": 5.5974,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-09-26",
+    "days": 5395,
+    "value": 6.8392,
+    "what": "6.68% GS 2040",
+    "settle": "2025-09-29",
+    "maturity": "2040-07-07"
+   },
+   {
+    "date": "2025-09-26",
+    "days": 14443,
+    "value": 7.2353,
+    "what": "6.90% GS 2065",
+    "settle": "2025-09-29",
+    "maturity": "2065-04-15"
+   },
+   {
+    "date": "2025-10-01",
+    "days": 91,
+    "value": 5.4753,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-10-01",
+    "days": 182,
+    "value": 5.578,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-10-01",
+    "days": 364,
+    "value": 5.5906,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-10-03",
+    "days": 3652,
+    "value": 6.4782,
+    "what": "New GS 2035",
+    "settle": "2025-10-06",
+    "maturity": "2035-10-06"
+   },
+   {
+    "date": "2025-10-08",
+    "days": 91,
+    "value": 5.4106,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-10-08",
+    "days": 182,
+    "value": 5.5409,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-10-08",
+    "days": 364,
+    "value": 5.5455,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-10-10",
+    "days": 5381,
+    "value": 6.8186,
+    "what": "6.68% GS 2040",
+    "settle": "2025-10-13",
+    "maturity": "2040-07-07"
+   },
+   {
+    "date": "2025-10-10",
+    "days": 14429,
+    "value": 7.1579,
+    "what": "6.90% GS 2065",
+    "settle": "2025-10-13",
+    "maturity": "2065-04-15"
+   },
+   {
+    "date": "2025-10-15",
+    "days": 91,
+    "value": 5.4218,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-10-15",
+    "days": 182,
+    "value": 5.5388,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-10-15",
+    "days": 364,
+    "value": 5.5431,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-10-17",
+    "days": 1735,
+    "value": 6.1178,
+    "what": "6.01% GS 2030",
+    "settle": "2025-10-20",
+    "maturity": "2030-07-21"
+   },
+   {
+    "date": "2025-10-17",
+    "days": 17933,
+    "value": 7.1655,
+    "what": "7.09% GS 2074",
+    "settle": "2025-10-20",
+    "maturity": "2074-11-25"
+   },
+   {
+    "date": "2025-10-23",
+    "days": 91,
+    "value": 5.4502,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-10-23",
+    "days": 182,
+    "value": 5.57,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-10-23",
+    "days": 364,
+    "value": 5.5678,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-10-29",
+    "days": 91,
+    "value": 5.4494,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-10-29",
+    "days": 182,
+    "value": 5.585,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-10-29",
+    "days": 364,
+    "value": 5.5729,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-10-31",
+    "days": 970,
+    "value": 5.8239,
+    "what": "5.91% GS 2028",
+    "settle": "2025-11-03",
+    "maturity": "2028-06-30"
+   },
+   {
+    "date": "2025-10-31",
+    "days": 10880,
+    "value": 7.2346,
+    "what": "7.24% GS 2055",
+    "settle": "2025-11-03",
+    "maturity": "2055-08-18"
+   },
+   {
+    "date": "2025-11-06",
+    "days": 91,
+    "value": 5.4453,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-11-06",
+    "days": 182,
+    "value": 5.582,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-11-06",
+    "days": 364,
+    "value": 5.5789,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-11-07",
+    "days": 3617,
+    "value": 6.4775,
+    "what": "6.48% GS 2035",
+    "settle": "2025-11-10",
+    "maturity": "2035-10-06"
+   },
+   {
+    "date": "2025-11-12",
+    "days": 91,
+    "value": 5.4259,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-11-12",
+    "days": 182,
+    "value": 5.5687,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-11-12",
+    "days": 364,
+    "value": 5.5659,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-11-14",
+    "days": 5346,
+    "value": 6.9013,
+    "what": "6.68% GS 2040",
+    "settle": "2025-11-17",
+    "maturity": "2040-07-07"
+   },
+   {
+    "date": "2025-11-14",
+    "days": 14394,
+    "value": 7.3685,
+    "what": "6.90% GS 2065",
+    "settle": "2025-11-17",
+    "maturity": "2065-04-15"
+   },
+   {
+    "date": "2025-11-19",
+    "days": 91,
+    "value": 5.3756,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-11-19",
+    "days": 182,
+    "value": 5.5558,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-11-19",
+    "days": 364,
+    "value": 5.5531,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-11-21",
+    "days": 1700,
+    "value": 6.2155,
+    "what": "6.01% GS 2030",
+    "settle": "2025-11-24",
+    "maturity": "2030-07-21"
+   },
+   {
+    "date": "2025-11-21",
+    "days": 17898,
+    "value": 7.3881,
+    "what": "7.09% GS 2074",
+    "settle": "2025-11-24",
+    "maturity": "2074-11-25"
+   },
+   {
+    "date": "2025-11-26",
+    "days": 91,
+    "value": 5.3554,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-11-26",
+    "days": 182,
+    "value": 5.4933,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-11-26",
+    "days": 364,
+    "value": 5.5342,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-11-28",
+    "days": 942,
+    "value": 5.7723,
+    "what": "5.91% GS 2028",
+    "settle": "2025-12-01",
+    "maturity": "2028-06-30"
+   },
+   {
+    "date": "2025-11-28",
+    "days": 2417,
+    "value": 6.4286,
+    "what": "6.28% GS 2032",
+    "settle": "2025-12-01",
+    "maturity": "2032-07-14"
+   },
+   {
+    "date": "2025-11-28",
+    "days": 10852,
+    "value": 7.28,
+    "what": "7.24% GS 2055",
+    "settle": "2025-12-01",
+    "maturity": "2055-08-18"
+   },
+   {
+    "date": "2025-12-03",
+    "days": 91,
+    "value": 5.3369,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-12-03",
+    "days": 182,
+    "value": 5.5225,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-12-03",
+    "days": 364,
+    "value": 5.5378,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-12-05",
+    "days": 3589,
+    "value": 6.4812,
+    "what": "6.48% GS 2035",
+    "settle": "2025-12-08",
+    "maturity": "2035-10-06"
+   },
+   {
+    "date": "2025-12-10",
+    "days": 91,
+    "value": 5.2558,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-12-10",
+    "days": 182,
+    "value": 5.4647,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-12-10",
+    "days": 364,
+    "value": 5.4854,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-12-12",
+    "days": 5318,
+    "value": 7.0204,
+    "what": "6.68% GS 2040",
+    "settle": "2025-12-15",
+    "maturity": "2040-07-07"
+   },
+   {
+    "date": "2025-12-12",
+    "days": 14366,
+    "value": 7.4223,
+    "what": "6.90% GS 2065",
+    "settle": "2025-12-15",
+    "maturity": "2065-04-15"
+   },
+   {
+    "date": "2025-12-17",
+    "days": 91,
+    "value": 5.2727,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-12-17",
+    "days": 182,
+    "value": 5.4848,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-12-17",
+    "days": 364,
+    "value": 5.4936,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-12-19",
+    "days": 1672,
+    "value": 6.3347,
+    "what": "6.01% GS 2030",
+    "settle": "2025-12-22",
+    "maturity": "2030-07-21"
+   },
+   {
+    "date": "2025-12-19",
+    "days": 17870,
+    "value": 7.3647,
+    "what": "7.09% GS 2074",
+    "settle": "2025-12-22",
+    "maturity": "2074-11-25"
+   },
+   {
+    "date": "2025-12-24",
+    "days": 91,
+    "value": 5.2488,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2025-12-24",
+    "days": 182,
+    "value": 5.4637,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2025-12-24",
+    "days": 364,
+    "value": 5.5179,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2025-12-26",
+    "days": 914,
+    "value": 5.7968,
+    "what": "5.91% GS 2028",
+    "settle": "2025-12-29",
+    "maturity": "2028-06-30"
+   },
+   {
+    "date": "2025-12-26",
+    "days": 2389,
+    "value": 6.5669,
+    "what": "6.28% GS 2032",
+    "settle": "2025-12-29",
+    "maturity": "2032-07-14"
+   },
+   {
+    "date": "2025-12-26",
+    "days": 10824,
+    "value": 7.2953,
+    "what": "7.24% GS 2055",
+    "settle": "2025-12-29",
+    "maturity": "2055-08-18"
+   },
+   {
+    "date": "2026-01-02",
+    "days": 3561,
+    "value": 6.609,
+    "what": "6.48% GS 2035",
+    "settle": "2026-01-05",
+    "maturity": "2035-10-06"
+   },
+   {
+    "date": "2026-01-07",
+    "days": 91,
+    "value": 5.2904,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-01-07",
+    "days": 182,
+    "value": 5.5079,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-01-07",
+    "days": 364,
+    "value": 5.5578,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-01-09",
+    "days": 5290,
+    "value": 7.0973,
+    "what": "6.68% GS 2040",
+    "settle": "2026-01-12",
+    "maturity": "2040-07-07"
+   },
+   {
+    "date": "2026-01-09",
+    "days": 14338,
+    "value": 7.429,
+    "what": "6.90% GS 2065",
+    "settle": "2026-01-12",
+    "maturity": "2065-04-15"
+   },
+   {
+    "date": "2026-01-14",
+    "days": 91,
+    "value": 5.3262,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-01-14",
+    "days": 182,
+    "value": 5.5806,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-01-14",
+    "days": 364,
+    "value": 5.6075,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-01-16",
+    "days": 1644,
+    "value": 6.469,
+    "what": "6.01% GS 2030",
+    "settle": "2026-01-19",
+    "maturity": "2030-07-21"
+   },
+   {
+    "date": "2026-01-16",
+    "days": 18262,
+    "value": 7.4269,
+    "what": "New GS 2076",
+    "settle": "2026-01-19",
+    "maturity": "2076-01-19"
+   },
+   {
+    "date": "2026-01-21",
+    "days": 91,
+    "value": 5.4692,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-01-21",
+    "days": 182,
+    "value": 5.6545,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-01-21",
+    "days": 364,
+    "value": 5.6948,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-01-23",
+    "days": 1096,
+    "value": 5.9644,
+    "what": "New GS 2029",
+    "settle": "2026-01-27",
+    "maturity": "2029-01-27"
+   },
+   {
+    "date": "2026-01-23",
+    "days": 2557,
+    "value": 6.6707,
+    "what": "New GS 2033",
+    "settle": "2026-01-27",
+    "maturity": "2033-01-27"
+   },
+   {
+    "date": "2026-01-23",
+    "days": 10795,
+    "value": 7.4242,
+    "what": "7.24% GS 2055",
+    "settle": "2026-01-27",
+    "maturity": "2055-08-18"
+   },
+   {
+    "date": "2026-01-28",
+    "days": 91,
+    "value": 5.4881,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-01-28",
+    "days": 182,
+    "value": 5.6715,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-01-28",
+    "days": 364,
+    "value": 5.7248,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-01-30",
+    "days": 3533,
+    "value": 6.72,
+    "what": "6.48% GS 2035",
+    "settle": "2026-02-02",
+    "maturity": "2035-10-06"
+   },
+   {
+    "date": "2026-02-04",
+    "days": 91,
+    "value": 5.3274,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-02-04",
+    "days": 182,
+    "value": 5.5945,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-02-04",
+    "days": 364,
+    "value": 5.6379,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-02-06",
+    "days": 5262,
+    "value": 7.1623,
+    "what": "6.68% GS 2040",
+    "settle": "2026-02-09",
+    "maturity": "2040-07-07"
+   },
+   {
+    "date": "2026-02-06",
+    "days": 14310,
+    "value": 7.4654,
+    "what": "6.90% GS 2065",
+    "settle": "2026-02-09",
+    "maturity": "2065-04-15"
+   },
+   {
+    "date": "2026-02-11",
+    "days": 91,
+    "value": 5.3081,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-02-11",
+    "days": 182,
+    "value": 5.5494,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-02-11",
+    "days": 364,
+    "value": 5.6006,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-02-13",
+    "days": 1826,
+    "value": 6.3431,
+    "what": "New GS 2031",
+    "settle": "2026-02-16",
+    "maturity": "2031-02-16"
+   },
+   {
+    "date": "2026-02-13",
+    "days": 18234,
+    "value": 7.4761,
+    "what": "7.43% GS 2076",
+    "settle": "2026-02-16",
+    "maturity": "2076-01-19"
+   },
+   {
+    "date": "2026-02-18",
+    "days": 91,
+    "value": 5.3073,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-02-18",
+    "days": 182,
+    "value": 5.5329,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-02-18",
+    "days": 364,
+    "value": 5.5863,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-02-20",
+    "days": 1069,
+    "value": 5.9299,
+    "what": "6.03% GS 2029",
+    "settle": "2026-02-23",
+    "maturity": "2029-01-27"
+   },
+   {
+    "date": "2026-02-20",
+    "days": 2530,
+    "value": 6.7007,
+    "what": "6.68% GS 2033",
+    "settle": "2026-02-23",
+    "maturity": "2033-01-27"
+   },
+   {
+    "date": "2026-02-20",
+    "days": 10768,
+    "value": 7.4824,
+    "what": "7.24% GS 2055",
+    "settle": "2026-02-23",
+    "maturity": "2055-08-18"
+   },
+   {
+    "date": "2026-02-25",
+    "days": 91,
+    "value": 5.2854,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-02-25",
+    "days": 182,
+    "value": 5.5041,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-02-25",
+    "days": 364,
+    "value": 5.5776,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-02-27",
+    "days": 3505,
+    "value": 6.7105,
+    "what": "6.48% GS 2035",
+    "settle": "2026-03-02",
+    "maturity": "2035-10-06"
+   },
+   {
+    "date": "2026-03-04",
+    "days": 91,
+    "value": 5.3015,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-03-04",
+    "days": 182,
+    "value": 5.5223,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-03-04",
+    "days": 364,
+    "value": 5.5934,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-03-06",
+    "days": 5234,
+    "value": 7.0825,
+    "what": "6.68% GS 2040",
+    "settle": "2026-03-09",
+    "maturity": "2040-07-07"
+   },
+   {
+    "date": "2026-03-06",
+    "days": 14282,
+    "value": 7.4897,
+    "what": "6.90% GS 2065",
+    "settle": "2026-03-09",
+    "maturity": "2065-04-15"
+   },
+   {
+    "date": "2026-03-11",
+    "days": 91,
+    "value": 5.3081,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-03-11",
+    "days": 182,
+    "value": 5.5354,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-03-11",
+    "days": 364,
+    "value": 5.6374,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-03-18",
+    "days": 91,
+    "value": 5.3171,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-03-18",
+    "days": 182,
+    "value": 5.5246,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-03-18",
+    "days": 364,
+    "value": 5.6407,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-04-02",
+    "days": 5206,
+    "value": 7.5145,
+    "what": "6.68% GS 2040",
+    "settle": "2026-04-06",
+    "maturity": "2040-07-07"
+   },
+   {
+    "date": "2026-04-02",
+    "days": 18185,
+    "value": 7.8718,
+    "what": "7.43% GS 2076",
+    "settle": "2026-04-06",
+    "maturity": "2076-01-19"
+   },
+   {
+    "date": "2026-04-08",
+    "days": 91,
+    "value": 5.3015,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-04-08",
+    "days": 182,
+    "value": 5.5088,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-04-08",
+    "days": 364,
+    "value": 5.6111,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-04-10",
+    "days": 3463,
+    "value": 6.9625,
+    "what": "6.48% GS 2035",
+    "settle": "2026-04-13",
+    "maturity": "2035-10-06"
+   },
+   {
+    "date": "2026-04-15",
+    "days": 91,
+    "value": 5.1969,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-04-15",
+    "days": 182,
+    "value": 5.469,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-04-15",
+    "days": 364,
+    "value": 5.5762,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-04-17",
+    "days": 1763,
+    "value": 6.5977,
+    "what": "6.36% GS 2031",
+    "settle": "2026-04-20",
+    "maturity": "2031-02-16"
+   },
+   {
+    "date": "2026-04-17",
+    "days": 14240,
+    "value": 7.5801,
+    "what": "6.90% GS 2065",
+    "settle": "2026-04-20",
+    "maturity": "2065-04-15"
+   },
+   {
+    "date": "2026-04-22",
+    "days": 91,
+    "value": 5.1916,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-04-22",
+    "days": 182,
+    "value": 5.4616,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-04-22",
+    "days": 364,
+    "value": 5.5797,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-04-24",
+    "days": 1006,
+    "value": 6.2662,
+    "what": "6.03% GS 2029",
+    "settle": "2026-04-27",
+    "maturity": "2029-01-27"
+   },
+   {
+    "date": "2026-04-24",
+    "days": 2467,
+    "value": 6.9425,
+    "what": "6.68% GS 2033",
+    "settle": "2026-04-27",
+    "maturity": "2033-01-27"
+   },
+   {
+    "date": "2026-04-24",
+    "days": 10705,
+    "value": 7.5602,
+    "what": "7.24% GS 2055",
+    "settle": "2026-04-27",
+    "maturity": "2055-08-18"
+   },
+   {
+    "date": "2026-04-29",
+    "days": 91,
+    "value": 5.2393,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-04-29",
+    "days": 182,
+    "value": 5.4886,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-04-29",
+    "days": 364,
+    "value": 5.6279,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-04-30",
+    "days": 5178,
+    "value": 7.4132,
+    "what": "6.68% GS 2040",
+    "settle": "2026-05-04",
+    "maturity": "2040-07-07"
+   },
+   {
+    "date": "2026-04-30",
+    "days": 18157,
+    "value": 7.7113,
+    "what": "7.43% GS 2076",
+    "settle": "2026-05-04",
+    "maturity": "2076-01-19"
+   },
+   {
+    "date": "2026-05-06",
+    "days": 91,
+    "value": 5.278,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-05-06",
+    "days": 182,
+    "value": 5.4851,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-05-06",
+    "days": 364,
+    "value": 5.6571,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-05-08",
+    "days": 3653,
+    "value": 6.9354,
+    "what": "New GS 2036",
+    "settle": "2026-05-11",
+    "maturity": "2036-05-11"
+   },
+   {
+    "date": "2026-05-13",
+    "days": 91,
+    "value": 5.3254,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-05-13",
+    "days": 182,
+    "value": 5.5291,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-05-13",
+    "days": 364,
+    "value": 5.7395,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-05-15",
+    "days": 1735,
+    "value": 6.8677,
+    "what": "6.36% GS 2031",
+    "settle": "2026-05-18",
+    "maturity": "2031-02-16"
+   },
+   {
+    "date": "2026-05-15",
+    "days": 14610,
+    "value": 7.7046,
+    "what": "New GS 2066",
+    "settle": "2026-05-18",
+    "maturity": "2066-05-18"
+   },
+   {
+    "date": "2026-05-20",
+    "days": 91,
+    "value": 5.4902,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-05-20",
+    "days": 182,
+    "value": 5.7254,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-05-20",
+    "days": 364,
+    "value": 5.9331,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-05-22",
+    "days": 978,
+    "value": 6.7059,
+    "what": "6.03% GS 2029",
+    "settle": "2026-05-25",
+    "maturity": "2029-01-27"
+   },
+   {
+    "date": "2026-05-22",
+    "days": 2439,
+    "value": 7.0624,
+    "what": "6.68% GS 2033",
+    "settle": "2026-05-25",
+    "maturity": "2033-01-27"
+   },
+   {
+    "date": "2026-05-22",
+    "days": 10677,
+    "value": 7.6743,
+    "what": "7.24% GS 2055",
+    "settle": "2026-05-25",
+    "maturity": "2055-08-18"
+   },
+   {
+    "date": "2026-05-27",
+    "days": 91,
+    "value": 5.5289,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-05-27",
+    "days": 182,
+    "value": 5.6774,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-05-27",
+    "days": 364,
+    "value": 5.9741,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-05-29",
+    "days": 5150,
+    "value": 7.3403,
+    "what": "6.68% GS 2040",
+    "settle": "2026-06-01",
+    "maturity": "2040-07-07"
+   },
+   {
+    "date": "2026-05-29",
+    "days": 18129,
+    "value": 7.692,
+    "what": "7.43% GS 2076",
+    "settle": "2026-06-01",
+    "maturity": "2076-01-19"
+   },
+   {
+    "date": "2026-06-03",
+    "days": 91,
+    "value": 5.5471,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-06-05",
+    "days": 3625,
+    "value": 6.9644,
+    "what": "6.94% GS 2036",
+    "settle": "2026-06-08",
+    "maturity": "2036-05-11"
+   },
+   {
+    "date": "2026-06-10",
+    "days": 91,
+    "value": 5.2945,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-06-10",
+    "days": 182,
+    "value": 5.5494,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-06-10",
+    "days": 364,
+    "value": 5.9054,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-06-12",
+    "days": 1707,
+    "value": 6.4905,
+    "what": "6.36% GS 2031",
+    "settle": "2026-06-15",
+    "maturity": "2031-02-16"
+   },
+   {
+    "date": "2026-06-12",
+    "days": 14582,
+    "value": 7.6273,
+    "what": "7.71% GS 2066",
+    "settle": "2026-06-15",
+    "maturity": "2066-05-18"
+   },
+   {
+    "date": "2026-06-17",
+    "days": 91,
+    "value": 5.2467,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-06-17",
+    "days": 182,
+    "value": 5.4855,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-06-17",
+    "days": 364,
+    "value": 5.7807,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-06-19",
+    "days": 950,
+    "value": 6.1876,
+    "what": "6.03% GS 2029",
+    "settle": "2026-06-22",
+    "maturity": "2029-01-27"
+   },
+   {
+    "date": "2026-06-19",
+    "days": 2411,
+    "value": 6.7335,
+    "what": "6.68% GS 2033",
+    "settle": "2026-06-22",
+    "maturity": "2033-01-27"
+   },
+   {
+    "date": "2026-06-19",
+    "days": 10649,
+    "value": 7.4786,
+    "what": "7.24% GS 2055",
+    "settle": "2026-06-22",
+    "maturity": "2055-08-18"
+   },
+   {
+    "date": "2026-06-24",
+    "days": 91,
+    "value": 5.236,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-06-24",
+    "days": 182,
+    "value": 5.4423,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-06-24",
+    "days": 364,
+    "value": 5.6387,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-06-25",
+    "days": 5122,
+    "value": 7.0518,
+    "what": "6.68% GS 2040",
+    "settle": "2026-06-29",
+    "maturity": "2040-07-07"
+   },
+   {
+    "date": "2026-06-25",
+    "days": 18101,
+    "value": 7.5307,
+    "what": "7.43% GS 2076",
+    "settle": "2026-06-29",
+    "maturity": "2076-01-19"
+   },
+   {
+    "date": "2026-07-01",
+    "days": 91,
+    "value": 5.2385,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-07-01",
+    "days": 182,
+    "value": 5.444,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-07-01",
+    "days": 364,
+    "value": 5.6313,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-07-03",
+    "days": 3597,
+    "value": 6.7261,
+    "what": "6.94% GS 2036",
+    "settle": "2026-07-06",
+    "maturity": "2036-05-11"
+   },
+   {
+    "date": "2026-07-08",
+    "days": 91,
+    "value": 5.2702,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-07-08",
+    "days": 182,
+    "value": 5.4753,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-07-08",
+    "days": 364,
+    "value": 5.6583,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-07-10",
+    "days": 1679,
+    "value": 6.4142,
+    "what": "6.36% GS 2031",
+    "settle": "2026-07-13",
+    "maturity": "2031-02-16"
+   },
+   {
+    "date": "2026-07-10",
+    "days": 14554,
+    "value": 7.4497,
+    "what": "7.71% GS 2066",
+    "settle": "2026-07-13",
+    "maturity": "2066-05-18"
+   },
+   {
+    "date": "2026-07-15",
+    "days": 91,
+    "value": 5.3221,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-07-15",
+    "days": 182,
+    "value": 5.542,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-07-15",
+    "days": 364,
+    "value": 5.6874,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-07-17",
+    "days": 922,
+    "value": 6.164,
+    "what": "6.03% GS 2029",
+    "settle": "2026-07-20",
+    "maturity": "2029-01-27"
+   },
+   {
+    "date": "2026-07-17",
+    "days": 2383,
+    "value": 6.6165,
+    "what": "6.68% GS 2033",
+    "settle": "2026-07-20",
+    "maturity": "2033-01-27"
+   },
+   {
+    "date": "2026-07-17",
+    "days": 10621,
+    "value": 7.3889,
+    "what": "7.24% GS 2055",
+    "settle": "2026-07-20",
+    "maturity": "2055-08-18"
+   },
+   {
+    "date": "2026-07-22",
+    "days": 91,
+    "value": 5.3427,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-07-22",
+    "days": 182,
+    "value": 5.5964,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-07-22",
+    "days": 364,
+    "value": 5.7466,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-07-24",
+    "days": 5479,
+    "value": 7.054,
+    "what": "New GS 2041",
+    "settle": "2026-07-27",
+    "maturity": "2041-07-27"
+   },
+   {
+    "date": "2026-07-24",
+    "days": 18073,
+    "value": 7.6116,
+    "what": "7.43% GS 2076",
+    "settle": "2026-07-27",
+    "maturity": "2076-01-19"
+   },
+   {
+    "date": "2026-07-29",
+    "days": 91,
+    "value": 5.3266,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-07-29",
+    "days": 182,
+    "value": 5.5829,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-07-29",
+    "days": 364,
+    "value": 5.7249,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-07-31",
+    "days": 3569,
+    "value": 6.8089,
+    "what": "6.94% GS 2036",
+    "settle": "2026-08-03",
+    "maturity": "2036-05-11"
+   },
+   {
+    "date": "2026-08-05",
+    "days": 91,
+    "value": 5.2529,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-08-05",
+    "days": 182,
+    "value": 5.5452,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-08-05",
+    "days": 364,
+    "value": 5.6837,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-08-07",
+    "days": 1651,
+    "value": 6.357,
+    "what": "6.36% GS 2031",
+    "settle": "2026-08-10",
+    "maturity": "2031-02-16"
+   },
+   {
+    "date": "2026-08-07",
+    "days": 14526,
+    "value": 7.5571,
+    "what": "7.71% GS 2066",
+    "settle": "2026-08-10",
+    "maturity": "2066-05-18"
+   },
+   {
+    "date": "2026-08-12",
+    "days": 91,
+    "value": 5.2533,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-08-12",
+    "days": 182,
+    "value": 5.5257,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-08-12",
+    "days": 364,
+    "value": 5.6945,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-08-14",
+    "days": 1096,
+    "value": 6.1835,
+    "what": "New GS 2029",
+    "settle": "2026-08-17",
+    "maturity": "2029-08-17"
+   },
+   {
+    "date": "2026-08-14",
+    "days": 2557,
+    "value": 6.5666,
+    "what": "New GS 2033",
+    "settle": "2026-08-17",
+    "maturity": "2033-08-17"
+   },
+   {
+    "date": "2026-08-14",
+    "days": 10593,
+    "value": 7.3498,
+    "what": "7.24% GS 2055",
+    "settle": "2026-08-17",
+    "maturity": "2055-08-18"
+   },
+   {
+    "date": "2026-08-19",
+    "days": 91,
+    "value": 5.2554,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-08-19",
+    "days": 182,
+    "value": 5.5488,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-08-19",
+    "days": 364,
+    "value": 5.7265,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-08-21",
+    "days": 5451,
+    "value": 7.0635,
+    "what": "7.06% GS 2041",
+    "settle": "2026-08-24",
+    "maturity": "2041-07-27"
+   },
+   {
+    "date": "2026-08-21",
+    "days": 18045,
+    "value": 7.5548,
+    "what": "7.43% GS 2076",
+    "settle": "2026-08-24",
+    "maturity": "2076-01-19"
+   },
+   {
+    "date": "2026-08-27",
+    "days": 91,
+    "value": 5.2579,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-08-27",
+    "days": 182,
+    "value": 5.5884,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-08-27",
+    "days": 364,
+    "value": 5.7708,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-08-28",
+    "days": 3541,
+    "value": 6.9122,
+    "what": "6.94% GS 2036",
+    "settle": "2026-08-31",
+    "maturity": "2036-05-11"
+   },
+   {
+    "date": "2026-09-02",
+    "days": 91,
+    "value": 5.2525,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-09-02",
+    "days": 182,
+    "value": 5.6189,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-09-02",
+    "days": 364,
+    "value": 5.8887,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-09-04",
+    "days": 1826,
+    "value": 6.5163,
+    "what": "New GS 2031",
+    "settle": "2026-09-07",
+    "maturity": "2031-09-07"
+   },
+   {
+    "date": "2026-09-04",
+    "days": 14498,
+    "value": 7.657,
+    "what": "7.71% GS 2066",
+    "settle": "2026-09-07",
+    "maturity": "2066-05-18"
+   },
+   {
+    "date": "2026-09-09",
+    "days": 91,
+    "value": 5.1916,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-09-09",
+    "days": 182,
+    "value": 5.6147,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-09-09",
+    "days": 364,
+    "value": 5.9031,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-09-11",
+    "days": 2528,
+    "value": 6.8573,
+    "what": "6.57% GS 2033",
+    "settle": "2026-09-15",
+    "maturity": "2033-08-17"
+   },
+   {
+    "date": "2026-09-11",
+    "days": 10958,
+    "value": 7.6196,
+    "what": "New GS 2056",
+    "settle": "2026-09-15",
+    "maturity": "2056-09-15"
+   },
+   {
+    "date": "2026-09-16",
+    "days": 91,
+    "value": 5.2673,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-09-16",
+    "days": 182,
+    "value": 5.7167,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-09-16",
+    "days": 364,
+    "value": 6.0113,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-09-18",
+    "days": 5423,
+    "value": 7.2271,
+    "what": "7.06% GS 2041",
+    "settle": "2026-09-21",
+    "maturity": "2041-07-27"
+   },
+   {
+    "date": "2026-09-18",
+    "days": 18017,
+    "value": 7.6798,
+    "what": "7.43% GS 2076",
+    "settle": "2026-09-21",
+    "maturity": "2076-01-19"
+   },
+   {
+    "date": "2026-09-23",
+    "days": 91,
+    "value": 5.3682,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-09-23",
+    "days": 182,
+    "value": 5.7837,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-09-23",
+    "days": 364,
+    "value": 6.0672,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-09-25",
+    "days": 3513,
+    "value": 7.1421,
+    "what": "6.94% GS 2036",
+    "settle": "2026-09-28",
+    "maturity": "2036-05-11"
+   },
+   {
+    "date": "2026-09-30",
+    "days": 91,
+    "value": 5.4902,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-09-30",
+    "days": 182,
+    "value": 5.9373,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-09-30",
+    "days": 364,
+    "value": 6.1705,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-10-01",
+    "days": 1047,
+    "value": 6.7374,
+    "what": "6.20% GS 2029",
+    "settle": "2026-10-05",
+    "maturity": "2029-08-17"
+   },
+   {
+    "date": "2026-10-01",
+    "days": 2508,
+    "value": 7.1584,
+    "what": "6.57% GS 2033",
+    "settle": "2026-10-05",
+    "maturity": "2033-08-17"
+   },
+   {
+    "date": "2026-10-01",
+    "days": 10938,
+    "value": 7.6835,
+    "what": "7.63% GS 2056",
+    "settle": "2026-10-05",
+    "maturity": "2056-09-15"
+   },
+   {
+    "date": "2026-10-07",
+    "days": 91,
+    "value": 5.5607,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-10-07",
+    "days": 182,
+    "value": 6.0645,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-10-07",
+    "days": 364,
+    "value": 6.2587,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-10-09",
+    "days": 5402,
+    "value": 7.4886,
+    "what": "7.06% GS 2041",
+    "settle": "2026-10-12",
+    "maturity": "2041-07-27"
+   },
+   {
+    "date": "2026-10-09",
+    "days": 17996,
+    "value": 7.7882,
+    "what": "7.43% GS 2076",
+    "settle": "2026-10-12",
+    "maturity": "2076-01-19"
+   },
+   {
+    "date": "2026-10-14",
+    "days": 91,
+    "value": 5.6964,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-10-14",
+    "days": 182,
+    "value": 6.2563,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-10-14",
+    "days": 364,
+    "value": 6.4427,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-10-16",
+    "days": 3492,
+    "value": 7.3925,
+    "what": "6.94% GS 2036",
+    "settle": "2026-10-19",
+    "maturity": "2036-05-11"
+   },
+   {
+    "date": "2026-10-23",
+    "days": 1777,
+    "value": 7.3437,
+    "what": "6.53% GS 2031",
+    "settle": "2026-10-26",
+    "maturity": "2031-09-07"
+   },
+   {
+    "date": "2026-10-23",
+    "days": 14449,
+    "value": 7.9211,
+    "what": "7.71% GS 2066",
+    "settle": "2026-10-26",
+    "maturity": "2066-05-18"
+   },
+   {
+    "date": "2026-10-28",
+    "days": 91,
+    "value": 5.9094,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-10-28",
+    "days": 182,
+    "value": 6.514,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-10-28",
+    "days": 364,
+    "value": 6.6391,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-10-30",
+    "days": 1019,
+    "value": 7.1014,
+    "what": "6.20% GS 2029",
+    "settle": "2026-11-02",
+    "maturity": "2029-08-17"
+   },
+   {
+    "date": "2026-10-30",
+    "days": 2480,
+    "value": 7.3681,
+    "what": "6.57% GS 2033",
+    "settle": "2026-11-02",
+    "maturity": "2033-08-17"
+   },
+   {
+    "date": "2026-10-30",
+    "days": 10910,
+    "value": 7.8415,
+    "what": "7.63% GS 2056",
+    "settle": "2026-11-02",
+    "maturity": "2056-09-15"
+   },
+   {
+    "date": "2026-11-04",
+    "days": 91,
+    "value": 5.8871,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-11-04",
+    "days": 364,
+    "value": 6.633,
+    "what": "364-day T-bill"
+   },
+   {
+    "date": "2026-11-06",
+    "days": 5374,
+    "value": 7.3835,
+    "what": "7.06% GS 2041",
+    "settle": "2026-11-09",
+    "maturity": "2041-07-27"
+   },
+   {
+    "date": "2026-11-06",
+    "days": 17968,
+    "value": 7.7403,
+    "what": "7.43% GS 2076",
+    "settle": "2026-11-09",
+    "maturity": "2076-01-19"
+   },
+   {
+    "date": "2026-11-11",
+    "days": 91,
+    "value": 5.8594,
+    "what": "91-day T-bill"
+   },
+   {
+    "date": "2026-11-11",
+    "days": 182,
+    "value": 6.5059,
+    "what": "182-day T-bill"
+   },
+   {
+    "date": "2026-11-11",
+    "days": 364,
+    "value": 6.6176,
+    "what": "364-day T-bill"
+   }
+  ],
+  "seen": [
+   60940,
+   60951,
+   60964,
+   60985,
+   60999,
+   61013,
+   61024,
+   61043,
+   61055,
+   61073,
+   61091,
+   61101,
+   61113,
+   61137,
+   61144,
+   61152,
+   61166,
+   61188,
+   61204,
+   61217,
+   61226,
+   61248,
+   61260,
+   61274,
+   61294,
+   61311,
+   61338,
+   61350,
+   61369,
+   61389,
+   61406,
+   61420,
+   61432,
+   61453,
+   61482,
+   61504,
+   61522,
+   61540,
+   61557,
+   61572,
+   61577,
+   61597,
+   61606,
+   61621,
+   61637,
+   61645,
+   61662,
+   61675,
+   61683,
+   61695,
+   61720,
+   61734,
+   61755,
+   61778,
+   61788,
+   61806,
+   61820,
+   61836,
+   61853,
+   61865,
+   61882,
+   61895,
+   61909,
+   61949,
+   61971,
+   61987,
+   62008,
+   62022,
+   62036,
+   62051,
+   62065,
+   62076,
+   62096,
+   62102,
+   62121,
+   62134,
+   62148,
+   62157,
+   62174,
+   62192,
+   62205,
+   62223,
+   62242,
+   62252,
+   62259,
+   62275,
+   62281,
+   62300,
+   62319,
+   62325,
+   62338,
+   62363,
+   62402,
+   62440,
+   62459,
+   62491,
+   62507,
+   62520,
+   62540,
+   62558,
+   62564,
+   62576,
+   62589,
+   62598,
+   62614,
+   62633,
+   62644,
+   62659,
+   62679,
+   62689,
+   62701,
+   62718,
+   62729,
+   62743,
+   62760,
+   62773,
+   62788,
+   62805,
+   62813,
+   62824,
+   62844,
+   62856,
+   62868,
+   62893,
+   62902,
+   62920,
+   62936,
+   62953,
+   62973,
+   62993,
+   63005,
+   63017,
+   63042,
+   63062,
+   63079,
+   63094,
+   63107,
+   63121,
+   63138,
+   63150,
+   63174,
+   63197,
+   63211,
+   63227,
+   63245,
+   63255,
+   63264,
+   63278,
+   63291,
+   63311,
+   63330,
+   63353,
+   63369,
+   63389,
+   63402,
+   63418,
+   63437,
+   63451,
+   63461,
+   63484,
+   63501,
+   63517,
+   63539,
+   63555,
+   63567,
+   63579,
+   63603,
+   63622,
+   63639,
+   63650,
+   63665,
+   63681,
+   63696,
+   63709,
+   63730,
+   63747,
+   63775,
+   63792,
+   63804,
+   63818,
+   63832,
+   63838,
+   63853,
+   63868,
+   63877,
+   63889,
+   63902,
+   63918,
+   63937,
+   63952,
+   63956
+  ],
+  "listed_through": "2026-11-11",
+  "announced": [
+   {
+    "name": "7.06% GS 2041",
+    "maturity": "2041-07-27",
+    "auction": "2026-10-09",
+    "settle": "2026-10-12"
+   },
+   {
+    "name": "7.43% GS 2076",
+    "maturity": "2076-01-19",
+    "auction": "2026-10-09",
+    "settle": "2026-10-12"
+   },
+   {
+    "name": "6.94% GS 2036",
+    "maturity": "2036-05-11",
+    "auction": "2026-10-16",
+    "settle": "2026-10-19"
+   },
+   {
+    "name": "6.53% GS 2031",
+    "maturity": "2031-09-07",
+    "auction": "2026-10-23",
+    "settle": "2026-10-26"
+   },
+   {
+    "name": "7.71% GS 2066",
+    "maturity": "2066-05-18",
+    "auction": "2026-10-23",
+    "settle": "2026-10-26"
+   },
+   {
+    "name": "6.20% GS 2029",
+    "maturity": "2029-08-17",
+    "auction": "2026-10-30",
+    "settle": "2026-11-02"
+   },
+   {
+    "name": "6.57% GS 2033",
+    "maturity": "2033-08-17",
+    "auction": "2026-10-30",
+    "settle": "2026-11-02"
+   },
+   {
+    "name": "7.63% GS 2056",
+    "maturity": "2056-09-15",
+    "auction": "2026-10-30",
+    "settle": "2026-11-02"
+   },
+   {
+    "name": "7.50% GOI SGrB 2056",
+    "maturity": "2056-04-27",
+    "auction": "2026-10-30",
+    "settle": "2026-11-02"
+   },
+   {
+    "name": "7.06% GS 2041",
+    "maturity": "2041-07-27",
+    "auction": "2026-11-06",
+    "settle": "2026-11-09"
+   },
+   {
+    "name": "7.43% GS 2076",
+    "maturity": "2076-01-19",
+    "auction": "2026-11-06",
+    "settle": "2026-11-09"
+   },
+   {
+    "name": "6.94% GS 2036",
+    "maturity": "2036-05-11",
+    "auction": "2026-11-13",
+    "settle": "2026-11-16"
+   }
+  ],
+  "unreadable": {}
+ }
+}

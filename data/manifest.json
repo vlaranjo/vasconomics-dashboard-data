@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-11T17:19:18Z",
+ "generated_at": "2026-11-11T19:02:19Z",
  "status": "status.json",
  "sections": {
   "asset-classes": {
@@ -506,6 +506,27 @@
    "stale": false,
    "status": "ok",
    "name": "France"
+  },
+  "it": {
+   "path": "yields/it.json",
+   "as_of": "2026-11-11",
+   "stale": false,
+   "status": "ok",
+   "name": "Italy"
+  },
+  "au": {
+   "path": "yields/au.json",
+   "as_of": "2026-11-04",
+   "stale": false,
+   "status": "ok",
+   "name": "Australia"
+  },
+  "in": {
+   "path": "yields/in.json",
+   "as_of": "2026-11-11",
+   "stale": false,
+   "status": "ok",
+   "name": "India"
   }
  }
 }

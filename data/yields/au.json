@@ -1,0 +1,163 @@
+{
+ "schema_version": 1,
+ "country": "au",
+ "name": "Australia",
+ "source": "Reserve Bank of Australia, statistical tables F2 (government bond yields) and F16 (indicative mid rates of Treasury Bonds)",
+ "source_url": "https://www.rba.gov.au/statistics/tables/",
+ "terms": "RBA material is under CC BY 4.0 unless noted; Financial Data may be used for personal or commercial use if no RBA endorsement is implied; attribution 'Source: Reserve Bank of Australia [year]' or 'Source: RBA [year]'.",
+ "status": "ok",
+ "fetched_at": "2026-11-11T19:02:19Z",
+ "last_success": "2026-11-11T19:02:19Z",
+ "stale": false,
+ "stale_reason": null,
+ "as_of": "2026-11-04",
+ "tenors": [
+  "1M",
+  "3M",
+  "6M",
+  "1Y",
+  "3Y",
+  "5Y",
+  "10Y",
+  "30Y"
+ ],
+ "tenor_labels": {},
+ "gaps": {
+  "1M": "The RBA's Treasury Note yields (table F1) stopped in 2013 (3M, 6M) and 2022 (1M), and the AOFM's Treasury Note tender results could not be read without a browser (its site did not answer plain requests); left empty.",
+  "3M": "The RBA's Treasury Note yields (table F1) stopped in 2013 (3M, 6M) and 2022 (1M), and the AOFM's Treasury Note tender results could not be read without a browser (its site did not answer plain requests); left empty.",
+  "6M": "The RBA's Treasury Note yields (table F1) stopped in 2013 (3M, 6M) and 2022 (1M), and the AOFM's Treasury Note tender results could not be read without a browser (its site did not answer plain requests); left empty."
+ },
+ "curves": [
+  {
+   "id": "latest",
+   "label": "Latest",
+   "date": "2026-11-04",
+   "points": {
+    "1Y": {
+     "value": 4.956,
+     "date": "2026-11-04",
+     "kind": "B",
+     "label": "Treasury Bond 148 (2.75%, 21 Nov 2027), 1.0 years left"
+    },
+    "3Y": {
+     "value": 4.755,
+     "date": "2026-11-04",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 4.786,
+     "date": "2026-11-04",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 5.082,
+     "date": "2026-11-04",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 5.518,
+     "date": "2026-11-04",
+     "kind": "B",
+     "label": "Treasury Bond 169 (4.75%, 21 Jun 2054), 27.6 years left"
+    }
+   }
+  },
+  {
+   "id": "1m",
+   "label": "1 month earlier",
+   "date": "2026-10-04",
+   "points": {
+    "1Y": {
+     "value": 4.916,
+     "date": "2026-10-02",
+     "kind": "B",
+     "label": "Treasury Bond 148 (2.75%, 21 Nov 2027), 1.1 years left"
+    },
+    "3Y": {
+     "value": 4.891,
+     "date": "2026-10-02",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 4.96,
+     "date": "2026-10-02",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 5.334,
+     "date": "2026-10-02",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 5.813,
+     "date": "2026-10-02",
+     "kind": "B",
+     "label": "Treasury Bond 169 (4.75%, 21 Jun 2054), 27.7 years left"
+    }
+   }
+  },
+  {
+   "id": "3m",
+   "label": "3 months earlier",
+   "date": "2026-08-04",
+   "points": {
+    "3Y": {
+     "value": 4.526,
+     "date": "2026-08-04",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 4.598,
+     "date": "2026-08-04",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 4.988,
+     "date": "2026-08-04",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 5.516,
+     "date": "2026-08-04",
+     "kind": "B",
+     "label": "Treasury Bond 169 (4.75%, 21 Jun 2054), 27.9 years left"
+    }
+   }
+  },
+  {
+   "id": "1y",
+   "label": "1 year earlier",
+   "date": "2025-11-04",
+   "points": {
+    "1Y": {
+     "value": 3.615,
+     "date": "2025-11-04",
+     "kind": "B",
+     "label": "Treasury Bond 164 (0.50%, 21 Sep 2026), 0.9 years left"
+    },
+    "3Y": {
+     "value": 3.667,
+     "date": "2025-11-04",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 3.822,
+     "date": "2025-11-04",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 4.345,
+     "date": "2025-11-04",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 4.986,
+     "date": "2025-11-04",
+     "kind": "B",
+     "label": "Treasury Bond 169 (4.75%, 21 Jun 2054), 28.6 years left"
+    }
+   }
+  }
+ ],
+ "state": {}
+}

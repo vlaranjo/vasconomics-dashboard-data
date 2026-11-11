@@ -1,0 +1,1622 @@
+{
+ "schema_version": 1,
+ "country": "it",
+ "name": "Italy",
+ "source": "Ministry of Economy and Finance, Department of the Treasury (BOT and BTP auction results)",
+ "source_url": "https://www.dt.mef.gov.it/en/debito_pubblico/emissioni_titoli_di_stato_interni/risultati_aste/",
+ "terms": "Treasury Department legal notes: the source must be cited; use, copying and distribution for purposes of profit need prior written permission.",
+ "status": "ok",
+ "fetched_at": "2026-11-11T19:02:19Z",
+ "last_success": "2026-11-11T19:02:19Z",
+ "stale": false,
+ "stale_reason": null,
+ "as_of": "2026-11-11",
+ "tenors": [
+  "1M",
+  "3M",
+  "6M",
+  "1Y",
+  "3Y",
+  "5Y",
+  "10Y",
+  "30Y"
+ ],
+ "tenor_labels": {},
+ "gaps": {
+  "30Y": "30-year BTPs are mostly placed by syndicate, not auctioned; no auction with 25-35 years left in the last 90 days."
+ },
+ "curves": [
+  {
+   "id": "latest",
+   "label": "Latest",
+   "date": "2026-11-11",
+   "points": {
+    "1M": {
+     "value": 2.567,
+     "date": "2026-10-28",
+     "kind": "A",
+     "days": 45
+    },
+    "3M": {
+     "value": 2.472,
+     "date": "2026-08-27",
+     "kind": "A",
+     "days": 105
+    },
+    "6M": {
+     "value": 2.873,
+     "date": "2026-09-25",
+     "kind": "A",
+     "days": 182
+    },
+    "1Y": {
+     "value": 3.207,
+     "date": "2026-11-11",
+     "kind": "A",
+     "days": 364
+    },
+    "3Y": {
+     "value": 3.69,
+     "date": "2026-10-13",
+     "kind": "A",
+     "days": 1066
+    },
+    "5Y": {
+     "value": 4.02,
+     "date": "2026-10-29",
+     "kind": "A",
+     "days": 1917
+    },
+    "10Y": {
+     "value": 4.49,
+     "date": "2026-10-29",
+     "kind": "A",
+     "days": 3621
+    }
+   }
+  },
+  {
+   "id": "1m",
+   "label": "1 month earlier",
+   "date": "2026-10-11",
+   "points": {
+    "3M": {
+     "value": 2.472,
+     "date": "2026-08-27",
+     "kind": "A",
+     "days": 105
+    },
+    "6M": {
+     "value": 2.873,
+     "date": "2026-09-25",
+     "kind": "A",
+     "days": 182
+    },
+    "1Y": {
+     "value": 3.175,
+     "date": "2026-10-09",
+     "kind": "A",
+     "days": 365
+    },
+    "3Y": {
+     "value": 3.43,
+     "date": "2026-09-10",
+     "kind": "A",
+     "days": 1096
+    },
+    "5Y": {
+     "value": 4.08,
+     "date": "2026-09-29",
+     "kind": "A",
+     "days": 1949
+    },
+    "10Y": {
+     "value": 4.58,
+     "date": "2026-09-29",
+     "kind": "A",
+     "days": 3653
+    }
+   }
+  },
+  {
+   "id": "3m",
+   "label": "3 months earlier",
+   "date": "2026-08-11",
+   "points": {
+    "6M": {
+     "value": 2.567,
+     "date": "2026-07-29",
+     "kind": "A",
+     "days": 182
+    },
+    "1Y": {
+     "value": 2.69,
+     "date": "2026-07-09",
+     "kind": "A",
+     "days": 365
+    },
+    "3Y": {
+     "value": 2.98,
+     "date": "2026-07-10",
+     "kind": "A",
+     "days": 1158
+    },
+    "5Y": {
+     "value": 3.39,
+     "date": "2026-07-30",
+     "kind": "A",
+     "days": 1763
+    },
+    "10Y": {
+     "value": 4.0,
+     "date": "2026-07-30",
+     "kind": "A",
+     "days": 3620
+    }
+   }
+  },
+  {
+   "id": "1y",
+   "label": "1 year earlier",
+   "date": "2025-11-11",
+   "points": {
+    "1M": {
+     "value": 1.974,
+     "date": "2025-10-29",
+     "kind": "A",
+     "days": 42
+    },
+    "6M": {
+     "value": 2.044,
+     "date": "2025-09-25",
+     "kind": "A",
+     "days": 182
+    },
+    "1Y": {
+     "value": 2.05,
+     "date": "2025-10-10",
+     "kind": "A",
+     "days": 365
+    },
+    "3Y": {
+     "value": 2.23,
+     "date": "2025-10-14",
+     "kind": "A",
+     "days": 1142
+    },
+    "5Y": {
+     "value": 2.75,
+     "date": "2025-10-30",
+     "kind": "A",
+     "days": 1916
+    },
+    "10Y": {
+     "value": 3.46,
+     "date": "2025-10-30",
+     "kind": "A",
+     "days": 3742
+    }
+   }
+  }
+ ],
+ "state": {
+  "auction_log": [
+   {
+    "date": "2025-07-24",
+    "settle": "2025-07-28",
+    "maturity": "2027-08-26",
+    "days": 759,
+    "value": 2.11,
+    "isin": "IT0005657330",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-24-25.07.2025.pdf"
+   },
+   {
+    "date": "2025-07-29",
+    "settle": "2025-07-31",
+    "maturity": "2026-01-30",
+    "days": 183,
+    "value": 1.993,
+    "isin": "IT0005664484",
+    "what": "6 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-29-30.07.2025.pdf"
+   },
+   {
+    "date": "2025-07-30",
+    "settle": "2025-08-01",
+    "maturity": "2030-04-01",
+    "days": 1704,
+    "value": 2.6,
+    "isin": "IT0005383309",
+    "what": "BTP 10 YEARS (5 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-5-years-residual_maturity-Auction-Results-30-31.07.2025.pdf"
+   },
+   {
+    "date": "2025-07-30",
+    "settle": "2025-08-01",
+    "maturity": "2030-10-01",
+    "days": 1887,
+    "value": 2.8,
+    "isin": "IT0005654642",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-30-31.07.2025.pdf"
+   },
+   {
+    "date": "2025-07-30",
+    "settle": "2025-08-01",
+    "maturity": "2035-10-01",
+    "days": 3713,
+    "value": 3.52,
+    "isin": "IT0005648149",
+    "what": "BTP 10 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-30-31.07.2025.pdf"
+   },
+   {
+    "date": "2025-08-12",
+    "settle": "2025-08-14",
+    "maturity": "2026-08-14",
+    "days": 365,
+    "value": 2.012,
+    "isin": "IT0005666851",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-12-13.08.2025.pdf"
+   },
+   {
+    "date": "2025-08-26",
+    "settle": "2025-08-28",
+    "maturity": "2027-08-26",
+    "days": 728,
+    "value": 2.2,
+    "isin": "IT0005657330",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-26-27.08.2025.pdf"
+   },
+   {
+    "date": "2025-08-27",
+    "settle": "2025-08-29",
+    "maturity": "2026-01-30",
+    "days": 154,
+    "value": 2.012,
+    "isin": "IT0005664484",
+    "what": "6 MONTH BOTS (5 MONTHS RESIDUAL MATURITY",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-27-28.08.2025.pdf"
+   },
+   {
+    "date": "2025-08-28",
+    "settle": "2025-09-01",
+    "maturity": "2030-10-01",
+    "days": 1856,
+    "value": 2.8,
+    "isin": "IT0005654642",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-28-29.08.2025.pdf"
+   },
+   {
+    "date": "2025-08-28",
+    "settle": "2025-09-01",
+    "maturity": "2035-08-01",
+    "days": 3621,
+    "value": 3.54,
+    "isin": "IT0005631590",
+    "what": "BTP 10 YEARS (10 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-10-years-residual_maturity-Auction-Results-28-29.08.2025.pdf"
+   },
+   {
+    "date": "2025-08-28",
+    "settle": "2025-09-01",
+    "maturity": "2035-10-01",
+    "days": 3682,
+    "value": 3.58,
+    "isin": "IT0005648149",
+    "what": "BTP 10 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-28-29.08.2025.pdf"
+   },
+   {
+    "date": "2025-09-10",
+    "settle": "2025-09-12",
+    "maturity": "2026-09-14",
+    "days": 367,
+    "value": 2.03,
+    "isin": "IT0005669269",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-10-11.09.2025.pdf"
+   },
+   {
+    "date": "2025-09-11",
+    "settle": "2025-09-15",
+    "maturity": "2029-01-15",
+    "days": 1218,
+    "value": 2.44,
+    "isin": "IT0005660052",
+    "what": "BTP 3 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-11-12.09.2025.pdf"
+   },
+   {
+    "date": "2025-09-11",
+    "settle": "2025-09-15",
+    "maturity": "2030-11-15",
+    "days": 1887,
+    "value": 2.76,
+    "isin": "IT0005561888",
+    "what": "BTP 7 YEARS (5 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-5-years-residual_maturity-Auction-Results-11-12.09.2025.pdf"
+   },
+   {
+    "date": "2025-09-24",
+    "settle": "2025-09-29",
+    "maturity": "2027-08-26",
+    "days": 696,
+    "value": 2.23,
+    "isin": "IT0005657330",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-24.09.2025.pdf"
+   },
+   {
+    "date": "2025-09-25",
+    "settle": "2025-09-30",
+    "maturity": "2026-03-31",
+    "days": 182,
+    "value": 2.044,
+    "isin": "IT0005670895",
+    "what": "6 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-25-26.09.2025.pdf"
+   },
+   {
+    "date": "2025-09-26",
+    "settle": "2025-10-01",
+    "maturity": "2031-02-01",
+    "days": 1949,
+    "value": 2.94,
+    "isin": "IT0005671273",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-26-29.09.2025.pdf"
+   },
+   {
+    "date": "2025-09-26",
+    "settle": "2025-10-01",
+    "maturity": "2035-10-01",
+    "days": 3652,
+    "value": 3.62,
+    "isin": "IT0005648149",
+    "what": "BTP 10 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-26-29.09.2025.pdf"
+   },
+   {
+    "date": "2025-10-10",
+    "settle": "2025-10-14",
+    "maturity": "2026-10-14",
+    "days": 365,
+    "value": 2.05,
+    "isin": "IT0005674335",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-10-13.10.2025.pdf"
+   },
+   {
+    "date": "2025-10-14",
+    "settle": "2025-10-16",
+    "maturity": "2028-12-01",
+    "days": 1142,
+    "value": 2.23,
+    "isin": "IT0005340929",
+    "what": "BTP 10 YEARS (3 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-3-years-residual_maturity-Auction-Results-14-15.10.2025.pdf"
+   },
+   {
+    "date": "2025-10-14",
+    "settle": "2025-10-16",
+    "maturity": "2029-01-15",
+    "days": 1187,
+    "value": 2.36,
+    "isin": "IT0005660052",
+    "what": "BTP 3 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-14-15.10.2025.pdf"
+   },
+   {
+    "date": "2025-10-14",
+    "settle": "2025-10-16",
+    "maturity": "2032-11-15",
+    "days": 2587,
+    "value": 3.05,
+    "isin": "IT0005668220",
+    "what": "BTP 7 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-14-15.10.2025.pdf"
+   },
+   {
+    "date": "2025-10-14",
+    "settle": "2025-10-16",
+    "maturity": "2040-10-01",
+    "days": 5464,
+    "value": 3.87,
+    "isin": "IT0005635583",
+    "what": "BTP 15 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-Auction-Results-14-15.10.2025.pdf"
+   },
+   {
+    "date": "2025-10-28",
+    "settle": "2025-10-30",
+    "maturity": "2027-08-26",
+    "days": 665,
+    "value": 2.15,
+    "isin": "IT0005657330",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-28-29.10.2025.pdf"
+   },
+   {
+    "date": "2025-10-29",
+    "settle": "2025-10-31",
+    "maturity": "2025-12-12",
+    "days": 42,
+    "value": 1.974,
+    "isin": "IT0005627853",
+    "what": "12 MONTH BOTS (1 MONTH RESIDUAL MATURITY",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-1-month-residual_maturity-Auction-Results-29-30.10.2025.pdf"
+   },
+   {
+    "date": "2025-10-29",
+    "settle": "2025-10-31",
+    "maturity": "2026-03-31",
+    "days": 151,
+    "value": 2.004,
+    "isin": "IT0005670895",
+    "what": "6 MONTH BOTS (5 MONTHS RESIDUAL MATURITY",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-5-month-residual_maturity-Auction-Results-29-30.10.2025.pdf"
+   },
+   {
+    "date": "2025-10-30",
+    "settle": "2025-11-03",
+    "maturity": "2031-02-01",
+    "days": 1916,
+    "value": 2.75,
+    "isin": "IT0005671273",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-30-31.10.2025.pdf"
+   },
+   {
+    "date": "2025-10-30",
+    "settle": "2025-11-03",
+    "maturity": "2036-02-01",
+    "days": 3742,
+    "value": 3.46,
+    "isin": "IT0005676504",
+    "what": "BTP 10 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-30-31.10.2025.pdf"
+   },
+   {
+    "date": "2025-11-12",
+    "settle": "2025-11-14",
+    "maturity": "2026-11-13",
+    "days": 364,
+    "value": 2.063,
+    "isin": "IT0005678492",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-12-13.11.2025.pdf"
+   },
+   {
+    "date": "2025-11-13",
+    "settle": "2025-11-17",
+    "maturity": "2029-01-15",
+    "days": 1155,
+    "value": 2.38,
+    "isin": "IT0005660052",
+    "what": "BTP 3 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-13-14.11.2025.pdf"
+   },
+   {
+    "date": "2025-11-13",
+    "settle": "2025-11-17",
+    "maturity": "2032-07-15",
+    "days": 2432,
+    "value": 2.95,
+    "isin": "IT0005647265",
+    "what": "BTP 7 YEARS (7 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-7-years-residual_maturity-Auction-Results-13-14.11.2025.pdf"
+   },
+   {
+    "date": "2025-11-13",
+    "settle": "2025-11-17",
+    "maturity": "2032-11-15",
+    "days": 2555,
+    "value": 3.0,
+    "isin": "IT0005668220",
+    "what": "BTP 7 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-13-14.11.2025.pdf"
+   },
+   {
+    "date": "2025-11-13",
+    "settle": "2025-11-17",
+    "maturity": "2055-10-01",
+    "days": 10910,
+    "value": 4.3,
+    "isin": "IT0005668238",
+    "what": "BTP 30 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_30_anni/BTP-30-Years-Auction-Results-13-14.11.2025.pdf"
+   },
+   {
+    "date": "2025-11-25",
+    "settle": "2025-11-27",
+    "maturity": "2027-08-26",
+    "days": 637,
+    "value": 2.18,
+    "isin": "IT0005657330",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-25-26.11.2025.pdf"
+   },
+   {
+    "date": "2025-11-26",
+    "settle": "2025-11-28",
+    "maturity": "2026-05-29",
+    "days": 182,
+    "value": 2.036,
+    "isin": "IT0005680639",
+    "what": "6 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-26-27.11.2025.pdf"
+   },
+   {
+    "date": "2025-11-27",
+    "settle": "2025-12-01",
+    "maturity": "2031-02-01",
+    "days": 1888,
+    "value": 2.74,
+    "isin": "IT0005671273",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-27-28.11.2025.pdf"
+   },
+   {
+    "date": "2025-11-27",
+    "settle": "2025-12-01",
+    "maturity": "2036-02-01",
+    "days": 3714,
+    "value": 3.44,
+    "isin": "IT0005676504",
+    "what": "BTP 10 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-27-28.11.2025.pdf"
+   },
+   {
+    "date": "2025-12-10",
+    "settle": "2025-12-12",
+    "maturity": "2026-12-14",
+    "days": 367,
+    "value": 2.181,
+    "isin": "IT0005684888",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-10-11.12.2025.pdf"
+   },
+   {
+    "date": "2025-12-11",
+    "settle": "2025-12-15",
+    "maturity": "2029-01-15",
+    "days": 1127,
+    "value": 2.58,
+    "isin": "IT0005660052",
+    "what": "BTP 3 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-11-12.12.2025.pdf"
+   },
+   {
+    "date": "2025-12-11",
+    "settle": "2025-12-15",
+    "maturity": "2029-10-01",
+    "days": 1386,
+    "value": 2.7,
+    "isin": "IT0005611055",
+    "what": "BTP 5 YEARS (4 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-4-years-residual_maturity-Auction-Results-11-12.12.2025.pdf"
+   },
+   {
+    "date": "2025-12-11",
+    "settle": "2025-12-15",
+    "maturity": "2030-10-01",
+    "days": 1751,
+    "value": 2.87,
+    "isin": "IT0005654642",
+    "what": "BTP 5 YEARS (5 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-5-years-residual_maturity-Auction-Results-11-12.12.2025.pdf"
+   },
+   {
+    "date": "2026-01-09",
+    "settle": "2026-01-14",
+    "maturity": "2027-01-14",
+    "days": 365,
+    "value": 2.112,
+    "isin": "IT0005689887",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-9-12.01.2026.pdf"
+   },
+   {
+    "date": "2026-01-13",
+    "settle": "2026-01-15",
+    "maturity": "2029-03-15",
+    "days": 1155,
+    "value": 2.48,
+    "isin": "IT0005689960",
+    "what": "BTP 3 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-13-14.01.2026.pdf"
+   },
+   {
+    "date": "2026-01-27",
+    "settle": "2026-01-29",
+    "maturity": "2028-02-28",
+    "days": 760,
+    "value": 2.26,
+    "isin": "IT0005692410",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-27-28.01.2026.pdf"
+   },
+   {
+    "date": "2026-01-28",
+    "settle": "2026-01-30",
+    "maturity": "2026-07-31",
+    "days": 182,
+    "value": 2.04,
+    "isin": "IT0005692485",
+    "what": "6 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-28-29.01.2026.pdf"
+   },
+   {
+    "date": "2026-01-29",
+    "settle": "2026-02-02",
+    "maturity": "2031-02-01",
+    "days": 1825,
+    "value": 2.74,
+    "isin": "IT0005671273",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-29-30.01.2026.pdf"
+   },
+   {
+    "date": "2026-01-29",
+    "settle": "2026-02-02",
+    "maturity": "2036-02-01",
+    "days": 3651,
+    "value": 3.44,
+    "isin": "IT0005676504",
+    "what": "BTP 10 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-29-30.01.2026.pdf"
+   },
+   {
+    "date": "2026-02-11",
+    "settle": "2026-02-13",
+    "maturity": "2027-02-12",
+    "days": 364,
+    "value": 2.068,
+    "isin": "IT0005695256",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-11-12.02.2026.pdf"
+   },
+   {
+    "date": "2026-02-12",
+    "settle": "2026-02-16",
+    "maturity": "2029-03-15",
+    "days": 1123,
+    "value": 2.36,
+    "isin": "IT0005689960",
+    "what": "BTP 3 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-12-13.02.2026.pdf"
+   },
+   {
+    "date": "2026-02-12",
+    "settle": "2026-02-16",
+    "maturity": "2032-07-15",
+    "days": 2341,
+    "value": 2.92,
+    "isin": "IT0005647265",
+    "what": "BTP 7 YEARS (6 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-6-years-residual_maturity-Auction-Results-12-13.02.2026.pdf"
+   },
+   {
+    "date": "2026-02-12",
+    "settle": "2026-02-16",
+    "maturity": "2033-03-15",
+    "days": 2584,
+    "value": 3.02,
+    "isin": "IT0005689994",
+    "what": "BTP 7 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-12-13.02.2026.pdf"
+   },
+   {
+    "date": "2026-02-24",
+    "settle": "2026-02-26",
+    "maturity": "2028-02-28",
+    "days": 732,
+    "value": 2.16,
+    "isin": "IT0005692410",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-24-25.02.2026.pdf"
+   },
+   {
+    "date": "2026-02-25",
+    "settle": "2026-02-27",
+    "maturity": "2026-05-29",
+    "days": 91,
+    "value": 2.032,
+    "isin": "IT0005680639",
+    "what": "6 MONTH BOTS (3 MONTHS RESIDUAL MATURITY",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-3-months-residual_maturity-Auction-Results-25-26.02.2026.pdf"
+   },
+   {
+    "date": "2026-02-25",
+    "settle": "2026-02-27",
+    "maturity": "2026-07-31",
+    "days": 154,
+    "value": 2.038,
+    "isin": "IT0005692485",
+    "what": "6 MONTH BOTS (5 MONTHS RESIDUAL MATURITY",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-25-26.02.2026.pdf"
+   },
+   {
+    "date": "2026-02-26",
+    "settle": "2026-03-02",
+    "maturity": "2031-02-01",
+    "days": 1797,
+    "value": 2.62,
+    "isin": "IT0005671273",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-26-27.02.2026.pdf"
+   },
+   {
+    "date": "2026-02-26",
+    "settle": "2026-03-02",
+    "maturity": "2036-02-01",
+    "days": 3623,
+    "value": 3.31,
+    "isin": "IT0005676504",
+    "what": "BTP 10 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-26-27.02.2026.pdf"
+   },
+   {
+    "date": "2026-03-11",
+    "settle": "2026-03-13",
+    "maturity": "2027-03-12",
+    "days": 364,
+    "value": 2.372,
+    "isin": "IT0005699340",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-11-12.03.2026.pdf"
+   },
+   {
+    "date": "2026-03-12",
+    "settle": "2026-03-16",
+    "maturity": "2029-03-15",
+    "days": 1095,
+    "value": 2.75,
+    "isin": "IT0005689960",
+    "what": "BTP 3 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-12-13.03.2026.pdf"
+   },
+   {
+    "date": "2026-03-12",
+    "settle": "2026-03-16",
+    "maturity": "2033-03-15",
+    "days": 2556,
+    "value": 3.34,
+    "isin": "IT0005689994",
+    "what": "BTP 7 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-12-13.03.2026.pdf"
+   },
+   {
+    "date": "2026-03-12",
+    "settle": "2026-03-16",
+    "maturity": "2038-03-01",
+    "days": 4368,
+    "value": 3.85,
+    "isin": "IT0005496770",
+    "what": "BTP 15 YEARS (12 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-12-years-residual_maturity-Auction-Results-12-13.03.2026.pdf"
+   },
+   {
+    "date": "2026-03-25",
+    "settle": "2026-03-27",
+    "maturity": "2028-02-28",
+    "days": 703,
+    "value": 2.89,
+    "isin": "IT0005692410",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-25-26.03.2026.pdf"
+   },
+   {
+    "date": "2026-03-26",
+    "settle": "2026-03-31",
+    "maturity": "2026-09-30",
+    "days": 183,
+    "value": 2.482,
+    "isin": "IT0005702656",
+    "what": "6 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-26-27.03.2026.pdf"
+   },
+   {
+    "date": "2026-03-27",
+    "settle": "2026-04-01",
+    "maturity": "2031-02-01",
+    "days": 1767,
+    "value": 3.48,
+    "isin": "IT0005671273",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-27-30.03.2026.pdf"
+   },
+   {
+    "date": "2026-03-27",
+    "settle": "2026-04-01",
+    "maturity": "2036-02-01",
+    "days": 3593,
+    "value": 4.09,
+    "isin": "IT0005676504",
+    "what": "BTP 10 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-27-30.03.2026.pdf"
+   },
+   {
+    "date": "2026-04-09",
+    "settle": "2026-04-14",
+    "maturity": "2026-07-14",
+    "days": 91,
+    "value": 2.135,
+    "isin": "IT0005704454",
+    "what": "3 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_3_mesi/3-Month-BOTs-Auction-Results-9-10.04.2026.pdf"
+   },
+   {
+    "date": "2026-04-09",
+    "settle": "2026-04-14",
+    "maturity": "2027-04-14",
+    "days": 365,
+    "value": 2.604,
+    "isin": "IT0005704447",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-9-10.04.2026.pdf"
+   },
+   {
+    "date": "2026-04-10",
+    "settle": "2026-04-15",
+    "maturity": "2029-03-15",
+    "days": 1065,
+    "value": 2.91,
+    "isin": "IT0005689960",
+    "what": "BTP 3 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-10-13.04.2026.pdf"
+   },
+   {
+    "date": "2026-04-10",
+    "settle": "2026-04-15",
+    "maturity": "2033-06-15",
+    "days": 2618,
+    "value": 3.51,
+    "isin": "IT0005704868",
+    "what": "BTP 7 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-10-13.04.2026.pdf"
+   },
+   {
+    "date": "2026-04-10",
+    "settle": "2026-04-15",
+    "maturity": "2041-10-01",
+    "days": 5648,
+    "value": 4.27,
+    "isin": "IT0005694630",
+    "what": "BTP 15 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-Auction-Results-10-13.04.2026.pdf"
+   },
+   {
+    "date": "2026-04-24",
+    "settle": "2026-04-28",
+    "maturity": "2028-02-28",
+    "days": 671,
+    "value": 2.8,
+    "isin": "IT0005692410",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-24-27.04.2026.pdf"
+   },
+   {
+    "date": "2026-04-28",
+    "settle": "2026-04-30",
+    "maturity": "2026-07-14",
+    "days": 75,
+    "value": 2.161,
+    "isin": "IT0005704454",
+    "what": "3 MONTH BOTS (2 MONTHS RESIDUAL MATURITY",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_3_mesi/3-Month-BOTs-Auction-Results-28-29.04.2026.pdf"
+   },
+   {
+    "date": "2026-04-28",
+    "settle": "2026-04-30",
+    "maturity": "2026-09-30",
+    "days": 153,
+    "value": 2.331,
+    "isin": "IT0005702656",
+    "what": "6 MONTH BOTS (5 MONTHS RESIDUAL MATURITY",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-28-29.04.2026.pdf"
+   },
+   {
+    "date": "2026-04-29",
+    "settle": "2026-05-04",
+    "maturity": "2031-06-01",
+    "days": 1854,
+    "value": 3.32,
+    "isin": "IT0005707614",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-29-30.04.2026.pdf"
+   },
+   {
+    "date": "2026-04-29",
+    "settle": "2026-05-04",
+    "maturity": "2035-03-01",
+    "days": 3223,
+    "value": 3.77,
+    "isin": "IT0005358806",
+    "what": "BTP 15 YEARS (9 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-9-years-residual_maturity-Auction-Results-29-30.04.2026.pdf"
+   },
+   {
+    "date": "2026-05-12",
+    "settle": "2026-05-14",
+    "maturity": "2026-07-14",
+    "days": 61,
+    "value": 2.116,
+    "isin": "IT0005660029",
+    "what": "12 MONTH BOTS (2 MONTHS RESIDUAL MATURIT",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-2-months-residual_maturity-Auction-Results-12-13.05.2026.pdf"
+   },
+   {
+    "date": "2026-05-12",
+    "settle": "2026-05-14",
+    "maturity": "2027-05-14",
+    "days": 365,
+    "value": 2.699,
+    "isin": "IT0005709289",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-12-13.05.2026.pdf"
+   },
+   {
+    "date": "2026-05-13",
+    "settle": "2026-05-15",
+    "maturity": "2029-03-15",
+    "days": 1035,
+    "value": 2.98,
+    "isin": "IT0005689960",
+    "what": "BTP 3 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-13-14.05.2026.pdf"
+   },
+   {
+    "date": "2026-05-13",
+    "settle": "2026-05-15",
+    "maturity": "2033-06-15",
+    "days": 2588,
+    "value": 3.55,
+    "isin": "IT0005704868",
+    "what": "BTP 7 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-13-14.05.2026.pdf"
+   },
+   {
+    "date": "2026-05-13",
+    "settle": "2026-05-15",
+    "maturity": "2038-09-01",
+    "days": 4492,
+    "value": 4.04,
+    "isin": "IT0005321325",
+    "what": "BTP 20 YEARS (12 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_20_anni/BTP-20-Years-12-years-residual_maturity-Auction-Results-13-14.05.2026.pdf"
+   },
+   {
+    "date": "2026-05-26",
+    "settle": "2026-05-28",
+    "maturity": "2028-02-28",
+    "days": 641,
+    "value": 2.73,
+    "isin": "IT0005692410",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-26-27.05.2026.pdf"
+   },
+   {
+    "date": "2026-05-27",
+    "settle": "2026-05-29",
+    "maturity": "2026-11-30",
+    "days": 185,
+    "value": 2.411,
+    "isin": "IT0005711749",
+    "what": "6 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-27-28.05.2026.pdf"
+   },
+   {
+    "date": "2026-05-28",
+    "settle": "2026-06-01",
+    "maturity": "2031-06-01",
+    "days": 1826,
+    "value": 3.16,
+    "isin": "IT0005707614",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-28-29.05.2026.pdf"
+   },
+   {
+    "date": "2026-05-28",
+    "settle": "2026-06-01",
+    "maturity": "2036-07-01",
+    "days": 3683,
+    "value": 3.77,
+    "isin": "IT0005706285",
+    "what": "BTP 10 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-28-29.05.2026.pdf"
+   },
+   {
+    "date": "2026-05-28",
+    "settle": "2026-06-01",
+    "maturity": "2036-09-01",
+    "days": 3745,
+    "value": 3.75,
+    "isin": "IT0005177909",
+    "what": "BTP 20 YEARS (10 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_20_anni/BTP-20-Years-10-years-residual_maturity-Auction-Results-28-29.05.202.pdf"
+   },
+   {
+    "date": "2026-06-10",
+    "settle": "2026-06-12",
+    "maturity": "2027-06-14",
+    "days": 367,
+    "value": 2.695,
+    "isin": "IT0005716714",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-10-11.06.2026.pdf"
+   },
+   {
+    "date": "2026-06-11",
+    "settle": "2026-06-15",
+    "maturity": "2029-09-15",
+    "days": 1188,
+    "value": 3.03,
+    "isin": "IT0005716839",
+    "what": "BTP 3 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-11-12.06.2026.pdf"
+   },
+   {
+    "date": "2026-06-24",
+    "settle": "2026-06-26",
+    "maturity": "2028-02-28",
+    "days": 612,
+    "value": 2.74,
+    "isin": "IT0005692410",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-24-25.06.2026.pdf"
+   },
+   {
+    "date": "2026-06-25",
+    "settle": "2026-06-30",
+    "maturity": "2026-11-30",
+    "days": 153,
+    "value": 2.446,
+    "isin": "IT0005711749",
+    "what": "6 MONTH BOTS (5 MONTHS RESIDUAL MATURITY",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-5-months-residual_maturity-Auction-Results-25-26.06.202.pdf"
+   },
+   {
+    "date": "2026-06-25",
+    "settle": "2026-06-30",
+    "maturity": "2026-12-31",
+    "days": 184,
+    "value": 2.479,
+    "isin": "IT0005719536",
+    "what": "6 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-25-26.06.2026.pdf"
+   },
+   {
+    "date": "2026-06-26",
+    "settle": "2026-07-01",
+    "maturity": "2031-06-01",
+    "days": 1796,
+    "value": 3.03,
+    "isin": "IT0005707614",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-26-26.06.2026.pdf"
+   },
+   {
+    "date": "2026-06-26",
+    "settle": "2026-07-01",
+    "maturity": "2036-02-01",
+    "days": 3502,
+    "value": 3.58,
+    "isin": "IT0005676504",
+    "what": "BTP 10 YEARS (10 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-10-years-residual_maturity-Auction-Results-26-26.06.2026.pdf"
+   },
+   {
+    "date": "2026-06-26",
+    "settle": "2026-07-01",
+    "maturity": "2036-07-01",
+    "days": 3653,
+    "value": 3.63,
+    "isin": "IT0005706285",
+    "what": "BTP 10 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-26-26.06.2026.pdf"
+   },
+   {
+    "date": "2026-07-09",
+    "settle": "2026-07-14",
+    "maturity": "2027-07-14",
+    "days": 365,
+    "value": 2.69,
+    "isin": "IT0005722514",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-09-10.07.2026.pdf"
+   },
+   {
+    "date": "2026-07-10",
+    "settle": "2026-07-15",
+    "maturity": "2029-09-15",
+    "days": 1158,
+    "value": 2.98,
+    "isin": "IT0005716839",
+    "what": "BTP 3 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-10-13.07.2026.pdf"
+   },
+   {
+    "date": "2026-07-10",
+    "settle": "2026-07-15",
+    "maturity": "2033-09-15",
+    "days": 2619,
+    "value": 3.5,
+    "isin": "IT0005722845",
+    "what": "BTP 7 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-10-13.07.2026.pdf"
+   },
+   {
+    "date": "2026-07-10",
+    "settle": "2026-07-15",
+    "maturity": "2041-10-01",
+    "days": 5557,
+    "value": 4.23,
+    "isin": "IT0005694630",
+    "what": "BTP 15 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-Auction-Results-10-13.07.2026.pdf"
+   },
+   {
+    "date": "2026-07-28",
+    "settle": "2026-07-30",
+    "maturity": "2028-02-28",
+    "days": 578,
+    "value": 2.92,
+    "isin": "IT0005692410",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-28-29.07.2026.pdf"
+   },
+   {
+    "date": "2026-07-28",
+    "settle": "2026-07-30",
+    "maturity": "2028-07-15",
+    "days": 716,
+    "value": 2.89,
+    "isin": "IT0005445306",
+    "what": "BTP 7 YEARS (2 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-2-years-residual_maturity-Auction-Results-28-29.07.2026.pdf"
+   },
+   {
+    "date": "2026-07-29",
+    "settle": "2026-07-31",
+    "maturity": "2027-01-29",
+    "days": 182,
+    "value": 2.567,
+    "isin": "IT0005725236",
+    "what": "6 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-29-30.07.2026.pdf"
+   },
+   {
+    "date": "2026-07-30",
+    "settle": "2026-08-03",
+    "maturity": "2031-06-01",
+    "days": 1763,
+    "value": 3.39,
+    "isin": "IT0005707614",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-30-31.07.2026.pdf"
+   },
+   {
+    "date": "2026-07-30",
+    "settle": "2026-08-03",
+    "maturity": "2036-03-01",
+    "days": 3498,
+    "value": 3.95,
+    "isin": "IT0005402117",
+    "what": "BTP 15 YEARS (10 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-10-years-residual_maturity-Auction-Results-30-31.07.2026.pdf"
+   },
+   {
+    "date": "2026-07-30",
+    "settle": "2026-08-03",
+    "maturity": "2036-07-01",
+    "days": 3620,
+    "value": 4.0,
+    "isin": "IT0005706285",
+    "what": "BTP 10 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-30-31.07.2026.pdf"
+   },
+   {
+    "date": "2026-08-12",
+    "settle": "2026-08-14",
+    "maturity": "2027-08-13",
+    "days": 364,
+    "value": 2.768,
+    "isin": "IT0005729220",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-12-13.08.2026.pdf"
+   },
+   {
+    "date": "2026-08-26",
+    "settle": "2026-08-28",
+    "maturity": "2028-10-30",
+    "days": 794,
+    "value": 3.02,
+    "isin": "IT0005729733",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-26-27.08.2026.pdf"
+   },
+   {
+    "date": "2026-08-27",
+    "settle": "2026-08-31",
+    "maturity": "2026-12-14",
+    "days": 105,
+    "value": 2.472,
+    "isin": "IT0005684888",
+    "what": "12 MONTH BOTS (3 MONTHS RESIDUAL MATURIT",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-3-months-residual_maturity-Auction-Results-27-28.08.2026.pdf"
+   },
+   {
+    "date": "2026-08-27",
+    "settle": "2026-08-31",
+    "maturity": "2027-01-29",
+    "days": 151,
+    "value": 2.607,
+    "isin": "IT0005725236",
+    "what": "6 MONTH BOTS (4 MONTHS RESIDUAL MATURITY",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-27-28.08.2026.pdf"
+   },
+   {
+    "date": "2026-08-28",
+    "settle": "2026-09-01",
+    "maturity": "2031-06-01",
+    "days": 1734,
+    "value": 3.44,
+    "isin": "IT0005707614",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-28-31.08.2026.pdf"
+   },
+   {
+    "date": "2026-08-28",
+    "settle": "2026-09-01",
+    "maturity": "2036-10-01",
+    "days": 3683,
+    "value": 4.1,
+    "isin": "IT0005729931",
+    "what": "BTP 10 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-28-31.08.2026.pdf"
+   },
+   {
+    "date": "2026-09-09",
+    "settle": "2026-09-14",
+    "maturity": "2027-01-14",
+    "days": 122,
+    "value": 2.6,
+    "isin": "IT0005689887",
+    "what": "12 MONTH BOTS (4 MONTHS RESIDUAL MATURIT",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-4-months-residual_maturity-Auction-Results-9-10.09.2026.pdf"
+   },
+   {
+    "date": "2026-09-09",
+    "settle": "2026-09-14",
+    "maturity": "2027-09-14",
+    "days": 365,
+    "value": 2.967,
+    "isin": "IT0005730681",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-9-10.09.2026.pdf"
+   },
+   {
+    "date": "2026-09-10",
+    "settle": "2026-09-15",
+    "maturity": "2029-09-15",
+    "days": 1096,
+    "value": 3.43,
+    "isin": "IT0005716839",
+    "what": "BTP 3 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-10-11.09.2026.pdf"
+   },
+   {
+    "date": "2026-09-10",
+    "settle": "2026-09-15",
+    "maturity": "2033-09-15",
+    "days": 2557,
+    "value": 3.98,
+    "isin": "IT0005722845",
+    "what": "BTP 7 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-10-11.09.2026.pdf"
+   },
+   {
+    "date": "2026-09-10",
+    "settle": "2026-09-15",
+    "maturity": "2072-03-01",
+    "days": 16604,
+    "value": 4.61,
+    "isin": "IT0005441883",
+    "what": "BTP 50 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_50_anni/BTP-50-Years-Auction-Results-10-11.09.2026.pdf"
+   },
+   {
+    "date": "2026-09-24",
+    "settle": "2026-09-28",
+    "maturity": "2028-10-30",
+    "days": 763,
+    "value": 3.64,
+    "isin": "IT0005729733",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-24-25.09.2026.pdf"
+   },
+   {
+    "date": "2026-09-25",
+    "settle": "2026-09-30",
+    "maturity": "2027-03-31",
+    "days": 182,
+    "value": 2.873,
+    "isin": "IT0005733115",
+    "what": "6 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-25-28.09.2026.pdf"
+   },
+   {
+    "date": "2026-09-29",
+    "settle": "2026-10-01",
+    "maturity": "2032-02-01",
+    "days": 1949,
+    "value": 4.08,
+    "isin": "IT0005733636",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-29-30.09.2026.pdf"
+   },
+   {
+    "date": "2026-09-29",
+    "settle": "2026-10-01",
+    "maturity": "2036-10-01",
+    "days": 3653,
+    "value": 4.58,
+    "isin": "IT0005729931",
+    "what": "BTP 10 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-29-30.09.2026.pdf"
+   },
+   {
+    "date": "2026-10-09",
+    "settle": "2026-10-14",
+    "maturity": "2027-10-14",
+    "days": 365,
+    "value": 3.175,
+    "isin": "IT0005735094",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-9-12.10.2026.pdf"
+   },
+   {
+    "date": "2026-10-13",
+    "settle": "2026-10-15",
+    "maturity": "2029-09-15",
+    "days": 1066,
+    "value": 3.69,
+    "isin": "IT0005716839",
+    "what": "BTP 3 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-13-14.10.2026.pdf"
+   },
+   {
+    "date": "2026-10-13",
+    "settle": "2026-10-15",
+    "maturity": "2033-09-15",
+    "days": 2527,
+    "value": 4.24,
+    "isin": "IT0005722845",
+    "what": "BTP 7 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-13-14.10.2026.pdf"
+   },
+   {
+    "date": "2026-10-13",
+    "settle": "2026-10-15",
+    "maturity": "2041-10-01",
+    "days": 5465,
+    "value": 4.84,
+    "isin": "IT0005694630",
+    "what": "BTP 15 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-Auction-Results-13-14.10.2026.pdf"
+   },
+   {
+    "date": "2026-10-27",
+    "settle": "2026-10-29",
+    "maturity": "2028-10-30",
+    "days": 732,
+    "value": 3.55,
+    "isin": "IT0005729733",
+    "what": "BTP Short Term",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-27-28.10.2026.pdf"
+   },
+   {
+    "date": "2026-10-28",
+    "settle": "2026-10-30",
+    "maturity": "2026-12-14",
+    "days": 45,
+    "value": 2.567,
+    "isin": "IT0005684888",
+    "what": "12 MONTH BOTS (1 MONTH RESIDUAL MATURITY",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-1-month-residual_maturity-Auction-Results-28-29.10.2026.pdf"
+   },
+   {
+    "date": "2026-10-28",
+    "settle": "2026-10-30",
+    "maturity": "2027-03-12",
+    "days": 133,
+    "value": 2.853,
+    "isin": "IT0005699340",
+    "what": "12 MONTH BOTS (4 MONTHS RESIDUAL MATURIT",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-4-months-residual_maturity-Auction-Results-28-29.10.2026.pdf"
+   },
+   {
+    "date": "2026-10-29",
+    "settle": "2026-11-02",
+    "maturity": "2031-02-15",
+    "days": 1566,
+    "value": 3.9,
+    "isin": "IT0005580094",
+    "what": "BTP 7 YEARS (5 YEAR RESIDUAL MATURITY)",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-5-years-residual_maturity-Auction-Results-29-30.10.2026.pdf"
+   },
+   {
+    "date": "2026-10-29",
+    "settle": "2026-11-02",
+    "maturity": "2032-02-01",
+    "days": 1917,
+    "value": 4.02,
+    "isin": "IT0005733636",
+    "what": "BTP 5 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-29-30.10.2026.pdf"
+   },
+   {
+    "date": "2026-10-29",
+    "settle": "2026-11-02",
+    "maturity": "2036-10-01",
+    "days": 3621,
+    "value": 4.49,
+    "isin": "IT0005729931",
+    "what": "BTP 10 YEARS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-29-30.10.2026.pdf"
+   },
+   {
+    "date": "2026-11-11",
+    "settle": "2026-11-13",
+    "maturity": "2027-11-12",
+    "days": 364,
+    "value": 3.207,
+    "isin": "IT0005744930",
+    "what": "12 MONTH BOTS",
+    "url": "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-11.11.2026.pdf"
+   }
+  ],
+  "seen": [
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_3_mesi/12-Month-BOTs-4-months-residual_maturity-Auction-Results-9-10.09.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_3_mesi/3-Month-BOTs-Auction-Results-28-29.04.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_3_mesi/3-Month-BOTs-Auction-Results-9-10.04.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-26-27.11.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-5-month-residual_maturity-Auction-Results-29-30.10.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-25-26.09.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-27-28.08.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-29-30.07.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-25-28.09.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-27-28.08.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-29-30.07.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-25-26.06.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-5-months-residual_maturity-Auction-Results-25-26.06.202.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-27-28.05.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-28-29.04.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-26-27.03.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-3-months-residual_maturity-Auction-Results-25-26.02.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-25-26.02.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_6_mesi/6-Month-BOTs-Auction-Results-28-29.01.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-10-11.12.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-12-13.11.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-1-month-residual_maturity-Auction-Results-29-30.10.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-10-13.10.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-10-11.09.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-12-13.08.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-11.11.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-4-months-residual_maturity-Auction-Results-28-29.10.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-1-month-residual_maturity-Auction-Results-28-29.10.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-9-12.10.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-4-months-residual_maturity-Auction-Results-9-10.09.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-9-10.09.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-3-months-residual_maturity-Auction-Results-27-28.08.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-12-13.08.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-09-10.07.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-10-11.06.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-12-13.05.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-2-months-residual_maturity-Auction-Results-12-13.05.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-9-10.04.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-11-12.03.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-11-12.02.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_bot_12_mesi/12-Month-BOTs-Auction-Results-9-12.01.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-25-26.11.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-28-29.10.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-24-25.09.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-24.09.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-26-27.08.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-24-25.07.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-27-28.10.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-24-25.09.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-26-27.08.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-28-29.07.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-24-25.06.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-26-27.05.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-24-27.04.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-25-26.03.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-24-25.02.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_short_term/BTP-Short-Term-Auction-Results-27-28.01.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-11-12.12.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-13-14.11.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-14-15.10.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-11-12.09.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-11-14.07.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-13-14.10.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-10-11.09.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-10-13.07.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-11-12.06.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-13-14.05.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-10-13.04.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-12-13.03.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-12-13.02.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_3_anni/BTP-3-Years-Auction-Results-13-14.01.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-5-years-residual_maturity-Auction-Results-11-12.12.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-4-years-residual_maturity-Auction-Results-11-12.12.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-27-28.11.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-30-31.10.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-26-29.09.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-28-29.08.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-30-31.07.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-29-30.10.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-29-30.09.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-28-31.08.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-30-31.07.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-26-26.06.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-28-29.05.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-29-30.04.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-27-30.03.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-26-27.02.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_5_anni/BTP-5-Years-Auction-Results-29-30.01.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-13-14.11.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-7-years-residual_maturity-Auction-Results-13-14.11.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-14-15.10.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-5-years-residual_maturity-Auction-Results-11-12.09.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-11-14.07.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-5-years-residual_maturity-Auction-Results-29-30.10.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-13-14.10.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-10-11.09.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-2-years-residual_maturity-Auction-Results-28-29.07.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-10-13.07.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-13-14.05.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-10-13.04.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-12-13.03.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-Auction-Results-12-13.02.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_7_anni/BTP-7-Years-6-years-residual_maturity-Auction-Results-12-13.02.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-27-28.11.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-30-31.10.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-3-years-residual_maturity-Auction-Results-14-15.10.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-26-29.09.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-28-29.08.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-10-years-residual_maturity-Auction-Results-28-29.08.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-30-31.07.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-5-years-residual_maturity-Auction-Results-30-31.07.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-29-30.10.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-29-30.09.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-28-31.08.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-30-31.07.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-26-26.06.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-10-years-residual_maturity-Auction-Results-26-26.06.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-28-29.05.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-27-30.03.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-26-27.02.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_10_anni/BTP-10-Years-Auction-Results-29-30.01.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-Auction-Results-14-15.10.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-Auction-Results-11-14.07.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-Auction-Results-13-14.10.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-10-years-residual_maturity-Auction-Results-30-31.07.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-Auction-Results-10-13.07.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-9-years-residual_maturity-Auction-Results-29-30.04.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-Auction-Results-10-13.04.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_15_anni/BTP-15-Years-12-years-residual_maturity-Auction-Results-12-13.03.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_20_anni/BTP-20-Years-10-years-residual_maturity-Auction-Results-28-29.05.202.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_20_anni/BTP-20-Years-12-years-residual_maturity-Auction-Results-13-14.05.2026.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_30_anni/BTP-30-Years-Auction-Results-13-14.11.2025.pdf",
+   "https://www.dt.mef.gov.it/export/sites/sitodt/modules/documenti_en/debito_pubblico/risultati_aste/risultati_aste_btp_50_anni/BTP-50-Years-Auction-Results-10-11.09.2026.pdf"
+  ],
+  "unreadable": {}
+ }
+}
