@@ -10,7 +10,8 @@ from .. import publish, status, validate
 from . import core
 from .core import Skipped
 
-COUNTRIES = ["us", "uk", "ca", "jp", "de", "es", "ch", "br", "fr"]
+COUNTRIES = ["us", "uk", "ca", "jp", "de", "es", "ch", "br", "fr", "it", "au", "in"]
+MODULES = {"in": "india"}          # `in` is a Python keyword
 
 
 class NothingFetched(Exception):
@@ -18,7 +19,7 @@ class NothingFetched(Exception):
 
 
 def adapter(code: str):
-    return importlib.import_module(f"{__package__}.{code}")
+    return importlib.import_module(f"{__package__}.{MODULES.get(code, code)}")
 
 
 def build_doc(code: str, raw: core.Raw, *, today: date, now_iso: str, meta: dict) -> dict:
@@ -47,13 +48,14 @@ def run(cfg: dict, getter, *, today: date, now: datetime | None = None, data_dir
     codes = [c for c in cfg.get("countries", COUNTRIES) if not only or c in only]
     files: dict[str, object] = {}
     meta_out: dict[str, dict] = {}
-    ok, failed, skipped = [], [], []
+    ok, failed, skipped, warnings = [], [], [], []
     for code in codes:
         mod = adapter(code)
         rel = f"yields/{code}.json"
         prev = publish.read_json(data_dir / rel)
         try:
             raw = mod.fetch(getter, today, env, (prev or {}).get("state"))
+            warnings += [f"{code}: {w}" for w in raw.warnings]
             doc = build_doc(code, raw, today=today, now_iso=now_iso, meta=mod.META)
             validate.validate_yield(doc, today=today, prev=prev, max_age_days=cfg.get("max_age_days", 21),
                                     max_weekly_move_pp=cfg.get("max_move_pp", 2.0))
@@ -76,7 +78,7 @@ def run(cfg: dict, getter, *, today: date, now: datetime | None = None, data_dir
     st = status.merge_status(
         prev_status, "yield_curves",
         status.source_block(now=now, last_success=last_success, items_ok=len(ok), items_total=attempted, failed=failed,
-                            cadence_hours=168, stale=bool(failed)) | {"skipped": skipped},
+                            cadence_hours=168, stale=bool(failed)) | {"skipped": skipped, "warnings": warnings},
         status.run_info(workflow, now, now, env), now)
     manifest = publish.merge_manifest(prev_manifest, generated_at=now_iso, updates={"yields": meta_out})
     files["status.json"] = st

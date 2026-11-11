@@ -108,6 +108,25 @@ PROBES = [
     ("Yield", "Banque de France Webstat Explore API (anonymous call is refused: 401/403/404)",
      lambda: (lambda r: (r.status_code, "reachable; refused without a key, as expected" if r.status_code in (401, 403, 404) else r.text[:60], r.status_code in (200, 401, 403, 404)))(
          _get("https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets/observations/records?limit=1"))),
+    ("Yield", "Webstat 13-week BTF monthly series (France 3M; anonymous call is refused, as above)",
+     lambda: (lambda r: (r.status_code, "reachable; refused without a key, as expected" if r.status_code in (401, 403, 404) else r.text[:60], r.status_code in (200, 401, 403, 404)))(
+         _get("https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets/observations/records?limit=1&where=series_key%3D%22FM.M.FR.EUR.FR2.MM.TMB.HSTA%22"))),
+    ("Yield", "Ministry of Finance mirror of AFT pages (expect a certificate for its 'unavailable' host; not used)",
+     lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes", r.status_code == 200))(_get("https://applis.finances.gouv.fr/en/node/12995"))),
+    ("Yield", "Italy MEF auction results page, 10-year BTP (PDF links)",
+     lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes; {r.text.count('Auction-Results')} result-PDF links listed", 'Auction-Results' in r.text))(
+         _get("https://www.dt.mef.gov.it/en/debito_pubblico/emissioni_titoli_di_stato_interni/risultati_aste/risultati_aste_btp_10_anni/index.html", params={"selezione-anno": str(today.year)}))),
+    ("Yield", "RBA table F2 (Australia 3Y, 5Y, 10Y; head only)",
+     lambda: (lambda r: (r.status_code, f"stream head {len(r.content)} bytes", b'FCMYGBAG10D' in r.content or b'CAPITAL MARKET YIELDS' in r.content))(
+         _stream_head("https://www.rba.gov.au/statistics/tables/csv/f2-data.csv", 4096))),
+    ("Yield", "RBA table F16 (Australia 1Y and 30Y bond buckets; head only)",
+     lambda: (lambda r: (r.status_code, f"stream head {len(r.content)} bytes", b'INDICATIVE MID RATES' in r.content))(
+         _stream_head("https://www.rba.gov.au/statistics/tables/csv/f16-data.csv", 4096))),
+    ("Yield", "AOFM Treasury Notes page (no answer to plain requests on 11 Nov 2026; not used)",
+     lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes", r.status_code == 200))(_get("https://www.aofm.gov.au/securities/treasury-notes"))),
+    ("Yield", "RBI press releases (India T-bill and Government Stock auction results)",
+     lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes; {r.text.count('Full Auction Result')} 'Full Auction Result' links", 'Full Auction Result' in r.text))(
+         _get("https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx"))),
     ("Yield", "Banca d'Italia Infostat (expects a protected page)",
      lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes; {'protected resource page' if 'Risorsa Protetta' in r.text else 'other'}", r.status_code == 200 and 'Risorsa Protetta' not in r.text))(
          _get("https://a2a.bancaditalia.it/infostat/dataservices/rest/dataflow"))),
@@ -124,10 +143,10 @@ PROBES = [
          _get("https://www.ccilindia.com/web/ccil/tenorwise-indicative-yields"))),
     ("Yield", "FBIL home (JavaScript application)",
      lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes", r.status_code == 200))(_get("https://www.fbil.org.in/"))),
-    ("Yield", "ChinaBond yield page",
+    ("Yield", "ChinaBond yield page (terms forbid reproduction without permission; not used)",
      lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes", r.status_code == 200))(
          _get("https://yield.chinabond.com.cn/cbweb-mn/yield_main?locale=en_US"))),
-    ("Yield", "CFETS ChinaMoney English home",
+    ("Yield", "CFETS ChinaMoney English home (terms forbid reproduction and scraping; not used)",
      lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes", r.status_code == 200))(_get("https://www.chinamoney.com.cn/english/"))),
 ]
 

@@ -1,0 +1,72 @@
+[
+ {
+  "series_key": "FM.M.FR.EUR.FR2.MM.TMB.HSTA",
+  "time_period_end": "2025-09-30",
+  "obs_value": 2.03
+ },
+ {
+  "series_key": "FM.M.FR.EUR.FR2.MM.TMB.HSTA",
+  "time_period_end": "2025-10-31",
+  "obs_value": 2.03
+ },
+ {
+  "series_key": "FM.M.FR.EUR.FR2.MM.TMB.HSTA",
+  "time_period_end": "2025-11-30",
+  "obs_value": 2.06
+ },
+ {
+  "series_key": "FM.M.FR.EUR.FR2.MM.TMB.HSTA",
+  "time_period_end": "2025-12-31",
+  "obs_value": 2.12
+ },
+ {
+  "series_key": "FM.M.FR.EUR.FR2.MM.TMB.HSTA",
+  "time_period_end": "2026-01-31",
+  "obs_value": 2.07
+ },
+ {
+  "series_key": "FM.M.FR.EUR.FR2.MM.TMB.HSTA",
+  "time_period_end": "2026-02-28",
+  "obs_value": 2.05
+ },
+ {
+  "series_key": "FM.M.FR.EUR.FR2.MM.TMB.HSTA",
+  "time_period_end": "2026-03-31",
+  "obs_value": 2.21
+ },
+ {
+  "series_key": "FM.M.FR.EUR.FR2.MM.TMB.HSTA",
+  "time_period_end": "2026-04-30",
+  "obs_value": 2.26
+ },
+ {
+  "series_key": "FM.M.FR.EUR.FR2.MM.TMB.HSTA",
+  "time_period_end": "2026-05-31",
+  "obs_value": 2.28
+ },
+ {
+  "series_key": "FM.M.FR.EUR.FR2.MM.TMB.HSTA",
+  "time_period_end": "2026-06-30",
+  "obs_value": 2.39
+ },
+ {
+  "series_key": "FM.M.FR.EUR.FR2.MM.TMB.HSTA",
+  "time_period_end": "2026-07-31",
+  "obs_value": 2.473
+ },
+ {
+  "series_key": "FM.M.FR.EUR.FR2.MM.TMB.HSTA",
+  "time_period_end": "2026-08-31",
+  "obs_value": 2.53
+ },
+ {
+  "series_key": "FM.M.FR.EUR.FR2.MM.TMB.HSTA",
+  "time_period_end": "2026-09-30",
+  "obs_value": 2.65
+ },
+ {
+  "series_key": "FM.M.FR.EUR.FR2.MM.TMB.HSTA",
+  "time_period_end": "2026-10-31",
+  "obs_value": 2.84
+ }
+]

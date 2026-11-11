@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       changed: ${{ steps.commit.outputs.changed }}
-    timeout-minutes: 30
+    timeout-minutes: 45          # the first run of Italy and India reads ~300 small files at 2 s each
     steps:
       - uses: actions/checkout@v4
         with:

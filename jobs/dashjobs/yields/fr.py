@@ -13,17 +13,22 @@ One request for all series (the bulk export, JSON array):
 Series: TEC (taux de l'echeance constante, daily, dataset FM) FM.D.FR.EUR.FR2.BB.FRMOYTEC{n}.HSTA for n = 1, 3, 5, 10, 30
 (1Y, 3Y, 5Y, 10Y, 30Y). TEC 3 exists and is current, so 3Y is filled from it. Weekends and holidays come back as rows
 with obs_value null (status M): they are skipped.
-The 1M, 3M and 6M "taux indicatifs des bons du Tresor" are GAPS and stay gaps: the Banque de France stopped publishing them on
-10 July 2024 and Webstat holds no daily bill series (searched 11 Nov 2026), so BILL_KEYS is empty. The Agence France Tresor (aft.gouv.fr) BTF auction results were checked on 11 Nov 2026: every page answers
-an honest non-browser request with HTTP 403 (bot protection), which is not circumvented, so there is no auction fallback either.
-Never filled from elsewhere.
+3M (decided 11 Nov 2026): the Banque de France's MONTHLY average of the 13-week BTF auction rates, FM.M.FR.EUR.FR2.MM.TMB.HSTA
+("Taux d'adjudication des Bons du tresor a 13 semaines (TMB)", the only TMB series in Webstat), fetched in the same request.
+It is a monthly average, not a daily observation: kind "M", labelled "monthly average of 13-week BTF auctions, <month>", dated
+the last day of its month, and used only while that date is within 90 days of the curve date (never stretched further).
+The daily "taux indicatifs des bons du Tresor" stopped on 10 July 2024. The Agence France Tresor's own BTF results could not be
+read: aft.gouv.fr answers non-browser requests with HTTP 403 (bot protection, not circumvented), and the Ministry's mirror
+applis.finances.gouv.fr serves the certificate of its "unavailable" page (indispo.finances.gouv.fr), so no page is readable
+(both checked 11 Nov 2026). So 6M stays a gap, and so does 1M: the AFT's auction notices of 2025-26 (seen through a web search, not fetched) list BTFs of
+about 11 to 52 weeks (e.g. 11, 13, 26 and 52 weeks on 13 July 2026), none of about one month.
 """
 from __future__ import annotations
 
 import json
 from datetime import date
 
-from .core import Raw, Series, Skipped, window_start
+from .core import Raw, Series, Skipped, curve_date, point_at, window_start
 
 META = {
     "code": "fr", "name": "France", "source": "Banque de France, Webstat (TEC constant-maturity yields)",
@@ -34,11 +39,20 @@ META = {
 }
 URL = "https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets/observations/exports/json"
 TEC = {"1Y": 1, "3Y": 3, "5Y": 5, "10Y": 10, "30Y": 30}
-BILL_KEYS: dict[str, str] = {}      # none exist: see the docstring
+TMB_KEY = "FM.M.FR.EUR.FR2.MM.TMB.HSTA"     # monthly average of the 13-week BTF auction rates
+TMB_MAX_DAYS = 90
+MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 BILL_GAP = ("The Banque de France stopped publishing the 'taux indicatifs' of Treasury bills on 10 July 2024 and Webstat has no "
             "daily bill series; the Agence France Tresor's auction results are not readable without a browser (its site refuses "
             "non-browser requests, HTTP 403), so no auction yield is used; left empty.")
-GAPS = {"1M": BILL_GAP, "3M": BILL_GAP, "6M": BILL_GAP}
+GAPS = {"1M": "France's BTFs are auctioned with about 11 to 52 weeks to maturity, none of about one month, and Webstat has no such "
+              "series; left empty.",
+        "6M": BILL_GAP}
+TMB_GAP = "The Banque de France's monthly 13-week BTF auction rate is more than 90 days old or missing; left empty."
+
+
+def tmb_label(d: date) -> str:
+    return f"monthly average of 13-week BTF auctions, {MONTHS[d.month - 1]} {d.year}"
 
 
 def tec_key(n: int) -> str:
@@ -61,7 +75,7 @@ def fetch(g, today: date, env=None, prev=None) -> Raw:
     if not cid:
         raise Skipped("FR_WEBSTAT_CLIENT_ID is not set")
     keys = {t: tec_key(n) for t, n in TEC.items()}
-    keys.update(BILL_KEYS)
+    keys["3M"] = TMB_KEY
     where = ("series_key IN (" + ",".join(f'"{k}"' for k in keys.values()) + ") AND time_period_end >= date'"
              + window_start(today).isoformat() + "'")
     blob = g.get(URL, params={"select": "series_key,time_period_end,obs_value", "where": where,
@@ -70,8 +84,15 @@ def fetch(g, today: date, env=None, prev=None) -> Raw:
     data = parse_export(blob)
     raw = Raw(gaps=dict(GAPS))
     for t, key in keys.items():
-        if data.get(key):
+        if key == TMB_KEY:
+            pts = data.get(key, [])
+            if pts:
+                raw.series[t] = [Series("M", pts, max_lag=TMB_MAX_DAYS, labels={d: tmb_label(d) for d, _ in pts})]
+        elif data.get(key):
             raw.series[t] = [Series("D", data[key], max_lag=5)]
         else:
             raw.gaps[t] = f"Webstat returned no observations for {key}."
+    as_of = curve_date(raw)
+    if as_of is None or point_at(raw, "3M", as_of) is None:
+        raw.gaps["3M"] = TMB_GAP          # judged on the latest curve's date; earlier curves may still have a 3M
     return raw
