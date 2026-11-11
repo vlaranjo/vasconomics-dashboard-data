@@ -18,18 +18,23 @@ on:
 permissions:
   contents: write
 
+# Its own group: a queued run of another workflow can never replace this one (GitHub keeps one pending run per group).
+# Two jobs finishing at once are handled by jobs/commit_data.py (see decisions S4).
 concurrency:
-  group: publish
+  group: markets
   cancel-in-progress: false
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
+          fetch-depth: 0          # full history: commit_data.py reads the age of the last commit that touched data/
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -37,22 +42,16 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Fetch, compute, validate, swap
         run: python jobs/run_markets.py
-      - name: Commit data (also the keep-alive heartbeat)
+      - name: Commit data (only real changes, plus one heartbeat a day) and push
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data
-          git commit -m "data: markets ${GITHUB_RUN_ID}" || echo "nothing to commit"
-          for i in 1 2 3; do
-            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
-            sleep 5
-          done
-          echo "push failed three times" >&2
-          exit 1
+          python jobs/commit_data.py --job markets --message "data: markets ${GITHUB_RUN_ID}" --branch "${GITHUB_REF_NAME}"
 
   deploy:
     needs: publish
-    if: github.ref_name == 'main'
+    if: github.ref_name == 'main' && needs.publish.outputs.changed == 'true'
     permissions:
       contents: read
       pages: write

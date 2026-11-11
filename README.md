@@ -15,6 +15,8 @@ Scheduled jobs and the published JSON for the Vasconomics macro dashboard (Miles
 | `probe-sources` | manual only | Fetches one item from Yahoo, worldperatio and every yield-curve source and reports reachability. Publishes nothing. |
 | `pages-deploy` | called by the three above; on push to `main` touching `data/**` | Deploys `data/` to Pages. Only ever from `main`. |
 
+Each workflow has its own concurrency group. After a job, `jobs/commit_data.py` commits only when the published data really changed (plus about one heartbeat commit a day, for the 60-day keep-alive; `pe` and `yields` count each successful weekly refresh as a change), merges `manifest.json` and `status.json` by ownership if another job pushed first, and the Pages deploy runs only when something was committed.
+
 A manual run on a branch other than `main` commits to that branch and does not deploy.
 No failure emails: staleness is shown on the page. A run fails only on a validation failure or when nothing could be fetched.
 
