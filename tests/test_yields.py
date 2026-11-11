@@ -323,22 +323,63 @@ def test_Y10_brazil_vertices_and_holiday_retry():
     assert core.point_at(raw2, "1Y", D("2026-10-30"))["value"] == 14.3249
 
 
-def test_Y10_france_skipped_without_secret_and_sends_header_with_it():
-    with pytest.raises(Skipped):
-        fr.fetch(FakeGetter({}), TODAY, env={})
-    j = lambda vals: json.dumps({"dataSets": [{"series": {"0:0": {"observations": {str(i): [v] for i, v in enumerate(vals)}}}}],
-                                 "structure": {"dimensions": {"observation": [{"values": [{"id": "2026-10-29"}, {"id": "2026-10-30"}]}]}}}).encode()
-    seen = {}
+def _fr_fake(blob=None, seen=None):
+    blob = (YF / "webstat_tec.json").read_bytes() if blob is None else blob
 
     class G(FakeGetter):
         def get(self, url, *, params=None, headers=None):
-            seen[url] = headers
-            return j([3.1, 3.2])
-    raw = fr.fetch(G({}), TODAY, env={"FR_WEBSTAT_CLIENT_ID": "abc"})
-    assert all(h["X-IBM-Client-Id"] == "abc" for h in seen.values()) and "X-IBM-Client-Secret" not in next(iter(seen.values()))
-    assert set(raw.series) == {"1Y", "5Y", "10Y", "30Y"} and "3Y" in raw.gaps
-    assert fr.META["status"] == "untested"
-    assert any(u.endswith("FM.D.FR.EUR.FR2.BB.FRMOYTEC10.HSTA") for u in seen)
+            if seen is not None:
+                seen.append((url, params, headers))
+            return blob
+    return G({})
+
+
+def test_Y10_france_skipped_without_key():
+    with pytest.raises(Skipped):
+        fr.fetch(FakeGetter({}), TODAY, env={})
+    with pytest.raises(Skipped):
+        fr.fetch(FakeGetter({}), TODAY, env={"FR_WEBSTAT_CLIENT_ID": ""})
+
+
+def test_Y10_france_key_only_in_authorization_header():
+    seen = []
+    fr.fetch(_fr_fake(seen=seen), TODAY, env={"FR_WEBSTAT_CLIENT_ID": "KEY-1234"})
+    assert len(seen) == 1                                                    # one bulk request for all five series
+    url, params, headers = seen[0]
+    assert headers["Authorization"] == "Apikey KEY-1234" and "X-IBM-Client-Id" not in headers
+    assert "KEY-1234" not in url and "KEY-1234" not in json.dumps(params)    # never in the URL or the query
+    for n in (1, 3, 5, 10, 30):
+        assert fr.tec_key(n) in params["where"]
+
+
+def test_Y10_france_parses_real_response_nulls_and_gaps():
+    raw = fr.fetch(_fr_fake(), TODAY, env={"FR_WEBSTAT_CLIENT_ID": "k"})
+    assert set(raw.series) == {"1Y", "3Y", "5Y", "10Y", "30Y"}              # TEC 3 exists, so 3Y is filled
+    assert set(raw.gaps) == {"1M", "3M", "6M"} and "10 July 2024" in raw.gaps["3M"]
+    pts = dict(raw.series["10Y"][0].points)
+    assert pts[D("2026-10-30")] == 4.93 and pts[D("2026-11-10")] == 4.664
+    assert D("2026-11-08") not in pts and D("2026-10-31") not in pts         # weekend rows (null values) are dropped
+    assert all(s[0].kind == "D" for s in raw.series.values())
+    assert core.curve_date(raw) == D("2026-11-10")
+    got = {t: core.point_at(raw, t, D("2026-10-30"))["value"] for t in raw.series}
+    assert got == {"1Y": 3.364, "3Y": 3.91, "5Y": 4.29, "10Y": 4.93, "30Y": 5.427}
+    assert core.point_at(raw, "10Y", D("2026-11-02"))["date"] == "2026-11-02"
+    assert fr.META["status"] == "ok" and fr.BILL_KEYS == {}
+
+
+def test_Y10_france_series_without_data_becomes_a_gap_and_stale_series_is_not_filled():
+    rows = [r for r in json.loads((YF / "webstat_tec.json").read_bytes()) if not r["series_key"].endswith("TEC30.HSTA")]
+    raw = fr.fetch(_fr_fake(json.dumps(rows).encode()), TODAY, env={"FR_WEBSTAT_CLIENT_ID": "k"})
+    assert "30Y" not in raw.series and "TEC30" in raw.gaps["30Y"]
+    stale = [r for r in rows if r["time_period_end"] <= "2026-10-20"]       # a series that stopped: no value is invented
+    raw2 = fr.fetch(_fr_fake(json.dumps(stale).encode()), TODAY, env={"FR_WEBSTAT_CLIENT_ID": "k"})
+    assert core.point_at(raw2, "10Y", D("2026-11-06")) is None
+
+
+def test_Y10_france_key_never_reaches_the_published_document():
+    raw = fr.fetch(_fr_fake(), TODAY, env={"FR_WEBSTAT_CLIENT_ID": "KEY-1234"})
+    doc = job.build_doc("fr", raw, today=D("2026-11-10"), now_iso="2026-11-10T15:47:00Z", meta=fr.META)
+    assert "KEY-1234" not in json.dumps(doc) and doc["status"] == "ok"
 
 
 # ---------------------------------------------------------------- Y11-Y17: the job

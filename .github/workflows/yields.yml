@@ -1,6 +1,7 @@
 # Weekly yield-curve job: official sources (plain HTTP) -> validate -> atomic swap -> commit -> Pages deploy.
 # Monday 15:47 UTC: the SNB cube is published Mondays 14:30, so every source carries the previous Friday's close.
-# France runs only if the repository secret FR_WEBSTAT_CLIENT_ID exists; without it that country is skipped quietly.
+# France runs only if the repository secret FR_WEBSTAT_CLIENT_ID (a Webstat API key, no secret half) exists; without it that country
+# is skipped quietly. The secret is passed to the one step that runs the job, as an environment variable, and nowhere else.
 name: yields
 
 on:
@@ -31,7 +32,6 @@ jobs:
       - name: Fetch, build curves, validate, swap
         env:
           FR_WEBSTAT_CLIENT_ID: ${{ secrets.FR_WEBSTAT_CLIENT_ID }}
-          FR_WEBSTAT_CLIENT_SECRET: ${{ secrets.FR_WEBSTAT_CLIENT_SECRET }}
         run: python jobs/run_yields.py
       - name: Commit data (also the keep-alive heartbeat)
         run: |

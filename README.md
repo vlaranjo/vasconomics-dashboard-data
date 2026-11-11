@@ -9,9 +9,9 @@ Scheduled jobs and the published JSON for the Vasconomics macro dashboard (Miles
 
 | Workflow | When (UTC) | What |
 |---|---|---|
-| `markets` | 22:37 Mon-Fri, repair 05:47 Tue-Sat, manual | Yahoo -> returns (D7 rule) -> validate -> atomic swap of `data/` -> one commit -> Pages deploy |
+| `markets` | 17:47, 19:47 and 22:37 Mon-Fri; 05:47 and 11:47 Tue-Sat (five slots because GitHub starts runs hours late; a run with nothing newer keeps the published data); manual | Yahoo -> returns (D7 rule) -> validate -> atomic swap of `data/` -> one commit -> Pages deploy |
 | `pe` | Sunday 03:07, manual | worldperatio.com (plain HTTP) -> validate -> atomic swap -> commit -> deploy |
-| `yields` | Monday 15:47, manual | Official yield-curve sources for 8 countries (+ France when the secret `FR_WEBSTAT_CLIENT_ID` exists, adapter untested) -> four curves per country -> validate -> atomic swap -> commit -> deploy. One country failing keeps its last good file and marks it stale. |
+| `yields` | Monday 15:47, manual | Official yield-curve sources for 8 countries (+ France when the secret `FR_WEBSTAT_CLIENT_ID` exists: a Webstat API key, sent only as a request header; France has no 1M, 3M, 6M) -> four curves per country -> validate -> atomic swap -> commit -> deploy. One country failing keeps its last good file and marks it stale. |
 | `probe-sources` | manual only | Fetches one item from Yahoo, worldperatio and every yield-curve source and reports reachability. Publishes nothing. |
 | `pages-deploy` | called by the three above; on push to `main` touching `data/**` | Deploys `data/` to Pages. Only ever from `main`. |
 
