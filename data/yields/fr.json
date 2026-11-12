@@ -2,12 +2,12 @@
  "schema_version": 1,
  "country": "fr",
  "name": "France",
- "source": "World Government Bonds (worldgovernmentbonds.com), data from Investing.com and TradingEconomics",
+ "source": "World Government Bonds (worldgovernmentbonds.com)",
  "source_url": "https://www.worldgovernmentbonds.com/country/france/",
- "terms": "World Government Bonds: all rights reserved; the site credits Investing.com and TradingEconomics.com for its data. Read once a week per country as a normal visitor, in a browser.",
+ "terms": "World Government Bonds: all rights reserved. Read once a week per country as a normal visitor, in a browser.",
  "status": "ok",
- "fetched_at": "2026-11-12T20:24:07Z",
- "last_success": "2026-11-12T20:24:07Z",
+ "fetched_at": "2026-11-12T22:05:49Z",
+ "last_success": "2026-11-12T22:05:49Z",
  "stale": false,
  "stale_reason": null,
  "as_of": "2026-11-12",
@@ -30,12 +30,12 @@
    "date": "2026-11-12",
    "points": {
     "1M": {
-     "value": 2.565,
+     "value": 2.598,
      "date": "2026-11-12",
      "kind": "D"
     },
     "3M": {
-     "value": 2.828,
+     "value": 2.795,
      "date": "2026-11-12",
      "kind": "D"
     },
@@ -238,7 +238,7 @@
   }
  ],
  "state": {
-  "wgb_page_updated": "2026-11-12T09:15Z",
+  "wgb_page_updated": "2026-11-12T21:15Z",
   "wgb_other_rows": [
    "9 months",
    "2 years",

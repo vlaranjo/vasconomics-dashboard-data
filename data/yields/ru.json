@@ -1,0 +1,186 @@
+{
+ "schema_version": 1,
+ "country": "ru",
+ "name": "Russia",
+ "source": "World Government Bonds (worldgovernmentbonds.com)",
+ "source_url": "https://www.worldgovernmentbonds.com/country/russia/",
+ "terms": "World Government Bonds: all rights reserved. Read once a week per country as a normal visitor, in a browser.",
+ "status": "ok",
+ "fetched_at": "2026-11-12T22:05:49Z",
+ "last_success": "2026-11-12T22:05:49Z",
+ "stale": false,
+ "stale_reason": null,
+ "as_of": "2026-11-11",
+ "tenors": [
+  "1M",
+  "3M",
+  "6M",
+  "1Y",
+  "3Y",
+  "5Y",
+  "10Y",
+  "30Y"
+ ],
+ "tenor_labels": {},
+ "gaps": {
+  "30Y": "World Government Bonds lists no 30Y row for Russia."
+ },
+ "curves": [
+  {
+   "id": "latest",
+   "label": "Latest",
+   "date": "2026-11-11",
+   "points": {
+    "1M": {
+     "value": 12.563,
+     "date": "2026-11-11",
+     "kind": "D"
+    },
+    "3M": {
+     "value": 12.867,
+     "date": "2026-11-11",
+     "kind": "D"
+    },
+    "6M": {
+     "value": 13.275,
+     "date": "2026-11-11",
+     "kind": "D"
+    },
+    "1Y": {
+     "value": 13.973,
+     "date": "2026-11-11",
+     "kind": "D"
+    },
+    "3Y": {
+     "value": 15.66,
+     "date": "2026-11-11",
+     "kind": "D"
+    },
+    "5Y": {
+     "value": 16.347,
+     "date": "2026-11-11",
+     "kind": "D"
+    },
+    "10Y": {
+     "value": 16.755,
+     "date": "2026-11-11",
+     "kind": "D"
+    }
+   }
+  },
+  {
+   "id": "1m",
+   "label": "1 month earlier",
+   "date": "2026-10-11",
+   "points": {
+    "1M": {
+     "value": 11.328,
+     "date": "2026-10-11",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
+    },
+    "3M": {
+     "value": 11.86,
+     "date": "2026-10-11",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
+    },
+    "6M": {
+     "value": 12.556,
+     "date": "2026-10-11",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
+    },
+    "1Y": {
+     "value": 13.664,
+     "date": "2026-10-11",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
+    },
+    "3Y": {
+     "value": 15.869,
+     "date": "2026-10-11",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
+    },
+    "5Y": {
+     "value": 16.53,
+     "date": "2026-10-11",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
+    },
+    "10Y": {
+     "value": 16.877,
+     "date": "2026-10-11",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
+    }
+   }
+  },
+  {
+   "id": "6m",
+   "label": "6 months earlier",
+   "date": "2026-05-11",
+   "points": {
+    "1M": {
+     "value": 13.614,
+     "date": "2026-05-11",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
+    },
+    "3M": {
+     "value": 13.277,
+     "date": "2026-05-11",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
+    },
+    "6M": {
+     "value": 12.985,
+     "date": "2026-05-11",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
+    },
+    "1Y": {
+     "value": 12.843,
+     "date": "2026-05-11",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
+    },
+    "3Y": {
+     "value": 13.642,
+     "date": "2026-05-11",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
+    },
+    "5Y": {
+     "value": 14.269,
+     "date": "2026-05-11",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
+    },
+    "10Y": {
+     "value": 14.699,
+     "date": "2026-05-11",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
+    }
+   }
+  },
+  {
+   "id": "1y",
+   "label": "1 year earlier",
+   "date": "2025-11-11",
+   "points": {}
+  }
+ ],
+ "state": {
+  "wgb_page_updated": "2026-11-12T00:17Z",
+  "wgb_other_rows": [
+   "2 months",
+   "2 years",
+   "7 years",
+   "15 years",
+   "20 years"
+  ]
+ }
+}

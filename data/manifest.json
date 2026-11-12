@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-12T20:24:07Z",
+ "generated_at": "2026-11-12T22:05:49Z",
  "status": "status.json",
  "sections": {
   "asset-classes": {
@@ -534,6 +534,41 @@
    "stale": false,
    "status": "ok",
    "name": "China"
+  },
+  "pl": {
+   "path": "yields/pl.json",
+   "as_of": "2026-11-12",
+   "stale": false,
+   "status": "ok",
+   "name": "Poland"
+  },
+  "pt": {
+   "path": "yields/pt.json",
+   "as_of": "2026-11-12",
+   "stale": false,
+   "status": "ok",
+   "name": "Portugal"
+  },
+  "ru": {
+   "path": "yields/ru.json",
+   "as_of": "2026-11-11",
+   "stale": false,
+   "status": "ok",
+   "name": "Russia"
+  },
+  "tr": {
+   "path": "yields/tr.json",
+   "as_of": "2026-11-12",
+   "stale": false,
+   "status": "ok",
+   "name": "Turkey"
+  },
+  "za": {
+   "path": "yields/za.json",
+   "as_of": "2026-11-12",
+   "stale": false,
+   "status": "ok",
+   "name": "South Africa"
   }
  }
 }
