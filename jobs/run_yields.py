@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from dashjobs import validate  # noqa: E402
 from dashjobs.yields import job  # noqa: E402
 from dashjobs.yields.http import Getter  # noqa: E402
+from dashjobs.yields.wgb import BrowserPager  # noqa: E402
 
 
 def load_universe(root: Path) -> dict:
@@ -30,13 +31,15 @@ def main(argv=None) -> int:
     ap.add_argument("--work-dir", default=str(root / "work"))
     ap.add_argument("--today", default=None)
     ap.add_argument("--countries", default=None, help="comma list, for a partial local run")
+    ap.add_argument("--headed", action="store_true", help="show the browser window for wgb countries (local runs)")
     a = ap.parse_args(argv)
     cfg = yaml.safe_load(Path(a.config).read_text(encoding="utf-8"))
     today = date.fromisoformat(a.today) if a.today else datetime.now(timezone.utc).date()
     only = [c.strip() for c in a.countries.split(",")] if a.countries else None
     g = Getter(delay=cfg.get("delay_seconds", 2.0))
     try:
-        res = job.run(cfg, g, today=today, data_dir=a.data_dir, work_dir=a.work_dir, env=dict(os.environ), only=only, universe=load_universe(root))
+        res = job.run(cfg, g, today=today, data_dir=a.data_dir, work_dir=a.work_dir, env=dict(os.environ), only=only, universe=load_universe(root),
+                      pager_factory=lambda: BrowserPager(headless=not a.headed))
     except (job.NothingFetched, validate.ValidationError) as e:
         print(f"FAILED, nothing published: {e}", file=sys.stderr)
         return 1

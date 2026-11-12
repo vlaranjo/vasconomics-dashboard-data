@@ -1,5 +1,6 @@
 # Manual only. Publishes nothing and commits nothing. From GitHub's servers it fetches one page or file from Yahoo,
 # worldperatio and every yield-curve source in docs/yield-sources.md and writes a reachability table to the run summary.
+# worldgovernmentbonds.com is loaded once (the US page) in a headless Chromium, as the yields job does.
 name: probe-sources
 
 on:
@@ -23,4 +24,6 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Install Playwright's Chromium (worldgovernmentbonds.com is read in a browser)
+        run: python -m playwright install --with-deps chromium
       - run: python jobs/probe_sources.py

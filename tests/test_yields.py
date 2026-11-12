@@ -65,12 +65,13 @@ def test_Y1_point_carries_auction_date_and_residual_days():
 # ---------------------------------------------------------------- Y2: curves and anchors
 
 def test_Y2_anchors_and_lag_rules():
-    pts = [(D("2026-10-30"), 4.0), (D("2026-09-30"), 3.5), (D("2026-07-30"), 3.0), (D("2025-10-30"), 2.0)]
+    pts = [(D("2026-10-30"), 4.0), (D("2026-09-30"), 3.5), (D("2026-04-30"), 3.0), (D("2025-10-30"), 2.0)]
     raw = Raw(series={"1Y": [Series("D", pts, max_lag=4)], "3Y": [Series("D", [(D("2026-10-30"), 4.4), (D("2026-09-20"), 9.0)], max_lag=4)]})
     as_of = core.curve_date(raw)
     assert as_of == D("2026-10-30")
     cur = {c["id"]: c for c in core.build_curves(raw, as_of)}
-    assert [cur[k]["date"] for k in ("latest", "1m", "3m", "1y")] == ["2026-10-30", "2026-09-30", "2026-07-30", "2025-10-30"]
+    assert [cur[k]["date"] for k in ("latest", "1m", "6m", "1y")] == ["2026-10-30", "2026-09-30", "2026-04-30", "2025-10-30"]
+    assert cur["6m"]["points"]["1Y"]["value"] == 3.0
     assert cur["1m"]["points"]["1Y"]["value"] == 3.5 and cur["1y"]["points"]["1Y"]["value"] == 2.0
     assert "3Y" not in cur["1m"]["points"]                    # 10 days old > max_lag: left empty, not stretched
     assert set(cur["latest"]["points"]) == {"1Y", "3Y"}
@@ -100,7 +101,7 @@ def test_Y3_us_parse_and_fetch_pulls_the_anchor_months():
         asked.append(url.rsplit("=", 1)[1])
         return US_XML                                       # same body for every month: enough to check the calls
     raw = us.fetch(FakeGetter({"treasury.gov": route}), D("2026-11-06"))
-    assert sorted(set(asked)) == ["202510", "202607", "202609", "202610", "202611"]
+    assert sorted(set(asked)) == ["202510", "202604", "202609", "202610", "202611"]     # as_of 30 Oct: 30 Apr is the 6M anchor
     assert raw.series["10Y"][0].last_date == D("2026-10-30")
 
 
@@ -418,7 +419,7 @@ def test_Y11_all_countries_publish_manifest_and_status(tmp_path, monkeypatch):
     st = json.loads((tmp_path / "data" / "status.json").read_text())["sources"]["yield_curves"]
     assert st["items_ok"] == 2 and st["items_total"] == 2 and st["expected_cadence_hours"] == 168 and st["stale"] is False
     doc = json.loads((tmp_path / "data" / "yields" / "aa.json").read_text())
-    assert [c["id"] for c in doc["curves"]] == ["latest", "1m", "3m", "1y"] and doc["curves"][3]["points"]["1M"]["value"] == 3.0
+    assert [c["id"] for c in doc["curves"]] == ["latest", "1m", "6m", "1y"] and doc["curves"][3]["points"]["1M"]["value"] == 3.0
 
 
 def test_Y12_one_country_failing_keeps_its_last_good_file_and_marks_it_stale(tmp_path, monkeypatch):
@@ -500,11 +501,13 @@ def test_Y17_files_are_staged_not_written_in_place(tmp_path, monkeypatch):
 def test_Y18_config_lists_the_launch_countries_and_every_adapter_imports():
     import yaml
     cfg = yaml.safe_load((Path(__file__).resolve().parent.parent / "config" / "yields.yaml").read_text())
-    assert cfg["countries"] == ["us", "uk", "ca", "jp", "de", "es", "ch", "br", "fr", "it", "au", "in"]
+    assert cfg["countries"] == ["us", "uk", "ca", "jp", "de", "es", "ch", "br", "fr", "it", "au", "in", "cn"]
     for c in cfg["countries"]:
-        m = job.adapter(c)
+        if c in job.NO_OFFICIAL:                                   # China: worldgovernmentbonds.com only (round 17)
+            continue
+        m = job.adapter(c)                                         # every official adapter still imports (switch back: one line)
         assert {"name", "source", "source_url", "terms"} <= set(m.META) and callable(m.fetch)
-    assert "cn" not in cfg["countries"] and job.adapter("in").__name__.endswith(".india")     # `in` is a keyword: india.py
+    assert set(job.NO_OFFICIAL) == {"cn"} and job.adapter("in").__name__.endswith(".india")     # `in` is a keyword: india.py
 
 
 # ---------------------------------------------------------------- Y19: Brazil history accumulates through the job
@@ -533,7 +536,7 @@ def test_Y19_brazil_weekly_snapshots_accumulate_and_earlier_curves_fill_in(tmp_p
     assert last["curves"][0]["date"] == "2026-11-06" and len(last["curves"][0]["points"]) == 7
     by = {c["id"]: c for c in last["curves"]}
     assert len(by["1m"]["points"]) == 7 and by["1m"]["date"] == "2026-10-06"          # a month of history is enough for the 1M curve
-    assert by["3m"]["points"] == {} and by["1y"]["points"] == {}                      # not yet: left empty, never stretched
+    assert by["6m"]["points"] == {} and by["1y"]["points"] == {}                      # not yet: left empty, never stretched
     assert "30Y" not in by["latest"]["points"]
 
 

@@ -121,7 +121,7 @@ INDICATORS_SCHEMA = {
 
 _POINT = {
     "type": "object", "required": ["value", "date", "kind"],
-    "properties": {"value": {"type": "number"}, "date": _DATE, "kind": {"enum": ["D", "W", "B", "M", "A"]},
+    "properties": {"value": {"type": "number"}, "date": _DATE, "kind": {"enum": ["D", "W", "B", "M", "A", "C"]},
                    "label": {"type": "string"}, "days": {"type": "integer"}},
     "additionalProperties": False,
 }
@@ -137,9 +137,11 @@ YIELD_SCHEMA = {
         "tenors": {"type": "array", "items": {"type": "string"}},
         "tenor_labels": {"type": "object", "additionalProperties": {"type": "string"}},
         "gaps": {"type": "object", "additionalProperties": {"type": "string"}},
+        # Curve ids: latest, 1m, 6m, 1y since round 17 (11 Nov 2026); a file published before then has 3m in place of 6m and
+        # may still be carried forward as stale, so 3m stays valid. The front end styles curves by position, not by id.
         "curves": {"type": "array", "minItems": 4, "maxItems": 4, "items": {
             "type": "object", "required": ["id", "label", "date", "points"],
-            "properties": {"id": {"enum": ["latest", "1m", "3m", "1y"]}, "label": {"type": "string"}, "date": _DATE,
+            "properties": {"id": {"enum": ["latest", "1m", "3m", "6m", "1y"]}, "label": {"type": "string"}, "date": _DATE,
                            "points": {"type": "object", "additionalProperties": _POINT}}}},
         "state": {"type": "object"},
     },
@@ -277,7 +279,12 @@ def validate_yield(doc: dict, *, today: date, prev: dict | None, max_age_days: i
                 raise ValidationError(f"{doc['country']} {t}: {p['value']} is outside -3..40 percent")
             if date.fromisoformat(p["date"]) > date.fromisoformat(c["date"]):
                 raise ValidationError(f"{doc['country']} {t}: point dated after its curve")
-    if prev and not prev.get("stale") and prev.get("as_of"):
+    # No going backwards (round 17): from the same source, a new file may not be older than the published one. A switch of
+    # source in config (wgb <-> official) is a deliberate change and may move the date either way.
+    if prev and prev.get("as_of") and prev.get("source") == doc["source"] and doc["as_of"] < prev["as_of"]:
+        raise ValidationError(f"{doc['country']}: as_of {doc['as_of']} is earlier than the published {prev['as_of']}")
+    # The weekly move check compares like with like: after a switch of source (official <-> wgb) the two definitions may differ.
+    if prev and not prev.get("stale") and prev.get("as_of") and prev.get("source") == doc["source"]:
         pl = prev["curves"][0]["points"]
         for t, p in latest["points"].items():
             q = pl.get(t)
