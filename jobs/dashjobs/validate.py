@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import math
+import re
 from datetime import date
 
 from jsonschema import Draft202012Validator
@@ -256,6 +257,13 @@ def validate_manifest_files(root, manifest: dict) -> None:
         json.loads(p.read_text(encoding="utf-8"))
 
 
+def same_source(prev: dict, doc: dict) -> bool:
+    """Same source for the like-with-like checks: the same `source` text, or both from worldgovernmentbonds.com (round 18 shortened
+    its source line, which is not a switch of source)."""
+    wgb = lambda d: re.match(r"https://(www\.)?worldgovernmentbonds\.com/", d.get("source_url") or "") is not None   # noqa: E731
+    return prev.get("source") == doc.get("source") or (wgb(prev) and wgb(doc))
+
+
 def validate_yield(doc: dict, *, today: date, prev: dict | None, max_age_days: int = 21,
                    max_weekly_move_pp: float = 2.0) -> None:
     """Schema + sanity for one country. Any failure keeps the last good file (the job marks it stale)."""
@@ -275,16 +283,16 @@ def validate_yield(doc: dict, *, today: date, prev: dict | None, max_age_days: i
         for t, p in c["points"].items():
             if t not in doc["tenors"]:
                 raise ValidationError(f"{doc['country']}: unknown tenor {t}")
-            if not -3.0 <= p["value"] <= 40.0:
-                raise ValidationError(f"{doc['country']} {t}: {p['value']} is outside -3..40 percent")
+            if not -3.0 <= p["value"] <= 60.0:     # 60 since round 18: Turkey 3Y was 35.99% on 12 Nov 2026, 40.15% six months earlier
+                raise ValidationError(f"{doc['country']} {t}: {p['value']} is outside -3..60 percent")
             if date.fromisoformat(p["date"]) > date.fromisoformat(c["date"]):
                 raise ValidationError(f"{doc['country']} {t}: point dated after its curve")
     # No going backwards (round 17): from the same source, a new file may not be older than the published one. A switch of
     # source in config (wgb <-> official) is a deliberate change and may move the date either way.
-    if prev and prev.get("as_of") and prev.get("source") == doc["source"] and doc["as_of"] < prev["as_of"]:
+    if prev and prev.get("as_of") and same_source(prev, doc) and doc["as_of"] < prev["as_of"]:
         raise ValidationError(f"{doc['country']}: as_of {doc['as_of']} is earlier than the published {prev['as_of']}")
     # The weekly move check compares like with like: after a switch of source (official <-> wgb) the two definitions may differ.
-    if prev and not prev.get("stale") and prev.get("as_of") and prev.get("source") == doc["source"]:
+    if prev and not prev.get("stale") and prev.get("as_of") and same_source(prev, doc):
         pl = prev["curves"][0]["points"]
         for t, p in latest["points"].items():
             q = pl.get(t)

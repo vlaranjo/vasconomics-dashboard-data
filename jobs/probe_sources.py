@@ -71,27 +71,50 @@ def p_anbima():
     return r.status_code, f"{len(r.content)} bytes; no curve in the last 4 weekdays", False
 
 
-def p_wgb():
-    """worldgovernmentbonds.com: the US page in a headless Chromium (browser defaults), the table read as the job reads it."""
+_WGB = {}          # one headless Chromium for every worldgovernmentbonds.com probe (pages 5 s apart; a challenge stops the rest)
+
+
+def _wgb_pager():
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     from dashjobs.yields import wgb
 
-    pager = wgb.BrowserPager()
-    try:
-        html = pager.load(wgb.meta("us")["source_url"])
-    except wgb.Challenge as e:
-        return 403, f"challenge or refusal: {e}", False
-    finally:
-        pager.close()
-    page = wgb.parse_page(html)
-    ours = [r["tenor"] for r in page["rows"] if r["tenor"]]
-    return 200, f"{len(page['rows'])} rows, our tenors {ours}, page updated {page['updated']:%d %b %Y %H:%M} UTC", len(ours) >= 6
+    if "pager" not in _WGB:
+        _WGB["pager"] = wgb.BrowserPager()
+    return wgb, _WGB["pager"]
+
+
+# Fewest of our tenors for "reachable": the US page has all 8; South Africa, the thinnest, had 4 on 12 Nov 2026.
+WGB_MIN_TENORS = {"us": 6}
+
+
+def p_wgb(code: str = "us"):
+    """worldgovernmentbonds.com: one country page in a headless Chromium (browser defaults), the table read as the job reads it."""
+    def probe():
+        wgb, pager = _wgb_pager()
+        try:
+            html = pager.load(wgb.meta(code)["source_url"])
+        except wgb.Challenge as e:
+            if pager.blocked and str(e).startswith("not loaded"):
+                return "-", f"not requested: {e}", False                  # an earlier page was the challenge
+            return 403, f"challenge or refusal: {e}", False
+        page = wgb.parse_page(html)
+        ours = [r["tenor"] for r in page["rows"] if r["tenor"]]
+        need = WGB_MIN_TENORS.get(code, 3)
+        return 200, f"{len(page['rows'])} rows, our tenors {ours}, page updated {page['updated']:%d %b %Y %H:%M} UTC", len(ours) >= need
+    return probe
+
+
+def close_wgb():
+    if "pager" in _WGB:
+        _WGB.pop("pager").close()
 
 
 # (group, name, callable returning (status, detail[, ok]))
 PROBES = [
     ("Prices", "Yahoo Finance (yahooquery, SXR8.DE 5d)", p_yahoo),
-    ("Yield", "worldgovernmentbonds.com US page in a headless browser (the source of every country since round 17)", p_wgb),
+    ("Yield", "worldgovernmentbonds.com US page in a headless browser (the source of every country since round 17)", p_wgb("us")),
+    *[("Yield", f"worldgovernmentbonds.com {n} page in the same browser (round 18)", p_wgb(c))
+      for c, n in (("pl", "Poland"), ("pt", "Portugal"), ("ru", "Russia"), ("tr", "Turkey"), ("za", "South Africa"))],
     ("P/E", "worldperatio.com S&P 500 page", p_worldperatio),
     ("Yield", "US Treasury par curve XML (current month)",
      lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes; {'BC_10YEAR' in r.text and 'BC_10YEAR present' or 'no BC_10YEAR'}", 'BC_10YEAR' in r.text))(
@@ -170,6 +193,13 @@ PROBES = [
 
 
 def main() -> int:
+    try:
+        return _main()
+    finally:
+        close_wgb()
+
+
+def _main() -> int:
     rows = []
     for group, name, fn in PROBES:
         t0 = time.time()

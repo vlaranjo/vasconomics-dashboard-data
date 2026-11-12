@@ -1,14 +1,16 @@
 # Weekly yield-curve job: per country (config/yields.yaml `source:`) worldgovernmentbonds.com read in a headless Chromium, or
 # the official source (plain HTTP) -> validate -> atomic swap -> commit -> Pages deploy.
-# Monday 15:47 UTC: the SNB cube is published Mondays 14:30, so every official source carries the previous Friday's close;
-# worldgovernmentbonds.com then shows Monday's quotes so far for Europe and the last close for the US and Asia.
+# Saturday 06:47 UTC (decided 12 Nov 2026, round 18): every market has closed for the week, so worldgovernmentbonds.com shows
+# Friday's closing quotes for every country (on Monday afternoon it showed Monday's quotes so far for Europe). An official
+# adapter switched back on would carry its own last observation; the SNB (Switzerland) publishes on Mondays, so its official
+# figures would then be a week older.
 # France runs only if the repository secret FR_WEBSTAT_CLIENT_ID (a Webstat API key, no secret half) exists; without it that country
 # is skipped quietly. The secret is passed to the one step that runs the job, as an environment variable, and nowhere else.
 name: yields
 
 on:
   schedule:
-    - cron: "47 15 * * 1"     # Monday 15:47 UTC
+    - cron: "47 6 * * 6"      # Saturday 06:47 UTC
   workflow_dispatch:
 
 permissions:

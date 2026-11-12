@@ -2,7 +2,8 @@
 One country failing keeps its last good file and marks it stale; a missing optional secret skips that country quietly.
 
 Source per country (config `source:`, round 17): `wgb` reads worldgovernmentbonds.com in a browser (wgb.py), `official` runs the
-country's own adapter (us.py, uk.py, ...). China has no official adapter (its sources' terms forbid reuse), so only `wgb`.
+country's own adapter (us.py, uk.py, ...). China has no official adapter (its sources' terms forbid reuse), so only `wgb`;
+nor do Poland, Portugal, Russia, Turkey and South Africa (round 18, site only).
 A challenge page on worldgovernmentbonds.com stops every further load of that site in the run: the remaining `wgb` countries
 keep their last good files and go stale; `official` countries still run."""
 from __future__ import annotations
@@ -15,9 +16,11 @@ from .. import publish, status, validate
 from . import core, wgb
 from .core import Skipped
 
-COUNTRIES = ["us", "uk", "ca", "jp", "de", "es", "ch", "br", "fr", "it", "au", "in", "cn"]
+COUNTRIES = ["us", "uk", "ca", "jp", "de", "es", "ch", "br", "fr", "it", "au", "in", "cn", "pl", "pt", "ru", "tr", "za"]
 MODULES = {"in": "india"}          # `in` is a Python keyword
-NO_OFFICIAL = {"cn": "China has no official adapter (ChinaBond and CFETS terms forbid reuse); set its source to wgb."}
+NO_OFFICIAL = {"cn": "China has no official adapter (ChinaBond and CFETS terms forbid reuse); set its source to wgb."} | {
+    c: f"{n} has no official adapter (added from worldgovernmentbonds.com only, round 18); set its source to wgb."
+    for c, n in (("pl", "Poland"), ("pt", "Portugal"), ("ru", "Russia"), ("tr", "Turkey"), ("za", "South Africa"))}
 SOURCES = ("wgb", "official")
 
 
@@ -41,6 +44,12 @@ def build_doc(code: str, raw: core.Raw, *, today: date, now_iso: str, meta: dict
         "gaps": raw.gaps, "curves": core.build_curves(raw, as_of), "state": raw.extra,
     }
     return doc
+
+
+def max_move(cfg: dict, code: str) -> float:
+    """The weekly move limit in percentage points: `max_move_pp`, or the country's own in `max_move_pp_country` (round 18:
+    Turkey and Russia, whose yields are in the teens and thirties and move by several points in a month)."""
+    return float((cfg.get("max_move_pp_country") or {}).get(code, cfg.get("max_move_pp", 2.0)))
 
 
 def source_of(cfg: dict, code: str) -> str:
@@ -84,7 +93,7 @@ def run(cfg: dict, getter, *, today: date, now: datetime | None = None, data_dir
                 warnings += [f"{code}: {w}" for w in raw.warnings]
                 doc = build_doc(code, raw, today=today, now_iso=now_iso, meta=meta)
                 validate.validate_yield(doc, today=today, prev=prev, max_age_days=cfg.get("max_age_days", 21),
-                                        max_weekly_move_pp=cfg.get("max_move_pp", 2.0))
+                                        max_weekly_move_pp=max_move(cfg, code))
                 ok.append(code)
             except Skipped as e:
                 skipped.append(f"{code}: {e}")
@@ -95,6 +104,8 @@ def run(cfg: dict, getter, *, today: date, now: datetime | None = None, data_dir
                     continue
                 doc = dict(prev)
                 doc["stale"], doc["stale_reason"], doc["fetched_at"] = True, "fetch_or_parse_failed", now_iso
+                if code in wgb.COUNTRIES and validate.same_source(prev, {"source_url": wgb.meta(code)["source_url"]}):
+                    doc |= {k: wgb.meta(code)[k] for k in ("source", "terms")}   # round 18 wording, even while stale
             files[rel] = doc
             meta_out[code] = {"path": rel, "as_of": doc["as_of"], "stale": doc["stale"], "status": doc["status"], "name": doc["name"]}
     finally:

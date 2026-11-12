@@ -460,8 +460,8 @@ def test_Y15_validation_rejects_frozen_source_big_move_and_thin_curves(tmp_path,
         run_job(tmp_path, {"aa": stub("aa", last="2026-09-01")}, monkeypatch)
     with pytest.raises(job.NothingFetched, match="only 2 tenors"):
         run_job(tmp_path, {"aa": stub("aa", n=2)}, monkeypatch)
-    with pytest.raises(job.NothingFetched, match="outside -3..40"):
-        run_job(tmp_path, {"aa": stub("aa", value=55.0)}, monkeypatch)
+    with pytest.raises(job.NothingFetched, match="outside -3..60"):          # 60 since round 18 (Turkey)
+        run_job(tmp_path, {"aa": stub("aa", value=65.0)}, monkeypatch)
     run_job(tmp_path, {"aa": stub("aa")}, monkeypatch)
     res = run_job(tmp_path, {"aa": stub("aa", value=7.5, last="2026-11-05"), "bb": stub("bb")}, monkeypatch)
     assert res["failed"] == [f for f in res["failed"] if f.startswith("aa") and "moved" in f]    # +3.5 pp in a week: refused
@@ -501,13 +501,14 @@ def test_Y17_files_are_staged_not_written_in_place(tmp_path, monkeypatch):
 def test_Y18_config_lists_the_launch_countries_and_every_adapter_imports():
     import yaml
     cfg = yaml.safe_load((Path(__file__).resolve().parent.parent / "config" / "yields.yaml").read_text())
-    assert cfg["countries"] == ["us", "uk", "ca", "jp", "de", "es", "ch", "br", "fr", "it", "au", "in", "cn"]
+    assert cfg["countries"] == ["us", "uk", "ca", "jp", "de", "es", "ch", "br", "fr", "it", "au", "in", "cn", "pl", "pt", "ru", "tr", "za"]
     for c in cfg["countries"]:
         if c in job.NO_OFFICIAL:                                   # China: worldgovernmentbonds.com only (round 17)
             continue
         m = job.adapter(c)                                         # every official adapter still imports (switch back: one line)
         assert {"name", "source", "source_url", "terms"} <= set(m.META) and callable(m.fetch)
-    assert set(job.NO_OFFICIAL) == {"cn"} and job.adapter("in").__name__.endswith(".india")     # `in` is a keyword: india.py
+    assert set(job.NO_OFFICIAL) == {"cn", "pl", "pt", "ru", "tr", "za"}                          # round 18: site-only countries
+    assert job.adapter("in").__name__.endswith(".india")                                          # `in` is a keyword: india.py
 
 
 # ---------------------------------------------------------------- Y19: Brazil history accumulates through the job

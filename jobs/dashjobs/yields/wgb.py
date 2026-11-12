@@ -27,14 +27,16 @@ from .core import TENORS, Raw, Series
 SITE = "https://www.worldgovernmentbonds.com"
 DATA_ENDPOINT = "/wp-json/country/v1/main"           # the page's own request for the table (only its status is watched)
 PAGE = SITE + "/country/{slug}/"
-SOURCE = "World Government Bonds (worldgovernmentbonds.com), data from Investing.com and TradingEconomics"
-TERMS = ("World Government Bonds: all rights reserved; the site credits Investing.com and TradingEconomics.com for its data. "
-         "Read once a week per country as a normal visitor, in a browser.")
+SOURCE = "World Government Bonds (worldgovernmentbonds.com)"         # the source line, exactly (decided 12 Nov 2026)
+TERMS = "World Government Bonds: all rights reserved. Read once a week per country as a normal visitor, in a browser."
 COUNTRIES = {
     "us": ("united-states", "United States"), "uk": ("united-kingdom", "United Kingdom"), "ca": ("canada", "Canada"),
     "jp": ("japan", "Japan"), "de": ("germany", "Germany"), "es": ("spain", "Spain"), "ch": ("switzerland", "Switzerland"),
     "br": ("brazil", "Brazil"), "fr": ("france", "France"), "it": ("italy", "Italy"), "au": ("australia", "Australia"),
     "in": ("india", "India"), "cn": ("china", "China"),
+    # Round 18 (12 Nov 2026): site only, no official adapter.
+    "pl": ("poland", "Poland"), "pt": ("portugal", "Portugal"), "ru": ("russia", "Russia"), "tr": ("turkey", "Turkey"),
+    "za": ("south-africa", "South Africa"),
 }
 # Our tenors, as the site names its rows.
 ROWS = {"1 month": "1M", "3 months": "3M", "6 months": "6M", "1 year": "1Y", "3 years": "3Y", "5 years": "5Y",
@@ -100,7 +102,7 @@ def challenge_reason(html: str, status: int | None = None, api_statuses=()) -> s
 
 def _num(cell: str, unit: str, what: str) -> float | None:
     c = cell.strip().replace("−", "-")
-    if c in ("", "-", "--", "n/a", "N/A"):
+    if c.lower() in ("", "-", "--", "n/a", "n.a.", "n.a"):        # "n.a.": Russia's 12-month change column (12 Nov 2026)
         return None
     m = re.fullmatch(r"([+-]?\d{1,3}(?:,\d{3})*(?:\.\d+)?|[+-]?\d+(?:\.\d+)?)\s*" + re.escape(unit), c)
     if not m:

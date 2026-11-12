@@ -11,7 +11,7 @@ Scheduled jobs and the published JSON for the Vasconomics macro dashboard (Miles
 |---|---|---|
 | `markets` | 17:47, 19:47 and 22:37 Mon-Fri; 05:47 and 11:47 Tue-Sat (five slots because GitHub starts runs hours late; a run with nothing newer keeps the published data); manual | Yahoo -> returns (D7 rule) -> validate -> atomic swap of `data/` -> one commit -> Pages deploy |
 | `pe` | Sunday 03:07, manual | worldperatio.com (plain HTTP) -> validate -> atomic swap -> commit -> deploy |
-| `yields` | Monday 15:47, manual | 13 countries (China included) from worldgovernmentbonds.com, each page read in a headless Chromium (Playwright; browser defaults, one page at a time, 5 s apart): latest = the table's Last, 1 month, 6 months and 1 year earlier = Last minus its change columns. Per country, `config/yields.yaml` `source:` can switch back to the official adapter (treasuries, central banks; France needs the secret `FR_WEBSTAT_CLIENT_ID`) -> four curves per country -> validate -> atomic swap -> commit -> deploy. One country failing keeps its last good file and marks it stale; a challenge page stops every further page load of the site. |
+| `yields` | Saturday 06:47 (Friday's closing quotes everywhere), manual | 18 countries (China, Poland, Portugal, Russia, Turkey and South Africa included) from worldgovernmentbonds.com, each page read in a headless Chromium (Playwright; browser defaults, one page at a time, 5 s apart): latest = the table's Last, 1 month, 6 months and 1 year earlier = Last minus its change columns. Per country, `config/yields.yaml` `source:` can switch back to the official adapter (treasuries, central banks; France needs the secret `FR_WEBSTAT_CLIENT_ID`) -> four curves per country -> validate -> atomic swap -> commit -> deploy. One country failing keeps its last good file and marks it stale; a challenge page stops every further page load of the site. |
 | `probe-sources` | manual only | Fetches one item from Yahoo, worldperatio and every yield-curve source and reports reachability. Publishes nothing. |
 | `pages-deploy` | called by the three above; on push to `main` touching `data/**` | Deploys `data/` to Pages. Only ever from `main`. |
 
@@ -35,4 +35,4 @@ python jobs/probe_sources.py              # reachability from this machine
 `config/universe.yaml` lists the funds (labels, ISIN, Acc, EUR-hedged); `config/pe_index_map.yaml` lists the P/E indices.
 One optional secret, `FR_WEBSTAT_CLIENT_ID` (France's official adapter, off by default since round 17; passed only to the yields step). The built-in `GITHUB_TOKEN` covers commits and Pages.
 
-Price data: Yahoo Finance. P/E data: worldperatio.com.
+Price data: Yahoo Finance. P/E data: worldperatio.com. Yield curves: World Government Bonds (worldgovernmentbonds.com).

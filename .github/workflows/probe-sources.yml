@@ -1,6 +1,7 @@
 # Manual only. Publishes nothing and commits nothing. From GitHub's servers it fetches one page or file from Yahoo,
 # worldperatio and every yield-curve source in docs/yield-sources.md and writes a reachability table to the run summary.
-# worldgovernmentbonds.com is loaded once (the US page) in a headless Chromium, as the yields job does.
+# worldgovernmentbonds.com: the US, Poland, Portugal, Russia, Turkey and South Africa pages, one headless Chromium, 5 s apart,
+# as the yields job does; a challenge stops the rest.
 name: probe-sources
 
 on:
