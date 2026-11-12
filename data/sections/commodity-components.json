@@ -4,8 +4,8 @@
  "title": "Commodity components",
  "page": "commodities",
  "kind": "funds",
- "generated_at": "2026-11-12T13:59:37Z",
- "as_of": "2026-11-11",
+ "generated_at": "2026-11-12T19:07:50Z",
+ "as_of": "2026-11-12",
  "lookbacks": [
   "1D",
   "1W",
@@ -31,58 +31,58 @@
    "fund_name": "WisdomTree Brent Crude Oil - EUR Daily Hedged",
    "etc": true,
    "first_close": "2012-07-03",
-   "last_close": "2026-11-11",
+   "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
-     "value": 1.83,
-     "start": "2026-11-10",
+     "value": -0.53,
+     "start": "2026-11-11",
      "status": "ok"
     },
     "1W": {
-     "value": -4.28,
-     "start": "2026-11-04",
+     "value": -1.97,
+     "start": "2026-11-05",
      "status": "ok"
     },
     "1M": {
-     "value": -6.78,
-     "start": "2026-10-09",
+     "value": -9.0,
+     "start": "2026-10-12",
      "status": "ok"
     },
     "3M": {
-     "value": 16.0,
-     "start": "2026-08-11",
+     "value": 15.09,
+     "start": "2026-08-12",
      "status": "ok"
     },
     "6M": {
-     "value": 7.21,
-     "start": "2026-05-11",
+     "value": 2.81,
+     "start": "2026-05-12",
      "status": "ok"
     },
     "YTD": {
-     "value": 83.58,
+     "value": 82.6,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 73.87,
-     "start": "2025-11-11",
+     "value": 79.01,
+     "start": "2025-11-12",
      "status": "ok"
     },
     "2Y": {
-     "value": 68.59,
-     "start": "2024-11-11",
+     "value": 67.62,
+     "start": "2024-11-12",
      "status": "ok"
     },
     "5Y": {
-     "value": 106.36,
-     "start": "2021-11-11",
+     "value": 105.27,
+     "start": "2021-11-12",
      "status": "ok"
     },
     "10Y": {
-     "value": 223.02,
+     "value": 221.3,
      "start": "2016-11-11",
      "status": "ok"
     }
@@ -100,58 +100,58 @@
    "fund_name": "WisdomTree Natural Gas - EUR Daily Hedged",
    "etc": true,
    "first_close": "2012-07-03",
-   "last_close": "2026-11-11",
+   "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
-     "value": 1.68,
-     "start": "2026-11-10",
+     "value": 0.59,
+     "start": "2026-11-11",
      "status": "ok"
     },
     "1W": {
-     "value": 8.38,
-     "start": "2026-11-04",
+     "value": 8.33,
+     "start": "2026-11-05",
      "status": "ok"
     },
     "1M": {
-     "value": -7.08,
-     "start": "2026-10-09",
+     "value": -6.32,
+     "start": "2026-10-12",
      "status": "ok"
     },
     "3M": {
-     "value": -1.45,
-     "start": "2026-08-11",
+     "value": -2.07,
+     "start": "2026-08-12",
      "status": "ok"
     },
     "6M": {
-     "value": -12.95,
-     "start": "2026-05-11",
+     "value": -10.88,
+     "start": "2026-05-12",
      "status": "ok"
     },
     "YTD": {
-     "value": -29.53,
+     "value": -29.12,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": -37.74,
-     "start": "2025-11-11",
+     "value": -37.35,
+     "start": "2025-11-12",
      "status": "ok"
     },
     "2Y": {
-     "value": -33.96,
-     "start": "2024-11-11",
+     "value": -34.59,
+     "start": "2024-11-12",
      "status": "ok"
     },
     "5Y": {
-     "value": -88.81,
-     "start": "2021-11-11",
+     "value": -88.54,
+     "start": "2021-11-12",
      "status": "ok"
     },
     "10Y": {
-     "value": -94.96,
+     "value": -94.93,
      "start": "2016-11-11",
      "status": "ok"
     }
@@ -169,58 +169,58 @@
    "fund_name": "WisdomTree Corn - EUR Daily Hedged",
    "etc": true,
    "first_close": "2012-07-03",
-   "last_close": "2026-11-11",
+   "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
-     "value": 1.31,
-     "start": "2026-11-10",
+     "value": -0.24,
+     "start": "2026-11-11",
      "status": "ok"
     },
     "1W": {
      "value": 0.29,
-     "start": "2026-11-04",
+     "start": "2026-11-05",
      "status": "ok"
     },
     "1M": {
-     "value": -11.16,
-     "start": "2026-10-09",
+     "value": -7.42,
+     "start": "2026-10-12",
      "status": "ok"
     },
     "3M": {
-     "value": -2.45,
-     "start": "2026-08-11",
+     "value": -5.09,
+     "start": "2026-08-12",
      "status": "ok"
     },
     "6M": {
-     "value": -12.41,
-     "start": "2026-05-11",
+     "value": -12.62,
+     "start": "2026-05-12",
      "status": "ok"
     },
     "YTD": {
-     "value": -9.8,
+     "value": -10.02,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": -10.32,
-     "start": "2025-11-11",
+     "value": -10.53,
+     "start": "2025-11-12",
      "status": "ok"
     },
     "2Y": {
-     "value": -17.38,
-     "start": "2024-11-11",
+     "value": -17.57,
+     "start": "2024-11-12",
      "status": "ok"
     },
     "5Y": {
-     "value": -33.97,
-     "start": "2021-11-11",
+     "value": -34.62,
+     "start": "2021-11-12",
      "status": "ok"
     },
     "10Y": {
-     "value": -33.55,
+     "value": -33.71,
      "start": "2016-11-11",
      "status": "ok"
     }
@@ -238,58 +238,58 @@
    "fund_name": "WisdomTree Soybeans - EUR Daily Hedged",
    "etc": true,
    "first_close": "2012-07-03",
-   "last_close": "2026-11-11",
+   "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
-     "value": 0.0,
-     "start": "2026-11-10",
+     "value": 2.47,
+     "start": "2026-11-11",
      "status": "ok"
     },
     "1W": {
-     "value": -1.18,
-     "start": "2026-11-04",
+     "value": 1.31,
+     "start": "2026-11-05",
      "status": "ok"
     },
     "1M": {
-     "value": -8.65,
-     "start": "2026-10-09",
+     "value": -6.39,
+     "start": "2026-10-12",
      "status": "ok"
     },
     "3M": {
-     "value": 0.0,
-     "start": "2026-08-11",
+     "value": 2.58,
+     "start": "2026-08-12",
      "status": "ok"
     },
     "6M": {
-     "value": -4.47,
-     "start": "2026-05-11",
+     "value": -2.69,
+     "start": "2026-05-12",
      "status": "ok"
     },
     "YTD": {
-     "value": 6.82,
+     "value": 9.45,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": -0.27,
-     "start": "2025-11-11",
+     "value": 2.07,
+     "start": "2025-11-12",
      "status": "ok"
     },
     "2Y": {
-     "value": 9.3,
-     "start": "2024-11-11",
+     "value": 12.0,
+     "start": "2024-11-12",
      "status": "ok"
     },
     "5Y": {
-     "value": 13.2,
-     "start": "2021-11-11",
+     "value": 14.84,
+     "start": "2021-11-12",
      "status": "ok"
     },
     "10Y": {
-     "value": 2.34,
+     "value": 4.87,
      "start": "2016-11-11",
      "status": "ok"
     }
@@ -307,58 +307,58 @@
    "fund_name": "WisdomTree Wheat - EUR Daily Hedged",
    "etc": true,
    "first_close": "2012-07-03",
-   "last_close": "2026-11-11",
+   "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
-     "value": 1.28,
-     "start": "2026-11-10",
+     "value": -1.2,
+     "start": "2026-11-11",
      "status": "ok"
     },
     "1W": {
-     "value": -0.36,
-     "start": "2026-11-04",
+     "value": -2.24,
+     "start": "2026-11-05",
      "status": "ok"
     },
     "1M": {
-     "value": -12.4,
-     "start": "2026-10-09",
+     "value": -11.36,
+     "start": "2026-10-12",
      "status": "ok"
     },
     "3M": {
-     "value": -7.29,
-     "start": "2026-08-11",
+     "value": -11.55,
+     "start": "2026-08-12",
      "status": "ok"
     },
     "6M": {
-     "value": -9.34,
-     "start": "2026-05-11",
+     "value": -13.45,
+     "start": "2026-05-12",
      "status": "ok"
     },
     "YTD": {
-     "value": 8.9,
+     "value": 7.59,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 1.27,
-     "start": "2025-11-11",
+     "value": -0.2,
+     "start": "2025-11-12",
      "status": "ok"
     },
     "2Y": {
-     "value": -14.79,
-     "start": "2024-11-11",
+     "value": -15.89,
+     "start": "2024-11-12",
      "status": "ok"
     },
     "5Y": {
-     "value": -56.73,
-     "start": "2021-11-11",
+     "value": -57.32,
+     "start": "2021-11-12",
      "status": "ok"
     },
     "10Y": {
-     "value": -52.83,
+     "value": -53.4,
      "start": "2016-11-11",
      "status": "ok"
     }
@@ -376,58 +376,58 @@
    "fund_name": "Xtrackers Physical Gold EUR Hedged ETC",
    "etc": true,
    "first_close": "2010-06-15",
-   "last_close": "2026-11-11",
+   "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
-     "value": -0.54,
-     "start": "2026-11-10",
+     "value": -3.43,
+     "start": "2026-11-11",
      "status": "ok"
     },
     "1W": {
-     "value": -1.15,
-     "start": "2026-11-04",
+     "value": -6.15,
+     "start": "2026-11-05",
      "status": "ok"
     },
     "1M": {
-     "value": -4.68,
-     "start": "2026-10-09",
+     "value": -7.49,
+     "start": "2026-10-12",
      "status": "ok"
     },
     "3M": {
-     "value": -9.24,
-     "start": "2026-08-11",
+     "value": -13.15,
+     "start": "2026-08-12",
      "status": "ok"
     },
     "6M": {
-     "value": -16.65,
-     "start": "2026-05-11",
+     "value": -18.27,
+     "start": "2026-05-12",
      "status": "ok"
     },
     "YTD": {
-     "value": -11.53,
+     "value": -14.56,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": -5.63,
-     "start": "2025-11-11",
+     "value": -10.65,
+     "start": "2025-11-12",
      "status": "ok"
     },
     "2Y": {
-     "value": 43.71,
-     "start": "2024-11-11",
+     "value": 39.54,
+     "start": "2024-11-12",
      "status": "ok"
     },
     "5Y": {
-     "value": 86.31,
-     "start": "2021-11-11",
+     "value": 79.76,
+     "start": "2021-11-12",
      "status": "ok"
     },
     "10Y": {
-     "value": 143.58,
+     "value": 135.23,
      "start": "2016-11-11",
      "status": "ok"
     }
@@ -445,58 +445,58 @@
    "fund_name": "WisdomTree Silver - EUR Daily Hedged",
    "etc": true,
    "first_close": "2012-07-03",
-   "last_close": "2026-11-11",
+   "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
-     "value": 1.76,
-     "start": "2026-11-10",
+     "value": -4.52,
+     "start": "2026-11-11",
      "status": "ok"
     },
     "1W": {
-     "value": 0.62,
-     "start": "2026-11-04",
+     "value": -5.12,
+     "start": "2026-11-05",
      "status": "ok"
     },
     "1M": {
-     "value": -14.61,
-     "start": "2026-10-09",
+     "value": -17.72,
+     "start": "2026-10-12",
      "status": "ok"
     },
     "3M": {
-     "value": -20.51,
-     "start": "2026-08-11",
+     "value": -25.26,
+     "start": "2026-08-12",
      "status": "ok"
     },
     "6M": {
-     "value": -40.72,
-     "start": "2026-05-11",
+     "value": -41.96,
+     "start": "2026-05-12",
      "status": "ok"
     },
     "YTD": {
-     "value": -34.0,
+     "value": -36.98,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": -2.05,
-     "start": "2025-11-11",
+     "value": -10.74,
+     "start": "2025-11-12",
      "status": "ok"
     },
     "2Y": {
-     "value": 53.88,
-     "start": "2024-11-11",
+     "value": 46.24,
+     "start": "2024-11-12",
      "status": "ok"
     },
     "5Y": {
-     "value": 62.81,
-     "start": "2021-11-11",
+     "value": 55.12,
+     "start": "2021-11-12",
      "status": "ok"
     },
     "10Y": {
-     "value": 79.39,
+     "value": 71.28,
      "start": "2016-11-11",
      "status": "ok"
     }
@@ -514,58 +514,58 @@
    "fund_name": "WisdomTree Physical Platinum",
    "etc": true,
    "first_close": "2008-01-02",
-   "last_close": "2026-11-11",
+   "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
-     "value": 1.15,
-     "start": "2026-11-10",
+     "value": -1.01,
+     "start": "2026-11-11",
      "status": "ok"
     },
     "1W": {
-     "value": 5.11,
-     "start": "2026-11-04",
+     "value": 0.81,
+     "start": "2026-11-05",
      "status": "ok"
     },
     "1M": {
-     "value": -7.45,
-     "start": "2026-10-09",
+     "value": -8.36,
+     "start": "2026-10-12",
      "status": "ok"
     },
     "3M": {
-     "value": -8.0,
-     "start": "2026-08-11",
+     "value": -10.36,
+     "start": "2026-08-12",
      "status": "ok"
     },
     "6M": {
-     "value": -23.11,
-     "start": "2026-05-11",
+     "value": -22.51,
+     "start": "2026-05-12",
      "status": "ok"
     },
     "YTD": {
-     "value": -25.66,
+     "value": -26.41,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 1.25,
-     "start": "2025-11-11",
+     "value": -1.18,
+     "start": "2025-11-12",
      "status": "ok"
     },
     "2Y": {
-     "value": 52.35,
-     "start": "2024-11-11",
+     "value": 53.49,
+     "start": "2024-11-12",
      "status": "ok"
     },
     "5Y": {
-     "value": 43.06,
-     "start": "2021-11-11",
+     "value": 43.12,
+     "start": "2021-11-12",
      "status": "ok"
     },
     "10Y": {
-     "value": 52.74,
+     "value": 51.19,
      "start": "2016-11-11",
      "status": "ok"
     }
@@ -583,58 +583,58 @@
    "fund_name": "WisdomTree Copper - EUR Daily Hedged",
    "etc": true,
    "first_close": "2012-07-03",
-   "last_close": "2026-11-11",
+   "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
-     "value": 0.95,
-     "start": "2026-11-10",
+     "value": -1.84,
+     "start": "2026-11-11",
      "status": "ok"
     },
     "1W": {
-     "value": -1.29,
-     "start": "2026-11-04",
+     "value": -2.06,
+     "start": "2026-11-05",
      "status": "ok"
     },
     "1M": {
-     "value": -5.7,
-     "start": "2026-10-09",
+     "value": -8.28,
+     "start": "2026-10-12",
      "status": "ok"
     },
     "3M": {
-     "value": -6.33,
-     "start": "2026-08-11",
+     "value": -7.99,
+     "start": "2026-08-12",
      "status": "ok"
     },
     "6M": {
-     "value": -5.02,
-     "start": "2026-05-11",
+     "value": -7.04,
+     "start": "2026-05-12",
      "status": "ok"
     },
     "YTD": {
-     "value": 5.08,
+     "value": 3.15,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 17.64,
-     "start": "2025-11-11",
+     "value": 14.1,
+     "start": "2025-11-12",
      "status": "ok"
     },
     "2Y": {
-     "value": 32.81,
-     "start": "2024-11-11",
+     "value": 33.41,
+     "start": "2024-11-12",
      "status": "ok"
     },
     "5Y": {
-     "value": 20.58,
-     "start": "2021-11-11",
+     "value": 17.76,
+     "start": "2021-11-12",
      "status": "ok"
     },
     "10Y": {
-     "value": 70.11,
+     "value": 66.99,
      "start": "2016-11-11",
      "status": "ok"
     }
@@ -655,7 +655,7 @@
    "last_close": "2026-11-11",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
      "value": 1.91,
@@ -724,7 +724,7 @@
    "last_close": "2026-11-11",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
      "value": 1.27,
@@ -793,7 +793,7 @@
    "last_close": "2026-11-11",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
      "value": 0.29,
@@ -859,58 +859,58 @@
    "fund_name": "WisdomTree Sugar - EUR Daily Hedged",
    "etc": true,
    "first_close": "2012-07-03",
-   "last_close": "2026-11-11",
+   "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
-     "value": 0.0,
-     "start": "2026-11-10",
+     "value": 0.92,
+     "start": "2026-11-11",
      "status": "ok"
     },
     "1W": {
-     "value": -2.12,
-     "start": "2026-11-04",
+     "value": -3.14,
+     "start": "2026-11-05",
      "status": "ok"
     },
     "1M": {
-     "value": -10.94,
-     "start": "2026-10-09",
+     "value": -10.12,
+     "start": "2026-10-12",
      "status": "ok"
     },
     "3M": {
-     "value": 3.57,
-     "start": "2026-08-11",
+     "value": 3.3,
+     "start": "2026-08-12",
      "status": "ok"
     },
     "6M": {
-     "value": 11.53,
-     "start": "2026-05-11",
+     "value": 12.56,
+     "start": "2026-05-12",
      "status": "ok"
     },
     "YTD": {
-     "value": 17.04,
+     "value": 18.12,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 18.49,
-     "start": "2025-11-11",
+     "value": 19.58,
+     "start": "2025-11-12",
      "status": "ok"
     },
     "2Y": {
-     "value": -18.13,
-     "start": "2024-11-11",
+     "value": -17.37,
+     "start": "2024-11-12",
      "status": "ok"
     },
     "5Y": {
-     "value": 3.54,
-     "start": "2021-11-11",
+     "value": 4.2,
+     "start": "2021-11-12",
      "status": "ok"
     },
     "10Y": {
-     "value": -35.62,
+     "value": -35.03,
      "start": "2016-11-11",
      "status": "ok"
     }
@@ -928,58 +928,58 @@
    "fund_name": "WisdomTree Coffee - EUR Daily Hedged",
    "etc": true,
    "first_close": "2012-07-03",
-   "last_close": "2026-11-11",
+   "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
-     "value": -0.86,
-     "start": "2026-11-10",
+     "value": 3.19,
+     "start": "2026-11-11",
      "status": "ok"
     },
     "1W": {
-     "value": -2.52,
-     "start": "2026-11-04",
+     "value": 0.75,
+     "start": "2026-11-05",
      "status": "ok"
     },
     "1M": {
-     "value": -5.98,
-     "start": "2026-10-09",
+     "value": -2.45,
+     "start": "2026-10-12",
      "status": "ok"
     },
     "3M": {
-     "value": -14.81,
-     "start": "2026-08-11",
+     "value": -10.96,
+     "start": "2026-08-12",
      "status": "ok"
     },
     "6M": {
-     "value": 4.4,
-     "start": "2026-05-11",
+     "value": 8.82,
+     "start": "2026-05-12",
      "status": "ok"
     },
     "YTD": {
-     "value": -13.64,
+     "value": -10.89,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": -23.0,
-     "start": "2025-11-11",
+     "value": -17.67,
+     "start": "2025-11-12",
      "status": "ok"
     },
     "2Y": {
-     "value": 35.73,
-     "start": "2024-11-11",
+     "value": 34.07,
+     "start": "2024-11-12",
      "status": "ok"
     },
     "5Y": {
-     "value": 86.36,
-     "start": "2021-11-11",
+     "value": 82.72,
+     "start": "2021-11-12",
      "status": "ok"
     },
     "10Y": {
-     "value": 28.62,
+     "value": 32.72,
      "start": "2016-11-11",
      "status": "ok"
     }
@@ -1000,7 +1000,7 @@
    "last_close": "2026-11-11",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T13:59:37Z",
+   "last_success": "2026-11-12T19:07:50Z",
    "returns": {
     "1D": {
      "value": 0.2,
