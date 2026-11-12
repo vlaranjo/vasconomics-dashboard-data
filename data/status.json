@@ -1,12 +1,12 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-12T19:07:50Z",
+ "generated_at": "2026-11-12T20:24:07Z",
  "run": {
-  "workflow": "markets",
-  "run_id": 43286918753,
-  "run_url": "https://github.com/vlaranjo/vasconomics-dashboard-data/actions/runs/43286918753",
-  "started_at": "2026-11-12T19:07:50Z",
-  "finished_at": "2026-11-12T19:07:50Z"
+  "workflow": "yields",
+  "run_id": 43299825837,
+  "run_url": "https://github.com/vlaranjo/vasconomics-dashboard-data/actions/runs/43299825837",
+  "started_at": "2026-11-12T20:24:07Z",
+  "finished_at": "2026-11-12T20:24:07Z"
  },
  "sources": {
   "yahoo_markets": {
@@ -30,17 +30,17 @@
    "failed": []
   },
   "yield_curves": {
-   "last_attempt": "2026-11-11T20:07:48Z",
-   "last_success": "2026-11-11T20:07:48Z",
+   "last_attempt": "2026-11-12T20:24:07Z",
+   "last_success": "2026-11-12T20:24:07Z",
    "ok": true,
    "expected_cadence_hours": 168,
    "stale": false,
-   "items_ok": 12,
-   "items_total": 12,
+   "items_ok": 13,
+   "items_total": 13,
    "failed": [],
    "skipped": [],
    "warnings": []
   }
  },
- "heartbeat": "2026-11-12T19:07:50Z"
+ "heartbeat": "2026-11-12T20:24:07Z"
 }

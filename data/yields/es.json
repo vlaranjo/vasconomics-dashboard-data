@@ -2,15 +2,15 @@
  "schema_version": 1,
  "country": "es",
  "name": "Spain",
- "source": "Banco de España, secondary market yields (TI 1.3)",
- "source_url": "https://www.bde.es/webbe/en/estadisticas/temas/tipos-interes.html",
- "terms": "Terms not confirmed (legal-notice pages not reachable); credit 'Source: Banco de España'.",
+ "source": "World Government Bonds (worldgovernmentbonds.com), data from Investing.com and TradingEconomics",
+ "source_url": "https://www.worldgovernmentbonds.com/country/spain/",
+ "terms": "World Government Bonds: all rights reserved; the site credits Investing.com and TradingEconomics.com for its data. Read once a week per country as a normal visitor, in a browser.",
  "status": "ok",
- "fetched_at": "2026-11-11T20:07:48Z",
- "last_success": "2026-11-11T20:07:48Z",
+ "fetched_at": "2026-11-12T20:24:07Z",
+ "last_success": "2026-11-12T20:24:07Z",
  "stale": false,
  "stale_reason": null,
- "as_of": "2026-11-09",
+ "as_of": "2026-11-12",
  "tenors": [
   "1M",
   "3M",
@@ -22,45 +22,51 @@
   "30Y"
  ],
  "tenor_labels": {},
- "gaps": {
-  "1M": "Spain publishes no 1-month bill yield; the 1-3 month bucket is used for 3M.",
-  "30Y": "The longest Spanish bond series is 15 years."
- },
+ "gaps": {},
  "curves": [
   {
    "id": "latest",
    "label": "Latest",
-   "date": "2026-11-09",
+   "date": "2026-11-12",
    "points": {
+    "1M": {
+     "value": 2.377,
+     "date": "2026-11-12",
+     "kind": "D"
+    },
     "3M": {
-     "value": 2.601,
-     "date": "2026-11-09",
-     "kind": "B",
-     "label": "Letras 1-3 month bucket"
+     "value": 2.687,
+     "date": "2026-11-12",
+     "kind": "D"
     },
     "6M": {
-     "value": 2.796,
-     "date": "2026-11-09",
+     "value": 2.846,
+     "date": "2026-11-12",
      "kind": "D"
     },
     "1Y": {
-     "value": 2.986,
-     "date": "2026-11-09",
+     "value": 3.097,
+     "date": "2026-11-12",
      "kind": "D"
     },
     "3Y": {
-     "value": 3.204,
-     "date": "2026-11-09",
+     "value": 3.368,
+     "date": "2026-11-12",
      "kind": "D"
     },
     "5Y": {
-     "value": 3.366,
-     "date": "2026-11-09",
+     "value": 3.482,
+     "date": "2026-11-12",
      "kind": "D"
     },
     "10Y": {
-     "value": 3.824,
-     "date": "2026-11-09",
+     "value": 3.905,
+     "date": "2026-11-12",
+     "kind": "D"
+    },
+    "30Y": {
+     "value": 4.429,
+     "date": "2026-11-12",
      "kind": "D"
     }
    }
@@ -68,119 +74,182 @@
   {
    "id": "1m",
    "label": "1 month earlier",
-   "date": "2026-10-09",
+   "date": "2026-10-12",
    "points": {
+    "1M": {
+     "value": 2.522,
+     "date": "2026-10-12",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
+    },
     "3M": {
-     "value": 2.499,
-     "date": "2026-10-09",
-     "kind": "B",
-     "label": "Letras 1-3 month bucket"
+     "value": 2.651,
+     "date": "2026-10-12",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
     },
     "6M": {
-     "value": 2.761,
-     "date": "2026-10-09",
-     "kind": "D"
+     "value": 2.828,
+     "date": "2026-10-12",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
     },
     "1Y": {
-     "value": 3.021,
-     "date": "2026-10-09",
-     "kind": "D"
+     "value": 2.949,
+     "date": "2026-10-12",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
     },
     "3Y": {
-     "value": 3.406,
-     "date": "2026-10-09",
-     "kind": "D"
+     "value": 3.436,
+     "date": "2026-10-12",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
     },
     "5Y": {
-     "value": 3.585,
-     "date": "2026-10-09",
-     "kind": "D"
+     "value": 3.634,
+     "date": "2026-10-12",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
     },
     "10Y": {
-     "value": 4.138,
-     "date": "2026-10-09",
-     "kind": "D"
+     "value": 4.102,
+     "date": "2026-10-12",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
+    },
+    "30Y": {
+     "value": 4.628,
+     "date": "2026-10-12",
+     "kind": "C",
+     "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
     }
    }
   },
   {
-   "id": "3m",
-   "label": "3 months earlier",
-   "date": "2026-08-09",
+   "id": "6m",
+   "label": "6 months earlier",
+   "date": "2026-05-12",
    "points": {
+    "1M": {
+     "value": 2.012,
+     "date": "2026-05-12",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
+    },
     "3M": {
-     "value": 2.251,
-     "date": "2026-08-07",
-     "kind": "B",
-     "label": "Letras 1-3 month bucket"
+     "value": 2.176,
+     "date": "2026-05-12",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
     },
     "6M": {
-     "value": 2.447,
-     "date": "2026-08-07",
-     "kind": "D"
+     "value": 2.396,
+     "date": "2026-05-12",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
     },
     "1Y": {
-     "value": 2.597,
-     "date": "2026-08-07",
-     "kind": "B",
-     "label": "Letras 6-12 month bucket (the exact 1-year series was blank)"
+     "value": 2.574,
+     "date": "2026-05-12",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
     },
     "3Y": {
-     "value": 2.861,
-     "date": "2026-08-07",
-     "kind": "D"
+     "value": 2.862,
+     "date": "2026-05-12",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
     },
     "5Y": {
-     "value": 3.039,
-     "date": "2026-08-07",
-     "kind": "D"
+     "value": 3.026,
+     "date": "2026-05-12",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
     },
     "10Y": {
-     "value": 3.566,
-     "date": "2026-08-07",
-     "kind": "D"
+     "value": 3.534,
+     "date": "2026-05-12",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
+    },
+    "30Y": {
+     "value": 4.263,
+     "date": "2026-05-12",
+     "kind": "C",
+     "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
     }
    }
   },
   {
    "id": "1y",
    "label": "1 year earlier",
-   "date": "2025-11-09",
+   "date": "2025-11-12",
    "points": {
+    "1M": {
+     "value": 1.752,
+     "date": "2025-11-12",
+     "kind": "C",
+     "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
+    },
     "3M": {
-     "value": 1.887,
-     "date": "2025-11-07",
-     "kind": "B",
-     "label": "Letras 1-3 month bucket"
+     "value": 2.209,
+     "date": "2025-11-12",
+     "kind": "C",
+     "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
     },
     "6M": {
-     "value": 1.956,
-     "date": "2025-11-07",
-     "kind": "D"
+     "value": 2.217,
+     "date": "2025-11-12",
+     "kind": "C",
+     "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
     },
     "1Y": {
-     "value": 1.989,
-     "date": "2025-11-07",
-     "kind": "B",
-     "label": "Letras 6-12 month bucket (the exact 1-year series was blank)"
+     "value": 2.238,
+     "date": "2025-11-12",
+     "kind": "C",
+     "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
     },
     "3Y": {
-     "value": 2.235,
-     "date": "2025-11-07",
-     "kind": "D"
+     "value": 2.2,
+     "date": "2025-11-12",
+     "kind": "C",
+     "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
     },
     "5Y": {
-     "value": 2.538,
-     "date": "2025-11-07",
-     "kind": "D"
+     "value": 2.441,
+     "date": "2025-11-12",
+     "kind": "C",
+     "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
     },
     "10Y": {
-     "value": 3.18,
-     "date": "2025-11-07",
-     "kind": "D"
+     "value": 3.145,
+     "date": "2025-11-12",
+     "kind": "C",
+     "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
+    },
+    "30Y": {
+     "value": 3.96,
+     "date": "2025-11-12",
+     "kind": "C",
+     "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
     }
    }
   }
  ],
- "state": {}
+ "state": {
+  "wgb_page_updated": "2026-11-12T18:15Z",
+  "wgb_other_rows": [
+   "9 months",
+   "2 years",
+   "4 years",
+   "6 years",
+   "7 years",
+   "8 years",
+   "9 years",
+   "15 years",
+   "20 years",
+   "25 years"
+  ]
+ }
 }
