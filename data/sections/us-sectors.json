@@ -4,8 +4,8 @@
  "title": "US sectors (GICS)",
  "page": "us-sectors",
  "kind": "funds",
- "generated_at": "2026-11-12T03:18:45Z",
- "as_of": "2026-11-10",
+ "generated_at": "2026-11-12T13:59:37Z",
+ "as_of": "2026-11-11",
  "lookbacks": [
   "1D",
   "1W",
@@ -30,54 +30,54 @@
    "hedged": false,
    "fund_name": "iShares S&P 500 Communication Sector UCITS ETF USD Acc",
    "first_close": "2018-09-27",
-   "last_close": "2026-11-10",
+   "last_close": "2026-11-11",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T03:18:45Z",
+   "last_success": "2026-11-12T13:59:37Z",
    "returns": {
     "1D": {
-     "value": 0.25,
-     "start": "2026-11-09",
+     "value": 1.44,
+     "start": "2026-11-10",
      "status": "ok"
     },
     "1W": {
-     "value": 5.22,
-     "start": "2026-11-03",
+     "value": 2.94,
+     "start": "2026-11-04",
      "status": "ok"
     },
     "1M": {
-     "value": -5.19,
+     "value": -3.82,
      "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -2.45,
-     "start": "2026-08-10",
+     "value": -1.45,
+     "start": "2026-08-11",
      "status": "ok"
     },
     "6M": {
-     "value": -7.3,
-     "start": "2026-05-08",
+     "value": -4.88,
+     "start": "2026-05-11",
      "status": "ok"
     },
     "YTD": {
-     "value": -1.65,
+     "value": -0.23,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": -0.22,
-     "start": "2025-11-10",
+     "value": 0.84,
+     "start": "2025-11-11",
      "status": "ok"
     },
     "2Y": {
-     "value": 17.44,
-     "start": "2024-11-08",
+     "value": 17.61,
+     "start": "2024-11-11",
      "status": "ok"
     },
     "5Y": {
-     "value": 52.43,
-     "start": "2021-11-10",
+     "value": 54.94,
+     "start": "2021-11-11",
      "status": "ok"
     },
     "10Y": {
@@ -85,7 +85,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 170.44,
+      "value": 174.33,
       "start": "2018-09-27"
      }
     }
@@ -102,59 +102,59 @@
    "hedged": false,
    "fund_name": "iShares S&P 500 Consumer Discretionary Sector UCITS ETF USD (Acc)",
    "first_close": "2015-12-03",
-   "last_close": "2026-11-10",
+   "last_close": "2026-11-11",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T03:18:45Z",
+   "last_success": "2026-11-12T13:59:37Z",
    "returns": {
     "1D": {
-     "value": 0.12,
-     "start": "2026-11-09",
+     "value": 0.71,
+     "start": "2026-11-10",
      "status": "ok"
     },
     "1W": {
-     "value": 3.62,
-     "start": "2026-11-03",
+     "value": 0.35,
+     "start": "2026-11-04",
      "status": "ok"
     },
     "1M": {
-     "value": 6.93,
+     "value": 7.69,
      "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 3.91,
-     "start": "2026-08-10",
+     "value": 5.12,
+     "start": "2026-08-11",
      "status": "ok"
     },
     "6M": {
-     "value": 5.89,
-     "start": "2026-05-08",
+     "value": 7.73,
+     "start": "2026-05-11",
      "status": "ok"
     },
     "YTD": {
-     "value": 7.73,
+     "value": 8.49,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 6.53,
-     "start": "2025-11-10",
+     "value": 7.29,
+     "start": "2025-11-11",
      "status": "ok"
     },
     "2Y": {
-     "value": 12.05,
-     "start": "2024-11-08",
+     "value": 9.82,
+     "start": "2024-11-11",
      "status": "ok"
     },
     "5Y": {
-     "value": 31.71,
-     "start": "2021-11-10",
+     "value": 33.23,
+     "start": "2021-11-11",
      "status": "ok"
     },
     "10Y": {
-     "value": 237.38,
-     "start": "2016-11-10",
+     "value": 238.3,
+     "start": "2016-11-11",
      "status": "ok"
     }
    }
@@ -170,54 +170,54 @@
    "hedged": false,
    "fund_name": "iShares S&P 500 Consumer Staples Sector UCITS ETF USD (Acc)",
    "first_close": "2017-03-22",
-   "last_close": "2026-11-10",
+   "last_close": "2026-11-11",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T03:18:45Z",
+   "last_success": "2026-11-12T13:59:37Z",
    "returns": {
     "1D": {
-     "value": 1.02,
-     "start": "2026-11-09",
+     "value": 0.3,
+     "start": "2026-11-10",
      "status": "ok"
     },
     "1W": {
-     "value": 1.56,
-     "start": "2026-11-03",
+     "value": -0.84,
+     "start": "2026-11-04",
      "status": "ok"
     },
     "1M": {
-     "value": 9.74,
+     "value": 10.07,
      "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 13.04,
-     "start": "2026-08-10",
+     "value": 13.94,
+     "start": "2026-08-11",
      "status": "ok"
     },
     "6M": {
-     "value": 13.87,
-     "start": "2026-05-08",
+     "value": 16.37,
+     "start": "2026-05-11",
      "status": "ok"
     },
     "YTD": {
-     "value": 25.39,
+     "value": 25.77,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 27.01,
-     "start": "2025-11-10",
+     "value": 25.99,
+     "start": "2025-11-11",
      "status": "ok"
     },
     "2Y": {
-     "value": 17.07,
-     "start": "2024-11-08",
+     "value": 16.66,
+     "start": "2024-11-11",
      "status": "ok"
     },
     "5Y": {
-     "value": 53.97,
-     "start": "2021-11-10",
+     "value": 53.8,
+     "start": "2021-11-11",
      "status": "ok"
     },
     "10Y": {
@@ -225,7 +225,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 98.99,
+      "value": 99.59,
       "start": "2017-03-22"
      }
     }
@@ -242,59 +242,59 @@
    "hedged": false,
    "fund_name": "iShares S&P 500 Energy Sector UCITS ETF USD (Acc)",
    "first_close": "2015-12-03",
-   "last_close": "2026-11-10",
+   "last_close": "2026-11-11",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T03:18:45Z",
+   "last_success": "2026-11-12T13:59:37Z",
    "returns": {
     "1D": {
-     "value": 0.1,
-     "start": "2026-11-09",
+     "value": 2.32,
+     "start": "2026-11-10",
      "status": "ok"
     },
     "1W": {
-     "value": -6.96,
-     "start": "2026-11-03",
+     "value": 0.58,
+     "start": "2026-11-04",
      "status": "ok"
     },
     "1M": {
-     "value": -5.26,
+     "value": -3.06,
      "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 8.58,
-     "start": "2026-08-10",
+     "value": 8.18,
+     "start": "2026-08-11",
      "status": "ok"
     },
     "6M": {
-     "value": 18.94,
-     "start": "2026-05-08",
+     "value": 19.99,
+     "start": "2026-05-11",
      "status": "ok"
     },
     "YTD": {
-     "value": 48.21,
+     "value": 51.65,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 47.21,
-     "start": "2025-11-10",
+     "value": 47.4,
+     "start": "2025-11-11",
      "status": "ok"
     },
     "2Y": {
-     "value": 34.6,
-     "start": "2024-11-08",
+     "value": 35.97,
+     "start": "2024-11-11",
      "status": "ok"
     },
     "5Y": {
-     "value": 157.41,
-     "start": "2021-11-10",
+     "value": 162.78,
+     "start": "2021-11-11",
      "status": "ok"
     },
     "10Y": {
-     "value": 142.69,
-     "start": "2016-11-10",
+     "value": 151.68,
+     "start": "2016-11-11",
      "status": "ok"
     }
    }
@@ -310,59 +310,59 @@
    "hedged": false,
    "fund_name": "iShares S&P 500 Financials Sector UCITS ETF USD (Acc)",
    "first_close": "2015-12-03",
-   "last_close": "2026-11-10",
+   "last_close": "2026-11-11",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T03:18:45Z",
+   "last_success": "2026-11-12T13:59:37Z",
    "returns": {
     "1D": {
-     "value": 0.57,
-     "start": "2026-11-09",
+     "value": 0.95,
+     "start": "2026-11-10",
      "status": "ok"
     },
     "1W": {
-     "value": 1.63,
-     "start": "2026-11-03",
+     "value": 0.44,
+     "start": "2026-11-04",
      "status": "ok"
     },
     "1M": {
-     "value": 6.59,
+     "value": 7.6,
      "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 3.92,
-     "start": "2026-08-10",
+     "value": 4.99,
+     "start": "2026-08-11",
      "status": "ok"
     },
     "6M": {
-     "value": 20.02,
-     "start": "2026-05-08",
+     "value": 21.63,
+     "start": "2026-05-11",
      "status": "ok"
     },
     "YTD": {
-     "value": 11.58,
+     "value": 12.64,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 15.35,
-     "start": "2025-11-10",
+     "value": 16.03,
+     "start": "2025-11-11",
      "status": "ok"
     },
     "2Y": {
-     "value": 15.93,
-     "start": "2024-11-08",
+     "value": 14.46,
+     "start": "2024-11-11",
      "status": "ok"
     },
     "5Y": {
-     "value": 60.07,
-     "start": "2021-11-10",
+     "value": 60.9,
+     "start": "2021-11-11",
      "status": "ok"
     },
     "10Y": {
-     "value": 209.2,
-     "start": "2016-11-10",
+     "value": 208.29,
+     "start": "2016-11-11",
      "status": "ok"
     }
    }
@@ -378,59 +378,59 @@
    "hedged": false,
    "fund_name": "iShares S&P 500 Health Care Sector UCITS ETF USD (Acc)",
    "first_close": "2015-12-03",
-   "last_close": "2026-11-10",
+   "last_close": "2026-11-11",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T03:18:45Z",
+   "last_success": "2026-11-12T13:59:37Z",
    "returns": {
     "1D": {
-     "value": 0.41,
-     "start": "2026-11-09",
+     "value": 0.63,
+     "start": "2026-11-10",
      "status": "ok"
     },
     "1W": {
-     "value": 1.43,
-     "start": "2026-11-03",
+     "value": 0.71,
+     "start": "2026-11-04",
      "status": "ok"
     },
     "1M": {
-     "value": 10.73,
+     "value": 11.43,
      "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 16.1,
-     "start": "2026-08-10",
+     "value": 16.56,
+     "start": "2026-08-11",
      "status": "ok"
     },
     "6M": {
-     "value": 38.65,
-     "start": "2026-05-08",
+     "value": 39.46,
+     "start": "2026-05-11",
      "status": "ok"
     },
     "YTD": {
-     "value": 28.03,
+     "value": 28.84,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 34.5,
-     "start": "2025-11-10",
+     "value": 32.98,
+     "start": "2025-11-11",
      "status": "ok"
     },
     "2Y": {
-     "value": 23.09,
-     "start": "2024-11-08",
+     "value": 23.15,
+     "start": "2024-11-11",
      "status": "ok"
     },
     "5Y": {
-     "value": 54.33,
-     "start": "2021-11-10",
+     "value": 55.55,
+     "start": "2021-11-11",
      "status": "ok"
     },
     "10Y": {
-     "value": 194.34,
-     "start": "2016-11-10",
+     "value": 199.19,
+     "start": "2016-11-11",
      "status": "ok"
     }
    }
@@ -446,54 +446,54 @@
    "hedged": false,
    "fund_name": "iShares S&P 500 Industrials Sector UCITS ETF USD (Acc)",
    "first_close": "2017-03-22",
-   "last_close": "2026-11-10",
+   "last_close": "2026-11-11",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T03:18:45Z",
+   "last_success": "2026-11-12T13:59:37Z",
    "returns": {
     "1D": {
-     "value": -0.13,
-     "start": "2026-11-09",
+     "value": 2.4,
+     "start": "2026-11-10",
      "status": "ok"
     },
     "1W": {
-     "value": -2.17,
-     "start": "2026-11-03",
+     "value": 2.5,
+     "start": "2026-11-04",
      "status": "ok"
     },
     "1M": {
-     "value": -0.72,
+     "value": 1.67,
      "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -6.26,
-     "start": "2026-08-10",
+     "value": -4.29,
+     "start": "2026-08-11",
      "status": "ok"
     },
     "6M": {
-     "value": 2.08,
-     "start": "2026-05-08",
+     "value": 4.15,
+     "start": "2026-05-11",
      "status": "ok"
     },
     "YTD": {
-     "value": 13.13,
+     "value": 15.84,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 14.45,
-     "start": "2025-11-10",
+     "value": 16.94,
+     "start": "2025-11-11",
      "status": "ok"
     },
     "2Y": {
-     "value": 15.86,
-     "start": "2024-11-08",
+     "value": 16.49,
+     "start": "2024-11-11",
      "status": "ok"
     },
     "5Y": {
-     "value": 71.46,
-     "start": "2021-11-10",
+     "value": 76.1,
+     "start": "2021-11-11",
      "status": "ok"
     },
     "10Y": {
@@ -501,7 +501,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 158.26,
+      "value": 164.47,
       "start": "2017-03-22"
      }
     }
@@ -518,54 +518,54 @@
    "hedged": false,
    "fund_name": "iShares S&P 500 Materials Sector UCITS ETF USD (Acc)",
    "first_close": "2017-03-22",
-   "last_close": "2026-11-10",
+   "last_close": "2026-11-11",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T03:18:45Z",
+   "last_success": "2026-11-12T13:59:37Z",
    "returns": {
     "1D": {
-     "value": -0.53,
-     "start": "2026-11-09",
+     "value": 1.17,
+     "start": "2026-11-10",
      "status": "ok"
     },
     "1W": {
-     "value": 0.8,
-     "start": "2026-11-03",
+     "value": 0.24,
+     "start": "2026-11-04",
      "status": "ok"
     },
     "1M": {
-     "value": 5.35,
+     "value": 6.59,
      "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 3.55,
-     "start": "2026-08-10",
+     "value": 4.54,
+     "start": "2026-08-11",
      "status": "ok"
     },
     "6M": {
-     "value": 8.71,
-     "start": "2026-05-08",
+     "value": 8.85,
+     "start": "2026-05-11",
      "status": "ok"
     },
     "YTD": {
-     "value": 21.23,
+     "value": 22.65,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 27.51,
-     "start": "2025-11-10",
+     "value": 27.3,
+     "start": "2025-11-11",
      "status": "ok"
     },
     "2Y": {
-     "value": 10.47,
-     "start": "2024-11-08",
+     "value": 11.14,
+     "start": "2024-11-11",
      "status": "ok"
     },
     "5Y": {
-     "value": 31.76,
-     "start": "2021-11-10",
+     "value": 32.3,
+     "start": "2021-11-11",
      "status": "ok"
     },
     "10Y": {
@@ -573,7 +573,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 113.25,
+      "value": 115.76,
       "start": "2017-03-22"
      }
     }
@@ -590,59 +590,59 @@
    "hedged": false,
    "fund_name": "iShares S&P 500 Information Technology Sector UCITS ETF USD (Acc)",
    "first_close": "2015-12-03",
-   "last_close": "2026-11-10",
+   "last_close": "2026-11-11",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T03:18:45Z",
+   "last_success": "2026-11-12T13:59:37Z",
    "returns": {
     "1D": {
-     "value": 0.07,
-     "start": "2026-11-09",
+     "value": 3.68,
+     "start": "2026-11-10",
      "status": "ok"
     },
     "1W": {
-     "value": -3.76,
-     "start": "2026-11-03",
+     "value": -0.91,
+     "start": "2026-11-04",
      "status": "ok"
     },
     "1M": {
-     "value": -12.83,
+     "value": -9.62,
      "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": -5.16,
-     "start": "2026-08-10",
+     "value": -1.24,
+     "start": "2026-08-11",
      "status": "ok"
     },
     "6M": {
-     "value": 3.37,
-     "start": "2026-05-08",
+     "value": 5.62,
+     "start": "2026-05-11",
      "status": "ok"
     },
     "YTD": {
-     "value": 17.71,
+     "value": 22.03,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 14.83,
-     "start": "2025-11-10",
+     "value": 19.65,
+     "start": "2025-11-11",
      "status": "ok"
     },
     "2Y": {
-     "value": 34.25,
-     "start": "2024-11-08",
+     "value": 39.63,
+     "start": "2024-11-11",
      "status": "ok"
     },
     "5Y": {
-     "value": 133.91,
-     "start": "2021-11-10",
+     "value": 141.65,
+     "start": "2021-11-11",
      "status": "ok"
     },
     "10Y": {
-     "value": 754.92,
-     "start": "2016-11-10",
+     "value": 778.18,
+     "start": "2016-11-11",
      "status": "ok"
     }
    }
@@ -658,54 +658,54 @@
    "hedged": false,
    "fund_name": "iShares S&P 500 Utilities Sector UCITS ETF USD (Acc)",
    "first_close": "2017-03-22",
-   "last_close": "2026-11-10",
+   "last_close": "2026-11-11",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-12T03:18:45Z",
+   "last_success": "2026-11-12T13:59:37Z",
    "returns": {
     "1D": {
-     "value": -0.13,
-     "start": "2026-11-09",
+     "value": 0.75,
+     "start": "2026-11-10",
      "status": "ok"
     },
     "1W": {
-     "value": 0.1,
-     "start": "2026-11-03",
+     "value": 1.8,
+     "start": "2026-11-04",
      "status": "ok"
     },
     "1M": {
-     "value": 6.02,
+     "value": 6.82,
      "start": "2026-10-09",
      "status": "ok"
     },
     "3M": {
-     "value": 5.1,
-     "start": "2026-08-10",
+     "value": 5.32,
+     "start": "2026-08-11",
      "status": "ok"
     },
     "6M": {
-     "value": 3.35,
-     "start": "2026-05-08",
+     "value": 4.05,
+     "start": "2026-05-11",
      "status": "ok"
     },
     "YTD": {
-     "value": 9.04,
+     "value": 9.86,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 3.69,
-     "start": "2025-11-10",
+     "value": 4.26,
+     "start": "2025-11-11",
      "status": "ok"
     },
     "2Y": {
-     "value": 11.56,
-     "start": "2024-11-08",
+     "value": 9.97,
+     "start": "2024-11-11",
      "status": "ok"
     },
     "5Y": {
-     "value": 52.4,
-     "start": "2021-11-10",
+     "value": 53.7,
+     "start": "2021-11-11",
      "status": "ok"
     },
     "10Y": {
@@ -713,7 +713,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 93.13,
+      "value": 94.58,
       "start": "2017-03-22"
      }
     }
