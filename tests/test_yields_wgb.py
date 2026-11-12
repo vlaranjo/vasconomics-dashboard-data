@@ -19,6 +19,7 @@ TODAY = date(2026, 11, 11)
 NOW = datetime(2026, 11, 11, 21, 30, tzinfo=timezone.utc)
 US, DE, CN = ((W / f"{c}.html").read_text(encoding="utf-8") for c in ("united-states", "germany", "china"))
 URL = {c: wgb.meta(c)["source_url"] for c in wgb.COUNTRIES}
+OFFICIAL_US = "https://home.treasury.gov/resource-center/data-chart-center/interest-rates"   # a switch changes both fields
 CHALLENGE = """<!DOCTYPE html><html><head><title>Just a moment...</title></head><body><div id="challenge-stage">
 <h1>www.worldgovernmentbonds.com</h1><p>Verify you are human by completing the action below.</p></div></body></html>"""
 
@@ -66,7 +67,8 @@ def test_W3_two_real_values_verified_in_part_1_against_official_data():
 def test_W4_us_page_parses_to_four_curves_with_dates_kinds_and_labels():
     doc = doc_for("us", US)
     assert doc["as_of"] == "2026-11-11" and doc["source"] == wgb.SOURCE
-    assert doc["source"] == "World Government Bonds (worldgovernmentbonds.com), data from Investing.com and TradingEconomics"
+    assert doc["source"] == "World Government Bonds (worldgovernmentbonds.com)"          # exactly (12 Nov 2026)
+    assert "Investing" not in json.dumps(doc) and "TradingEconomics" not in json.dumps(doc)
     assert doc["source_url"] == "https://www.worldgovernmentbonds.com/country/united-states/"
     cur = {c["id"]: c for c in doc["curves"]}
     assert [c["id"] for c in doc["curves"]] == ["latest", "1m", "6m", "1y"]
@@ -233,13 +235,15 @@ def test_W16_no_going_backwards_from_the_same_source_but_a_switch_may():
     newer = dict(doc, as_of="2026-11-12")
     with pytest.raises(validate.ValidationError, match="earlier than the published"):
         validate.validate_yield(doc, today=TODAY, prev=newer)
-    validate.validate_yield(doc, today=TODAY, prev=dict(newer, source="US Department of the Treasury"))
+    validate.validate_yield(doc, today=TODAY, prev=dict(newer, source="US Department of the Treasury", source_url=OFFICIAL_US))
 
 
-def test_W17_config_switches_every_country_to_wgb_and_lists_china():
+def test_W17_config_switches_every_country_to_wgb_and_lists_china_and_the_round_18_five():
     root = Path(__file__).resolve().parent.parent
     cfg = yaml.safe_load((root / "config" / "yields.yaml").read_text(encoding="utf-8"))
-    assert cfg["countries"] == ["us", "uk", "ca", "jp", "de", "es", "ch", "br", "fr", "it", "au", "in", "cn"]
+    assert cfg["countries"] == ["us", "uk", "ca", "jp", "de", "es", "ch", "br", "fr", "it", "au", "in", "cn",
+                                "pl", "pt", "ru", "tr", "za"]
+    assert cfg["countries"] == job.COUNTRIES
     assert cfg["source"] == {c: "wgb" for c in cfg["countries"]}
     assert set(cfg["countries"]) == set(wgb.COUNTRIES)
 
@@ -325,4 +329,4 @@ def test_W24_the_weekly_move_check_compares_like_with_like():
         p["value"] -= 2.5
     with pytest.raises(validate.ValidationError, match="moved"):
         validate.validate_yield(doc, today=TODAY, prev=old)
-    validate.validate_yield(doc, today=TODAY, prev=dict(old, source="US Department of the Treasury"))
+    validate.validate_yield(doc, today=TODAY, prev=dict(old, source="US Department of the Treasury", source_url=OFFICIAL_US))

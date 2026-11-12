@@ -2,11 +2,11 @@
 # source: per country, wgb = worldgovernmentbonds.com read in a real browser (jobs/dashjobs/yields/wgb.py: latest = Last, the
 # 1-month, 6-month and 1-year earlier curves = Last minus the site's change columns), or official = the country's own adapter
 # (us.py, uk.py, ...: treasuries, central banks, debt offices). Switch a country back with one line. China has no official
-# adapter (terms), so it is wgb only.
+# adapter (terms), so it is wgb only; so are Poland, Portugal, Russia, Turkey and South Africa (round 18).
 # Official adapters, when switched on: France runs only if the GitHub secret FR_WEBSTAT_CLIENT_ID exists; Italy and India use
 # auction results only; Australia uses RBA tables F2 and F16.
 schema_version: 1
-countries: [us, uk, ca, jp, de, es, ch, br, fr, it, au, in, cn]
+countries: [us, uk, ca, jp, de, es, ch, br, fr, it, au, in, cn, pl, pt, ru, tr, za]
 source:
   us: wgb
   uk: wgb
@@ -21,6 +21,14 @@ source:
   au: wgb
   in: wgb
   cn: wgb
+  pl: wgb       # round 18 (12 Nov 2026): Poland, Portugal, Russia, Turkey, South Africa are site-only (no official adapter)
+  pt: wgb
+  ru: wgb
+  tr: wgb
+  za: wgb
 delay_seconds: 2.0      # official adapters: pause between plain requests (wgb pages are at least 5 s apart, wgb.MIN_GAP_S)
 max_age_days: 21        # a country whose latest observation is older than this fails validation (frozen source)
 max_move_pp: 2.0        # a tenor that moved more than this many percentage points since the last published file fails
+max_move_pp_country:    # round 18: the same check with a wider limit where yields are in the teens and thirties
+  ru: 5.0
+  tr: 5.0
