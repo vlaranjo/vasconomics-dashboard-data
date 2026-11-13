@@ -93,6 +93,38 @@ def compute_returns(bars: list[tuple[date, float]]) -> dict:
     return out
 
 
+# ---- level changes (Volatility page, 13 Nov 2026) ----------------------------------------------------------------------------
+CHANGE_LOOKBACKS = ["1D", "1W", "1M", "3M", "6M", "1Y", "2Y", "5Y", "10Y"]     # no YTD on the Volatility table
+
+
+def compute_changes(series: list[tuple[date, float]], keys=CHANGE_LOOKBACKS, ndigits: int = 2) -> dict:
+    """Changes in the series' own units (index points, or slope units), end minus start, with the same calendar-anchor rule as the
+    returns: end = the last value, 1D = the previous value, otherwise the last value on or before the anchor; n/a ("na_young")
+    when the series starts after the anchor. series: ascending [(date, value)], any sign (a slope can be negative).
+    Each cell: {value, start, start_value, status}."""
+    out: dict = {}
+    n = len(series)
+    if n == 0:
+        return {k: {"value": None, "start": None, "start_value": None, "status": "na_missing"} for k in keys}
+    dates = [d for d, _ in series]
+    vals = [v for _, v in series]
+    end_d, end_v = dates[-1], vals[-1]
+
+    def cell(i):
+        return {"value": round(end_v - vals[i], ndigits), "start": dates[i].isoformat(), "start_value": vals[i], "status": "ok"}
+
+    for key in keys:
+        if key == "1D":
+            out[key] = cell(n - 2) if n >= 2 else {"value": None, "start": None, "start_value": None, "status": "na_missing"}
+            continue
+        anchor = anchor_for(end_d, key)
+        if dates[0] > anchor:
+            out[key] = {"value": None, "start": None, "start_value": None, "status": "na_young"}
+            continue
+        out[key] = cell(bisect_right(dates, anchor) - 1)
+    return out
+
+
 def business_days_behind(last_close: date, latest: date) -> int:
     """Mon-Fri days after last_close up to and including latest. 29 Oct vs 2 Nov -> Fri 30, Mon 2 = 2."""
     if last_close >= latest:
@@ -113,6 +145,7 @@ def is_stale_close(last_close: date, section_latest: date) -> bool:
 # ---- completed bars (decisions: "Completed daily bars", 7 Nov 2026) --------------------------------------------------
 FUND_BAR_COMPLETE_UTC_HOUR = 17     # every fund line trades on Xetra, Borsa Italiana or Euronext, all closed by 16:45 UTC at the latest
 SCHEDULED_RUN_UTC = time(22, 37)    # a run described only by its date is taken to be the scheduled evening run
+US_INDEX_BAR_COMPLETE_UTC = time(22, 15)   # ^VIX, ^SKEW, ^MOVE: the day's bar counts from 22:15 UTC (see last_completed_date)
 
 
 def _last_sunday(year: int, month: int) -> date:
@@ -146,4 +179,10 @@ def last_completed_date(kind: str, today: date, now: datetime | None = None) -> 
         ref = now.astimezone(timezone.utc)
     if kind == "fx":
         return london_date(ref) - timedelta(days=1)
+    if kind == "us_index":
+        # Volatility page (13 Nov 2026): ^VIX, ^SKEW and ^MOVE. Yahoo shows a bar dated TODAY, with a plain date and no time stamp,
+        # from early morning (VIX is computed in global trading hours too), so the stamped-bar rule alone does not remove it. The day's
+        # value is final after the US close (VIX 16:15 New York, 21:15 UTC in winter); SKEW was stamped 22:00 UTC and MOVE 21:17 UTC
+        # on 12 Nov 2026. A bar dated the run's day is used only from 22:15 UTC; earlier runs use the previous day's.
+        return ref.date() if ref.time() >= US_INDEX_BAR_COMPLETE_UTC else ref.date() - timedelta(days=1)
     return ref.date() if ref.hour >= FUND_BAR_COMPLETE_UTC_HOUR else ref.date() - timedelta(days=1)

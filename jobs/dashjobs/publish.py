@@ -7,7 +7,7 @@ import shutil
 from pathlib import Path
 
 
-COMPACT_DIRS = ("history/", "indicators/")      # long numeric arrays: written without indentation to keep the files small
+COMPACT_DIRS = ("history/", "indicators/", "volatility/")      # long numeric arrays: written without indentation to keep the files small
 
 
 def write_json(path: Path, obj, compact: bool = False) -> None:
@@ -26,7 +26,7 @@ def read_json(path: Path):
     return json.loads(p.read_text(encoding="utf-8"))
 
 
-MANIFEST_BLOCKS = ("sections", "history", "indicators", "pe", "yields")
+MANIFEST_BLOCKS = ("sections", "history", "indicators", "pe", "yields", "volatility")
 
 
 def merge_manifest(prev: dict | None, *, generated_at: str, updates: dict[str, dict], keep: dict[str, set] | None = None) -> dict:
