@@ -4,8 +4,8 @@
  "name": "S&P 500 Information Technology",
  "source": "worldperatio.com",
  "source_url": "https://worldperatio.com/sector/sp-500-information-technology",
- "fetched_at": "2026-11-10T18:18:19Z",
- "last_success": "2026-11-10T18:18:19Z",
+ "fetched_at": "2026-11-13T22:36:39Z",
+ "last_success": "2026-11-13T22:36:39Z",
  "stale": false,
  "stale_reason": null,
  "frequency": "monthly",
@@ -1540,7 +1540,7 @@
   ],
   [
    "2026-11",
-   32.1385
+   32.7141
   ]
  ]
 }

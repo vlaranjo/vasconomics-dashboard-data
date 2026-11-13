@@ -4,8 +4,8 @@
  "name": "MSCI Turkey",
  "source": "worldperatio.com",
  "source_url": "https://worldperatio.com/area/turkey/",
- "fetched_at": "2026-11-10T18:18:19Z",
- "last_success": "2026-11-10T18:18:19Z",
+ "fetched_at": "2026-11-13T22:36:39Z",
+ "last_success": "2026-11-13T22:36:39Z",
  "stale": false,
  "stale_reason": null,
  "frequency": "monthly",
@@ -1544,7 +1544,7 @@
   ],
   [
    "2026-11",
-   11.7864
+   11.9948
   ]
  ]
 }
