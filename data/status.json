@@ -1,25 +1,23 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-13T13:26:29Z",
+ "generated_at": "2026-11-13T18:45:16Z",
  "run": {
   "workflow": "markets",
-  "run_id": 43433600219,
-  "run_url": "https://github.com/vlaranjo/vasconomics-dashboard-data/actions/runs/43433600219",
-  "started_at": "2026-11-13T13:26:29Z",
-  "finished_at": "2026-11-13T13:26:29Z"
+  "run_id": 43485611196,
+  "run_url": "https://github.com/vlaranjo/vasconomics-dashboard-data/actions/runs/43485611196",
+  "started_at": "2026-11-13T18:45:16Z",
+  "finished_at": "2026-11-13T18:45:16Z"
  },
  "sources": {
   "yahoo_markets": {
-   "last_attempt": "2026-11-13T13:26:29Z",
-   "last_success": "2026-11-13T13:26:29Z",
-   "ok": false,
+   "last_attempt": "2026-11-13T18:45:16Z",
+   "last_success": "2026-11-13T18:45:16Z",
+   "ok": true,
    "expected_cadence_hours": 24,
    "stale": false,
-   "items_ok": 111,
+   "items_ok": 112,
    "items_total": 112,
-   "failed": [
-    "equity-countries/18MN.DE: newest bar 2026-11-10 is older than the published 2026-11-12"
-   ]
+   "failed": []
   },
   "worldperatio": {
    "last_attempt": "2026-11-10T18:18:19Z",
@@ -44,5 +42,5 @@
    "warnings": []
   }
  },
- "heartbeat": "2026-11-13T13:26:29Z"
+ "heartbeat": "2026-11-13T18:45:16Z"
 }

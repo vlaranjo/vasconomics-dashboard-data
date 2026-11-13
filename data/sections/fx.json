@@ -4,7 +4,7 @@
  "title": "Currency pairs (foreign units per 1 EUR)",
  "page": "fx",
  "kind": "fx",
- "generated_at": "2026-11-13T13:26:29Z",
+ "generated_at": "2026-11-13T18:45:16Z",
  "as_of": "2026-11-12",
  "lookbacks": [
   "1D",
@@ -28,7 +28,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": -0.66,
@@ -91,7 +91,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": -0.11,
@@ -154,7 +154,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": 0.21,
@@ -217,7 +217,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": 0.2,
@@ -280,7 +280,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": 0.38,
@@ -343,7 +343,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": -0.16,
@@ -406,7 +406,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": 0.33,
@@ -469,7 +469,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": -0.02,
@@ -532,7 +532,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": -0.66,
@@ -595,7 +595,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": -0.27,
@@ -658,7 +658,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": 0.11,
@@ -721,7 +721,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": -0.91,
@@ -784,7 +784,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": -0.26,
@@ -847,7 +847,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": -0.68,
@@ -910,7 +910,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": -0.62,
@@ -973,7 +973,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": 0.0,
@@ -1036,7 +1036,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": 0.16,
@@ -1099,7 +1099,7 @@
    "last_close": "2026-11-12",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-13T13:26:29Z",
+   "last_success": "2026-11-13T18:45:16Z",
    "returns": {
     "1D": {
      "value": -0.19,
