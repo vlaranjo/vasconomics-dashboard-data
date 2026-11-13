@@ -1,23 +1,42 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-13T22:36:39Z",
+ "generated_at": "2026-11-13T22:55:29Z",
  "run": {
-  "workflow": "pe",
-  "run_id": 43520608261,
-  "run_url": "https://github.com/vlaranjo/vasconomics-dashboard-data/actions/runs/43520608261",
-  "started_at": "2026-11-13T22:36:39Z",
-  "finished_at": "2026-11-13T22:36:39Z"
+  "workflow": "markets",
+  "run_id": 43523120537,
+  "run_url": "https://github.com/vlaranjo/vasconomics-dashboard-data/actions/runs/43523120537",
+  "started_at": "2026-11-13T22:55:29Z",
+  "finished_at": "2026-11-13T22:55:29Z"
  },
  "sources": {
   "yahoo_markets": {
-   "last_attempt": "2026-11-13T18:45:16Z",
-   "last_success": "2026-11-13T18:45:16Z",
-   "ok": true,
+   "last_attempt": "2026-11-13T22:55:29Z",
+   "last_success": "2026-11-13T22:55:29Z",
+   "ok": false,
    "expected_cadence_hours": 24,
    "stale": false,
-   "items_ok": 112,
+   "items_ok": 94,
    "items_total": 112,
-   "failed": []
+   "failed": [
+    "fixed-income/VECA.DE: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "fixed-income/IHYG.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "fixed-income/QDVP.DE: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "fixed-income/MUNI.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-sectors/AIGE.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-sectors/AIGA.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-sectors/AIGP.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-sectors/AIGS.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-components/EBRT.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-components/ENGS.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-components/ECRN.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-components/EWAT.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-components/ESVR.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-components/PHPT.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-components/ECOP.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-components/ENIK.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-components/ESUG.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-components/ECOF.MI: newest bar 2026-11-12 is older than the published 2026-11-13"
+   ]
   },
   "worldperatio": {
    "last_attempt": "2026-11-13T22:36:39Z",
@@ -52,5 +71,5 @@
    "failed": []
   }
  },
- "heartbeat": "2026-11-13T22:36:39Z"
+ "heartbeat": "2026-11-13T22:55:29Z"
 }
