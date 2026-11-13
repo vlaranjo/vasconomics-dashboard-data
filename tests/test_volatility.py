@@ -374,3 +374,171 @@ def test_archive_last_alone_is_a_stamp_not_a_change():
     b = json.dumps({"as_of": "2026-11-12", "archive_last": "2026-11-12", "slope": {"d": [1], "v": [0.4]}}).encode()
     p = "data/volatility/vx-history.json"
     assert normalised(p, a, "volatility") == normalised(p, b, "volatility")
+
+
+# ---- the Yahoo term structure (fallback source, 13 Nov 2026 second request) ---------------------------------------------------
+TERM_MONTHS = {"^VIX9D": 0.2957, "^VIX": 0.9856, "^VIX3M": 3, "^VIX6M": 6}
+TERM_FIRST = {"^VIX9D": E("2011-01-03"), "^VIX": E("1990-01-02"), "^VIX3M": E("2006-07-17"), "^VIX6M": E("2008-01-02")}
+
+
+def term_yahoo(today=TODAY):
+    """Every horizon = the same wave + 0.5 x its horizon in months, so the slope is exactly 0.5 every day. ^VIX1Y: today's quote only."""
+    base = fake_yahoo(today)
+
+    def fetch(symbol):
+        if symbol in ("^SKEW", "^MOVE"):
+            return base(symbol)
+        if symbol == "^VIX1Y":
+            return [(today, 22.93)]
+        out, d = [], TERM_FIRST[symbol]
+        while d <= today:
+            if d.weekday() < 5:
+                out.append((d, round(15 + 3 * math.sin(d.toordinal() / 50.0) + 0.5 * TERM_MONTHS[symbol], 6)))
+            d += timedelta(days=1)
+        return out
+    return fetch
+
+
+def with_source(vcfg, source):
+    return {**vcfg, "vx_term_source": source}
+
+
+def test_yahoo_source_builds_the_curves_by_horizon_and_leaves_out_vix1y(tmp_path, cfg, vcfg):
+    seed_markets(tmp_path, cfg)
+    g = FakeGetter({})
+    res = run_job(tmp_path, cfg, with_source(vcfg, "yahoo"), g, yahoo=term_yahoo())
+    assert g.log == [], "no request to Cboe when the source is Yahoo"
+    assert res["ok"] == 4 and not res["failed"]
+    t = read(tmp_path, "volatility/vx-term.json")
+    assert t["source"] == "Yahoo Finance" and t["kind"] == "indices" and t["as_of"] == "2026-11-13"
+    assert [x["ticker"] for x in t["tenors"]] == ["^VIX9D", "^VIX", "^VIX3M", "^VIX6M"]
+    assert t["left_out"][0]["ticker"] == "^VIX1Y" and "1 completed daily value" in t["left_out"][0]["reason"]
+    assert [c["date"] for c in t["curves"]] == ["2026-11-13", "2026-10-13", "2026-05-13", "2025-11-13"]
+    p = t["curves"][0]["points"]
+    assert [x["short"] for x in p] == ["9D", "30D", "3M", "6M"] and [x["pos"] for x in p] == [1, 2, 3, 4]
+    assert t["slope_latest"] == 0.5                                                  # least squares against horizon in months
+    s = read(tmp_path, "volatility/summary.json")
+    assert s["slope_source"] == "yahoo"
+    row = next(r for r in s["rows"] if r["id"] == "vx_slope")
+    assert row["name"] == "VIX term-structure slope" and "VIX9D, VIX, VIX3M and VIX6M" in row["long"]
+    assert row["latest"] == 0.5 and row["changes"]["10Y"]["value"] == 0.0 and row["first_date"] == "2011-01-03"
+    assert not (tmp_path / "data" / "volatility" / "vx-history.json").exists()        # nothing to carry: never published
+
+
+def test_yahoo_slope_matches_a_hand_calculation():
+    # horizons 0.2957, 0.9856, 3, 6 months; values 14, 15, 16, 18. mean x = 10.2813/4 = 2.570325, mean y = 15.75.
+    # Sxy = sum (x - mx) * y = 0.2957*14 + 0.9856*15 + 3*16 + 6*18 - 4 * 2.570325 * 15.75 = 174.9238 - 161.930475 = 12.993325
+    # Sxx = sum x^2 - 4 * mx^2 = 0.08744 + 0.97141 + 9 + 36 - 26.42628 = 19.63257; slope = 12.993325 / 19.63257 = 0.66182
+    cfg_t = {"tickers": [{"ticker": k, "label": k, "short": k, "months": m} for k, m in TERM_MONTHS.items()], "min_points": 4,
+             "min_history": 1, "range": [5, 150]}
+    vals = dict(zip(TERM_MONTHS, (14.0, 15.0, 16.0, 18.0)))
+    res = volatility.yahoo_term_update(cfg_t, lambda s: [(TODAY, vals[s])], cutoff=TODAY)
+    assert res["slope"][TODAY] == 0.6618
+
+
+def test_switching_sources_keeps_the_cboe_history_and_back(tmp_path, cfg, vcfg):
+    seed_markets(tmp_path, cfg)
+    run_job(tmp_path, cfg, vcfg, synthetic_cboe(today=E("2026-11-12"))[0], today=E("2026-11-12"), now=datetime(2026, 11, 12, 22, 40, tzinfo=timezone.utc),
+            yahoo=term_yahoo(E("2026-11-12")))
+    hist = read(tmp_path, "volatility/vx-history.json")
+    run_job(tmp_path, cfg, with_source(vcfg, "yahoo"), FakeGetter({}), yahoo=term_yahoo())
+    assert read(tmp_path, "volatility/vx-history.json") == hist                      # waits, unchanged, for a switch back
+    assert read(tmp_path, "volatility/vx-term.json")["source"] == "Yahoo Finance"
+    g, _, _ = synthetic_cboe()
+    run_job(tmp_path, cfg, vcfg, g, yahoo=term_yahoo(), now=datetime(2026, 11, 13, 23, 0, tzinfo=timezone.utc))
+    t = read(tmp_path, "volatility/vx-term.json")
+    assert t["source"] == "Cboe" and t["kind"] == "futures" and t["as_of"] == "2026-11-13"
+    assert read(tmp_path, "volatility/summary.json")["slope_source"] == "cboe"
+    assert next(r for r in read(tmp_path, "volatility/summary.json")["rows"] if r["id"] == "vx_slope")["name"] == "VIX futures slope"
+    assert len([u for u in g.log if "VX_" in u]) <= 11                                # the incremental rebuild, not the whole archive
+
+
+def test_an_unknown_source_is_refused(tmp_path, cfg, vcfg):
+    seed_markets(tmp_path, cfg)
+    with pytest.raises(validate.ValidationError):
+        run_job(tmp_path, cfg, with_source(vcfg, "bloomberg"), FakeGetter({}))
+
+
+def test_the_config_default_is_cboe(vcfg):
+    assert vcfg["vx_term_source"] == "cboe"
+
+
+# ---- after the second review (13 Nov 2026) ----------------------------------------------------------------------------------
+def counting(fetch, fail=()):
+    calls = []
+
+    def f(symbol):
+        calls.append(symbol)
+        if symbol in fail:
+            raise RuntimeError("simulated failure")
+        return fetch(symbol)
+    return f, calls
+
+
+def test_each_yahoo_symbol_is_asked_once_and_3_s_apart(tmp_path, cfg, vcfg):
+    seed_markets(tmp_path, cfg)
+    f, calls = counting(term_yahoo())
+    sleeps = []
+    volatility.run(with_source(vcfg, "yahoo"), f, FakeGetter({}), today=TODAY, now=datetime(2026, 11, 13, 22, 40, tzinfo=timezone.utc),
+                   data_dir=tmp_path / "data", work_dir=tmp_path / "work", universe=cfg, sleep=sleeps.append)
+    assert sorted(calls) == sorted(["^VIX", "^SKEW", "^MOVE", "^VIX9D", "^VIX3M", "^VIX6M", "^VIX1Y"])       # ^VIX once
+    assert sleeps == [3.0] * (len(calls) - 1)
+
+
+def test_an_optional_ticker_that_fails_is_left_out_a_core_one_fails_the_source(tmp_path, cfg, vcfg):
+    seed_markets(tmp_path, cfg)
+    f, _ = counting(term_yahoo(), fail={"^VIX1Y"})
+    res = run_job(tmp_path, cfg, with_source(vcfg, "yahoo"), FakeGetter({}), yahoo=f)
+    t = read(tmp_path, "volatility/vx-term.json")
+    assert not res["failed"] and "could not be fetched" in t["left_out"][0]["reason"]
+    f, _ = counting(term_yahoo(), fail={"^VIX3M"})
+    res = run_job(tmp_path, cfg, with_source(vcfg, "yahoo"), FakeGetter({}), yahoo=f)
+    assert any("Yahoo VIX term structure" in x for x in res["failed"])
+    assert read(tmp_path, "volatility/vx-term.json")["stale"] is True
+
+
+def test_a_day_counts_only_with_every_horizon(tmp_path):
+    cfg_t = {"tickers": [{"ticker": k, "label": k, "short": k, "months": m} for k, m in TERM_MONTHS.items()], "min_points": 4,
+             "min_history": 1, "range": [5, 150]}
+    d1, d2 = E("2026-11-12"), TODAY
+    data = {k: [(d1, 15.0 + m), (d2, 16.0 + m)] for k, m in TERM_MONTHS.items()}
+    data["^VIX3M"] = [(d2, 19.0)]                                                     # ^VIX3M missing on 12 Nov
+    res = volatility.yahoo_term_update(cfg_t, lambda s: data[s], cutoff=TODAY)
+    assert list(res["slope"]) == [d2] and list(res["curves"]) == [d2]
+
+
+@pytest.mark.parametrize("first,then", [("cboe", "yahoo"), ("yahoo", "cboe")])
+def test_after_a_failed_switch_the_source_line_follows_what_is_published(tmp_path, cfg, vcfg, first, then):
+    seed_markets(tmp_path, cfg)
+    run_job(tmp_path, cfg, with_source(vcfg, first), synthetic_cboe()[0], yahoo=term_yahoo())
+    before = read(tmp_path, "volatility/vx-term.json")["source"]
+    f, _ = counting(term_yahoo(), fail={"^VIX6M"})
+    blocked = FakeGetter({"product/list/VX": b"<!DOCTYPE html><title>Just a moment...</title>"})
+    res = run_job(tmp_path, cfg, with_source(vcfg, then), blocked, yahoo=f, now=datetime(2026, 11, 13, 23, 30, tzinfo=timezone.utc))
+    assert res["failed"]
+    t = read(tmp_path, "volatility/vx-term.json")
+    s = read(tmp_path, "volatility/summary.json")
+    assert t["source"] == before and t["stale"] is True
+    assert s["slope_source"] == first                                                 # the table credits the source shown
+    assert next(r for r in s["rows"] if r["id"] == "vx_slope")["stale"] is True
+
+
+def test_yahoo_older_data_keeps_the_published_file(tmp_path, cfg, vcfg):
+    seed_markets(tmp_path, cfg)
+    run_job(tmp_path, cfg, with_source(vcfg, "yahoo"), FakeGetter({}), yahoo=term_yahoo())
+    res = run_job(tmp_path, cfg, with_source(vcfg, "yahoo"), FakeGetter({}), yahoo=term_yahoo(E("2026-11-12")))
+    t = read(tmp_path, "volatility/vx-term.json")
+    assert t["as_of"] == "2026-11-13" and t["stale"] is False
+    assert any("Yahoo term structure" in n and "older than the published" in n for n in res["notes"])
+
+
+def test_yahoo_term_document_checks(tmp_path, cfg, vcfg):
+    seed_markets(tmp_path, cfg)
+    run_job(tmp_path, cfg, with_source(vcfg, "yahoo"), FakeGetter({}), yahoo=term_yahoo())
+    t = read(tmp_path, "volatility/vx-term.json")
+    validate.validate_vx_term(t)
+    bad = {**t, "positions": 5}
+    with pytest.raises(validate.ValidationError):
+        validate.validate_vx_term(bad)
+    with pytest.raises(validate.ValidationError):
+        validate.validate_vx_term({**t, "source": "Cboe"})                            # source and kind must agree

@@ -357,6 +357,7 @@ _CHANGE = {"type": "object", "required": ["value", "start", "start_value", "stat
 VOL_SUMMARY_SCHEMA = {
     "type": "object", "required": ["schema_version", "generated_at", "as_of", "lookbacks", "rows"],
     "properties": {"schema_version": {"const": 1}, "generated_at": _TS, "as_of": _DATE, "lookbacks": {"type": "array", "items": {"type": "string"}},
+                   "slope_source": {"enum": ["cboe", "yahoo"]},
                    "rows": {"type": "array", "items": {
                        "type": "object", "required": ["id", "name", "long", "direction", "latest", "date", "first_date", "stale", "stale_reason", "changes"],
                        "properties": {"id": {"enum": ["vix", "vx_slope", "skew", "move"]}, "name": {"type": "string"}, "long": {"type": "string"},
@@ -374,10 +375,15 @@ VX_HISTORY_SCHEMA = {
 _VX_POINT = {"type": "object", "required": ["pos", "code", "month", "expiry", "days", "settle"], "additionalProperties": False,
              "properties": {"pos": {"type": "integer", "minimum": 1}, "code": {"type": "string"}, "month": {"type": "string"},
                             "expiry": _DATE, "days": {"type": "integer", "minimum": 1}, "settle": _NUM_OR_NULL}}
+_YT_POINT = {"type": "object", "required": ["pos", "ticker", "label", "short", "months", "value"], "additionalProperties": False,
+             "properties": {"pos": {"type": "integer", "minimum": 1}, "ticker": {"type": "string"}, "label": {"type": "string"},
+                            "short": {"type": "string"}, "months": {"type": "number", "exclusiveMinimum": 0}, "value": _NUM_OR_NULL}}
 VX_TERM_SCHEMA = {
-    "type": "object", "required": ["schema_version", "source", "source_url", "terms_url", *_STAMPS, "as_of", "positions", "slope_positions",
+    "type": "object", "required": ["schema_version", "source", "source_url", *_STAMPS, "as_of", "positions", "slope_positions",
                                    "slope_latest", "curves"],
-    "properties": {"schema_version": {"const": 1}, "source": {"const": "Cboe"}, "source_url": {"type": "string"}, "terms_url": {"type": "string"},
+    "properties": {"schema_version": {"const": 1}, "source": {"enum": ["Cboe", "Yahoo Finance"]}, "kind": {"enum": ["futures", "indices"]},
+                   "source_url": {"type": "string"}, "terms_url": {"type": "string"},
+                   "tenors": {"type": "array"}, "left_out": {"type": "array"},
                    **_STAMPS, "as_of": _DATE, "positions": {"type": "integer"}, "slope_positions": {"type": "integer"}, "slope_latest": _NUM_OR_NULL,
                    "curves": {"type": "array", "minItems": 4, "maxItems": 4, "items": {
                        "type": "object", "required": ["id", "label", "date", "points"],
@@ -417,7 +423,25 @@ def validate_vx_history(doc: dict) -> None:
 
 
 def validate_vx_term(doc: dict) -> None:
-    _check(VX_TERM_SCHEMA, doc, "volatility/vx-term")
+    """Cboe futures (kind "futures", the default) or Yahoo's VIX indices (kind "indices"): each kind has its own point shape."""
+    kind = doc.get("kind", "futures")
+    schema = VX_TERM_SCHEMA
+    if kind == "indices":
+        import copy
+        schema = copy.deepcopy(VX_TERM_SCHEMA)
+        schema["properties"]["curves"]["items"]["properties"]["points"] = {"type": "array", "items": _YT_POINT}
+        schema["required"] = schema["required"] + ["tenors", "left_out"]
+        schema["properties"]["tenors"] = {"type": "array", "items": {"type": "object", "required": ["ticker", "label", "short", "months"]}}
+        schema["properties"]["left_out"] = {"type": "array", "items": {"type": "object", "required": ["ticker", "label", "reason"]}}
+    else:
+        import copy
+        schema = copy.deepcopy(VX_TERM_SCHEMA)
+        schema["required"] = schema["required"] + ["terms_url"]
+    _check(schema, doc, "volatility/vx-term")
+    if kind == "indices" and doc["positions"] != len(doc["tenors"]):
+        raise ValidationError(f"volatility/vx-term: {doc['positions']} positions for {len(doc['tenors'])} horizons")
+    if (doc["source"] == "Cboe") != (kind == "futures"):
+        raise ValidationError(f"volatility/vx-term: source {doc['source']} does not match kind {kind}")
     _walk_numbers(doc, "vx term")
     latest = doc["curves"][0]
     if latest["id"] != "latest" or latest["date"] != doc["as_of"]:
@@ -425,6 +449,6 @@ def validate_vx_term(doc: dict) -> None:
     for c in doc["curves"]:
         if [p["pos"] for p in c["points"]] != list(range(1, len(c["points"]) + 1)):
             raise ValidationError(f"volatility/vx-term {c['id']}: positions are not 1, 2, 3, ...")
-        exps = [p["expiry"] for p in c["points"]]
-        if exps != sorted(exps) or len(set(exps)) != len(exps):
-            raise ValidationError(f"volatility/vx-term {c['id']}: contracts are not in expiry order")
+        order = [p["months"] for p in c["points"]] if kind == "indices" else [p["expiry"] for p in c["points"]]
+        if order != sorted(order) or len(set(order)) != len(order):
+            raise ValidationError(f"volatility/vx-term {c['id']}: points are not in {'horizon' if kind == 'indices' else 'expiry'} order")

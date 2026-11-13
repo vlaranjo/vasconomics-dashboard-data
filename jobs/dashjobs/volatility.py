@@ -5,7 +5,10 @@ Published files (manifest block `volatility`), all under data/volatility/:
   vix.json, skew.json, move.json
                    chart series: daily closes for the last five years, the last close of each week before that; the 10-year and
                    full-history averages computed on the FULL daily history
-  vx-term.json     the four VIX futures curves (latest, 1 month, 6 months and 1 year earlier) by contract position
+  vx-term.json     the four term-structure curves (latest, 1 month, 6 months and 1 year earlier). Source by config
+                   (`vx_term_source`, 13 Nov 2026): "cboe" (default) = VIX futures settlement prices by contract position;
+                   "yahoo" = the Cboe VIX indices on Yahoo (^VIX9D, ^VIX, ^VIX3M, ^VIX6M, ^VIX1Y) by horizon. The table's slope row
+                   follows the same source. A ticker Yahoo has no history for (^VIX1Y, 13 Nov 2026) is left out and named.
   vx-history.json  the daily slope since the CSV archive starts (January 2013) and the daily curves of the last 400 days. The page
                    does not read it; the job does: each run fetches only the contracts still trading (about ten small CSVs) and
                    rebuilds the last ten days, and takes everything older from here. Without it (first run) every monthly contract's
@@ -27,6 +30,8 @@ DIR = "volatility"
 CURVES = [("latest", "Latest", None), ("1m", "1 month earlier", "1M"), ("6m", "6 months earlier", "6M"), ("1y", "1 year earlier", "1Y")]
 CURVE_ANCHOR_MAX_GAP_DAYS = 7    # an earlier curve more than a week before its anchor is not shown (history too short)
 SLOPE_ROW = {"id": "vx_slope", "name": "VIX futures slope", "long": "Least-squares slope of the first seven monthly VIX futures (points per month)"}
+YAHOO_SLOPE_ROW = {"id": "vx_slope", "name": "VIX term-structure slope"}      # "long" names the indices used (yahoo_slope_row)
+TERM_SOURCES = ("cboe", "yahoo")
 
 
 class NothingFetched(Exception):
@@ -208,6 +213,74 @@ def term_curves(hist: dict, contracts: list[dict]) -> list[dict]:
     return out
 
 
+# ---- the Yahoo term structure (fallback source, 13 Nov 2026) ---------------------------------------------------------------
+def yahoo_term_update(tcfg: dict, fetch, *, cutoff: date) -> dict:
+    """The VIX indices by horizon from Yahoo. A ticker with fewer than `min_history` completed daily values is left out (Yahoo gives
+    only today's live quote for ^VIX1Y), and so is an `optional` ticker that cannot be fetched; a fetch error on any other ticker
+    fails the source (the last good file is kept). A day counts only when EVERY ticker kept has a value, so the slope is one
+    measure over its whole history (review of 13 Nov 2026): the curve and the least-squares slope of level on horizon in months.
+    Raises ValidationError when a value or a slope is out of range, or fewer than `min_points` tickers are kept."""
+    lo, hi = tcfg["range"]
+    tenors, left_out, series = [], [], {}
+    for t in tcfg["tickers"]:
+        try:
+            raw = fetch(t["ticker"])
+        except Exception as e:  # noqa: BLE001
+            if not t.get("optional"):
+                raise
+            left_out.append({"ticker": t["ticker"], "label": t["label"], "reason": f"it could not be fetched from Yahoo Finance in this run ({str(e)[:80]})"})
+            continue
+        bars = lookback.clean_bars(raw, cutoff)
+        if len(bars) < tcfg["min_history"]:
+            left_out.append({"ticker": t["ticker"], "label": t["label"],
+                             "reason": f"Yahoo Finance has {len(bars)} completed daily value{'' if len(bars) == 1 else 's'} for it, not a history"})
+            continue
+        for d, v in bars:
+            if not lo <= v <= hi:
+                raise validate.ValidationError(f"{t['ticker']}: {v} on {d.isoformat()} is outside {lo}..{hi}")
+        tenors.append(t)
+        series[t["ticker"]] = dict(bars)
+    if len(tenors) < tcfg["min_points"]:
+        raise validate.ValidationError(f"Yahoo term structure: only {len(tenors)} tickers with a history (need {tcfg['min_points']})")
+    slope, curves = {}, {}
+    for d in sorted(set().union(*(s.keys() for s in series.values()))):
+        vals = [series[t["ticker"]].get(d) for t in tenors]
+        if any(v is None for v in vals):
+            continue
+        curves[d] = [round(v, 2) for v in vals]
+        slope[d] = round(cboe.ols_slope([(t["months"], v) for t, v in zip(tenors, vals)]), 4)
+        if abs(slope[d]) > tcfg.get("max_abs_slope", 15):
+            raise validate.ValidationError(f"Yahoo term-structure slope {slope[d]} on {d.isoformat()} is outside +-{tcfg.get('max_abs_slope', 15)}")
+    if not curves:
+        raise validate.ValidationError("Yahoo term structure: no day with enough values")
+    return {"tenors": tenors, "left_out": left_out, "slope": slope, "curves": curves}
+
+
+def yahoo_term_curves(res: dict) -> list[dict]:
+    days = sorted(res["curves"])
+    latest = days[-1]
+    out = []
+    for cid, label, key in CURVES:
+        i = len(days) - 1
+        if key is not None:
+            anchor = lookback.anchor_for(latest, key)
+            i = bisect_right(days, anchor) - 1
+            if i < 0 or (anchor - days[i]).days > CURVE_ANCHOR_MAX_GAP_DAYS:
+                out.append({"id": cid, "label": label, "date": None, "anchor": anchor.isoformat(), "points": []})
+                continue
+        day = days[i]
+        pts = [{"pos": n, "ticker": t["ticker"], "label": t["label"], "short": t["short"], "months": t["months"], "value": v}
+               for n, (t, v) in enumerate(zip(res["tenors"], res["curves"][day]), start=1)]
+        out.append({"id": cid, "label": label, "date": day.isoformat(),
+                    **({"anchor": lookback.anchor_for(latest, key).isoformat()} if key else {}), "points": pts})
+    return out
+
+
+def yahoo_slope_row(tenors: list[dict]) -> dict:
+    names = [t["ticker"].lstrip("^") for t in tenors]
+    return {**YAHOO_SLOPE_ROW, "long": f"Least-squares slope of {', '.join(names[:-1])} and {names[-1]} against horizon in months (points per month)"}
+
+
 # ---- the run ----------------------------------------------------------------------------------------------------------------
 def run(cfg: dict, fetch_yahoo, getter, *, today: date, now: datetime | None = None, data_dir, work_dir, universe: dict,
         env=None, sleep=time.sleep, cache_dir: Path | None = None, workflow: str = "volatility") -> dict:
@@ -231,6 +304,21 @@ def run(cfg: dict, fetch_yahoo, getter, *, today: date, now: datetime | None = N
     failed: list[str] = []
     notes: list[str] = []
     ok = 0
+    source = cfg.get("vx_term_source", "cboe")
+    if source not in TERM_SOURCES:
+        raise validate.ValidationError(f"config vx_term_source is {source!r}; it must be one of {', '.join(TERM_SOURCES)}")
+    raw_cache: dict[str, object] = {}
+
+    def yfetch(ticker):
+        """One Yahoo request per symbol per run, 3 s apart (^VIX serves both its chart and the Yahoo term structure)."""
+        if ticker not in raw_cache:
+            if raw_cache:
+                sleep(3.0)
+            raw_cache[ticker] = None                      # counts as asked, even if it fails
+            raw_cache[ticker] = fetch_yahoo(ticker)
+        if raw_cache[ticker] is None:
+            raise RuntimeError(f"{ticker}: the earlier request this run failed")
+        return raw_cache[ticker]
 
     def keep(rel: str, row_id: str, reason: str, mark_stale: bool = True) -> bool:
         """Carry the published file and table row forward. Returns False when there is nothing published to keep."""
@@ -249,10 +337,8 @@ def run(cfg: dict, fetch_yahoo, getter, *, today: date, now: datetime | None = N
     for i, meta in enumerate(cfg["indices"]):
         rel = f"{DIR}/{meta['id']}.json"
         prev_doc = publish.read_json(data_dir / rel)
-        if i:
-            sleep(3.0)
         try:
-            bars = lookback.clean_bars(fetch_yahoo(meta["ticker"]), cutoff)
+            bars = lookback.clean_bars(yfetch(meta["ticker"]), cutoff)
             check_index(meta, bars, today=today, prev_doc=prev_doc, max_age=max_age)
             doc = index_doc(meta, bars, now_iso, daily_key)
             validate.validate_vol_index(doc)
@@ -271,47 +357,80 @@ def run(cfg: dict, fetch_yahoo, getter, *, today: date, now: datetime | None = N
     prev_hist = publish.read_json(data_dir / hist_rel)
     prev_term = publish.read_json(data_dir / term_rel)
     vx_info = None
-    try:
-        res = vx_update(vcfg, getter, today=today, prev_hist=prev_hist, cache_dir=cache_dir)
-        h = res["hist"]
-        if prev_hist and h["as_of"] < prev_hist["as_of"]:
-            raise OlderData(f"VX: newest settlement {h['as_of']} is older than the published {prev_hist['as_of']}")
-        age = (today - date.fromisoformat(h["as_of"])).days
-        if age > max_age:
-            raise validate.ValidationError(f"VX: last settlement {h['as_of']} is {age} days old")
-        curves = term_curves(h, res["contracts"])
-        n_latest = sum(p["settle"] is not None for p in curves[0]["points"])
-        if n_latest < vcfg["slope_min_points"]:
-            raise validate.ValidationError(f"VX: only {n_latest} settlements on the latest curve ({h['as_of']})")
-        hist_doc = {"schema_version": 1, "source": "Cboe", "source_url": cboe.PAGE_URL, "fetched_at": now_iso, "last_success": now_iso,
-                    "stale": False, "stale_reason": None, **h}
-        sd = h["slope"]
-        slope_series = [(_day(i), v) for i, v in zip(sd["d"], sd["v"])]
-        last_slope = slope_series[-1] if slope_series else None
-        term_doc = {"schema_version": 1, "source": "Cboe", "source_url": cboe.PAGE_URL, "terms_url": "https://www.cboe.com/terms/",
-                    "fetched_at": now_iso, "last_success": now_iso, "stale": False, "stale_reason": None, "as_of": h["as_of"],
-                    "positions": vcfg["positions"], "slope_positions": vcfg["slope_positions"],
-                    "slope_latest": last_slope[1] if last_slope and last_slope[0].isoformat() == h["as_of"] else None,
-                    "curves": curves}
-        validate.validate_vx_history(hist_doc)
-        validate.validate_vx_term(term_doc)
-        files[hist_rel], files[term_rel] = hist_doc, term_doc
-        if slope_series:
-            rows[SLOPE_ROW["id"]] = summary_row(SLOPE_ROW, slope_series, stale=False, stale_reason=None, keys=keys, direction="up_good")
-        ok += 1
-        vx_info = {k: res[k] for k in ("requests", "daily_dates", "rebuilt_from")}
-    except OlderData as e:
-        notes.append(f"{e} (kept as published)")
-        keep(hist_rel, SLOPE_ROW["id"], "", mark_stale=False)
-        keep(term_rel, "", "", mark_stale=False)
-    except Exception as e:  # noqa: BLE001 - Challenge, fetch, parse or validation: keep the last good files, marked stale
-        failed.append(f"Cboe VX: {type(e).__name__}: {str(e)[:160]}")
-        reason = "challenge" if isinstance(e, cboe.Challenge) else "fetch_or_validation_failed"
-        keep(hist_rel, SLOPE_ROW["id"], reason)
-        keep(term_rel, "", reason)
+    if source == "yahoo":
+        keep(hist_rel, "", "", mark_stale=False)          # the Cboe history waits, unchanged, for a switch back
+        try:
+            res = yahoo_term_update(cfg["yahoo_term"], yfetch, cutoff=cutoff)
+            as_of = max(res["curves"])
+            if prev_term and prev_term.get("source") == "Yahoo Finance" and as_of.isoformat() < prev_term["as_of"]:
+                raise OlderData(f"Yahoo term structure: newest day {as_of.isoformat()} is older than the published {prev_term['as_of']}")
+            age = (today - as_of).days
+            if age > max_age:
+                raise validate.ValidationError(f"Yahoo term structure: last complete day {as_of.isoformat()} is {age} days old")
+            n = len(res["tenors"])
+            term_doc = {"schema_version": 1, "source": "Yahoo Finance", "kind": "indices", "source_url": "https://finance.yahoo.com/",
+                        "fetched_at": now_iso, "last_success": now_iso, "stale": False, "stale_reason": None, "as_of": as_of.isoformat(),
+                        "positions": n, "slope_positions": n, "slope_latest": res["slope"].get(as_of),
+                        "tenors": [{k: t[k] for k in ("ticker", "label", "short", "months")} for t in res["tenors"]],
+                        "left_out": res["left_out"], "curves": yahoo_term_curves(res)}
+            validate.validate_vx_term(term_doc)
+            files[term_rel] = term_doc
+            slope_series = sorted(res["slope"].items())
+            rows[SLOPE_ROW["id"]] = summary_row(yahoo_slope_row(res["tenors"]), slope_series, stale=False, stale_reason=None, keys=keys, direction="up_good")
+            ok += 1
+            vx_info = {"requests": 0, "daily_dates": [], "rebuilt_from": "", "left_out": [x["ticker"] for x in res["left_out"]]}
+        except OlderData as e:
+            notes.append(f"{e} (kept as published)")
+            keep(term_rel, SLOPE_ROW["id"], "", mark_stale=False)
+        except Exception as e:  # noqa: BLE001
+            failed.append(f"Yahoo VIX term structure: {type(e).__name__}: {str(e)[:160]}")
+            keep(term_rel, SLOPE_ROW["id"], "fetch_or_validation_failed")
+    else:
+        try:
+            res = vx_update(vcfg, getter, today=today, prev_hist=prev_hist, cache_dir=cache_dir)
+            h = res["hist"]
+            if prev_hist and h["as_of"] < prev_hist["as_of"]:
+                raise OlderData(f"VX: newest settlement {h['as_of']} is older than the published {prev_hist['as_of']}")
+            age = (today - date.fromisoformat(h["as_of"])).days
+            if age > max_age:
+                raise validate.ValidationError(f"VX: last settlement {h['as_of']} is {age} days old")
+            curves = term_curves(h, res["contracts"])
+            n_latest = sum(p["settle"] is not None for p in curves[0]["points"])
+            if n_latest < vcfg["slope_min_points"]:
+                raise validate.ValidationError(f"VX: only {n_latest} settlements on the latest curve ({h['as_of']})")
+            hist_doc = {"schema_version": 1, "source": "Cboe", "source_url": cboe.PAGE_URL, "fetched_at": now_iso, "last_success": now_iso,
+                        "stale": False, "stale_reason": None, **h}
+            sd = h["slope"]
+            slope_series = [(_day(i), v) for i, v in zip(sd["d"], sd["v"])]
+            last_slope = slope_series[-1] if slope_series else None
+            term_doc = {"schema_version": 1, "source": "Cboe", "kind": "futures", "source_url": cboe.PAGE_URL, "terms_url": "https://www.cboe.com/terms/",
+                        "fetched_at": now_iso, "last_success": now_iso, "stale": False, "stale_reason": None, "as_of": h["as_of"],
+                        "positions": vcfg["positions"], "slope_positions": vcfg["slope_positions"],
+                        "slope_latest": last_slope[1] if last_slope and last_slope[0].isoformat() == h["as_of"] else None,
+                        "curves": curves}
+            validate.validate_vx_history(hist_doc)
+            validate.validate_vx_term(term_doc)
+            files[hist_rel], files[term_rel] = hist_doc, term_doc
+            if slope_series:
+                rows[SLOPE_ROW["id"]] = summary_row(SLOPE_ROW, slope_series, stale=False, stale_reason=None, keys=keys, direction="up_good")
+            ok += 1
+            vx_info = {k: res[k] for k in ("requests", "daily_dates", "rebuilt_from")}
+        except OlderData as e:
+            notes.append(f"{e} (kept as published)")
+            keep(hist_rel, "", "", mark_stale=False)
+            keep(term_rel, SLOPE_ROW["id"], "", mark_stale=False)       # the slope row travels with the term file it belongs to
+        except Exception as e:  # noqa: BLE001 - Challenge, fetch, parse or validation: keep the last good files, marked stale
+            failed.append(f"Cboe VX: {type(e).__name__}: {str(e)[:160]}")
+            reason = "challenge" if isinstance(e, cboe.Challenge) else "fetch_or_validation_failed"
+            keep(hist_rel, "", reason)
+            keep(term_rel, SLOPE_ROW["id"], reason)                     # with the term file, whichever source it came from
 
     if not ok and not files:
         raise NothingFetched("; ".join(failed) or "nothing fetched")
+    # The table's source line names the source of the term-structure file actually published, not the config: after a failed first
+    # run on the other source, the kept file (and its slope row, carried with it) is still the old source's (review of 13 Nov 2026).
+    published_term = files.get(term_rel)
+    published_source = source if not published_term else ("yahoo" if published_term.get("kind") == "indices" else "cboe")
     order = [m["id"] for m in cfg["indices"]]
     order = order[:1] + [SLOPE_ROW["id"]] + order[1:]                       # VIX, the slope, SKEW, MOVE
     srows = [rows[i] for i in order if i in rows]
@@ -322,7 +441,7 @@ def run(cfg: dict, fetch_yahoo, getter, *, today: date, now: datetime | None = N
         if not r["stale"] and latest and lookback.is_stale_close(date.fromisoformat(r["date"]), latest):
             r["stale"], r["stale_reason"] = True, "old_close"
     summary = {"schema_version": 1, "generated_at": now_iso, "as_of": max(r["date"] for r in srows) if srows else today.isoformat(),
-               "lookbacks": keys, "rows": srows}
+               "lookbacks": keys, "slope_source": published_source, "rows": srows}
     validate.validate_vol_summary(summary)
     files[f"{DIR}/summary.json"] = summary
     if ok:

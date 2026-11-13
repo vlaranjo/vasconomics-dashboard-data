@@ -42,7 +42,9 @@ def main(argv=None) -> int:
         print(f"FAILED, nothing published: {e}", file=sys.stderr)
         return 1
     print(f"published: {res['ok']}/{res['total']} series fresh")
-    if res["vx"]:
+    if res["vx"] and "left_out" in res["vx"]:
+        print(f"  term structure from Yahoo; left out (no history): {', '.join(res['vx']['left_out']) or 'none'}")
+    elif res["vx"]:
         print(f"  Cboe: {res['vx']['requests']} requests; rebuilt from {res['vx']['rebuilt_from']}; "
               f"day's settlement file used for {', '.join(res['vx']['daily_dates']) or 'no date'}")
     for r in res["rows"].values():
