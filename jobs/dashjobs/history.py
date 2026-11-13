@@ -157,5 +157,25 @@ def averages(bars: list[tuple[date, float]]) -> tuple[float | None, float]:
     return round(sum(w) / len(w), 2), full
 
 
+AVG_KEYS = ("1Y", "5Y", "10Y")
+
+
+def period_averages(bars: list[tuple[date, float]], keys=AVG_KEYS) -> dict:
+    """History charts (13 Nov 2026, third request): the average of the DAILY values over each look-back, always on the data ending at
+    the latest value, whatever the chart shows. Window: from the last value on or before the look-back's calendar anchor (the table's
+    rule) to the last value. None when the series starts after the anchor: it is shorter than the period, and is never averaged over
+    less. The chart's second line follows the period (1Y, 5Y, 10Y; Max uses 10Y); the full-history average is `averages()`'s second value."""
+    vals = [v for _, v in bars]
+    dates = [d for d, _ in bars]
+    out = {}
+    for k in keys:
+        if dates[0] > anchor_for(dates[-1], k):
+            out[k] = None
+            continue
+        w = vals[_start_index(dates, dates[-1], k):]
+        out[k] = round(sum(w) / len(w), 2)
+    return out
+
+
 def finite(x) -> bool:
     return x is None or (isinstance(x, (int, float)) and math.isfinite(x))

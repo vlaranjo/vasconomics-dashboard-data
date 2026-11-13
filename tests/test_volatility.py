@@ -542,3 +542,34 @@ def test_yahoo_term_document_checks(tmp_path, cfg, vcfg):
         validate.validate_vx_term(bad)
     with pytest.raises(validate.ValidationError):
         validate.validate_vx_term({**t, "source": "Cboe"})                            # source and kind must agree
+
+
+# ---- period averages on the history charts (13 Nov 2026, third request) ------------------------------------------------------
+def test_period_averages_use_the_data_ending_at_the_latest_value_and_never_less_than_the_period():
+    bars, d = [], E("2006-01-02")
+    while d <= TODAY:
+        if d.weekday() < 5:
+            bars.append((d, float(d.year)))                                          # the value is the year: easy to average by hand
+        d += timedelta(days=1)
+    a = history.period_averages(bars)
+    one = [v for x, v in bars if x >= E("2025-11-13")]
+    assert a["1Y"] == round(sum(one) / len(one), 2)                                  # from 13 Nov 2025 (a Thursday, a value that day)
+    five = [v for x, v in bars if x >= E("2021-11-12")]                               # 13 Nov 2021 is a Saturday: Friday 12 Nov starts
+    assert a["5Y"] == round(sum(five) / len(five), 2)
+    assert a["10Y"] == history.averages(bars)[0]                                     # the same rule as the existing 10-year line
+    short = [b for b in bars if b[0] >= E("2022-03-01")]
+    s = history.period_averages(short)
+    assert s["1Y"] is not None and s["5Y"] is None and s["10Y"] is None             # shorter than the period: n/a, not a shorter average
+
+
+def test_index_files_carry_the_period_averages(tmp_path, cfg, vcfg):
+    seed_markets(tmp_path, cfg)
+    base = fake_yahoo()
+
+    def short_move(symbol):                                                           # a MOVE that starts in 2022
+        return [b for b in base(symbol) if symbol != "^MOVE" or b[0] >= E("2022-03-01")]
+    run_job(tmp_path, cfg, vcfg, synthetic_cboe()[0], yahoo=short_move)
+    vix, move = read(tmp_path, "volatility/vix.json"), read(tmp_path, "volatility/move.json")
+    assert set(vix["averages"]) == {"1Y", "5Y", "10Y"} and all(v is not None for v in vix["averages"].values())
+    assert vix["averages"]["10Y"] == vix["avg_10y"]
+    assert move["averages"]["5Y"] is None and move["averages"]["10Y"] is None and move["first_date"] == "2022-03-01"

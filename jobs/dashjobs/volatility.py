@@ -70,7 +70,7 @@ def index_doc(meta: dict, bars, now_iso: str, daily_key: str) -> dict:
         "source": "Yahoo Finance", "fetched_at": now_iso, "last_success": now_iso, "stale": False, "stale_reason": None,
         "first_date": dates[0].isoformat(), "as_of": dates[-1].isoformat(), "last_value": round(bars[-1][1], 2),
         "n_daily": len(bars), "daily_from": dates[history._start_index(dates, dates[-1], daily_key)].isoformat(),
-        "avg_10y": a10, "avg_full": afull, "d": pts["d"], "v": pts["v"],
+        "avg_10y": a10, "avg_full": afull, "averages": history.period_averages(bars), "d": pts["d"], "v": pts["v"],
     }
 
 
