@@ -1,5 +1,6 @@
 # Manual only. Publishes nothing and commits nothing. From GitHub's servers it fetches one page or file from Yahoo,
 # worldperatio and every yield-curve source in docs/yield-sources.md and writes a reachability table to the run summary.
+# Volatility page: Yahoo ^VIX, ^SKEW, ^MOVE, and Cboe's VX contract list, one settlement CSV and the day's settlement file (plain HTTP).
 # worldgovernmentbonds.com: the US, Poland, Portugal, Russia, Turkey and South Africa pages, one headless Chromium, 5 s apart,
 # as the yields job does; a challenge stops the rest.
 name: probe-sources

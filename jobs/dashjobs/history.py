@@ -122,5 +122,40 @@ def indicator_points(bars: list[tuple[date, float]], years_key: str = "2Y") -> d
     }
 
 
+def level_points(bars: list[tuple[date, float]], daily_key: str = "5Y", keep_keys=("1Y", "5Y", "10Y")) -> dict:
+    """Volatility page (13 Nov 2026): index LEVELS (VIX, SKEW, MOVE are not prices of anything one holds; they are shown as they are).
+    Every close from the `daily_key` start; before that the last close of each ISO week, from the first close. The start bar of each
+    look-back in `keep_keys` is kept, so a period starts on exactly the bar the table uses. Returns {"d": [epoch days], "v": [levels]}."""
+    dates = [d for d, _ in bars]
+    n = len(bars)
+    end = dates[-1]
+    i1 = _start_index(dates, end, daily_key)
+    keep = set(range(i1, n))
+    week_last: dict[tuple[int, int], int] = {}
+    for i in range(0, i1):
+        iso = dates[i].isocalendar()
+        week_last[(iso[0], iso[1])] = i
+    keep |= set(week_last.values())
+    keep.add(0)
+    for key in keep_keys:
+        if dates[0] <= anchor_for(end, key):
+            keep.add(_start_index(dates, end, key))
+    idx = sorted(keep)
+    return {"d": [epoch_day(dates[i]) for i in idx], "v": [round(bars[i][1], 2) for i in idx]}
+
+
+def averages(bars: list[tuple[date, float]]) -> tuple[float | None, float]:
+    """(10-year average, full-history average) of the daily values, always over the FULL daily history, never the thinned points.
+    The 10-year window runs from the last value on or before the 10Y anchor (the table's rule) to the last value; None when the
+    series is younger than ten years."""
+    vals = [v for _, v in bars]
+    dates = [d for d, _ in bars]
+    full = round(sum(vals) / len(vals), 2)
+    if dates[0] > anchor_for(dates[-1], "10Y"):
+        return None, full
+    w = vals[_start_index(dates, dates[-1], "10Y"):]
+    return round(sum(w) / len(w), 2), full
+
+
 def finite(x) -> bool:
     return x is None or (isinstance(x, (int, float)) and math.isfinite(x))

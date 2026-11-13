@@ -1,0 +1,60 @@
+# Volatility job (13 Nov 2026): ^VIX, ^SKEW, ^MOVE from Yahoo Finance and the VIX futures curve from Cboe (plain HTTP) -> validate ->
+# atomic swap of data/ -> one commit -> Pages deploy. The same weekday slots as markets, because GitHub starts scheduled runs hours late.
+# 22:37 UTC is the main slot: the US indices' day is complete from 22:15 UTC, and Cboe's day's settlement file has the day's VX
+# settlements (Cboe settles around 21:15 UTC). Cboe's per-contract CSVs are rewritten only once a day, at about 01:06 New York time,
+# so the morning repair slots read the previous day from them. Every run is safe to repeat: a run with nothing newer keeps the
+# published data and commits nothing (plus one heartbeat a day).
+# A manual run (workflow_dispatch) on the dev branch commits to dev and does NOT deploy.
+name: volatility
+
+on:
+  schedule:
+    - cron: "47 17 * * 1-5"   # 17:47 UTC Mon-Fri
+    - cron: "47 19 * * 1-5"   # 19:47 UTC Mon-Fri
+    - cron: "37 22 * * 1-5"   # 22:37 UTC Mon-Fri, after the US close and Cboe's settlement: the main slot
+    - cron: "47 5 * * 2-6"    # 05:47 UTC Tue-Sat, repair run for the previous day
+    - cron: "47 11 * * 2-6"   # 11:47 UTC Tue-Sat, second repair run
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Its own group: a queued run of another workflow can never replace this one (GitHub keeps one pending run per group).
+# Two jobs finishing at once are handled by jobs/commit_data.py (see decisions S4).
+concurrency:
+  group: volatility
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    timeout-minutes: 20          # a normal run takes about a minute; the very first one reads Cboe's whole archive (about 5 minutes)
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0          # full history: commit_data.py reads the age of the last commit that touched data/
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Fetch, compute, validate, swap
+        run: python jobs/run_volatility.py
+      - name: Commit data (only real changes, plus one heartbeat a day) and push
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python jobs/commit_data.py --job volatility --message "data: volatility ${GITHUB_RUN_ID}" --branch "${GITHUB_REF_NAME}"
+
+  deploy:
+    needs: publish
+    if: github.ref_name == 'main' && needs.publish.outputs.changed == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages-deploy.yml

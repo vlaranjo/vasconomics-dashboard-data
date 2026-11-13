@@ -1,6 +1,6 @@
 """Manual probe: from wherever this runs (GitHub's servers when run by the probe-sources workflow), fetch ONE small
-page or file from Yahoo, worldperatio and every yield-curve source in docs/yield-sources.md, and report which were
-reachable. Publishes nothing; always exits 0 (the report is the result)."""
+page or file from Yahoo (a fund and the three volatility indices), Cboe (the VX contract list, one settlement CSV, the day's
+settlement file), worldperatio and every yield-curve source in docs/yield-sources.md, and report which were reachable. Publishes nothing; always exits 0 (the report is the result)."""
 from __future__ import annotations
 
 import os
@@ -37,6 +37,55 @@ def p_yahoo():
     if isinstance(h, dict) or h is None or len(h) == 0:
         raise RuntimeError(f"no rows: {h}")
     return 200, f"{len(h)} daily rows, last {h.index.get_level_values(-1).max()}"
+
+
+def p_yahoo_index(symbol):
+    """Volatility page: one Yahoo index, last 5 days (the job reads the full history the same way)."""
+    def probe():
+        from yahooquery import Ticker
+        h = Ticker(symbol).history(period="5d")
+        if isinstance(h, dict) or h is None or len(h) == 0:
+            raise RuntimeError(f"no rows: {h}")
+        return 200, f"{len(h)} daily rows, last {h.index.get_level_values(-1).max()}"
+    return probe
+
+
+_CBOE = {}
+
+
+def p_cboe_list():
+    """Cboe's VX contract list: the JSON the historical-data page loads (no browser)."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from dashjobs import cboe
+    r = _get(cboe.LIST_URL)
+    cboe.check_body(r.content, "contract list", "json")
+    cs = cboe.monthly_contracts(cboe.parse_listing(r.content))
+    live = [c for c in cs if c["expiry"] > today]
+    _CBOE["front"] = live[0] if live else None
+    return r.status_code, f"{len(cs)} monthly contracts, {len(live)} not yet expired (front {live[0]['month'] if live else 'none'})", len(live) >= 7
+
+
+def p_cboe_csv():
+    """The front monthly contract's settlement CSV on Cboe's CDN."""
+    from dashjobs import cboe
+    c = _CBOE.get("front")
+    if not c:
+        return "-", "not requested: no contract list", False
+    r = _get(cboe.CDN + c["path"])
+    s = cboe.parse_contract_csv(r.content)
+    last = max(s) if s else None
+    return r.status_code, f"{c['path'].rsplit('/', 1)[-1]}: {len(s)} settlements, last {last}; Last-Modified {r.headers.get('Last-Modified')}", bool(s)
+
+
+def p_cboe_daily():
+    """The day's settlement file for the last weekday before today (header only before settlement or on a holiday)."""
+    from dashjobs import cboe
+    d = today - timedelta(days=1)
+    while d.weekday() >= 5:
+        d -= timedelta(days=1)
+    r = _get(cboe.SETTLE_URL.format(d=d.isoformat()))
+    s = cboe.parse_daily_settlement(r.content)
+    return r.status_code, f"{d.isoformat()}: {len(s)} monthly VX settlements", r.status_code == 200
 
 
 def p_worldperatio():
@@ -115,6 +164,12 @@ PROBES = [
     ("Yield", "worldgovernmentbonds.com US page in a headless browser (the source of every country since round 17)", p_wgb("us")),
     *[("Yield", f"worldgovernmentbonds.com {n} page in the same browser (round 18)", p_wgb(c))
       for c, n in (("pl", "Poland"), ("pt", "Portugal"), ("ru", "Russia"), ("tr", "Turkey"), ("za", "South Africa"))],
+    ("Volatility", "Yahoo Finance ^VIX (5d)", p_yahoo_index("^VIX")),
+    ("Volatility", "Yahoo Finance ^SKEW (5d)", p_yahoo_index("^SKEW")),
+    ("Volatility", "Yahoo Finance ^MOVE (5d)", p_yahoo_index("^MOVE")),
+    ("Volatility", "Cboe VX contract list (www-api.cboe.com JSON)", p_cboe_list),
+    ("Volatility", "Cboe VX settlement CSV, front monthly contract (cdn.cboe.com)", p_cboe_csv),
+    ("Volatility", "Cboe day's settlement file, last weekday", p_cboe_daily),
     ("P/E", "worldperatio.com S&P 500 page", p_worldperatio),
     ("Yield", "US Treasury par curve XML (current month)",
      lambda: (lambda r: (r.status_code, f"{len(r.content)} bytes; {'BC_10YEAR' in r.text and 'BC_10YEAR present' or 'no BC_10YEAR'}", 'BC_10YEAR' in r.text))(

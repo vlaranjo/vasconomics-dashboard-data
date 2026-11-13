@@ -1,0 +1,25 @@
+# Volatility page (13 Nov 2026): three market indices from Yahoo Finance and the VIX futures curve from Cboe.
+# Market data only: no funds. Table order on the page: VIX, VIX term-structure slope, SKEW, MOVE.
+schema_version: 1
+lookbacks: ["1D", "1W", "1M", "3M", "6M", "1Y", "2Y", "5Y", "10Y"]     # changes in index points (slope units for the slope); no YTD
+indices:
+  # range: a close outside it fails validation (the file is kept as published and marked stale). Seen on Yahoo, 13 Nov 2026:
+  # VIX 9.14 to 82.69 since 1990, SKEW 101.23 to 183.12 since 1990, MOVE 36.62 to 264.60 since Nov 2002.
+  - {id: vix, ticker: "^VIX", name: "VIX", long: "Cboe Volatility Index (S&P 500 30-day implied volatility)", range: [5, 150]}
+  - {id: skew, ticker: "^SKEW", name: "SKEW", long: "Cboe SKEW Index (S&P 500 tail risk)", range: [90, 250]}
+  # Yahoo's name for ^MOVE reads "Northern Trust iBoxx 5-Year Tar" (a metadata error on Yahoo's side, 13 Nov 2026); the values are the
+  # ICE BofA MOVE Index (264.6 in October 2008, 98.43 on 12 Nov 2026).
+  - {id: move, ticker: "^MOVE", name: "MOVE", long: "ICE BofA MOVE Index (US Treasury implied volatility)", range: [20, 400]}
+vx:
+  positions: 8              # contracts on the curve: 1st to 8th monthly contract
+  slope_positions: 7        # the slope uses positions 1..7
+  slope_min_points: 4       # fewer settlements than this among positions 1..7: no slope that day
+  settle_range: [5, 150]
+  max_abs_slope: 15         # a slope outside +-15 points per month fails validation (seen: about -3 to +1.7)
+  recompute_days: 10        # each run rebuilds the last 10 calendar days from the CSVs (the rest comes from the published history)
+  keep_curve_days: 400      # daily curves kept in the published history file (enough for the 1-year-earlier curve)
+  daily_settlement_lookback: 4   # weekdays after the CSVs' last date tried in the day's settlement file (one request each)
+delay_seconds: 1.5          # pause between requests to Cboe; Yahoo symbols 3 s apart
+validation:
+  max_close_age_days: 6     # a fresh series' last value within 6 calendar days of the run date (Thanksgiving + weekend)
+  daily_years: 5            # chart files: daily points for the last 5 years, weekly before

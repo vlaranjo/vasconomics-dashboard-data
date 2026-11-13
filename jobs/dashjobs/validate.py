@@ -100,6 +100,8 @@ MANIFEST_SCHEMA = {
             "type": "object", "required": ["path", "as_of"]}},
         "indicators": {"type": "object", "additionalProperties": {
             "type": "object", "required": ["path", "as_of"]}},
+        "volatility": {"type": "object", "additionalProperties": {
+            "type": "object", "required": ["path", "as_of"]}},
     },
 }
 
@@ -248,7 +250,7 @@ def validate_manifest_files(root, manifest: dict) -> None:
     import json
     from pathlib import Path
     root = Path(root)
-    paths = [manifest["status"]] + [v["path"] for b in ("sections", "history", "indicators", "pe", "yields")
+    paths = [manifest["status"]] + [v["path"] for b in ("sections", "history", "indicators", "pe", "yields", "volatility")
                                     for v in (manifest.get(b) or {}).values()]
     for rel in paths:
         p = root / rel
@@ -335,3 +337,94 @@ def validate_indicators(doc: dict, section_ids: set[str] | None = None) -> None:
             raise ValidationError(f"indicators/{doc['section']} {s['id']}: level must start at 100 and stay positive")
         if any(v is not None and not 0 <= v <= 100 for v in s["rsi"]):
             raise ValidationError(f"indicators/{doc['section']} {s['id']}: RSI outside 0..100")
+
+
+# ---- Volatility page (13 Nov 2026) -------------------------------------------------------------------------------------------
+_STAMPS = {"fetched_at": _TS, "last_success": _TS, "stale": {"type": "boolean"}, "stale_reason": {"type": ["string", "null"]}}
+VOL_INDEX_SCHEMA = {
+    "type": "object",
+    "required": ["schema_version", "id", "name", "long", "ticker", "source", *_STAMPS, "first_date", "as_of", "last_value", "n_daily",
+                 "daily_from", "avg_10y", "avg_full", "d", "v"],
+    "properties": {"schema_version": {"const": 1}, "id": {"type": "string"}, "name": {"type": "string"}, "long": {"type": "string"},
+                   "ticker": {"type": "string"}, "source": {"const": "Yahoo Finance"}, **_STAMPS, "first_date": _DATE, "as_of": _DATE,
+                   "daily_from": _DATE, "last_value": {"type": "number"}, "n_daily": {"type": "integer"}, "avg_10y": _NUM_OR_NULL,
+                   "avg_full": {"type": "number"}, "d": _INTS, "v": _NUMS},
+    "additionalProperties": False,
+}
+_CHANGE = {"type": "object", "required": ["value", "start", "start_value", "status"], "additionalProperties": False,
+           "properties": {"value": _NUM_OR_NULL, "start": {"type": ["string", "null"]}, "start_value": _NUM_OR_NULL,
+                          "status": {"enum": ["ok", "na_young", "na_missing"]}}}
+VOL_SUMMARY_SCHEMA = {
+    "type": "object", "required": ["schema_version", "generated_at", "as_of", "lookbacks", "rows"],
+    "properties": {"schema_version": {"const": 1}, "generated_at": _TS, "as_of": _DATE, "lookbacks": {"type": "array", "items": {"type": "string"}},
+                   "rows": {"type": "array", "items": {
+                       "type": "object", "required": ["id", "name", "long", "direction", "latest", "date", "first_date", "stale", "stale_reason", "changes"],
+                       "properties": {"id": {"enum": ["vix", "vx_slope", "skew", "move"]}, "name": {"type": "string"}, "long": {"type": "string"},
+                                      "direction": {"enum": ["up_bad", "up_good"]}, "latest": {"type": "number"}, "date": _DATE, "first_date": _DATE,
+                                      "stale": {"type": "boolean"}, "stale_reason": {"type": ["string", "null"]},
+                                      "changes": {"type": "object", "additionalProperties": _CHANGE}}}}},
+}
+VX_HISTORY_SCHEMA = {
+    "type": "object", "required": ["schema_version", "source", "source_url", *_STAMPS, "as_of", "first_date", "archive_last", "slope", "curves"],
+    "properties": {"schema_version": {"const": 1}, "source": {"const": "Cboe"}, "source_url": {"type": "string"}, **_STAMPS, "as_of": _DATE,
+                   "first_date": {"type": ["string", "null"]}, "archive_last": _DATE,
+                   "slope": {"type": "object", "required": ["d", "v"], "properties": {"d": _INTS, "v": _NUMS}},
+                   "curves": {"type": "object", "required": ["d", "s"], "properties": {"d": _INTS, "s": {"type": "array", "items": _NUMS_NULL}}}},
+}
+_VX_POINT = {"type": "object", "required": ["pos", "code", "month", "expiry", "days", "settle"], "additionalProperties": False,
+             "properties": {"pos": {"type": "integer", "minimum": 1}, "code": {"type": "string"}, "month": {"type": "string"},
+                            "expiry": _DATE, "days": {"type": "integer", "minimum": 1}, "settle": _NUM_OR_NULL}}
+VX_TERM_SCHEMA = {
+    "type": "object", "required": ["schema_version", "source", "source_url", "terms_url", *_STAMPS, "as_of", "positions", "slope_positions",
+                                   "slope_latest", "curves"],
+    "properties": {"schema_version": {"const": 1}, "source": {"const": "Cboe"}, "source_url": {"type": "string"}, "terms_url": {"type": "string"},
+                   **_STAMPS, "as_of": _DATE, "positions": {"type": "integer"}, "slope_positions": {"type": "integer"}, "slope_latest": _NUM_OR_NULL,
+                   "curves": {"type": "array", "minItems": 4, "maxItems": 4, "items": {
+                       "type": "object", "required": ["id", "label", "date", "points"],
+                       "properties": {"id": {"enum": ["latest", "1m", "6m", "1y"]}, "label": {"type": "string"},
+                                      "date": {"type": ["string", "null"]}, "anchor": _DATE, "points": {"type": "array", "items": _VX_POINT}}}}},
+}
+
+
+def _increasing(d: list[int], what: str) -> None:
+    if any(b <= a for a, b in zip(d, d[1:])):
+        raise ValidationError(f"{what}: dates are not strictly increasing")
+
+
+def validate_vol_index(doc: dict) -> None:
+    _check(VOL_INDEX_SCHEMA, doc, f"volatility/{doc.get('id')}")
+    _walk_numbers(doc, "volatility index")
+    if len(doc["d"]) != len(doc["v"]) or len(doc["d"]) < 2:
+        raise ValidationError(f"volatility/{doc['id']}: {len(doc['d'])} dates for {len(doc['v'])} values")
+    _increasing(doc["d"], f"volatility/{doc['id']}")
+
+
+def validate_vol_summary(doc: dict) -> None:
+    _check(VOL_SUMMARY_SCHEMA, doc, "volatility/summary")
+    _walk_numbers(doc, "volatility summary")
+    ids = [r["id"] for r in doc["rows"]]
+    if len(ids) != len(set(ids)):
+        raise ValidationError("volatility/summary: row ids are not unique")
+
+
+def validate_vx_history(doc: dict) -> None:
+    _check(VX_HISTORY_SCHEMA, doc, "volatility/vx-history")
+    _walk_numbers(doc, "vx history")
+    for k, vals in (("slope", doc["slope"]["v"]), ("curves", doc["curves"]["s"])):
+        if len(doc[k]["d"]) != len(vals):
+            raise ValidationError(f"volatility/vx-history {k}: {len(doc[k]['d'])} dates for {len(vals)} values")
+        _increasing(doc[k]["d"], f"volatility/vx-history {k}")
+
+
+def validate_vx_term(doc: dict) -> None:
+    _check(VX_TERM_SCHEMA, doc, "volatility/vx-term")
+    _walk_numbers(doc, "vx term")
+    latest = doc["curves"][0]
+    if latest["id"] != "latest" or latest["date"] != doc["as_of"]:
+        raise ValidationError("volatility/vx-term: the first curve must be 'latest', dated as_of")
+    for c in doc["curves"]:
+        if [p["pos"] for p in c["points"]] != list(range(1, len(c["points"]) + 1)):
+            raise ValidationError(f"volatility/vx-term {c['id']}: positions are not 1, 2, 3, ...")
+        exps = [p["expiry"] for p in c["points"]]
+        if exps != sorted(exps) or len(set(exps)) != len(exps):
+            raise ValidationError(f"volatility/vx-term {c['id']}: contracts are not in expiry order")
