@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-14T12:30:30Z",
+ "generated_at": "2026-11-14T13:49:20Z",
  "status": "status.json",
  "sections": {
   "asset-classes": {
@@ -446,126 +446,126 @@
  "yields": {
   "us": {
    "path": "yields/us.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "United States"
   },
   "uk": {
    "path": "yields/uk.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "United Kingdom"
   },
   "ca": {
    "path": "yields/ca.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "Canada"
   },
   "jp": {
    "path": "yields/jp.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "Japan"
   },
   "de": {
    "path": "yields/de.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "Germany"
   },
   "es": {
    "path": "yields/es.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "Spain"
   },
   "ch": {
    "path": "yields/ch.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "Switzerland"
   },
   "br": {
    "path": "yields/br.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "Brazil"
   },
   "fr": {
    "path": "yields/fr.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "France"
   },
   "it": {
    "path": "yields/it.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "Italy"
   },
   "au": {
    "path": "yields/au.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "Australia"
   },
   "in": {
    "path": "yields/in.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "India"
   },
   "cn": {
    "path": "yields/cn.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "China"
   },
   "pl": {
    "path": "yields/pl.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "Poland"
   },
   "pt": {
    "path": "yields/pt.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "Portugal"
   },
   "ru": {
    "path": "yields/ru.json",
-   "as_of": "2026-11-11",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "Russia"
   },
   "tr": {
    "path": "yields/tr.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "Turkey"
   },
   "za": {
    "path": "yields/za.json",
-   "as_of": "2026-11-12",
+   "as_of": "2026-11-13",
    "stale": false,
    "status": "ok",
    "name": "South Africa"

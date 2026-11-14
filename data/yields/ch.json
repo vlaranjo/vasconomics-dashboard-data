@@ -6,11 +6,11 @@
  "source_url": "https://www.worldgovernmentbonds.com/country/switzerland/",
  "terms": "World Government Bonds: all rights reserved. Read once a week per country as a normal visitor, in a browser.",
  "status": "ok",
- "fetched_at": "2026-11-12T22:05:49Z",
- "last_success": "2026-11-12T22:05:49Z",
+ "fetched_at": "2026-11-14T13:49:20Z",
+ "last_success": "2026-11-14T13:49:20Z",
  "stale": false,
  "stale_reason": null,
- "as_of": "2026-11-12",
+ "as_of": "2026-11-13",
  "tenors": [
   "1M",
   "3M",
@@ -27,46 +27,46 @@
   {
    "id": "latest",
    "label": "Latest",
-   "date": "2026-11-12",
+   "date": "2026-11-13",
    "points": {
     "1M": {
      "value": -0.11,
-     "date": "2026-11-12",
+     "date": "2026-11-13",
      "kind": "D"
     },
     "3M": {
-     "value": -0.04,
-     "date": "2026-11-12",
+     "value": -0.07,
+     "date": "2026-11-13",
      "kind": "D"
     },
     "6M": {
-     "value": 0.12,
-     "date": "2026-11-12",
+     "value": 0.07,
+     "date": "2026-11-13",
      "kind": "D"
     },
     "1Y": {
-     "value": 0.21,
-     "date": "2026-11-12",
+     "value": 0.3,
+     "date": "2026-11-13",
      "kind": "D"
     },
     "3Y": {
-     "value": 0.454,
-     "date": "2026-11-12",
+     "value": 0.447,
+     "date": "2026-11-13",
      "kind": "D"
     },
     "5Y": {
-     "value": 0.495,
-     "date": "2026-11-12",
+     "value": 0.488,
+     "date": "2026-11-13",
      "kind": "D"
     },
     "10Y": {
-     "value": 0.553,
-     "date": "2026-11-12",
+     "value": 0.563,
+     "date": "2026-11-13",
      "kind": "D"
     },
     "30Y": {
-     "value": 0.645,
-     "date": "2026-11-12",
+     "value": 0.64,
+     "date": "2026-11-13",
      "kind": "D"
     }
    }
@@ -74,53 +74,53 @@
   {
    "id": "1m",
    "label": "1 month earlier",
-   "date": "2026-10-12",
+   "date": "2026-10-13",
    "points": {
     "1M": {
-     "value": -0.12,
-     "date": "2026-10-12",
+     "value": -0.11,
+     "date": "2026-10-13",
      "kind": "C",
      "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
     },
     "3M": {
      "value": -0.08,
-     "date": "2026-10-12",
+     "date": "2026-10-13",
      "kind": "C",
      "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
     },
     "6M": {
      "value": 0.06,
-     "date": "2026-10-12",
+     "date": "2026-10-13",
      "kind": "C",
      "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
     },
     "1Y": {
-     "value": 0.32,
-     "date": "2026-10-12",
+     "value": 0.37,
+     "date": "2026-10-13",
      "kind": "C",
      "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
     },
     "3Y": {
-     "value": 0.389,
-     "date": "2026-10-12",
+     "value": 0.388,
+     "date": "2026-10-13",
      "kind": "C",
      "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
     },
     "5Y": {
-     "value": 0.472,
-     "date": "2026-10-12",
+     "value": 0.486,
+     "date": "2026-10-13",
      "kind": "C",
      "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
     },
     "10Y": {
-     "value": 0.551,
-     "date": "2026-10-12",
+     "value": 0.559,
+     "date": "2026-10-13",
      "kind": "C",
      "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
     },
     "30Y": {
-     "value": 0.58,
-     "date": "2026-10-12",
+     "value": 0.558,
+     "date": "2026-10-13",
      "kind": "C",
      "label": "derived from the site's 1-month change column (latest minus Chg 1M)"
     }
@@ -129,53 +129,53 @@
   {
    "id": "6m",
    "label": "6 months earlier",
-   "date": "2026-05-12",
+   "date": "2026-05-13",
    "points": {
     "1M": {
      "value": -0.16,
-     "date": "2026-05-12",
+     "date": "2026-05-13",
      "kind": "C",
      "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
     },
     "3M": {
-     "value": -0.02,
-     "date": "2026-05-12",
+     "value": -0.04,
+     "date": "2026-05-13",
      "kind": "C",
      "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
     },
     "6M": {
-     "value": -0.04,
-     "date": "2026-05-12",
+     "value": -0.05,
+     "date": "2026-05-13",
      "kind": "C",
      "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
     },
     "1Y": {
-     "value": 0.2,
-     "date": "2026-05-12",
+     "value": 0.16,
+     "date": "2026-05-13",
      "kind": "C",
      "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
     },
     "3Y": {
-     "value": 0.262,
-     "date": "2026-05-12",
+     "value": 0.239,
+     "date": "2026-05-13",
      "kind": "C",
      "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
     },
     "5Y": {
-     "value": 0.302,
-     "date": "2026-05-12",
+     "value": 0.31,
+     "date": "2026-05-13",
      "kind": "C",
      "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
     },
     "10Y": {
-     "value": 0.438,
-     "date": "2026-05-12",
+     "value": 0.442,
+     "date": "2026-05-13",
      "kind": "C",
      "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
     },
     "30Y": {
-     "value": 0.658,
-     "date": "2026-05-12",
+     "value": 0.644,
+     "date": "2026-05-13",
      "kind": "C",
      "label": "derived from the site's 6-month change column (latest minus Chg 6M)"
     }
@@ -184,53 +184,53 @@
   {
    "id": "1y",
    "label": "1 year earlier",
-   "date": "2025-11-12",
+   "date": "2025-11-13",
    "points": {
     "1M": {
-     "value": -0.01,
-     "date": "2025-11-12",
+     "value": -0.02,
+     "date": "2025-11-13",
      "kind": "C",
      "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
     },
     "3M": {
      "value": -0.14,
-     "date": "2025-11-12",
+     "date": "2025-11-13",
      "kind": "C",
      "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
     },
     "6M": {
      "value": -0.06,
-     "date": "2025-11-12",
+     "date": "2025-11-13",
      "kind": "C",
      "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
     },
     "1Y": {
      "value": 0.08,
-     "date": "2025-11-12",
+     "date": "2025-11-13",
      "kind": "C",
      "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
     },
     "3Y": {
-     "value": -0.048,
-     "date": "2025-11-12",
+     "value": -0.068,
+     "date": "2025-11-13",
      "kind": "C",
      "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
     },
     "5Y": {
-     "value": 0.038,
-     "date": "2025-11-12",
+     "value": 0.037,
+     "date": "2025-11-13",
      "kind": "C",
      "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
     },
     "10Y": {
-     "value": 0.155,
-     "date": "2025-11-12",
+     "value": 0.172,
+     "date": "2025-11-13",
      "kind": "C",
      "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
     },
     "30Y": {
-     "value": 0.335,
-     "date": "2025-11-12",
+     "value": 0.312,
+     "date": "2025-11-13",
      "kind": "C",
      "label": "derived from the site's 12-month change column (latest minus Chg 12M)"
     }
@@ -238,7 +238,7 @@
   }
  ],
  "state": {
-  "wgb_page_updated": "2026-11-12T21:15Z",
+  "wgb_page_updated": "2026-11-14T00:15Z",
   "wgb_other_rows": [
    "2 months",
    "2 years",
