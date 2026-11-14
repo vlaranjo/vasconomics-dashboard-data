@@ -1,27 +1,31 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-13T22:55:29Z",
+ "generated_at": "2026-11-14T00:29:56Z",
  "run": {
   "workflow": "markets",
-  "run_id": 43523120537,
-  "run_url": "https://github.com/vlaranjo/vasconomics-dashboard-data/actions/runs/43523120537",
-  "started_at": "2026-11-13T22:55:29Z",
-  "finished_at": "2026-11-13T22:55:29Z"
+  "run_id": 43534544267,
+  "run_url": "https://github.com/vlaranjo/vasconomics-dashboard-data/actions/runs/43534544267",
+  "started_at": "2026-11-14T00:29:56Z",
+  "finished_at": "2026-11-14T00:29:56Z"
  },
  "sources": {
   "yahoo_markets": {
-   "last_attempt": "2026-11-13T22:55:29Z",
-   "last_success": "2026-11-13T22:55:29Z",
+   "last_attempt": "2026-11-14T00:29:56Z",
+   "last_success": "2026-11-14T00:29:56Z",
    "ok": false,
    "expected_cadence_hours": 24,
    "stale": false,
-   "items_ok": 94,
+   "items_ok": 23,
    "items_total": 112,
    "failed": [
-    "fixed-income/VECA.DE: newest bar 2026-11-12 is older than the published 2026-11-13",
-    "fixed-income/IHYG.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
-    "fixed-income/QDVP.DE: newest bar 2026-11-12 is older than the published 2026-11-13",
-    "fixed-income/MUNI.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "asset-classes: kept as published, newer data not available (ACWIE.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); VAGF.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); EPRA.PA (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); CMOE.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); XAD1.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); PEU.PA (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12))",
+    "equity-regions: kept as published, newer data not available (ACWIE.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); UBUJ.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); EUNK.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); IBCG.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); SXR1.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); EUNM.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); AASI.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); ALAT.PA (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12))",
+    "equity-countries: kept as published, newer data not available (IBCF.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); LYP6.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); SXRW.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); 18MN.DE (newest bar 2026-11-10, published 2026-11-13, Yahoo's last raw bar 2026-11-10); IBCG.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); SAUS.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); XCS6.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); QDV5.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); LBRA.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); LKOR.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); D5BI.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); IBC4.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); LTUR.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); IUSS.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); IBCJ.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); INDO.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); DBX5.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12))",
+    "us-majors: kept as published, newer data not available (SXR8.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); SXRV.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); SXRU.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); ZPRR.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12))",
+    "us-factors: kept as published, newer data not available (SXR4.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); QDVI.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); QDVC.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); QDVB.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); QDVA.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); SPYD.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); MVEA.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12))",
+    "us-sectors: kept as published, newer data not available (IU5C.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); QDVK.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); 2B7D.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); QDVF.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); QDVH.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); QDVG.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); 2B7C.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); 2B7B.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); QDVE.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); 2B7A.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12))",
+    "eu-sectors: kept as published, newer data not available (STTX.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); STRX.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); STSX.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); STNX.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); STZX.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); STWX.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); STQX.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); STPX.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); STKX.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); STUX.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12))",
+    "fixed-income: kept as published, newer data not available (SYBT.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); VGEA.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); IUST.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); IBCI.AS (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); IGLT.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); SPFA.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); IBCD.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); IHYU.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); VECA.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); IHYG.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); QDVP.DE (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12); MUNI.MI (newest bar 2026-11-12, published 2026-11-13, Yahoo's last raw bar 2026-11-12))",
     "commodity-sectors/AIGE.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
     "commodity-sectors/AIGA.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
     "commodity-sectors/AIGP.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
@@ -30,6 +34,7 @@
     "commodity-components/ENGS.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
     "commodity-components/ECRN.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
     "commodity-components/EWAT.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
+    "commodity-components/XAD1.DE: newest bar 2026-11-12 is older than the published 2026-11-13",
     "commodity-components/ESVR.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
     "commodity-components/PHPT.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
     "commodity-components/ECOP.MI: newest bar 2026-11-12 is older than the published 2026-11-13",
@@ -71,5 +76,5 @@
    "failed": []
   }
  },
- "heartbeat": "2026-11-13T22:55:29Z"
+ "heartbeat": "2026-11-14T00:29:56Z"
 }
