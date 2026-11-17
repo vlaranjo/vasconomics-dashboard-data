@@ -1,17 +1,17 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-17T02:38:35Z",
+ "generated_at": "2026-11-17T04:45:04Z",
  "run": {
   "workflow": "markets",
-  "run_id": 44004448705,
-  "run_url": "https://github.com/vlaranjo/vasconomics-dashboard-data/actions/runs/44004448705",
-  "started_at": "2026-11-17T02:38:35Z",
-  "finished_at": "2026-11-17T02:38:35Z"
+  "run_id": 44019287983,
+  "run_url": "https://github.com/vlaranjo/vasconomics-dashboard-data/actions/runs/44019287983",
+  "started_at": "2026-11-17T04:45:04Z",
+  "finished_at": "2026-11-17T04:45:04Z"
  },
  "sources": {
   "yahoo_markets": {
-   "last_attempt": "2026-11-17T02:38:35Z",
-   "last_success": "2026-11-17T02:38:35Z",
+   "last_attempt": "2026-11-17T04:45:04Z",
+   "last_success": "2026-11-17T04:45:04Z",
    "ok": false,
    "expected_cadence_hours": 24,
    "stale": false,
@@ -54,5 +54,5 @@
    "failed": []
   }
  },
- "heartbeat": "2026-11-17T02:38:35Z"
+ "heartbeat": "2026-11-17T04:45:04Z"
 }
