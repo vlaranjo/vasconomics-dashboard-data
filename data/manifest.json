@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-17T20:00:27Z",
+ "generated_at": "2026-11-17T23:59:14Z",
  "status": "status.json",
  "sections": {
   "asset-classes": {
@@ -574,15 +574,15 @@
  "volatility": {
   "vix": {
    "path": "volatility/vix.json",
-   "as_of": "2026-11-16"
+   "as_of": "2026-11-17"
   },
   "skew": {
    "path": "volatility/skew.json",
-   "as_of": "2026-11-16"
+   "as_of": "2026-11-17"
   },
   "move": {
    "path": "volatility/move.json",
-   "as_of": "2026-11-16"
+   "as_of": "2026-11-17"
   },
   "vx-history": {
    "path": "volatility/vx-history.json",
