@@ -4,8 +4,8 @@
  "title": "Commodity sectors",
  "page": "commodities",
  "kind": "funds",
- "generated_at": "2026-11-19T14:41:52Z",
- "as_of": "2026-11-18",
+ "generated_at": "2026-11-19T19:37:56Z",
+ "as_of": "2026-11-19",
  "lookbacks": [
   "1D",
   "1W",
@@ -31,58 +31,58 @@
    "fund_name": "WisdomTree Energy",
    "etc": true,
    "first_close": "2008-01-02",
-   "last_close": "2026-11-18",
+   "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T14:41:52Z",
+   "last_success": "2026-11-19T19:37:56Z",
    "returns": {
     "1D": {
-     "value": -1.66,
-     "start": "2026-11-17",
+     "value": 0.73,
+     "start": "2026-11-18",
      "status": "ok"
     },
     "1W": {
-     "value": -3.61,
-     "start": "2026-11-11",
+     "value": -2.19,
+     "start": "2026-11-12",
      "status": "ok"
     },
     "1M": {
-     "value": -9.8,
-     "start": "2026-10-16",
+     "value": -10.83,
+     "start": "2026-10-19",
      "status": "ok"
     },
     "3M": {
-     "value": 8.95,
-     "start": "2026-08-18",
+     "value": 10.01,
+     "start": "2026-08-19",
      "status": "ok"
     },
     "6M": {
-     "value": 3.55,
-     "start": "2026-05-18",
+     "value": 3.85,
+     "start": "2026-05-19",
      "status": "ok"
     },
     "YTD": {
-     "value": 82.66,
+     "value": 84.0,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 67.78,
-     "start": "2025-11-18",
+     "value": 67.72,
+     "start": "2025-11-19",
      "status": "ok"
     },
     "2Y": {
-     "value": 58.95,
-     "start": "2024-11-18",
+     "value": 60.09,
+     "start": "2024-11-19",
      "status": "ok"
     },
     "5Y": {
-     "value": 58.08,
-     "start": "2021-11-18",
+     "value": 63.36,
+     "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
-     "value": 57.41,
+     "value": 58.56,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -100,58 +100,58 @@
    "fund_name": "WisdomTree Agriculture",
    "etc": true,
    "first_close": "2008-01-02",
-   "last_close": "2026-11-18",
+   "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T14:41:52Z",
+   "last_success": "2026-11-19T19:37:56Z",
    "returns": {
     "1D": {
-     "value": -1.12,
-     "start": "2026-11-17",
+     "value": -0.42,
+     "start": "2026-11-18",
      "status": "ok"
     },
     "1W": {
-     "value": -0.09,
-     "start": "2026-11-11",
+     "value": -0.59,
+     "start": "2026-11-12",
      "status": "ok"
     },
     "1M": {
-     "value": -5.5,
-     "start": "2026-10-16",
+     "value": -6.19,
+     "start": "2026-10-19",
      "status": "ok"
     },
     "3M": {
-     "value": -2.79,
-     "start": "2026-08-18",
+     "value": -3.65,
+     "start": "2026-08-19",
      "status": "ok"
     },
     "6M": {
-     "value": 1.78,
-     "start": "2026-05-18",
+     "value": 0.6,
+     "start": "2026-05-19",
      "status": "ok"
     },
     "YTD": {
-     "value": 13.83,
+     "value": 13.35,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 5.3,
-     "start": "2025-11-18",
+     "value": 6.09,
+     "start": "2025-11-19",
      "status": "ok"
     },
     "2Y": {
-     "value": 1.19,
-     "start": "2024-11-18",
+     "value": 0.26,
+     "start": "2024-11-19",
      "status": "ok"
     },
     "5Y": {
-     "value": 8.97,
-     "start": "2021-11-18",
+     "value": 8.37,
+     "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
-     "value": 12.05,
+     "value": 11.58,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -169,58 +169,58 @@
    "fund_name": "WisdomTree Industrial Metals - EUR Daily Hedged",
    "etc": true,
    "first_close": "2012-07-03",
-   "last_close": "2026-11-18",
+   "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T14:41:52Z",
+   "last_success": "2026-11-19T19:37:56Z",
    "returns": {
     "1D": {
-     "value": -5.12,
-     "start": "2026-11-17",
+     "value": 1.16,
+     "start": "2026-11-18",
      "status": "ok"
     },
     "1W": {
-     "value": -8.06,
-     "start": "2026-11-11",
+     "value": -5.73,
+     "start": "2026-11-12",
      "status": "ok"
     },
     "1M": {
-     "value": -8.39,
-     "start": "2026-10-16",
+     "value": -7.49,
+     "start": "2026-10-19",
      "status": "ok"
     },
     "3M": {
-     "value": -10.72,
-     "start": "2026-08-18",
+     "value": -10.01,
+     "start": "2026-08-19",
      "status": "ok"
     },
     "6M": {
-     "value": -13.18,
-     "start": "2026-05-18",
+     "value": -11.88,
+     "start": "2026-05-19",
      "status": "ok"
     },
     "YTD": {
-     "value": -3.53,
+     "value": -2.42,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 5.91,
-     "start": "2025-11-18",
+     "value": 6.86,
+     "start": "2025-11-19",
      "status": "ok"
     },
     "2Y": {
-     "value": 10.93,
-     "start": "2024-11-18",
+     "value": 11.17,
+     "start": "2024-11-19",
      "status": "ok"
     },
     "5Y": {
-     "value": -1.29,
-     "start": "2021-11-18",
+     "value": -2.75,
+     "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
-     "value": 30.29,
+     "value": 31.79,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -238,58 +238,58 @@
    "fund_name": "WisdomTree Precious Metals",
    "etc": true,
    "first_close": "2008-01-02",
-   "last_close": "2026-11-18",
+   "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T14:41:52Z",
+   "last_success": "2026-11-19T19:37:56Z",
    "returns": {
     "1D": {
-     "value": -3.1,
-     "start": "2026-11-17",
+     "value": -1.81,
+     "start": "2026-11-18",
      "status": "ok"
     },
     "1W": {
-     "value": -6.55,
-     "start": "2026-11-11",
+     "value": -5.34,
+     "start": "2026-11-12",
      "status": "ok"
     },
     "1M": {
-     "value": -10.08,
-     "start": "2026-10-16",
+     "value": -11.41,
+     "start": "2026-10-19",
      "status": "ok"
     },
     "3M": {
-     "value": -12.53,
-     "start": "2026-08-18",
+     "value": -16.0,
+     "start": "2026-08-19",
      "status": "ok"
     },
     "6M": {
-     "value": -18.11,
-     "start": "2026-05-18",
+     "value": -18.94,
+     "start": "2026-05-19",
      "status": "ok"
     },
     "YTD": {
-     "value": -14.81,
+     "value": -16.35,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": -1.05,
-     "start": "2025-11-18",
+     "value": -3.55,
+     "start": "2025-11-19",
      "status": "ok"
     },
     "2Y": {
-     "value": 38.64,
-     "start": "2024-11-18",
+     "value": 35.86,
+     "start": "2024-11-19",
      "status": "ok"
     },
     "5Y": {
-     "value": 92.47,
-     "start": "2021-11-18",
+     "value": 88.72,
+     "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
-     "value": 143.36,
+     "value": 138.96,
      "start": "2016-11-15",
      "status": "ok"
     }
@@ -310,7 +310,7 @@
    "last_close": "2026-11-18",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T14:41:52Z",
+   "last_success": "2026-11-19T19:37:56Z",
    "returns": {
     "1D": {
      "value": 1.86,
