@@ -4,8 +4,8 @@
  "title": "Fixed income",
  "page": "fixed-income",
  "kind": "funds",
- "generated_at": "2026-11-20T14:22:45Z",
- "as_of": "2026-11-19",
+ "generated_at": "2026-11-20T19:15:35Z",
+ "as_of": "2026-11-20",
  "lookbacks": [
   "1D",
   "1W",
@@ -30,58 +30,58 @@
    "hedged": false,
    "fund_name": "State Street SPDR Bloomberg U.S. Treasury Bond UCITS ETF",
    "first_close": "2011-06-03",
-   "last_close": "2026-11-19",
+   "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T14:22:45Z",
+   "last_success": "2026-11-20T19:15:35Z",
    "returns": {
     "1D": {
-     "value": -0.09,
-     "start": "2026-11-18",
+     "value": 0.6,
+     "start": "2026-11-19",
      "status": "ok"
     },
     "1W": {
-     "value": 0.91,
-     "start": "2026-11-12",
+     "value": 1.48,
+     "start": "2026-11-13",
      "status": "ok"
     },
     "1M": {
-     "value": 2.93,
-     "start": "2026-10-19",
+     "value": 3.5,
+     "start": "2026-10-20",
      "status": "ok"
     },
     "3M": {
-     "value": 5.35,
-     "start": "2026-08-19",
+     "value": 6.31,
+     "start": "2026-08-20",
      "status": "ok"
     },
     "6M": {
-     "value": 5.86,
-     "start": "2026-05-19",
+     "value": 6.27,
+     "start": "2026-05-20",
      "status": "ok"
     },
     "YTD": {
-     "value": 6.08,
+     "value": 6.72,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 4.27,
-     "start": "2025-11-19",
+     "value": 4.75,
+     "start": "2025-11-20",
      "status": "ok"
     },
     "2Y": {
-     "value": 0.99,
-     "start": "2024-11-19",
+     "value": 1.04,
+     "start": "2024-11-20",
      "status": "ok"
     },
     "5Y": {
-     "value": -0.88,
+     "value": -0.29,
      "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
-     "value": 6.95,
+     "value": 7.59,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -98,53 +98,53 @@
    "hedged": false,
    "fund_name": "Vanguard EUR Eurozone Government Bond UCITS ETF EUR Accumulation",
    "first_close": "2019-02-19",
-   "last_close": "2026-11-19",
+   "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T14:22:45Z",
+   "last_success": "2026-11-20T19:15:35Z",
    "returns": {
     "1D": {
-     "value": -0.29,
-     "start": "2026-11-18",
+     "value": 0.57,
+     "start": "2026-11-19",
      "status": "ok"
     },
     "1W": {
-     "value": -0.46,
-     "start": "2026-11-12",
+     "value": 0.38,
+     "start": "2026-11-13",
      "status": "ok"
     },
     "1M": {
-     "value": 0.54,
-     "start": "2026-10-19",
+     "value": 0.9,
+     "start": "2026-10-20",
      "status": "ok"
     },
     "3M": {
-     "value": -1.43,
-     "start": "2026-08-19",
+     "value": -0.9,
+     "start": "2026-08-20",
      "status": "ok"
     },
     "6M": {
-     "value": -1.33,
-     "start": "2026-05-19",
+     "value": -1.49,
+     "start": "2026-05-20",
      "status": "ok"
     },
     "YTD": {
-     "value": -2.37,
+     "value": -1.81,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": -2.78,
-     "start": "2025-11-19",
+     "value": -2.02,
+     "start": "2025-11-20",
      "status": "ok"
     },
     "2Y": {
-     "value": -1.69,
-     "start": "2024-11-19",
+     "value": -1.03,
+     "start": "2024-11-20",
      "status": "ok"
     },
     "5Y": {
-     "value": -14.18,
+     "value": -13.69,
      "start": "2021-11-19",
      "status": "ok"
     },
@@ -153,7 +153,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": -6.41,
+      "value": -5.88,
       "start": "2019-02-19"
      }
     }
@@ -170,58 +170,58 @@
    "hedged": false,
    "fund_name": "iShares $ TIPS UCITS ETF USD (Acc)",
    "first_close": "2008-10-16",
-   "last_close": "2026-11-19",
+   "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T14:22:45Z",
+   "last_success": "2026-11-20T19:15:35Z",
    "returns": {
     "1D": {
-     "value": -0.26,
-     "start": "2026-11-18",
+     "value": 0.61,
+     "start": "2026-11-19",
      "status": "ok"
     },
     "1W": {
-     "value": 0.65,
-     "start": "2026-11-12",
+     "value": 1.23,
+     "start": "2026-11-13",
      "status": "ok"
     },
     "1M": {
-     "value": 1.97,
-     "start": "2026-10-19",
+     "value": 2.69,
+     "start": "2026-10-20",
      "status": "ok"
     },
     "3M": {
-     "value": 3.94,
-     "start": "2026-08-19",
+     "value": 4.97,
+     "start": "2026-08-20",
      "status": "ok"
     },
     "6M": {
-     "value": 3.8,
-     "start": "2026-05-19",
+     "value": 4.39,
+     "start": "2026-05-20",
      "status": "ok"
     },
     "YTD": {
-     "value": 5.7,
+     "value": 6.34,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 3.69,
-     "start": "2025-11-19",
+     "value": 4.22,
+     "start": "2025-11-20",
      "status": "ok"
     },
     "2Y": {
-     "value": 0.89,
-     "start": "2024-11-19",
+     "value": 0.71,
+     "start": "2024-11-20",
      "status": "ok"
     },
     "5Y": {
-     "value": -0.04,
+     "value": 0.56,
      "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
-     "value": 21.98,
+     "value": 22.71,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -238,58 +238,58 @@
    "hedged": false,
    "fund_name": "iShares € Inflation Linked Govt Bond UCITS ETF EUR (Acc)",
    "first_close": "2008-01-02",
-   "last_close": "2026-11-19",
+   "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T14:22:45Z",
+   "last_success": "2026-11-20T19:15:35Z",
    "returns": {
     "1D": {
-     "value": -0.26,
-     "start": "2026-11-18",
+     "value": 0.21,
+     "start": "2026-11-19",
      "status": "ok"
     },
     "1W": {
-     "value": -0.6,
-     "start": "2026-11-12",
+     "value": -0.33,
+     "start": "2026-11-13",
      "status": "ok"
     },
     "1M": {
-     "value": -0.49,
-     "start": "2026-10-19",
+     "value": -0.55,
+     "start": "2026-10-20",
      "status": "ok"
     },
     "3M": {
-     "value": -2.94,
-     "start": "2026-08-19",
+     "value": -2.71,
+     "start": "2026-08-20",
      "status": "ok"
     },
     "6M": {
-     "value": -2.98,
-     "start": "2026-05-19",
+     "value": -3.39,
+     "start": "2026-05-20",
      "status": "ok"
     },
     "YTD": {
-     "value": -0.47,
+     "value": -0.27,
      "start": "2025-12-31",
      "status": "ok"
     },
     "1Y": {
-     "value": -1.25,
-     "start": "2025-11-19",
+     "value": -0.96,
+     "start": "2025-11-20",
      "status": "ok"
     },
     "2Y": {
-     "value": -0.21,
-     "start": "2024-11-19",
+     "value": 0.16,
+     "start": "2024-11-20",
      "status": "ok"
     },
     "5Y": {
-     "value": -4.69,
+     "value": -4.49,
      "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
-     "value": 13.38,
+     "value": 13.61,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -306,58 +306,58 @@
    "hedged": false,
    "fund_name": "iShares Core UK Gilts UCITS ETF GBP (Dist)",
    "first_close": "2008-01-02",
-   "last_close": "2026-11-19",
+   "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T14:22:45Z",
+   "last_success": "2026-11-20T19:15:35Z",
    "returns": {
     "1D": {
-     "value": -2.79,
-     "start": "2026-11-18",
+     "value": 0.48,
+     "start": "2026-11-19",
      "status": "ok"
     },
     "1W": {
-     "value": -2.74,
-     "start": "2026-11-12",
+     "value": -2.03,
+     "start": "2026-11-13",
      "status": "ok"
     },
     "1M": {
-     "value": -0.57,
-     "start": "2026-10-19",
+     "value": -0.67,
+     "start": "2026-10-20",
      "status": "ok"
     },
     "3M": {
-     "value": 0.32,
-     "start": "2026-08-19",
+     "value": 0.84,
+     "start": "2026-08-20",
      "status": "ok"
     },
     "6M": {
-     "value": 2.95,
-     "start": "2026-05-19",
+     "value": 2.29,
+     "start": "2026-05-20",
      "status": "ok"
     },
     "YTD": {
-     "value": 1.0,
+     "value": 1.48,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 3.81,
-     "start": "2025-11-19",
+     "value": 3.86,
+     "start": "2025-11-20",
      "status": "ok"
     },
     "2Y": {
-     "value": 0.62,
-     "start": "2024-11-19",
+     "value": 0.88,
+     "start": "2024-11-20",
      "status": "ok"
     },
     "5Y": {
-     "value": -21.32,
+     "value": -20.94,
      "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
-     "value": -6.7,
+     "value": -6.25,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -374,53 +374,53 @@
    "hedged": false,
    "fund_name": "State Street SPDR Bloomberg Emerging Markets Local Bond UCITS ETF (Acc)",
    "first_close": "2018-07-23",
-   "last_close": "2026-11-19",
+   "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T14:22:45Z",
+   "last_success": "2026-11-20T19:15:35Z",
    "returns": {
     "1D": {
-     "value": -0.77,
-     "start": "2026-11-18",
+     "value": -0.18,
+     "start": "2026-11-19",
      "status": "ok"
     },
     "1W": {
-     "value": -0.68,
-     "start": "2026-11-12",
+     "value": -0.77,
+     "start": "2026-11-13",
      "status": "ok"
     },
     "1M": {
-     "value": -0.3,
-     "start": "2026-10-19",
+     "value": -0.57,
+     "start": "2026-10-20",
      "status": "ok"
     },
     "3M": {
-     "value": 2.37,
-     "start": "2026-08-19",
+     "value": 2.44,
+     "start": "2026-08-20",
      "status": "ok"
     },
     "6M": {
-     "value": 5.94,
-     "start": "2026-05-19",
+     "value": 4.78,
+     "start": "2026-05-20",
      "status": "ok"
     },
     "YTD": {
-     "value": 5.03,
+     "value": 4.84,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 4.78,
-     "start": "2025-11-19",
+     "value": 4.44,
+     "start": "2025-11-20",
      "status": "ok"
     },
     "2Y": {
-     "value": 7.82,
-     "start": "2024-11-19",
+     "value": 7.06,
+     "start": "2024-11-20",
      "status": "ok"
     },
     "5Y": {
-     "value": 12.01,
+     "value": 11.81,
      "start": "2021-11-19",
      "status": "ok"
     },
@@ -429,7 +429,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 20.32,
+      "value": 20.1,
       "start": "2018-07-23"
      }
     }
@@ -446,58 +446,58 @@
    "hedged": false,
    "fund_name": "iShares $ Corp Bond UCITS ETF USD (Dist)",
    "first_close": "2008-01-02",
-   "last_close": "2026-11-19",
+   "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T14:22:45Z",
+   "last_success": "2026-11-20T19:15:35Z",
    "returns": {
     "1D": {
-     "value": -0.15,
-     "start": "2026-11-18",
+     "value": 0.48,
+     "start": "2026-11-19",
      "status": "ok"
     },
     "1W": {
-     "value": 0.28,
-     "start": "2026-11-12",
+     "value": 1.05,
+     "start": "2026-11-13",
      "status": "ok"
     },
     "1M": {
-     "value": 2.47,
-     "start": "2026-10-19",
+     "value": 2.92,
+     "start": "2026-10-20",
      "status": "ok"
     },
     "3M": {
-     "value": 4.05,
-     "start": "2026-08-19",
+     "value": 5.08,
+     "start": "2026-08-20",
      "status": "ok"
     },
     "6M": {
-     "value": 4.07,
-     "start": "2026-05-19",
+     "value": 3.97,
+     "start": "2026-05-20",
      "status": "ok"
     },
     "YTD": {
-     "value": 3.65,
+     "value": 4.15,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 2.41,
-     "start": "2025-11-19",
+     "value": 2.7,
+     "start": "2025-11-20",
      "status": "ok"
     },
     "2Y": {
-     "value": -0.3,
-     "start": "2024-11-19",
+     "value": -0.27,
+     "start": "2024-11-20",
      "status": "ok"
     },
     "5Y": {
-     "value": -2.49,
+     "value": -2.02,
      "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
-     "value": 21.27,
+     "value": 21.86,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -514,58 +514,58 @@
    "hedged": false,
    "fund_name": "iShares $ High Yield Corp Bond UCITS ETF USD (Dist)",
    "first_close": "2013-05-20",
-   "last_close": "2026-11-19",
+   "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T14:22:45Z",
+   "last_success": "2026-11-20T19:15:35Z",
    "returns": {
     "1D": {
-     "value": -1.68,
-     "start": "2026-11-18",
+     "value": -0.2,
+     "start": "2026-11-19",
      "status": "ok"
     },
     "1W": {
-     "value": -1.48,
-     "start": "2026-11-12",
+     "value": -1.62,
+     "start": "2026-11-13",
      "status": "ok"
     },
     "1M": {
-     "value": 0.65,
-     "start": "2026-10-19",
+     "value": 0.54,
+     "start": "2026-10-20",
      "status": "ok"
     },
     "3M": {
-     "value": 1.92,
-     "start": "2026-08-19",
+     "value": 2.02,
+     "start": "2026-08-20",
      "status": "ok"
     },
     "6M": {
-     "value": 3.38,
-     "start": "2026-05-19",
+     "value": 3.18,
+     "start": "2026-05-20",
      "status": "ok"
     },
     "YTD": {
-     "value": 5.02,
+     "value": 4.81,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 4.63,
-     "start": "2025-11-19",
+     "value": 4.25,
+     "start": "2025-11-20",
      "status": "ok"
     },
     "2Y": {
-     "value": 3.12,
-     "start": "2024-11-19",
+     "value": 2.27,
+     "start": "2024-11-20",
      "status": "ok"
     },
     "5Y": {
-     "value": 19.86,
+     "value": 19.63,
      "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
-     "value": 47.38,
+     "value": 47.09,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -582,53 +582,53 @@
    "hedged": false,
    "fund_name": "Vanguard EUR Corporate Bond UCITS ETF EUR Accumulation",
    "first_close": "2019-02-19",
-   "last_close": "2026-11-19",
+   "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T14:22:45Z",
+   "last_success": "2026-11-20T19:15:35Z",
    "returns": {
     "1D": {
-     "value": -0.1,
-     "start": "2026-11-18",
+     "value": 0.23,
+     "start": "2026-11-19",
      "status": "ok"
     },
     "1W": {
-     "value": -0.45,
-     "start": "2026-11-12",
+     "value": -0.08,
+     "start": "2026-11-13",
      "status": "ok"
     },
     "1M": {
-     "value": 0.1,
-     "start": "2026-10-19",
+     "value": 0.24,
+     "start": "2026-10-20",
      "status": "ok"
     },
     "3M": {
-     "value": -0.86,
-     "start": "2026-08-19",
+     "value": -0.7,
+     "start": "2026-08-20",
      "status": "ok"
     },
     "6M": {
-     "value": -0.18,
-     "start": "2026-05-19",
+     "value": -0.49,
+     "start": "2026-05-20",
      "status": "ok"
     },
     "YTD": {
-     "value": -0.66,
+     "value": -0.42,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": -0.65,
-     "start": "2025-11-19",
+     "value": -0.45,
+     "start": "2025-11-20",
      "status": "ok"
     },
     "2Y": {
-     "value": 2.92,
-     "start": "2024-11-19",
+     "value": 3.25,
+     "start": "2024-11-20",
      "status": "ok"
     },
     "5Y": {
-     "value": -1.04,
+     "value": -0.81,
      "start": "2021-11-19",
      "status": "ok"
     },
@@ -637,7 +637,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 5.67,
+      "value": 5.92,
       "start": "2019-02-19"
      }
     }
@@ -654,58 +654,58 @@
    "hedged": false,
    "fund_name": "iShares € High Yield Corp Bond UCITS ETF EUR (Dist)",
    "first_close": "2010-12-15",
-   "last_close": "2026-11-19",
+   "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T14:22:45Z",
+   "last_success": "2026-11-20T19:15:35Z",
    "returns": {
     "1D": {
-     "value": -0.05,
-     "start": "2026-11-18",
+     "value": -0.45,
+     "start": "2026-11-19",
      "status": "ok"
     },
     "1W": {
-     "value": -0.8,
-     "start": "2026-11-12",
+     "value": -1.06,
+     "start": "2026-11-13",
      "status": "ok"
     },
     "1M": {
-     "value": 0.42,
-     "start": "2026-10-19",
+     "value": -0.2,
+     "start": "2026-10-20",
      "status": "ok"
     },
     "3M": {
-     "value": -1.63,
-     "start": "2026-08-19",
+     "value": -2.08,
+     "start": "2026-08-20",
      "status": "ok"
     },
     "6M": {
-     "value": -0.09,
-     "start": "2026-05-19",
+     "value": -1.0,
+     "start": "2026-05-20",
      "status": "ok"
     },
     "YTD": {
-     "value": -0.26,
+     "value": -0.71,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 0.92,
-     "start": "2025-11-19",
+     "value": 0.3,
+     "start": "2025-11-20",
      "status": "ok"
     },
     "2Y": {
-     "value": 5.54,
-     "start": "2024-11-19",
+     "value": 5.15,
+     "start": "2024-11-20",
      "status": "ok"
     },
     "5Y": {
-     "value": 12.24,
+     "value": 11.73,
      "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
-     "value": 32.04,
+     "value": 31.44,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -722,58 +722,58 @@
    "hedged": false,
    "fund_name": "iShares US Mortgage Backed Securities UCITS ETF USD (Dist)",
    "first_close": "2016-05-27",
-   "last_close": "2026-11-19",
+   "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T14:22:45Z",
+   "last_success": "2026-11-20T19:15:35Z",
    "returns": {
     "1D": {
-     "value": -0.09,
-     "start": "2026-11-18",
+     "value": 0.74,
+     "start": "2026-11-19",
      "status": "ok"
     },
     "1W": {
-     "value": 0.74,
-     "start": "2026-11-12",
+     "value": 1.58,
+     "start": "2026-11-13",
      "status": "ok"
     },
     "1M": {
-     "value": 2.99,
-     "start": "2026-10-19",
+     "value": 3.76,
+     "start": "2026-10-20",
      "status": "ok"
     },
     "3M": {
-     "value": 4.23,
-     "start": "2026-08-19",
+     "value": 5.39,
+     "start": "2026-08-20",
      "status": "ok"
     },
     "6M": {
-     "value": 5.14,
-     "start": "2026-05-19",
+     "value": 5.73,
+     "start": "2026-05-20",
      "status": "ok"
     },
     "YTD": {
-     "value": 5.3,
+     "value": 6.08,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 4.21,
-     "start": "2025-11-19",
+     "value": 4.92,
+     "start": "2025-11-20",
      "status": "ok"
     },
     "2Y": {
-     "value": 2.45,
-     "start": "2024-11-19",
+     "value": 2.63,
+     "start": "2024-11-20",
      "status": "ok"
     },
     "5Y": {
-     "value": 2.15,
+     "value": 2.91,
      "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
-     "value": 6.02,
+     "value": 6.81,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -790,53 +790,53 @@
    "hedged": false,
    "fund_name": "Invesco US Municipal Bond UCITS ETF Dist",
    "first_close": "2021-02-10",
-   "last_close": "2026-11-19",
+   "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T14:22:45Z",
+   "last_success": "2026-11-20T19:15:35Z",
    "returns": {
     "1D": {
-     "value": 0.0,
-     "start": "2026-11-18",
+     "value": 1.37,
+     "start": "2026-11-19",
      "status": "ok"
     },
     "1W": {
-     "value": 0.11,
-     "start": "2026-11-12",
+     "value": 1.62,
+     "start": "2026-11-13",
      "status": "ok"
     },
     "1M": {
-     "value": 1.95,
-     "start": "2026-10-19",
+     "value": 3.34,
+     "start": "2026-10-20",
      "status": "ok"
     },
     "3M": {
-     "value": 2.99,
-     "start": "2026-08-19",
+     "value": 4.4,
+     "start": "2026-08-20",
      "status": "ok"
     },
     "6M": {
-     "value": 4.26,
-     "start": "2026-05-19",
+     "value": 5.69,
+     "start": "2026-05-20",
      "status": "ok"
     },
     "YTD": {
-     "value": 5.15,
+     "value": 6.59,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 3.34,
-     "start": "2025-11-19",
+     "value": 4.75,
+     "start": "2025-11-20",
      "status": "ok"
     },
     "2Y": {
-     "value": 0.7,
-     "start": "2024-11-19",
+     "value": 2.08,
+     "start": "2024-11-20",
      "status": "ok"
     },
     "5Y": {
-     "value": -3.53,
+     "value": -2.21,
      "start": "2021-11-19",
      "status": "ok"
     },
@@ -845,7 +845,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": -14.62,
+      "value": -13.45,
       "start": "2021-02-10"
      }
     }
