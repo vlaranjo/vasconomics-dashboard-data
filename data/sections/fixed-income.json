@@ -4,7 +4,7 @@
  "title": "Fixed income",
  "page": "fixed-income",
  "kind": "funds",
- "generated_at": "2026-11-19T23:52:43Z",
+ "generated_at": "2026-11-20T01:27:24Z",
  "as_of": "2026-11-19",
  "lookbacks": [
   "1D",
@@ -793,7 +793,7 @@
    "last_close": "2026-11-17",
    "stale": true,
    "stale_reason": "old_close",
-   "last_success": "2026-11-19T23:52:43Z",
+   "last_success": "2026-11-20T01:27:24Z",
    "returns": {
     "1D": {
      "value": 0.0,
