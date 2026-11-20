@@ -4,7 +4,7 @@
  "title": "Fixed income",
  "page": "fixed-income",
  "kind": "funds",
- "generated_at": "2026-11-20T01:27:24Z",
+ "generated_at": "2026-11-20T14:22:45Z",
  "as_of": "2026-11-19",
  "lookbacks": [
   "1D",
@@ -33,7 +33,7 @@
    "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T19:37:56Z",
+   "last_success": "2026-11-20T14:22:45Z",
    "returns": {
     "1D": {
      "value": -0.09,
@@ -101,7 +101,7 @@
    "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T19:37:56Z",
+   "last_success": "2026-11-20T14:22:45Z",
    "returns": {
     "1D": {
      "value": -0.29,
@@ -173,7 +173,7 @@
    "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T19:37:56Z",
+   "last_success": "2026-11-20T14:22:45Z",
    "returns": {
     "1D": {
      "value": -0.26,
@@ -241,7 +241,7 @@
    "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T19:37:56Z",
+   "last_success": "2026-11-20T14:22:45Z",
    "returns": {
     "1D": {
      "value": -0.26,
@@ -309,7 +309,7 @@
    "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T19:37:56Z",
+   "last_success": "2026-11-20T14:22:45Z",
    "returns": {
     "1D": {
      "value": -2.79,
@@ -377,7 +377,7 @@
    "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T19:37:56Z",
+   "last_success": "2026-11-20T14:22:45Z",
    "returns": {
     "1D": {
      "value": -0.77,
@@ -449,7 +449,7 @@
    "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T19:37:56Z",
+   "last_success": "2026-11-20T14:22:45Z",
    "returns": {
     "1D": {
      "value": -0.15,
@@ -517,7 +517,7 @@
    "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T19:37:56Z",
+   "last_success": "2026-11-20T14:22:45Z",
    "returns": {
     "1D": {
      "value": -1.68,
@@ -585,7 +585,7 @@
    "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T19:37:56Z",
+   "last_success": "2026-11-20T14:22:45Z",
    "returns": {
     "1D": {
      "value": -0.1,
@@ -657,7 +657,7 @@
    "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T19:37:56Z",
+   "last_success": "2026-11-20T14:22:45Z",
    "returns": {
     "1D": {
      "value": -0.05,
@@ -725,7 +725,7 @@
    "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-19T19:37:56Z",
+   "last_success": "2026-11-20T14:22:45Z",
    "returns": {
     "1D": {
      "value": -0.09,
@@ -790,34 +790,34 @@
    "hedged": false,
    "fund_name": "Invesco US Municipal Bond UCITS ETF Dist",
    "first_close": "2021-02-10",
-   "last_close": "2026-11-17",
-   "stale": true,
-   "stale_reason": "old_close",
-   "last_success": "2026-11-20T01:27:24Z",
+   "last_close": "2026-11-19",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-20T14:22:45Z",
    "returns": {
     "1D": {
      "value": 0.0,
-     "start": "2026-11-16",
+     "start": "2026-11-18",
      "status": "ok"
     },
     "1W": {
-     "value": 0.16,
-     "start": "2026-11-10",
+     "value": 0.11,
+     "start": "2026-11-12",
      "status": "ok"
     },
     "1M": {
      "value": 1.95,
-     "start": "2026-10-16",
+     "start": "2026-10-19",
      "status": "ok"
     },
     "3M": {
      "value": 2.99,
-     "start": "2026-08-17",
+     "start": "2026-08-19",
      "status": "ok"
     },
     "6M": {
      "value": 4.26,
-     "start": "2026-05-15",
+     "start": "2026-05-19",
      "status": "ok"
     },
     "YTD": {
@@ -826,18 +826,18 @@
      "status": "ok"
     },
     "1Y": {
-     "value": 2.73,
-     "start": "2025-11-17",
+     "value": 3.34,
+     "start": "2025-11-19",
      "status": "ok"
     },
     "2Y": {
      "value": 0.7,
-     "start": "2024-11-15",
+     "start": "2024-11-19",
      "status": "ok"
     },
     "5Y": {
      "value": -3.53,
-     "start": "2021-11-17",
+     "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
