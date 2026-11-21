@@ -1,16 +1,18 @@
 # Fixed-income characteristics (21 Nov 2026). Research and terms: docs/fi-characteristics.md.
 # One entry per row of the Fixed Income section (the job refuses a list that does not match config/universe.yaml).
 # Switching an issuer off (enabled: false) stops every request to it; its funds then show "n/a" with `reason` in the tooltip.
-# TERMS: every issuer's website terms restrict reuse of their content without written permission, and Vanguard's also bar "repeated
-# automated access" (docs/fi-characteristics.md). Recommendation: ask State Street and Vanguard before this job runs on main, or set
-# their `enabled` to false.
+# SWITCHED OFF by the owner on 21 Nov 2026 (decisions round 24): every issuer is `enabled: false`, the workflow has no schedule
+# (manual only) and the page does not show the columns. Reasons: coverage, only 4 of the 12 bond funds could be read (and no OAS
+# for any of them); and State Street's and Vanguard's terms forbid republishing their data (Vanguard also bars repeated automated
+# access); docs/fi-characteristics.md. To switch back on: written permission first, then enabled: true, the schedule, and the page flag.
 schema_version: 1
 section: fixed-income
 measure_names: {ytm: "Yield to maturity", duration: "Duration", rating: "Average credit rating", oas: "Option-adjusted spread"}
 issuers:
   ssga:
     name: "State Street (SPDR)"
-    enabled: true
+    enabled: false
+    reason: "Switched off by the owner on 21 Nov 2026: State Street's terms forbid republishing its data without written permission."
     terms_url: "https://www.ssga.com/ie/en_gb/footer/terms-and-conditions"
     max_age_days: 10              # "Fund Characteristics as of" is the previous business day
     not_published:
@@ -18,7 +20,8 @@ issuers:
       oas: "State Street does not publish an option-adjusted spread for this fund."
   vanguard:
     name: "Vanguard"
-    enabled: true
+    enabled: false
+    reason: "Switched off by the owner on 21 Nov 2026: Vanguard's terms forbid republishing its data and repeated automated access without written permission."
     terms_url: "https://www.vanguard.co.uk/professional/terms-and-conditions"
     max_age_days: 75              # monthly figures (month-end), published some weeks later
     not_published:

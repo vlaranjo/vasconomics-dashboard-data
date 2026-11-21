@@ -31,6 +31,9 @@ def main(argv=None) -> int:
     except validate.ValidationError as e:
         print(f"VALIDATION FAILED, nothing published: {e}", file=sys.stderr)
         return 1
+    if res.get("switched_off"):
+        print("switched off: every issuer is disabled in config/characteristics.yaml; nothing requested, nothing written")
+        return 0
     print(f"published: {res['ok']}/{res['tried']} funds read; requests: {len(getter.log)}")
     for line in getter.log:
         print("  ", line)

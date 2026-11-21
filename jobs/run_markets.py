@@ -56,6 +56,10 @@ def main(argv=None) -> int:
               + "; ".join(k["tickers"]))
     for o in res["older_rows"]:
         print(f"  ROW KEPT AS PUBLISHED: {o}")
+    for o in res.get("too_old", []):
+        print(f"  ROW LAGGING, KEPT AND MARKED STALE: {o}")
+    for o in res.get("momentum", []):
+        print(f"  momentum: {o}")
     return 0
 
 

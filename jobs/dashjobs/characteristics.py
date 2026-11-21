@@ -213,6 +213,9 @@ def run(cfg: dict, universe: dict, getter, *, today: date, now: datetime | None 
     if set(cfg["funds"]) != set(rows):
         raise validate.ValidationError(f"config/characteristics.yaml funds {sorted(set(cfg['funds']) ^ set(rows))} do not match the section rows")
     rel = f"characteristics/{cfg['section']}.json"
+    if not any(v.get("enabled") for v in cfg["issuers"].values()):
+        # switched off (round 24): a manual run writes nothing, so it can never commit or deploy an unused all-"n/a" file
+        return {"ok": 0, "tried": 0, "problems": [], "refused": {}, "doc": None, "switched_off": True}
     prev = publish.read_json(data_dir / rel) or {}
     prev_funds = {f["id"]: f for f in prev.get("funds", [])}
     prev_manifest = publish.read_json(data_dir / "manifest.json") or {}

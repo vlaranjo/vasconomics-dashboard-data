@@ -1,5 +1,7 @@
 # Fixed-income characteristics: where the issuers publish them, and whether we can read them
 
+> **Switched off by the owner on 21 Nov 2026 (decisions round 24, X4):** coverage (4 of 12 funds, no OAS anywhere) and the State Street and Vanguard terms below. Every issuer is `enabled: false`, the workflow runs only by hand (and then asks nobody), and the page does not show the columns. The code, tests and this record are kept.
+
 Research of 21 November 2026 (a Saturday) for the twelve bond funds of the Fixed Income page: yield to maturity (YTM), duration, average credit rating and option-adjusted spread (OAS), each with the issuer's as-of date. Rules followed: plain requests, one at a time, at least 5 s apart; a default headless browser only where a page builds its figures in the browser; stop at any bot check, captcha, login wall or 401/403/406/429, with no workaround. Every request made is listed below. No credential is used anywhere.
 
 ## Summary

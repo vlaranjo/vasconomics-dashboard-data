@@ -143,6 +143,7 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
     section_for_validation = None
     kept_sections: dict[str, dict] = {}                 # sections left as published because the new data was older
     older_rows: list[str] = []                          # rows left as published, inside sections that were refreshed
+    too_old: list[str] = []                             # rows read but lagging beyond max_close_age_days: kept, stale (F8)
     cache: dict[str, object] = {}                       # a ticker used on several pages is fetched once per run
 
     fetch_errors: dict[str, str] = {}                   # ticker -> last fetch error in this run (cleared by a later success)
@@ -263,6 +264,25 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
                     hist_by_id[i] = prev_hist[i]
                 if want_ind and i in prev_ind:
                     ind_by_id[i] = prev_ind[i]
+        # One lagging row never fails the run (decision F8; round 24, 21 Nov 2026, after 18MN.DE stopped at 10 Nov and failed every run):
+        # a row read in this run whose last close is older than max_close_age_days is KEPT with its figures, marked stale ("too_old"),
+        # listed in status.json, and no longer counts as fresh. Only if too many rows lag does the section's coverage check fail.
+        # The row WAS read, so it still counts towards coverage (otherwise one lagging row would fail a 4-, 5- or 6-row section: review of
+        # round 24). Many lagging rows at once mean the source itself is serving old data: a genuine problem, checked after this loop.
+        lag_ids = set()
+        for i in sorted(fresh_ids):
+            age = (today - date.fromisoformat(by_id[i]["last_close"])).days
+            if age > vcfg["max_close_age_days"]:
+                fresh_ids.discard(i)
+                lag_ids.add(i)
+                by_id[i]["stale"], by_id[i]["stale_reason"] = True, "too_old"
+                # no age in days here: status.json would then change (and commit) every day the row lags
+                too_old.append(f"{tick_of[i]}: last close {by_id[i]['last_close']} is older than the {vcfg['max_close_age_days']}-day limit; "
+                               f"kept, marked stale")
+        if len(lag_ids) >= 2 and len(lag_ids) / len(sec["rows"]) > 1 - vcfg["min_fresh_fraction"]:
+            raise validate.ValidationError(
+                f"section {sec['id']}: {len(lag_ids)} of {len(sec['rows'])} rows have a last close more than {vcfg['max_close_age_days']} days "
+                f"before the run date ({', '.join(sorted(tick_of[i] for i in lag_ids))}): the source looks stale")
         n_fresh += len(fresh_ids)
         for meta in sec["rows"]:
             if meta["id"] in errors:
@@ -309,12 +329,14 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
         all_fresh_ids |= fresh_ids
         try:
             validate.validate_section(
-                section, run_date=today, prev_as_of=(prev_section or {}).get("as_of"), n_fresh=len(fresh_ids) + len(older),
+                section, run_date=today, prev_as_of=(prev_section or {}).get("as_of"), n_fresh=len(fresh_ids) + len(older) + len(lag_ids),
                 n_total=len(sec["rows"]), min_fresh_fraction=vcfg["min_fresh_fraction"],
                 max_close_age_days=vcfg["max_close_age_days"], max_abs_1d_pct=vcfg["max_abs_1d_pct"], fresh_ids=fresh_ids)
         except validate.ValidationError as e:
-            if failed[sec_failed_from:]:                    # say which tickers failed, so a coverage failure can be diagnosed from the log
-                raise validate.ValidationError(f"{e} (section {sec['id']}; failed: {'; '.join(failed[sec_failed_from:])})") from e
+            lagging = [tick_of[i] for i in sorted(lag_ids)]
+            if failed[sec_failed_from:] or lagging:          # say which tickers failed or lag, so a coverage failure can be diagnosed from the log
+                raise validate.ValidationError(f"{e} (section {sec['id']}; failed: {'; '.join(failed[sec_failed_from:]) or 'none'}; "
+                                               f"lagging: {', '.join(lagging) or 'none'})") from e
             raise
         section_for_validation = section
 
@@ -334,11 +356,11 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
     finished = datetime.now(timezone.utc) if now is None else now
     st = status.merge_status(
         prev_status, "yahoo_markets",
-        # a lagging row (old close) is shown on its own row; only fetch failures mark the run stale
+        # a lagging row (old close, or too old: listed in `failed` above) is shown on its own row; only fetch failures mark the run stale
         status.source_block(now=now, last_success=last_success, items_ok=n_fresh, items_total=n_total,
                             failed=failed + [f"{t}: missing" for t in missing]
                             + [f"{sid}: kept as published, newer data not available ({'; '.join(k['tickers'])})" for sid, k in kept_sections.items()]
-                            + older_rows + momentum_notes,
+                            + older_rows + too_old + momentum_notes,
                             cadence_hours=24, stale=bool(failed or missing)),
         status.run_info(workflow, started, finished, env), now)
     manifest = publish.merge_manifest(
@@ -356,5 +378,5 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
     validate.validate_manifest_files(out_dir, manifest)
     publish.atomic_swap(data_dir, out_dir)
     return {"n_fresh": n_fresh, "n_total": n_total, "failed": failed, "missing": missing, "order": order,
-            "kept_sections": kept_sections, "older_rows": older_rows, "momentum": momentum_notes,
+            "kept_sections": kept_sections, "older_rows": older_rows, "too_old": too_old, "momentum": momentum_notes,
             "as_of": section_for_validation["as_of"] if section_for_validation else None}

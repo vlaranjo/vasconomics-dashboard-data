@@ -24,6 +24,9 @@ def cfgs(tmp_path):
     """The real configs; the universe reduced to the Fixed Income section, whose published entries are seeded (every job validates the
     complete manifest it merges into)."""
     c = yaml.safe_load((ROOT / "config" / "characteristics.yaml").read_text(encoding="utf-8"))
+    # The feature is switched off in the real config (round 24); these tests check the code as it would run if switched back on.
+    for k in ("ssga", "vanguard"):
+        c["issuers"][k]["enabled"] = True
     u = yaml.safe_load((ROOT / "config" / "universe.yaml").read_text(encoding="utf-8"))
     u = {**u, "sections": [s for s in u["sections"] if s["id"] == "fixed-income"]}
     data = tmp_path / "data"
@@ -210,6 +213,20 @@ def test_C13_a_figure_missing_today_keeps_the_last_one_instead_of_not_published(
     res = run(cfgs, tmp_path, FakeGetter(routes(**{"/9695/": PAGES["vanguard_veca"].replace(b'"AVGQLYTFTO"', b'"OTHER"')})))
     veca = next(f for f in doc(tmp_path)["funds"] if f["id"] == "veca")
     assert veca["measures"]["rating"]["value"] == "A-" and any("missing on the issuer's page today" in p for p in res["problems"])
+
+
+def test_C14_switched_off_every_issuer_disabled_no_schedule_no_request(cfgs, tmp_path):
+    """Owner's decision of 21 Nov 2026 (round 24): the feature is off. The real config disables every issuer and the workflow can only
+    be started by hand; even then it asks nobody."""
+    real = yaml.safe_load((ROOT / "config" / "characteristics.yaml").read_text(encoding="utf-8"))
+    assert all(v["enabled"] is False and v.get("reason") for v in real["issuers"].values())
+    wf = yaml.safe_load((ROOT / ".github" / "workflows" / "characteristics.yml").read_text(encoding="utf-8"))
+    triggers = wf.get("on", wf.get(True))                        # PyYAML reads the key `on` as True
+    assert set(triggers) == {"workflow_dispatch"}
+    g = FakeGetter({})
+    res = ch.run(real, cfgs[1], g, today=TODAY, now=NOW, data_dir=tmp_path / "data", work_dir=tmp_path / "w")
+    assert g.log == [] and res["tried"] == 0 and res.get("switched_off")
+    assert not (tmp_path / "data" / "characteristics").exists(), "a manual run writes nothing while switched off"
 
 
 def test_C11_validation_rejects_a_malformed_file(cfgs, tmp_path):
