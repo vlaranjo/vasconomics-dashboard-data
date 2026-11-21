@@ -4,7 +4,7 @@
  "title": "Fixed income",
  "page": "fixed-income",
  "kind": "funds",
- "generated_at": "2026-11-21T13:43:26Z",
+ "generated_at": "2026-11-21T18:12:41Z",
  "as_of": "2026-11-20",
  "lookbacks": [
   "1D",
@@ -33,7 +33,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-21T13:43:26Z",
+   "last_success": "2026-11-21T18:12:41Z",
    "returns": {
     "1D": {
      "value": 0.6,
@@ -101,7 +101,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-21T13:43:26Z",
+   "last_success": "2026-11-21T18:12:41Z",
    "returns": {
     "1D": {
      "value": 0.57,
@@ -173,7 +173,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-21T13:43:26Z",
+   "last_success": "2026-11-21T18:12:41Z",
    "returns": {
     "1D": {
      "value": 0.61,
@@ -241,7 +241,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-21T13:43:26Z",
+   "last_success": "2026-11-21T18:12:41Z",
    "returns": {
     "1D": {
      "value": 0.21,
@@ -309,7 +309,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-21T13:43:26Z",
+   "last_success": "2026-11-21T18:12:41Z",
    "returns": {
     "1D": {
      "value": 0.48,
@@ -377,7 +377,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-21T13:43:26Z",
+   "last_success": "2026-11-21T18:12:41Z",
    "returns": {
     "1D": {
      "value": -0.18,
@@ -449,7 +449,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-21T13:43:26Z",
+   "last_success": "2026-11-21T18:12:41Z",
    "returns": {
     "1D": {
      "value": 0.48,
@@ -497,7 +497,7 @@
      "status": "ok"
     },
     "10Y": {
-     "value": 21.85,
+     "value": 21.86,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -517,7 +517,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-21T13:43:26Z",
+   "last_success": "2026-11-21T18:12:41Z",
    "returns": {
     "1D": {
      "value": -0.2,
@@ -585,7 +585,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-21T13:43:26Z",
+   "last_success": "2026-11-21T18:12:41Z",
    "returns": {
     "1D": {
      "value": 0.23,
@@ -657,7 +657,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-21T13:43:26Z",
+   "last_success": "2026-11-21T18:12:41Z",
    "returns": {
     "1D": {
      "value": -0.45,
@@ -725,7 +725,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-21T13:43:26Z",
+   "last_success": "2026-11-21T18:12:41Z",
    "returns": {
     "1D": {
      "value": 0.74,
@@ -793,7 +793,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-21T13:43:26Z",
+   "last_success": "2026-11-21T18:12:41Z",
    "returns": {
     "1D": {
      "value": 1.37,
