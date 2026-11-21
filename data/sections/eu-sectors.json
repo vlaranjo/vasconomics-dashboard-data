@@ -4,7 +4,7 @@
  "title": "European sectors",
  "page": "eu-sectors",
  "kind": "funds",
- "generated_at": "2026-11-20T23:23:19Z",
+ "generated_at": "2026-11-21T00:58:14Z",
  "as_of": "2026-11-20",
  "lookbacks": [
   "1D",
@@ -101,7 +101,7 @@
    "last_close": "2026-11-18",
    "stale": true,
    "stale_reason": "old_close",
-   "last_success": "2026-11-20T23:23:19Z",
+   "last_success": "2026-11-21T00:58:14Z",
    "returns": {
     "1D": {
      "value": -2.22,

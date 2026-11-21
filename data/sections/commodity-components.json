@@ -4,7 +4,7 @@
  "title": "Commodity components",
  "page": "commodities",
  "kind": "funds",
- "generated_at": "2026-11-20T23:23:19Z",
+ "generated_at": "2026-11-21T00:58:14Z",
  "as_of": "2026-11-20",
  "lookbacks": [
   "1D",
@@ -241,7 +241,7 @@
    "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T23:23:19Z",
+   "last_success": "2026-11-21T00:58:14Z",
    "returns": {
     "1D": {
      "value": -0.2,
@@ -724,7 +724,7 @@
    "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T23:23:19Z",
+   "last_success": "2026-11-21T00:58:14Z",
    "returns": {
     "1D": {
      "value": -3.41,
@@ -793,7 +793,7 @@
    "last_close": "2026-11-19",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T23:23:19Z",
+   "last_success": "2026-11-21T00:58:14Z",
    "returns": {
     "1D": {
      "value": -0.87,
