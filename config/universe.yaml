@@ -50,7 +50,7 @@ sections:
       - {id: ibcf, label: "S&P 500 (EUR-hedged)", ticker: "IBCF.DE", isin: "IE00B3ZW0K18", provider: "iShares", currency: "EUR", acc: true, hedged: true, holds: "S&P 500 (EUR-hedged)"}
       - {id: lyp6, label: "STOXX Europe 600", ticker: "LYP6.DE", isin: "LU0908500753", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "STOXX Europe 600"}
       - {id: sxrw, label: "FTSE 100", ticker: "SXRW.DE", isin: "IE00B53HP851", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "FTSE 100"}
-      - {id: 18mn, label: "MSCI Switzerland", ticker: "18MN.DE", isin: "LU1681044993", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI Switzerland"}
+      - {id: "540j", label: "MSCI Switzerland", ticker: "540J.DE", isin: "LU1681044720", provider: "Amundi", currency: "EUR", acc: true, hedged: false, holds: "MSCI Switzerland"}
       - {id: ibcg, label: "MSCI Japan (EUR-hedged)", ticker: "IBCG.DE", isin: "IE00B42Z5J44", provider: "iShares", currency: "EUR", acc: true, hedged: true, holds: "MSCI Japan (EUR-hedged)"}
       - {id: saus, label: "MSCI Australia", ticker: "SAUS.MI", isin: "IE00B5377D42", provider: "iShares", currency: "EUR", acc: true, hedged: false, holds: "MSCI Australia"}
       - {id: xcs6, label: "MSCI China", ticker: "XCS6.DE", isin: "LU0514695690", provider: "Xtrackers (DWS)", currency: "EUR", acc: true, hedged: false, holds: "MSCI China"}
@@ -198,6 +198,39 @@ sections:
       - {id: eurzar, label: "EURZAR", ticker: "EURZAR=X", currency: "ZAR", holds: "Euro against the ZAR"}
 
 # -------------------------------------------------------------------------------------------
+# Relative Momentum charts (21 Nov 2026; maths in jobs/dashjobs/momentum.py). One chart per section named here, each fund against one
+# benchmark fund, from weekly closes (last adjusted close of each completed Mon-Fri week). The markets job publishes momentum/<id>.json
+# with the last `weeks` points per fund.
+# NEVER mix EUR-hedged and unhedged funds in one chart: the benchmark is unhedged, and every hedged row of the section has an unhedged
+# `substitute` on the same index (for this chart only) or is in `leave_out` with the reason shown under the chart. The job refuses a
+# config that breaks this (momentum.check_config). Substitutes checked 21 Nov 2026 (docs/decisions.md, round 23): ISIN on the issuer's
+# page or justETF, unhedged, Yahoo history current and without spike-and-reverse prints over the last three years.
+# -------------------------------------------------------------------------------------------
+momentum:
+  weeks: 40
+  charts:
+    - id: equity-regions
+      section: equity-regions
+      benchmark: {label: "MSCI ACWI", ticker: "IUSQ.DE", isin: "IE00B6R52259", provider: "iShares", fund: "iShares MSCI ACWI UCITS ETF USD (Acc)", hedged: false}
+      substitutes:
+        ubuj: {label: "MSCI USA", ticker: "SXR4.DE", isin: "IE00B52SFT06", provider: "iShares", fund: "iShares MSCI USA UCITS ETF USD (Acc)", hedged: false}
+        ibcg: {label: "MSCI Japan", ticker: "LCUJ.DE", isin: "LU1781541252", provider: "Amundi", fund: "Amundi Core MSCI Japan UCITS ETF Acc", hedged: false}
+      leave_out:
+        acwie: "MSCI ACWI is the benchmark of this chart, so it is not plotted against itself."
+    - id: equity-countries
+      section: equity-countries
+      benchmark: {label: "MSCI ACWI", ticker: "IUSQ.DE", isin: "IE00B6R52259", provider: "iShares", fund: "iShares MSCI ACWI UCITS ETF USD (Acc)", hedged: false}
+      substitutes:
+        ibcf: {label: "S&P 500", ticker: "SXR8.DE", isin: "IE00B5BMR087", provider: "iShares", fund: "iShares Core S&P 500 UCITS ETF USD (Acc)", hedged: false}
+        ibcg: {label: "MSCI Japan", ticker: "LCUJ.DE", isin: "LU1781541252", provider: "Amundi", fund: "Amundi Core MSCI Japan UCITS ETF Acc", hedged: false}
+    - id: us-sectors
+      section: us-sectors
+      benchmark: {label: "S&P 500", ticker: "SXR8.DE", isin: "IE00B5BMR087", provider: "iShares", fund: "iShares Core S&P 500 UCITS ETF USD (Acc)", hedged: false}
+    - id: eu-sectors
+      section: eu-sectors
+      benchmark: {label: "MSCI Europe", ticker: "EUNK.DE", isin: "IE00B4K48X80", provider: "iShares", fund: "iShares Core MSCI Europe UCITS ETF EUR (Acc)", hedged: false}
+
+# -------------------------------------------------------------------------------------------
 # Record of the final fund decisions of 6 Nov 2026. They are APPLIED in `sections` above (the job reads only `sections`);
 # this block stays as the audit trail and is checked by the unit tests.
 # -------------------------------------------------------------------------------------------
@@ -219,6 +252,7 @@ m2_fund_changes:
   - {from: "NICK.MI", to: "ENIK.MI", isin: "JE00B6XL6W59", provider: "WisdomTree", label: "Nickel futures (ETC, EUR-hedged)", acc: true, hedged: true, pages: ["commodities"], yahoo_first: "2012-07-03", note: "two moves above 25% (+60.2% on 2022-03-07, -27.4% on 2022-03-09, the LME nickel squeeze); accepted by the owner with a documented exception in validation.jump_exceptions"}
   - {from: "XAD5.MI", to: "XAD1.DE", isin: "DE000A1EK0G3", provider: "Xtrackers (DWS)", label: "Gold (physical ETC, EUR-hedged)", acc: true, hedged: true, pages: ["asset-classes", "commodities"], yahoo_first: "2010-06-15"}
   - {from: "SPYJ.DE", to: "EPRA.PA", isin: "LU1437018838", provider: "Amundi", label: "FTSE EPRA Nareit Developed (global real estate)", acc: true, hedged: false, pages: ["asset-classes"], yahoo_first: "2016-11-11", note: "10Y fills from the run of 2026-11-11"}
+  - {from: "18MN.DE", to: "540J.DE", isin: "LU1681044720", provider: "Amundi", label: "MSCI Switzerland", acc: true, hedged: false, pages: ["countries-regions"], yahoo_first: "2018-03-28", note: "owner's decision of 21 Nov 2026 (decisions round 24): 18MN.DE (CHF class LU1681044993) stuck on Yahoo at 10 Nov 2026; 540J.DE is the same fund's EUR class, Acc, unhedged; 10Y is n/a until 28 Mar 2028"}
   - {from: "SXR8.DE", to: "IBCF.DE", isin: "IE00B3ZW0K18", provider: "iShares", label: "S&P 500 (EUR-hedged)", acc: true, hedged: true, pages: ["countries-regions"], yahoo_first: "2011-03-24", note: "US Majors & Factors keeps SXR8.DE (unhedged)"}
 
 # SPYD.DE (S&P High Yield Dividend Aristocrats) stays Dist (acc: false): no accumulating, unhedged EUR fund on the same or a close index was found.

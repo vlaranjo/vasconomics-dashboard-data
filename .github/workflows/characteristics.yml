@@ -1,0 +1,54 @@
+# Fixed-income characteristics (21 Nov 2026): yield to maturity, duration, average rating and OAS of the Fixed Income page's bond funds,
+# from the fund issuers' own pages (State Street SPDR, Vanguard; iShares and Invesco refused automated requests and are switched off).
+# SWITCHED OFF (decisions round 24): manual runs only, and with every issuer disabled a run requests and writes nothing.
+# If switched back on (after written permission; docs/fi-characteristics.md): weekly, plain requests 5 s apart, a refusal stops every
+# further request to that issuer, and a run that finds the same figures commits nothing.
+# A manual run (workflow_dispatch) on the dev branch commits to dev and does NOT deploy.
+name: characteristics
+
+# SWITCHED OFF on 21 Nov 2026 (decisions round 24): no schedule, manual runs only, and every issuer is disabled in
+# config/characteristics.yaml, so even a manual run makes no request. The weekly slot it had: cron "17 7 * * 6" (Saturday 07:17 UTC).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Its own group: a queued run of another workflow can never replace this one.
+concurrency:
+  group: characteristics
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0          # full history: commit_data.py reads the age of the last commit that touched data/
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Fetch, validate, swap
+        run: python jobs/run_characteristics.py
+      - name: Commit data (only real changes) and push
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python jobs/commit_data.py --job characteristics --message "data: characteristics ${GITHUB_RUN_ID}" --branch "${GITHUB_REF_NAME}"
+
+  deploy:
+    needs: publish
+    if: github.ref_name == 'main' && needs.publish.outputs.changed == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages-deploy.yml

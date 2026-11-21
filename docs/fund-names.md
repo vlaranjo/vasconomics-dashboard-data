@@ -25,7 +25,7 @@ prefix still present) plus hand-written remarks from a comparison with the justE
 | IBCF.DE | IE00B3ZW0K18 | iShares S&P 500 EUR Hedged UCITS ETF (Acc) | iShsV-S&P500 EUR Hgd U.ETF AccR | iShares S&P 500 EUR Hedged UCITS ETF (Acc) |  |
 | LYP6.DE | LU0908500753 | Amundi Core Stoxx Europe 600 UCITS ETF Acc | AIS-Amundi Core Stoxx Eur.600 A | Amundi Core Stoxx Europe 600 UCITS ETF Acc |  |
 | SXRW.DE | IE00B53HP851 | iShares VII PLC - iShares Core FTSE 100 ETF GBP Acc | iShs VII-C.FTSE 100 E.GBP     R | iShares Core FTSE 100 ETF GBP Acc | no "UCITS" in the name; same fund as justETF's "Core FTSE 100 UCITS ETF GBP (Acc)" |
-| 18MN.DE | LU1681044993 | Amundi Index Solutions - Amundi MSCI Switzerland UCITS ETF-C CHF | AIS-Amundi MSCI Switzerland   N | Amundi MSCI Switzerland UCITS ETF-C CHF |  |
+| 18MN.DE | LU1681044993 | Amundi Index Solutions - Amundi MSCI Switzerland UCITS ETF-C CHF | AIS-Amundi MSCI Switzerland   N | Amundi MSCI Switzerland UCITS ETF-C CHF | **Replaced on 21 Nov 2026 by 540J.DE** (LU1681044720; Yahoo longName "Amundi Index Solutions - Amundi MSCI Switzerland UCITS ETF-C EUR", shown "Amundi MSCI Switzerland UCITS ETF-C EUR"); decisions round 24 |
 | SAUS.MI | IE00B5377D42 | iShares MSCI Australia UCITS ETF USD (Acc) | ISHARES MSCI AUSTRALIA UCITS ET | iShares MSCI Australia UCITS ETF USD (Acc) |  |
 | XCS6.DE | LU0514695690 | Xtrackers MSCI China UCITS ETF 1C | xtrackers MSCI China          I | Xtrackers MSCI China UCITS ETF 1C |  |
 | QDV5.DE | IE00BZCQB185 | iShares MSCI India UCITS ETF USD Acc | iShs IV-iShs MSCI India UC.ETFR | iShares MSCI India UCITS ETF USD Acc |  |

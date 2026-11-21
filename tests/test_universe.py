@@ -65,8 +65,10 @@ def test_U3_every_decided_fund_change_is_applied_where_it_was_decided_and_nowher
         assert page_of[c["to"]] & set(c["pages"]), c                  # the new fund appears on a page the change covers
         if c["from"] in page_of:                                    # the old ticker may survive only on a page the change does not cover
             assert not page_of[c["from"]] & set(c["pages"]), (c["from"], page_of[c["from"]])
-    for old in ("36BZ.DE", "IBC4.F", "VECP.DE", "SPYJ.DE", "XAD5.MI", "NICK.MI", "PHAG.MI", "AIGI.MI", "BRNT.MI", "COTN.MI"):
+    for old in ("36BZ.DE", "IBC4.F", "VECP.DE", "SPYJ.DE", "XAD5.MI", "NICK.MI", "PHAG.MI", "AIGI.MI", "BRNT.MI", "COTN.MI", "18MN.DE"):
         assert old not in all_tickers, old
+    sw = rows_of(prod, "equity-countries")["540J.DE"]                 # 21 Nov 2026 (round 24): same fund, EUR class
+    assert (sw["isin"], sw["acc"], sw["hedged"], sw["label"]) == ("LU1681044720", True, False, "MSCI Switzerland")
     assert "SXR8.DE" in rows_of(prod, "us-majors") and "SXR8.DE" not in rows_of(prod, "equity-countries")
     assert "IBCF.DE" in rows_of(prod, "equity-countries")
     assert "XCS6.DE" in rows_of(prod, "equity-countries") and "IBC4.DE" in rows_of(prod, "equity-countries")
@@ -116,8 +118,12 @@ def test_U5_full_offline_run_publishes_all_sections_and_fetches_each_ticker_once
                       work_dir=tmp_path / "work", sleep=lambda s: None, fetch_names=lambda ts: {t: {"longName": f"{t} Long Name", "shortName": "short"} for t in ts})
     all_tickers = [r["ticker"] for s in prod["sections"] for r in s["rows"]]
     assert res["n_total"] == 112 and res["n_fresh"] == 112 and not res["failed"]
-    assert len(calls) == len(set(all_tickers)) == 109 and sorted(calls) == sorted(set(all_tickers))   # shared tickers fetched once
+    # shared tickers fetched once; the Relative Momentum charts add only the two funds not already in the universe (21 Nov 2026):
+    # the unhedged MSCI ACWI benchmark and the unhedged MSCI Japan substitute (SXR8.DE, SXR4.DE and EUNK.DE come from the cache)
+    assert len(set(all_tickers)) == 109
+    assert len(calls) == 111 and sorted(calls) == sorted(set(all_tickers) | {"IUSQ.DE", "LCUJ.DE"})
     man = json.loads((tmp_path / "data" / "manifest.json").read_text())
+    assert set(man["momentum"]) == {"equity-regions", "equity-countries", "us-sectors", "eu-sectors"} and not res["momentum"]
     assert set(man["sections"]) == {s["id"] for s in prod["sections"]} and "m1-demo" not in man["sections"]
     fx = json.loads((tmp_path / "data" / "sections" / "fx.json").read_text())
     assert fx["kind"] == "fx" and fx["page"] == "fx" and "isin" not in fx["rows"][0] and len(fx["rows"]) == 18
@@ -125,6 +131,55 @@ def test_U5_full_offline_run_publishes_all_sections_and_fetches_each_ticker_once
     assert reg["rows"][0]["fund_name"] == reg["rows"][0]["ticker"] + " Long Name" and reg["rows"][0]["isin"] and "holds" not in reg["rows"][0]
     gold = next(r for r in json.loads((tmp_path / "data" / "sections" / "asset-classes.json").read_text())["rows"] if r["ticker"] == "XAD1.DE")
     assert gold["etc"] is True
+
+
+def test_U5b_one_row_11_days_behind_is_kept_stale_and_never_fails_the_run(prod, tmp_path):
+    """Reproduces the failure of 21 Nov 2026: one listing (then 18MN.DE) stuck 11 days behind made validate_section raise, so every
+    markets run published nothing. Decision F8: one lagging row is shown on the page only. It is kept, marked stale ("too_old"),
+    listed in status.json, and does not count as fresh."""
+    today, lag = date(2026, 11, 21), "540J.DE"
+
+    def fetch(t):
+        b = _bars(t, today)
+        return [x for x in b if x[0] <= date(2026, 11, 10)] if t == lag else b
+    res = markets.run(prod, fetch, today=today, now=datetime(2026, 11, 21, 22, 40, tzinfo=timezone.utc), data_dir=tmp_path / "data",
+                      work_dir=tmp_path / "work", sleep=lambda s: None, fetch_names=lambda ts: {})
+    sec = json.loads((tmp_path / "data" / "sections" / "equity-countries.json").read_text())
+    row = next(r for r in sec["rows"] if r["ticker"] == lag)
+    assert row["stale"] and row["stale_reason"] == "too_old" and row["last_close"] == "2026-11-10" and row["returns"]["1Y"]["value"] is not None
+    assert sec["as_of"] == "2026-11-20" and len(sec["rows"]) == 17
+    assert res["n_fresh"] == res["n_total"] - 1 and any(lag in x and "older than the 5-day limit" in x for x in res["too_old"])
+    st = json.loads((tmp_path / "data" / "status.json").read_text())["sources"]["yahoo_markets"]
+    # listed in status.json, but the source-wide stale flag stays off: it would put a Stale pill on every section of every page
+    assert st["stale"] is False and any(lag in f and "kept, marked stale" in f for f in st["failed"])
+    mom = json.loads((tmp_path / "data" / "momentum" / "equity-countries.json").read_text())
+    s = next(x for x in mom["series"] if x["ticker"] == lag)
+    assert s["stale"] and s["stale_reason"] == "old_close"           # its weeks end on Fri 13 Nov, the chart's on Fri 20 Nov
+
+
+@pytest.mark.parametrize("lag", ["SXR8.DE", "AIGE.MI", "PEU.PA"])   # us-majors (4 rows), commodity-sectors (5), asset-classes (6)
+def test_U5d_one_lagging_row_never_fails_even_the_smallest_section(prod, tmp_path, lag):
+    """Review of round 24: excluding the row from coverage made one lagging row fail a 4-, 5- or 6-row section (3/4, 4/5, 5/6 < 85%)."""
+    today = date(2026, 11, 21)
+
+    def fetch(t):
+        b = _bars(t, today)
+        return [x for x in b if x[0] <= date(2026, 11, 10)] if t == lag else b
+    res = markets.run(prod, fetch, today=today, now=datetime(2026, 11, 21, 22, 40, tzinfo=timezone.utc), data_dir=tmp_path / "data",
+                      work_dir=tmp_path / "work", sleep=lambda s: None, fetch_names=lambda ts: {})
+    assert any(lag in x for x in res["too_old"])
+
+
+def test_U5c_many_lagging_rows_are_a_genuine_problem_and_fail_on_coverage(prod, tmp_path):
+    today = date(2026, 11, 21)
+    lagging = {r["ticker"] for r in next(s for s in prod["sections"] if s["id"] == "us-sectors")["rows"][:3]}   # 3 of 10: 70% < 85%
+
+    def fetch(t):
+        b = _bars(t, today)
+        return [x for x in b if x[0] <= date(2026, 11, 10)] if t in lagging else b
+    with pytest.raises(validate.ValidationError, match=r"3 of 10 rows .*2B7D.DE, IU5C.DE, QDVK.DE.*the source looks stale"):
+        markets.run(prod, fetch, today=today, now=datetime(2026, 11, 21, 22, 40, tzinfo=timezone.utc), data_dir=tmp_path / "data",
+                    work_dir=tmp_path / "work", sleep=lambda s: None, fetch_names=lambda ts: {})
 
 
 def test_U6_old_demo_section_is_dropped_from_the_manifest_but_other_runs_keep_carry_forward(prod, tmp_path):
@@ -174,7 +229,7 @@ def test_U8_a_ticker_that_fails_once_is_retried_after_a_cool_down_and_published_
     assert res["n_fresh"] == 112 and res["failed"] == [] and seen["IBCG.DE"] == 2 and seen["LKOR.DE"] == 2
     assert 20 in sleeps                                                   # the cool-down happened
     sec = json.loads((tmp_path / "data" / "sections" / "equity-countries.json").read_text())
-    assert [r["ticker"] for r in sec["rows"]][:6] == ["IBCF.DE", "LYP6.DE", "SXRW.DE", "18MN.DE", "IBCG.DE", "SAUS.MI"]   # config order kept
+    assert [r["ticker"] for r in sec["rows"]][:6] == ["IBCF.DE", "LYP6.DE", "SXRW.DE", "540J.DE", "IBCG.DE", "SAUS.MI"]   # config order kept
     assert not any(r["stale"] for r in sec["rows"])
 
 
