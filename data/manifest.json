@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-11-21T18:12:41Z",
+ "generated_at": "2026-11-21T18:32:56Z",
  "status": "status.json",
  "sections": {
   "asset-classes": {
@@ -596,5 +596,24 @@
    "path": "volatility/summary.json",
    "as_of": "2026-11-20"
   }
- }
+ },
+ "momentum": {
+  "equity-regions": {
+   "path": "momentum/equity-regions.json",
+   "as_of": "2026-11-20"
+  },
+  "equity-countries": {
+   "path": "momentum/equity-countries.json",
+   "as_of": "2026-11-20"
+  },
+  "us-sectors": {
+   "path": "momentum/us-sectors.json",
+   "as_of": "2026-11-20"
+  },
+  "eu-sectors": {
+   "path": "momentum/eu-sectors.json",
+   "as_of": "2026-11-20"
+  }
+ },
+ "characteristics": {}
 }
