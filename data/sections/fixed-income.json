@@ -4,7 +4,7 @@
  "title": "Fixed income",
  "page": "fixed-income",
  "kind": "funds",
- "generated_at": "2026-11-20T19:15:35Z",
+ "generated_at": "2026-11-21T13:43:26Z",
  "as_of": "2026-11-20",
  "lookbacks": [
   "1D",
@@ -33,7 +33,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T19:15:35Z",
+   "last_success": "2026-11-21T13:43:26Z",
    "returns": {
     "1D": {
      "value": 0.6,
@@ -101,7 +101,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T19:15:35Z",
+   "last_success": "2026-11-21T13:43:26Z",
    "returns": {
     "1D": {
      "value": 0.57,
@@ -173,7 +173,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T19:15:35Z",
+   "last_success": "2026-11-21T13:43:26Z",
    "returns": {
     "1D": {
      "value": 0.61,
@@ -241,7 +241,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T19:15:35Z",
+   "last_success": "2026-11-21T13:43:26Z",
    "returns": {
     "1D": {
      "value": 0.21,
@@ -309,7 +309,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T19:15:35Z",
+   "last_success": "2026-11-21T13:43:26Z",
    "returns": {
     "1D": {
      "value": 0.48,
@@ -317,47 +317,47 @@
      "status": "ok"
     },
     "1W": {
-     "value": -2.03,
+     "value": 0.26,
      "start": "2026-11-13",
      "status": "ok"
     },
     "1M": {
-     "value": -0.67,
+     "value": 1.65,
      "start": "2026-10-20",
      "status": "ok"
     },
     "3M": {
-     "value": 0.84,
+     "value": 3.2,
      "start": "2026-08-20",
      "status": "ok"
     },
     "6M": {
-     "value": 2.29,
+     "value": 4.68,
      "start": "2026-05-20",
      "status": "ok"
     },
     "YTD": {
-     "value": 1.48,
+     "value": 3.86,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 3.86,
+     "value": 6.28,
      "start": "2025-11-20",
      "status": "ok"
     },
     "2Y": {
-     "value": 0.88,
+     "value": 3.24,
      "start": "2024-11-20",
      "status": "ok"
     },
     "5Y": {
-     "value": -20.94,
+     "value": -19.09,
      "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
-     "value": -6.25,
+     "value": -4.06,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -377,7 +377,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T19:15:35Z",
+   "last_success": "2026-11-21T13:43:26Z",
    "returns": {
     "1D": {
      "value": -0.18,
@@ -449,7 +449,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T19:15:35Z",
+   "last_success": "2026-11-21T13:43:26Z",
    "returns": {
     "1D": {
      "value": 0.48,
@@ -497,7 +497,7 @@
      "status": "ok"
     },
     "10Y": {
-     "value": 21.86,
+     "value": 21.85,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -517,7 +517,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T19:15:35Z",
+   "last_success": "2026-11-21T13:43:26Z",
    "returns": {
     "1D": {
      "value": -0.2,
@@ -525,47 +525,47 @@
      "status": "ok"
     },
     "1W": {
-     "value": -1.62,
+     "value": -0.05,
      "start": "2026-11-13",
      "status": "ok"
     },
     "1M": {
-     "value": 0.54,
+     "value": 2.15,
      "start": "2026-10-20",
      "status": "ok"
     },
     "3M": {
-     "value": 2.02,
+     "value": 3.65,
      "start": "2026-08-20",
      "status": "ok"
     },
     "6M": {
-     "value": 3.18,
+     "value": 4.83,
      "start": "2026-05-20",
      "status": "ok"
     },
     "YTD": {
-     "value": 4.81,
+     "value": 6.49,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 4.25,
+     "value": 5.92,
      "start": "2025-11-20",
      "status": "ok"
     },
     "2Y": {
-     "value": 2.27,
+     "value": 3.91,
      "start": "2024-11-20",
      "status": "ok"
     },
     "5Y": {
-     "value": 19.63,
+     "value": 21.54,
      "start": "2021-11-19",
      "status": "ok"
     },
     "10Y": {
-     "value": 47.09,
+     "value": 49.44,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -585,7 +585,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T19:15:35Z",
+   "last_success": "2026-11-21T13:43:26Z",
    "returns": {
     "1D": {
      "value": 0.23,
@@ -657,7 +657,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T19:15:35Z",
+   "last_success": "2026-11-21T13:43:26Z",
    "returns": {
     "1D": {
      "value": -0.45,
@@ -725,7 +725,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T19:15:35Z",
+   "last_success": "2026-11-21T13:43:26Z",
    "returns": {
     "1D": {
      "value": 0.74,
@@ -793,7 +793,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-20T19:15:35Z",
+   "last_success": "2026-11-21T13:43:26Z",
    "returns": {
     "1D": {
      "value": 1.37,
