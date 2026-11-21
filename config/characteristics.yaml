@@ -1,0 +1,48 @@
+# Fixed-income characteristics (21 Nov 2026). Research and terms: docs/fi-characteristics.md.
+# One entry per row of the Fixed Income section (the job refuses a list that does not match config/universe.yaml).
+# Switching an issuer off (enabled: false) stops every request to it; its funds then show "n/a" with `reason` in the tooltip.
+# TERMS: every issuer's website terms restrict reuse of their content without written permission, and Vanguard's also bar "repeated
+# automated access" (docs/fi-characteristics.md). Recommendation: ask State Street and Vanguard before this job runs on main, or set
+# their `enabled` to false.
+schema_version: 1
+section: fixed-income
+measure_names: {ytm: "Yield to maturity", duration: "Duration", rating: "Average credit rating", oas: "Option-adjusted spread"}
+issuers:
+  ssga:
+    name: "State Street (SPDR)"
+    enabled: true
+    terms_url: "https://www.ssga.com/ie/en_gb/footer/terms-and-conditions"
+    max_age_days: 10              # "Fund Characteristics as of" is the previous business day
+    not_published:
+      rating: "State Street publishes a breakdown of this fund by rating, not an average rating."
+      oas: "State Street does not publish an option-adjusted spread for this fund."
+  vanguard:
+    name: "Vanguard"
+    enabled: true
+    terms_url: "https://www.vanguard.co.uk/professional/terms-and-conditions"
+    max_age_days: 75              # monthly figures (month-end), published some weeks later
+    not_published:
+      oas: "Vanguard does not publish an option-adjusted spread for this fund."
+  ishares:
+    name: "iShares (BlackRock)"
+    enabled: false
+    terms_url: "https://www.ishares.com/uk/individual/en/compliance/terms-and-conditions"
+    reason: "Not available: iShares' website refused an automated request (HTTP 403, Access Denied) on 21 Nov 2026, so it is not read."
+  invesco:
+    name: "Invesco"
+    enabled: false
+    terms_url: "https://www.invesco.com/uk/en/global-footer/terms-and-conditions.html"
+    reason: "Not available: Invesco's website refused an automated request (HTTP 406) on 21 Nov 2026, so it is not read."
+funds:
+  sybt: {issuer: ssga, url: "https://www.ssga.com/ie/en_gb/institutional/etfs/state-street-spdr-bloomberg-us-treasury-bond-ucits-etf-dist-sybt-gy"}
+  vgea: {issuer: vanguard, url: "https://www.vanguard.co.uk/professional/product/etf/bond/9591/eur-eurozone-government-bond-ucits-etf-eur-accumulating"}
+  iust: {issuer: ishares}
+  ibci: {issuer: ishares}
+  iglt: {issuer: ishares}
+  spfa: {issuer: ssga, url: "https://www.ssga.com/ie/en_gb/institutional/etfs/state-street-spdr-bloomberg-emerging-markets-local-bond-ucits-etf-acc-spfa-gy"}
+  ibcd: {issuer: ishares}
+  ihyu: {issuer: ishares}
+  veca: {issuer: vanguard, url: "https://www.vanguard.co.uk/professional/product/etf/bond/9695/eur-corporate-bond-ucits-etf-eur-accumulating"}
+  ihyg: {issuer: ishares}
+  qdvp: {issuer: ishares}
+  muni: {issuer: invesco}

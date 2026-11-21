@@ -1,6 +1,6 @@
 """Commit and push what a data job wrote into data/, only when it is worth a commit (decisions S4, S5).
 
-    python jobs/commit_data.py --job markets|pe|yields|volatility --message "data: markets 123" --branch dev
+    python jobs/commit_data.py --job markets|pe|yields|volatility|characteristics --message "data: markets 123" --branch dev
 
 1. Nothing changed in data/: nothing to do.
 2. Something changed, but only volatile stamps (generated_at, heartbeat, run, last_attempt, started/finished, fetched_at, and for
@@ -26,13 +26,16 @@ from datetime import datetime, timezone
 HEARTBEAT_HOURS = 16      # about one a day; low enough that the first run of a no-change weekday still refreshes last_success
 VOLATILE = {"generated_at", "heartbeat", "run", "last_attempt", "started_at", "finished_at", "fetched_at"}
 # job -> (manifest blocks it owns, its source block in status.json, keys that are volatile everywhere in its files)
-OWN = {"markets": ({"sections", "history", "indicators"}, "yahoo_markets", {"last_success"}),
+OWN = {"markets": ({"sections", "history", "indicators", "momentum"}, "yahoo_markets", {"last_success"}),
        "pe": ({"pe"}, "worldperatio", set()),
        "yields": ({"yields"}, "yield_curves", set()),
        # Volatility page (13 Nov 2026): like markets, every file's last_success moves on every run, so it is a stamp; so is
        # vx-history's archive_last (the last date in Cboe's CSVs, which moves each morning when Cboe rewrites them, without any
        # figure on the page changing)
-       "volatility": ({"volatility"}, "volatility", {"last_success", "archive_last"})}
+       "volatility": ({"volatility"}, "volatility", {"last_success", "archive_last"}),
+       # Fixed-income characteristics (21 Nov 2026): weekly, from the fund issuers' pages. Each fund's fetched_at/last_success is a stamp:
+       # a run that finds the same figures commits nothing.
+       "characteristics": ({"characteristics"}, "fund_issuers", {"last_success"})}
 SHARED = ("data/manifest.json", "data/status.json")
 
 

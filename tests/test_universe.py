@@ -116,8 +116,12 @@ def test_U5_full_offline_run_publishes_all_sections_and_fetches_each_ticker_once
                       work_dir=tmp_path / "work", sleep=lambda s: None, fetch_names=lambda ts: {t: {"longName": f"{t} Long Name", "shortName": "short"} for t in ts})
     all_tickers = [r["ticker"] for s in prod["sections"] for r in s["rows"]]
     assert res["n_total"] == 112 and res["n_fresh"] == 112 and not res["failed"]
-    assert len(calls) == len(set(all_tickers)) == 109 and sorted(calls) == sorted(set(all_tickers))   # shared tickers fetched once
+    # shared tickers fetched once; the Relative Momentum charts add only the two funds not already in the universe (21 Nov 2026):
+    # the unhedged MSCI ACWI benchmark and the unhedged MSCI Japan substitute (SXR8.DE, SXR4.DE and EUNK.DE come from the cache)
+    assert len(set(all_tickers)) == 109
+    assert len(calls) == 111 and sorted(calls) == sorted(set(all_tickers) | {"IUSQ.DE", "LCUJ.DE"})
     man = json.loads((tmp_path / "data" / "manifest.json").read_text())
+    assert set(man["momentum"]) == {"equity-regions", "equity-countries", "us-sectors", "eu-sectors"} and not res["momentum"]
     assert set(man["sections"]) == {s["id"] for s in prod["sections"]} and "m1-demo" not in man["sections"]
     fx = json.loads((tmp_path / "data" / "sections" / "fx.json").read_text())
     assert fx["kind"] == "fx" and fx["page"] == "fx" and "isin" not in fx["rows"][0] and len(fx["rows"]) == 18

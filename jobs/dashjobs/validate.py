@@ -102,6 +102,10 @@ MANIFEST_SCHEMA = {
             "type": "object", "required": ["path", "as_of"]}},
         "volatility": {"type": "object", "additionalProperties": {
             "type": "object", "required": ["path", "as_of"]}},
+        "momentum": {"type": "object", "additionalProperties": {
+            "type": "object", "required": ["path", "as_of"]}},
+        "characteristics": {"type": "object", "additionalProperties": {
+            "type": "object", "required": ["path", "as_of"]}},
     },
 }
 
@@ -250,7 +254,7 @@ def validate_manifest_files(root, manifest: dict) -> None:
     import json
     from pathlib import Path
     root = Path(root)
-    paths = [manifest["status"]] + [v["path"] for b in ("sections", "history", "indicators", "pe", "yields", "volatility")
+    paths = [manifest["status"]] + [v["path"] for b in ("sections", "history", "indicators", "pe", "yields", "volatility", "momentum", "characteristics")
                                     for v in (manifest.get(b) or {}).values()]
     for rel in paths:
         p = root / rel
@@ -392,6 +396,101 @@ VX_TERM_SCHEMA = {
                        "properties": {"id": {"enum": ["latest", "1m", "6m", "1y"]}, "label": {"type": "string"},
                                       "date": {"type": ["string", "null"]}, "anchor": _DATE, "points": {"type": "array", "items": _VX_POINT}}}}},
 }
+
+
+# ---- Relative Momentum charts (21 Nov 2026) -----------------------------------------------------------------------------------
+_MOM_SERIES = {"type": "object", "required": ["id", "label", "ticker", "stale", "stale_reason", "quadrant", "d", "x", "y"], "additionalProperties": False,
+               "properties": {"id": {"type": "string"}, "label": {"type": "string"}, "ticker": {"type": "string"},
+                              "substitute": {"type": "object", "required": ["ticker", "isin", "provider", "fund", "replaces", "replaces_label"]},
+                              "stale": {"type": "boolean"}, "stale_reason": {"type": ["string", "null"]},
+                              "quadrant": {"enum": ["Leading", "Weakening", "Lagging", "Improving"]}, "d": _INTS, "x": _NUMS, "y": _NUMS}}
+MOMENTUM_SCHEMA = {
+    "type": "object",
+    "required": ["schema_version", "chart", "section", "generated_at", "last_success", "stale", "stale_reason", "as_of", "weeks",
+                 "frequency", "benchmark", "method", "series", "left_out"],
+    "properties": {"schema_version": {"const": 1}, "chart": {"type": "string"}, "section": {"type": "string"}, "generated_at": _TS,
+                   "last_success": _TS, "stale": {"type": "boolean"}, "stale_reason": {"type": ["string", "null"]}, "as_of": _DATE,
+                   "weeks": {"type": "integer", "minimum": 4, "maximum": 60}, "frequency": {"const": "weekly"}, "week_ends": {"const": "Friday"},
+                   "benchmark": {"type": "object", "required": ["label", "ticker", "isin", "provider", "fund"]},
+                   "method": {"type": "object"}, "series": {"type": "array", "items": _MOM_SERIES},
+                   "left_out": {"type": "array", "items": {"type": "object", "required": ["id", "label", "reason"]}}},
+}
+
+
+def validate_momentum(doc: dict, *, section_ids: set[str], today: date, prev: dict | None = None, max_age_days: int = 14) -> None:
+    """Schema and sanity for one Relative Momentum chart file. Any failure keeps the last good file (marked stale)."""
+    from . import momentum
+    _check(MOMENTUM_SCHEMA, doc, f"momentum/{doc.get('chart')}")
+    _walk_numbers(doc, "momentum")
+    what = f"momentum/{doc['chart']}"
+    if not doc["series"]:
+        raise ValidationError(f"{what}: no fund has a point")
+    as_of = date.fromisoformat(doc["as_of"])
+    if as_of.weekday() != 4:
+        raise ValidationError(f"{what}: as_of {as_of} is not a Friday (weeks end on Friday)")
+    if as_of > today:
+        raise ValidationError(f"{what}: as_of {as_of} is in the future")
+    if (today - as_of).days > max_age_days:
+        raise ValidationError(f"{what}: latest week {as_of} is {(today - as_of).days} days old")
+    if prev and prev.get("as_of") and doc["as_of"] < prev["as_of"]:
+        raise ValidationError(f"{what}: as_of {doc['as_of']} is earlier than the published {prev['as_of']}")
+    seen = set()
+    for s in doc["series"]:
+        sid = s["id"]
+        if sid in seen or sid not in section_ids:
+            raise ValidationError(f"{what}: series {sid} is duplicated or not a row of {doc['section']}")
+        seen.add(sid)
+        n = len(s["d"])
+        if not 1 <= n <= doc["weeks"] or len(s["x"]) != n or len(s["y"]) != n:
+            raise ValidationError(f"{what} {sid}: {n} dates, {len(s['x'])} x, {len(s['y'])} y (at most {doc['weeks']})")
+        _increasing(s["d"], f"{what} {sid}")
+        # epoch day 1 (2 Jan 1970) was a Friday: a Friday is an epoch day d with d % 7 == 1
+        if any(d % 7 != 1 for d in s["d"]):
+            raise ValidationError(f"{what} {sid}: a point is not dated on a Friday")
+        # x is 100 + the percentage lead of the 10-week over the 30-week average: beyond 0..300 is a broken price, not a market. y has no
+        # mean subtraction, so a steady low-variance trend can legitimately go far from 100 (a simulation reached 258): only finiteness
+        # (checked above) applies to it.
+        if any(not 0.0 < v < 300.0 for v in s["x"]):
+            raise ValidationError(f"{what} {sid}: a relative-strength value is outside 0-300")
+        if not momentum.quadrant_ok(s["quadrant"], s["x"][-1], s["y"][-1]):
+            raise ValidationError(f"{what} {sid}: quadrant {s['quadrant']} does not match the latest point")
+    if any(o["id"] in seen for o in doc["left_out"]):
+        raise ValidationError(f"{what}: a fund is both charted and left out")
+
+
+# ---- Fixed-income characteristics (21 Nov 2026) --------------------------------------------------------------------------------
+_CH_MEASURE = {"oneOf": [
+    {"type": "object", "required": ["value", "as_of", "name"], "additionalProperties": False,
+     "properties": {"value": {"type": ["number", "string"]}, "as_of": _DATE, "name": {"type": "string"}}},
+    {"type": "object", "required": ["value", "reason"], "additionalProperties": False,
+     "properties": {"value": {"type": "null"}, "reason": {"type": "string", "minLength": 10}}}]}
+CHARACTERISTICS_SCHEMA = {
+    "type": "object", "required": ["schema_version", "section", "generated_at", "source", "as_of", "measures", "issuers", "funds"],
+    "properties": {
+        "schema_version": {"const": 1}, "section": {"type": "string"}, "generated_at": _TS, "source": {"type": "string"}, "as_of": _DATE,
+        "measures": {"type": "object", "required": ["ytm", "duration", "rating", "oas"]},
+        "issuers": {"type": "object"},
+        "funds": {"type": "array", "items": {
+            "type": "object",
+            "required": ["id", "label", "isin", "issuer", "issuer_name", "source_url", "status", "stale", "stale_reason", "last_success", "as_of", "measures"],
+            "properties": {"id": {"type": "string"}, "status": {"enum": ["ok", "unavailable"]}, "stale": {"type": "boolean"},
+                           "stale_reason": {"type": ["string", "null"]}, "last_success": {"type": ["string", "null"]},
+                           "as_of": {"type": ["string", "null"]}, "source_url": {"type": ["string", "null"]},
+                           "measures": {"type": "object", "required": ["ytm", "duration", "rating", "oas"], "additionalProperties": False,
+                                        "properties": {k: _CH_MEASURE for k in ("ytm", "duration", "rating", "oas")}}}}}},
+}
+
+
+def validate_characteristics(doc: dict, *, section_ids: set[str]) -> None:
+    _check(CHARACTERISTICS_SCHEMA, doc, f"characteristics/{doc.get('section')}")
+    _walk_numbers(doc, "characteristics")
+    ids = [f["id"] for f in doc["funds"]]
+    if len(ids) != len(set(ids)) or set(ids) != section_ids:
+        raise ValidationError(f"characteristics/{doc['section']}: funds {sorted(ids)} do not match the section rows")
+    for f in doc["funds"]:
+        for k, m in f["measures"].items():
+            if m["value"] is not None and (k == "rating") != isinstance(m["value"], str):
+                raise ValidationError(f"characteristics {f['id']} {k}: wrong value type")
 
 
 def _increasing(d: list[int], what: str) -> None:

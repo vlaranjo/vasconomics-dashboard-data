@@ -6,7 +6,7 @@ import time
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
-from . import history, lookback, publish, status, validate
+from . import history, lookback, momentum, publish, status, validate
 
 
 class OlderData(ValueError):
@@ -57,6 +57,60 @@ def _row_record(meta: dict, bars, now_iso: str) -> dict:
     }
 
 
+def _momentum_charts(cfg, *, data_dir, today, now, now_iso, cache, fetch_once, fetch_errors, sleep, delay, waited):
+    """Build, validate and stage every Relative Momentum chart. Returns (files, manifest entries, notes for status).
+
+    Per chart: a fund whose fetch failed in this run keeps its previously published series (stale "fetch_failed"); a benchmark that
+    cannot be read, or a chart that fails validation, keeps the whole published file, marked stale (with the reason); a new file whose
+    latest week is earlier than the published one is not used (the published one stays, unchanged)."""
+    mcfg = cfg["momentum"]
+    weeks = int(mcfg.get("weeks", 40))
+    vcfg = cfg["validation"]
+    cutoff = lookback.last_completed_date("funds", today, now)
+    sections = {s["id"]: s for s in cfg["sections"]}
+    state = {"waited": waited}
+
+    def bars_for(ticker):
+        if ticker in fetch_errors and ticker not in cache:
+            raise RuntimeError(f"fetch failed in this run: {fetch_errors[ticker]}")
+        if ticker not in cache and state["waited"]:
+            sleep(delay)                                  # a new network call: same pause as the sections
+        state["waited"] = True
+        raw, _net = fetch_once(ticker)
+        bars = lookback.clean_bars(raw, cutoff)
+        if not bars:
+            raise ValueError("no usable bars")
+        return bars
+
+    files, meta, notes = {}, {}, []
+    for ch in mcfg.get("charts", []):
+        rel = f"momentum/{ch['id']}.json"
+        prev = publish.read_json(data_dir / rel)
+        sec = sections[ch["section"]]
+        try:
+            doc, problems = momentum.build_chart(ch, sec, weeks=weeks, cutoff=cutoff, bars_for=bars_for, prev=prev, now_iso=now_iso,
+                                                 max_jump_pct=vcfg["max_abs_1d_pct"], jump_exceptions=vcfg.get("jump_exceptions"))
+            notes += [f"momentum/{ch['id']}: {p}" for p in problems]
+            if prev and prev.get("as_of") and doc["as_of"] and doc["as_of"] < prev["as_of"]:
+                notes.append(f"momentum/{ch['id']}: kept as published (new latest week {doc['as_of']} is before the published {prev['as_of']})")
+                files[rel] = prev
+                meta[ch["id"]] = {"path": rel, "as_of": prev["as_of"]}
+                continue
+            validate.validate_momentum(doc, section_ids={r["id"] for r in sec["rows"]}, today=today, prev=prev)
+        except Exception as e:  # noqa: BLE001 - benchmark unreadable, validation failure, anything: keep the last good file
+            reason = "benchmark_failed" if isinstance(e, momentum.BenchmarkError) else "validation_failed" if isinstance(e, validate.ValidationError) else "failed"
+            notes.append(f"momentum/{ch['id']}: {reason}: {str(e)[:160]}")
+            if prev:
+                prev = dict(prev)
+                prev["stale"], prev["stale_reason"] = True, reason
+                files[rel] = prev
+                meta[ch["id"]] = {"path": rel, "as_of": prev["as_of"]}
+            continue
+        files[rel] = doc
+        meta[ch["id"]] = {"path": rel, "as_of": doc["as_of"]}
+    return files, meta, notes
+
+
 def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir, work_dir,
         env=None, sleep=time.sleep, delay: float = 3.0, retry_wait: float = 20.0, workflow: str = "markets", fetch_names=None) -> dict:
     now = now or datetime.now(timezone.utc)
@@ -68,6 +122,11 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
         for m0 in sec0["rows"]:
             if m0.get("name_override") and not m0.get("name_reason"):
                 raise validate.ValidationError(f"{m0['ticker']}: name_override needs a one-line name_reason in config/universe.yaml")
+    if cfg.get("momentum"):                               # never mix hedged and unhedged funds in one chart: checked before any request
+        try:
+            momentum.check_config(cfg["momentum"], {s["id"]: s for s in cfg["sections"]})
+        except ValueError as e:
+            raise validate.ValidationError(str(e)) from e
     now_iso = status.iso(now)
 
     prev_manifest = publish.read_json(data_dir / "manifest.json") or {}
@@ -86,10 +145,17 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
     older_rows: list[str] = []                          # rows left as published, inside sections that were refreshed
     cache: dict[str, object] = {}                       # a ticker used on several pages is fetched once per run
 
+    fetch_errors: dict[str, str] = {}                   # ticker -> last fetch error in this run (cleared by a later success)
+
     def fetch_once(ticker):
         if ticker in cache:
             return cache[ticker], False
-        bars_raw = fetch(ticker)
+        try:
+            bars_raw = fetch(ticker)
+        except Exception as e:  # noqa: BLE001
+            fetch_errors[ticker] = str(e)[:120]
+            raise
+        fetch_errors.pop(ticker, None)
         cache[ticker] = bars_raw
         return bars_raw, True
 
@@ -252,6 +318,16 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
             raise
         section_for_validation = section
 
+    # ---- Relative Momentum charts (21 Nov 2026): weekly closes from the same cache; extra tickers (benchmarks, unhedged substitutes) are
+    # fetched once each, politely. A chart that cannot be built keeps its last good file, marked stale; it never blocks the heatmaps.
+    momentum_meta: dict[str, dict] = {}
+    momentum_notes: list[str] = []
+    if cfg.get("momentum"):
+        files_m, momentum_meta, momentum_notes = _momentum_charts(
+            cfg, data_dir=data_dir, today=today, now=now, now_iso=now_iso, cache=cache, fetch_once=fetch_once, fetch_errors=fetch_errors,
+            sleep=sleep, delay=delay, waited=waited_once)
+        files.update(files_m)
+
     any_stale = any(r["stale"] for k, s in files.items() if k.startswith("sections/") for r in s["rows"])
     if n_fresh:
         last_success = now_iso
@@ -262,14 +338,15 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
         status.source_block(now=now, last_success=last_success, items_ok=n_fresh, items_total=n_total,
                             failed=failed + [f"{t}: missing" for t in missing]
                             + [f"{sid}: kept as published, newer data not available ({'; '.join(k['tickers'])})" for sid, k in kept_sections.items()]
-                            + older_rows,
+                            + older_rows + momentum_notes,
                             cadence_hours=24, stale=bool(failed or missing)),
         status.run_info(workflow, started, finished, env), now)
     manifest = publish.merge_manifest(
         prev_manifest, generated_at=now_iso,
-        updates={"sections": sections_meta, "history": history_meta, "indicators": indicators_meta},
+        updates={"sections": sections_meta, "history": history_meta, "indicators": indicators_meta, "momentum": momentum_meta},
         keep={"sections": {x["id"] for x in cfg["sections"]}, "history": {x["id"] for x in cfg["sections"]},
-              "indicators": {x["id"] for x in cfg["sections"] if x.get("indicators")}})
+              "indicators": {x["id"] for x in cfg["sections"] if x.get("indicators")},
+              "momentum": {c["id"] for c in (cfg.get("momentum") or {}).get("charts", [])}})
     files["status.json"] = st
     validate.validate_status(st)
     validate.validate_manifest(manifest, universe=cfg)
@@ -279,5 +356,5 @@ def run(cfg: dict, fetch, *, today: date, now: datetime | None = None, data_dir,
     validate.validate_manifest_files(out_dir, manifest)
     publish.atomic_swap(data_dir, out_dir)
     return {"n_fresh": n_fresh, "n_total": n_total, "failed": failed, "missing": missing, "order": order,
-            "kept_sections": kept_sections, "older_rows": older_rows,
+            "kept_sections": kept_sections, "older_rows": older_rows, "momentum": momentum_notes,
             "as_of": section_for_validation["as_of"] if section_for_validation else None}

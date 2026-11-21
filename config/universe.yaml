@@ -198,6 +198,39 @@ sections:
       - {id: eurzar, label: "EURZAR", ticker: "EURZAR=X", currency: "ZAR", holds: "Euro against the ZAR"}
 
 # -------------------------------------------------------------------------------------------
+# Relative Momentum charts (21 Nov 2026; maths in jobs/dashjobs/momentum.py). One chart per section named here, each fund against one
+# benchmark fund, from weekly closes (last adjusted close of each completed Mon-Fri week). The markets job publishes momentum/<id>.json
+# with the last `weeks` points per fund.
+# NEVER mix EUR-hedged and unhedged funds in one chart: the benchmark is unhedged, and every hedged row of the section has an unhedged
+# `substitute` on the same index (for this chart only) or is in `leave_out` with the reason shown under the chart. The job refuses a
+# config that breaks this (momentum.check_config). Substitutes checked 21 Nov 2026 (docs/decisions.md, round 23): ISIN on the issuer's
+# page or justETF, unhedged, Yahoo history current and without spike-and-reverse prints over the last three years.
+# -------------------------------------------------------------------------------------------
+momentum:
+  weeks: 40
+  charts:
+    - id: equity-regions
+      section: equity-regions
+      benchmark: {label: "MSCI ACWI", ticker: "IUSQ.DE", isin: "IE00B6R52259", provider: "iShares", fund: "iShares MSCI ACWI UCITS ETF USD (Acc)", hedged: false}
+      substitutes:
+        ubuj: {label: "MSCI USA", ticker: "SXR4.DE", isin: "IE00B52SFT06", provider: "iShares", fund: "iShares MSCI USA UCITS ETF USD (Acc)", hedged: false}
+        ibcg: {label: "MSCI Japan", ticker: "LCUJ.DE", isin: "LU1781541252", provider: "Amundi", fund: "Amundi Core MSCI Japan UCITS ETF Acc", hedged: false}
+      leave_out:
+        acwie: "MSCI ACWI is the benchmark of this chart, so it is not plotted against itself."
+    - id: equity-countries
+      section: equity-countries
+      benchmark: {label: "MSCI ACWI", ticker: "IUSQ.DE", isin: "IE00B6R52259", provider: "iShares", fund: "iShares MSCI ACWI UCITS ETF USD (Acc)", hedged: false}
+      substitutes:
+        ibcf: {label: "S&P 500", ticker: "SXR8.DE", isin: "IE00B5BMR087", provider: "iShares", fund: "iShares Core S&P 500 UCITS ETF USD (Acc)", hedged: false}
+        ibcg: {label: "MSCI Japan", ticker: "LCUJ.DE", isin: "LU1781541252", provider: "Amundi", fund: "Amundi Core MSCI Japan UCITS ETF Acc", hedged: false}
+    - id: us-sectors
+      section: us-sectors
+      benchmark: {label: "S&P 500", ticker: "SXR8.DE", isin: "IE00B5BMR087", provider: "iShares", fund: "iShares Core S&P 500 UCITS ETF USD (Acc)", hedged: false}
+    - id: eu-sectors
+      section: eu-sectors
+      benchmark: {label: "MSCI Europe", ticker: "EUNK.DE", isin: "IE00B4K48X80", provider: "iShares", fund: "iShares Core MSCI Europe UCITS ETF EUR (Acc)", hedged: false}
+
+# -------------------------------------------------------------------------------------------
 # Record of the final fund decisions of 6 Nov 2026. They are APPLIED in `sections` above (the job reads only `sections`);
 # this block stays as the audit trail and is checked by the unit tests.
 # -------------------------------------------------------------------------------------------
