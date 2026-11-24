@@ -4,7 +4,7 @@
  "title": "Major US indices",
  "page": "us-majors-factors",
  "kind": "funds",
- "generated_at": "2026-11-24T04:28:03Z",
+ "generated_at": "2026-11-24T06:20:43Z",
  "as_of": "2026-11-20",
  "lookbacks": [
   "1D",
@@ -33,7 +33,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-24T04:28:03Z",
+   "last_success": "2026-11-24T06:20:43Z",
    "returns": {
     "1D": {
      "value": -3.51,
@@ -101,7 +101,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-24T04:28:03Z",
+   "last_success": "2026-11-24T06:20:43Z",
    "returns": {
     "1D": {
      "value": -5.78,
@@ -169,7 +169,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-24T04:28:03Z",
+   "last_success": "2026-11-24T06:20:43Z",
    "returns": {
     "1D": {
      "value": -1.5,
@@ -237,7 +237,7 @@
    "last_close": "2026-11-20",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-24T04:28:03Z",
+   "last_success": "2026-11-24T06:20:43Z",
    "returns": {
     "1D": {
      "value": -2.81,
