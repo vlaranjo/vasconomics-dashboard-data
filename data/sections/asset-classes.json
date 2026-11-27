@@ -4,7 +4,7 @@
  "title": "Asset classes",
  "page": "asset-classes",
  "kind": "funds",
- "generated_at": "2026-11-26T20:32:17Z",
+ "generated_at": "2026-11-27T15:36:12Z",
  "as_of": "2026-11-26",
  "lookbacks": [
   "1D",
@@ -33,7 +33,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 3.17,
@@ -101,7 +101,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": -0.15,
@@ -173,7 +173,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 0.95,
@@ -241,7 +241,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 1.58,
@@ -314,7 +314,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 3.4,
@@ -382,55 +382,55 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
-     "value": 0.01,
+     "value": 0.0,
      "start": "2026-11-25",
      "status": "ok"
     },
     "1W": {
-     "value": 0.06,
+     "value": 0.05,
      "start": "2026-11-19",
      "status": "ok"
     },
     "1M": {
-     "value": 0.26,
+     "value": 0.25,
      "start": "2026-10-26",
      "status": "ok"
     },
     "3M": {
-     "value": 0.64,
+     "value": 0.62,
      "start": "2026-08-26",
      "status": "ok"
     },
     "6M": {
-     "value": 1.18,
+     "value": 1.17,
      "start": "2026-05-26",
      "status": "ok"
     },
     "YTD": {
-     "value": 2.04,
+     "value": 2.02,
      "start": "2025-12-31",
      "status": "ok"
     },
     "1Y": {
-     "value": 2.18,
+     "value": 2.17,
      "start": "2025-11-26",
      "status": "ok"
     },
     "2Y": {
-     "value": 4.53,
+     "value": 4.51,
      "start": "2024-11-26",
      "status": "ok"
     },
     "5Y": {
-     "value": 10.45,
+     "value": 10.44,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 6.94,
+     "value": 6.93,
      "start": "2016-11-25",
      "status": "ok"
     }

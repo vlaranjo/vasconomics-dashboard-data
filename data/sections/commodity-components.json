@@ -4,7 +4,7 @@
  "title": "Commodity components",
  "page": "commodities",
  "kind": "funds",
- "generated_at": "2026-11-27T01:10:14Z",
+ "generated_at": "2026-11-27T15:36:12Z",
  "as_of": "2026-11-26",
  "lookbacks": [
   "1D",
@@ -34,7 +34,7 @@
    "last_close": "2026-11-25",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T01:10:14Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 1.98,
@@ -103,7 +103,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": -1.13,
@@ -172,7 +172,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 1.05,
@@ -241,7 +241,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 0.42,
@@ -310,7 +310,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 0.43,
@@ -379,7 +379,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 3.4,
@@ -448,7 +448,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 6.82,
@@ -517,7 +517,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 5.02,
@@ -586,7 +586,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 1.65,
@@ -655,7 +655,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 1.22,
@@ -721,19 +721,19 @@
    "fund_name": "WisdomTree Zinc - EUR Daily Hedged",
    "etc": true,
    "first_close": "2012-07-03",
-   "last_close": "2026-11-24",
-   "stale": true,
-   "stale_reason": "old_close",
-   "last_success": "2026-11-27T01:10:14Z",
+   "last_close": "2026-11-25",
+   "stale": false,
+   "stale_reason": null,
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 0.0,
-     "start": "2026-11-23",
+     "start": "2026-11-24",
      "status": "ok"
     },
     "1W": {
      "value": -3.41,
-     "start": "2026-11-17",
+     "start": "2026-11-18",
      "status": "ok"
     },
     "1M": {
@@ -743,12 +743,12 @@
     },
     "3M": {
      "value": -5.69,
-     "start": "2026-08-24",
+     "start": "2026-08-25",
      "status": "ok"
     },
     "6M": {
-     "value": 2.92,
-     "start": "2026-05-22",
+     "value": 2.68,
+     "start": "2026-05-25",
      "status": "ok"
     },
     "YTD": {
@@ -758,22 +758,22 @@
     },
     "1Y": {
      "value": 21.05,
-     "start": "2025-11-24",
+     "start": "2025-11-25",
      "status": "ok"
     },
     "2Y": {
-     "value": 21.88,
-     "start": "2024-11-22",
+     "value": 20.24,
+     "start": "2024-11-25",
      "status": "ok"
     },
     "5Y": {
-     "value": 8.95,
-     "start": "2021-11-24",
+     "value": 9.17,
+     "start": "2021-11-25",
      "status": "ok"
     },
     "10Y": {
-     "value": 25.87,
-     "start": "2016-11-24",
+     "value": 19.25,
+     "start": "2016-11-25",
      "status": "ok"
     }
    }
@@ -790,34 +790,34 @@
    "fund_name": "WisdomTree Nickel - EUR Daily Hedged",
    "etc": true,
    "first_close": "2012-07-03",
-   "last_close": "2026-11-25",
+   "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T01:10:14Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
-     "value": 0.16,
-     "start": "2026-11-24",
+     "value": 0.0,
+     "start": "2026-11-25",
      "status": "ok"
     },
     "1W": {
-     "value": -3.73,
-     "start": "2026-11-18",
+     "value": -2.89,
+     "start": "2026-11-19",
      "status": "ok"
     },
     "1M": {
-     "value": -2.67,
-     "start": "2026-10-23",
+     "value": -2.89,
+     "start": "2026-10-26",
      "status": "ok"
     },
     "3M": {
-     "value": -11.88,
-     "start": "2026-08-25",
+     "value": -11.11,
+     "start": "2026-08-26",
      "status": "ok"
     },
     "6M": {
-     "value": -22.05,
-     "start": "2026-05-25",
+     "value": -21.67,
+     "start": "2026-05-26",
      "status": "ok"
     },
     "YTD": {
@@ -826,18 +826,18 @@
      "status": "ok"
     },
     "1Y": {
-     "value": -2.41,
-     "start": "2025-11-25",
+     "value": -2.07,
+     "start": "2025-11-26",
      "status": "ok"
     },
     "2Y": {
      "value": -13.39,
-     "start": "2024-11-25",
+     "start": "2024-11-26",
      "status": "ok"
     },
     "5Y": {
-     "value": -39.07,
-     "start": "2021-11-25",
+     "value": -36.73,
+     "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
@@ -862,7 +862,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 4.56,
@@ -928,34 +928,34 @@
    "fund_name": "WisdomTree Coffee - EUR Daily Hedged",
    "etc": true,
    "first_close": "2012-07-03",
-   "last_close": "2026-11-25",
+   "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T01:10:14Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
-     "value": 2.67,
-     "start": "2026-11-24",
+     "value": 0.0,
+     "start": "2026-11-25",
      "status": "ok"
     },
     "1W": {
-     "value": -0.61,
-     "start": "2026-11-18",
+     "value": -2.92,
+     "start": "2026-11-19",
      "status": "ok"
     },
     "1M": {
-     "value": -10.22,
-     "start": "2026-10-23",
+     "value": -7.6,
+     "start": "2026-10-26",
      "status": "ok"
     },
     "3M": {
-     "value": -17.49,
-     "start": "2026-08-25",
+     "value": -13.55,
+     "start": "2026-08-26",
      "status": "ok"
     },
     "6M": {
-     "value": 10.52,
-     "start": "2026-05-25",
+     "value": 9.64,
+     "start": "2026-05-26",
      "status": "ok"
     },
     "YTD": {
@@ -964,18 +964,18 @@
      "status": "ok"
     },
     "1Y": {
-     "value": -17.75,
-     "start": "2025-11-25",
+     "value": -17.78,
+     "start": "2025-11-26",
      "status": "ok"
     },
     "2Y": {
-     "value": 15.19,
-     "start": "2024-11-25",
+     "value": 14.0,
+     "start": "2024-11-26",
      "status": "ok"
     },
     "5Y": {
-     "value": 65.5,
-     "start": "2021-11-25",
+     "value": 68.04,
+     "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
@@ -1000,7 +1000,7 @@
    "last_close": "2026-11-26",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-26T20:32:17Z",
+   "last_success": "2026-11-27T15:36:12Z",
    "returns": {
     "1D": {
      "value": 1.34,
