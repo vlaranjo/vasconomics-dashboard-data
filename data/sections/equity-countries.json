@@ -4,8 +4,8 @@
  "title": "Equity countries",
  "page": "countries-regions",
  "kind": "funds",
- "generated_at": "2026-11-27T15:36:12Z",
- "as_of": "2026-11-26",
+ "generated_at": "2026-11-27T20:19:00Z",
+ "as_of": "2026-11-27",
  "lookbacks": [
   "1D",
   "1W",
@@ -30,58 +30,58 @@
    "hedged": true,
    "fund_name": "iShares S&P 500 EUR Hedged UCITS ETF (Acc)",
    "first_close": "2011-03-24",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 3.53,
-     "start": "2026-11-25",
+     "value": 0.6,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -1.11,
-     "start": "2026-11-19",
+     "value": 3.15,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -5.94,
-     "start": "2026-10-26",
+     "value": -6.0,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -6.01,
-     "start": "2026-08-26",
+     "value": -6.05,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -4.27,
-     "start": "2026-05-26",
+     "value": -3.62,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 3.43,
+     "value": 4.05,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 4.51,
-     "start": "2025-11-26",
+     "value": 5.33,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 17.49,
-     "start": "2024-11-26",
+     "value": 18.48,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 47.69,
+     "value": 48.58,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 193.65,
+     "value": 195.43,
      "start": "2016-11-25",
      "status": "ok"
     }
@@ -98,49 +98,49 @@
    "hedged": false,
    "fund_name": "Amundi Core Stoxx Europe 600 UCITS ETF Acc",
    "first_close": "2024-02-19",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 1.89,
-     "start": "2026-11-25",
+     "value": 1.08,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -0.05,
-     "start": "2026-11-19",
+     "value": 3.12,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -0.25,
-     "start": "2026-10-26",
+     "value": 0.33,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -2.5,
-     "start": "2026-08-26",
+     "value": -0.76,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": 2.35,
-     "start": "2026-05-26",
+     "value": 3.44,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 10.47,
+     "value": 11.66,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 14.11,
-     "start": "2025-11-26",
+     "value": 15.22,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 33.47,
-     "start": "2024-11-26",
+     "value": 35.08,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
@@ -148,7 +148,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 40.96,
+      "value": 42.48,
       "start": "2024-02-19"
      }
     },
@@ -157,7 +157,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 40.96,
+      "value": 42.48,
       "start": "2024-02-19"
      }
     }
@@ -174,58 +174,58 @@
    "hedged": false,
    "fund_name": "iShares Core FTSE 100 ETF GBP Acc",
    "first_close": "2010-03-16",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 1.92,
-     "start": "2026-11-25",
+     "value": 0.95,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": 1.66,
-     "start": "2026-11-19",
+     "value": 3.75,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -0.85,
-     "start": "2026-10-26",
+     "value": 0.87,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": 0.46,
-     "start": "2026-08-26",
+     "value": 2.23,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": 6.05,
-     "start": "2026-05-26",
+     "value": 7.19,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 14.68,
+     "value": 15.77,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 18.69,
-     "start": "2025-11-26",
+     "value": 19.55,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 37.18,
-     "start": "2024-11-26",
+     "value": 37.91,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 82.67,
+     "value": 84.41,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 127.36,
+     "value": 129.53,
      "start": "2016-11-25",
      "status": "ok"
     }
@@ -242,53 +242,53 @@
    "hedged": false,
    "fund_name": "Amundi MSCI Switzerland UCITS ETF-C EUR",
    "first_close": "2018-03-28",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 0.5,
-     "start": "2026-11-25",
+     "value": 0.63,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": 1.58,
-     "start": "2026-11-19",
+     "value": 2.88,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
      "value": 2.71,
-     "start": "2026-10-26",
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": 4.55,
-     "start": "2026-08-26",
+     "value": 5.91,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": 9.22,
-     "start": "2026-05-26",
+     "value": 9.5,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 15.41,
+     "value": 16.14,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 19.65,
-     "start": "2025-11-26",
+     "value": 20.37,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 34.48,
-     "start": "2024-11-26",
+     "value": 35.13,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 46.52,
+     "value": 47.44,
      "start": "2021-11-26",
      "status": "ok"
     },
@@ -297,7 +297,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 146.07,
+      "value": 147.61,
       "start": "2018-03-28"
      }
     }
@@ -314,58 +314,58 @@
    "hedged": true,
    "fund_name": "iShares MSCI Japan EUR Hedged UCITS ETF (Acc)",
    "first_close": "2011-03-24",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 2.17,
-     "start": "2026-11-25",
+     "value": 2.04,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -1.43,
-     "start": "2026-11-19",
+     "value": 5.28,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -6.74,
-     "start": "2026-10-26",
+     "value": -5.87,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -8.48,
-     "start": "2026-08-26",
+     "value": -6.98,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -5.4,
-     "start": "2026-05-26",
+     "value": -2.75,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 10.76,
+     "value": 13.03,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 12.4,
-     "start": "2025-11-26",
+     "value": 15.1,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 45.68,
-     "start": "2024-11-26",
+     "value": 50.58,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 122.18,
+     "value": 126.72,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 210.59,
+     "value": 216.94,
      "start": "2016-11-25",
      "status": "ok"
     }
@@ -382,58 +382,58 @@
    "hedged": false,
    "fund_name": "iShares MSCI Australia UCITS ETF USD (Acc)",
    "first_close": "2014-04-29",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 2.34,
-     "start": "2026-11-25",
+     "value": 1.23,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": 1.09,
-     "start": "2026-11-19",
+     "value": 3.46,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -3.97,
-     "start": "2026-10-26",
+     "value": -3.74,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -2.86,
-     "start": "2026-08-26",
+     "value": -1.27,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": 2.55,
-     "start": "2026-05-26",
+     "value": 3.58,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 13.02,
+     "value": 14.4,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 16.4,
-     "start": "2025-11-26",
+     "value": 18.17,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 8.03,
-     "start": "2024-11-26",
+     "value": 9.12,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 42.7,
+     "value": 44.45,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 94.55,
+     "value": 96.94,
      "start": "2016-11-25",
      "status": "ok"
     }
@@ -450,58 +450,58 @@
    "hedged": false,
    "fund_name": "Xtrackers MSCI China UCITS ETF 1C",
    "first_close": "2011-10-04",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 1.63,
-     "start": "2026-11-25",
+     "value": 4.24,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -2.86,
-     "start": "2026-11-19",
+     "value": 3.55,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -4.98,
-     "start": "2026-10-26",
+     "value": -0.69,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -11.67,
-     "start": "2026-08-26",
+     "value": -7.4,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -12.47,
-     "start": "2026-05-26",
+     "value": -8.0,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": -18.75,
+     "value": -15.3,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": -20.61,
-     "start": "2025-11-26",
+     "value": -16.89,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": -0.86,
-     "start": "2024-11-26",
+     "value": 2.16,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": -19.18,
+     "value": -15.75,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 14.62,
+     "value": 19.48,
      "start": "2016-11-25",
      "status": "ok"
     }
@@ -518,53 +518,53 @@
    "hedged": false,
    "fund_name": "iShares MSCI India UCITS ETF USD Acc",
    "first_close": "2018-05-31",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 0.49,
-     "start": "2026-11-25",
+     "value": -0.03,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": 2.11,
-     "start": "2026-11-19",
+     "value": -0.28,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": 17.69,
-     "start": "2026-10-26",
+     "value": 17.07,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": 12.76,
-     "start": "2026-08-26",
+     "value": 13.03,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": 16.21,
-     "start": "2026-05-26",
+     "value": 16.09,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 4.2,
+     "value": 4.16,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
      "value": 1.32,
-     "start": "2025-11-26",
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": -7.19,
-     "start": "2024-11-26",
+     "value": -6.66,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 29.54,
+     "value": 29.49,
      "start": "2021-11-26",
      "status": "ok"
     },
@@ -573,7 +573,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 93.9,
+      "value": 93.83,
       "start": "2018-05-31"
      }
     }
@@ -590,53 +590,53 @@
    "hedged": false,
    "fund_name": "Amundi MSCI Brazil UCITS ETF Acc",
    "first_close": "2019-03-15",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 6.5,
-     "start": "2026-11-25",
+     "value": 6.37,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": 6.19,
-     "start": "2026-11-19",
+     "value": 15.53,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -5.04,
-     "start": "2026-10-26",
+     "value": -2.52,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -6.94,
-     "start": "2026-08-26",
+     "value": -0.22,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -7.19,
-     "start": "2026-05-26",
+     "value": -1.9,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 7.29,
+     "value": 14.12,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 4.9,
-     "start": "2025-11-26",
+     "value": 11.12,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 21.59,
-     "start": "2024-11-26",
+     "value": 32.01,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 66.67,
+     "value": 77.28,
      "start": "2021-11-26",
      "status": "ok"
     },
@@ -645,7 +645,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 15.44,
+      "value": 22.79,
       "start": "2019-03-15"
      }
     }
@@ -662,53 +662,53 @@
    "hedged": false,
    "fund_name": "Amundi MSCI Korea UCITS ETF Acc",
    "first_close": "2019-02-26",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 4.79,
-     "start": "2026-11-25",
+     "value": 5.37,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -7.82,
-     "start": "2026-11-19",
+     "value": 6.15,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -15.27,
-     "start": "2026-10-26",
+     "value": -13.79,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -24.84,
-     "start": "2026-08-26",
+     "value": -21.46,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -31.32,
-     "start": "2026-05-26",
+     "value": -26.69,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 39.71,
+     "value": 47.21,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 53.34,
-     "start": "2025-11-26",
+     "value": 60.63,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 122.77,
-     "start": "2024-11-26",
+     "value": 139.69,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 89.78,
+     "value": 99.97,
      "start": "2021-11-26",
      "status": "ok"
     },
@@ -717,7 +717,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 138.16,
+      "value": 150.95,
       "start": "2019-02-26"
      }
     }
@@ -734,58 +734,58 @@
    "hedged": false,
    "fund_name": "Xtrackers MSCI Mexico UCITS ETF 1C",
    "first_close": "2010-03-26",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 0.32,
-     "start": "2026-11-25",
+     "value": 2.82,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -1.58,
-     "start": "2026-11-19",
+     "value": 1.96,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -3.39,
-     "start": "2026-10-26",
+     "value": -0.43,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -3.08,
-     "start": "2026-08-26",
+     "value": 0.84,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -2.78,
-     "start": "2026-05-26",
+     "value": -1.49,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 10.45,
+     "value": 13.57,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 15.75,
-     "start": "2025-11-26",
+     "value": 19.15,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 55.24,
-     "start": "2024-11-26",
+     "value": 60.44,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 94.32,
+     "value": 99.8,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 102.24,
+     "value": 107.94,
      "start": "2016-11-25",
      "status": "ok"
     }
@@ -802,58 +802,58 @@
    "hedged": false,
    "fund_name": "iShares MSCI South Africa UCITS ETF USD (Acc)",
    "first_close": "2010-01-22",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 2.51,
-     "start": "2026-11-25",
+     "value": 4.37,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": 0.08,
-     "start": "2026-11-19",
+     "value": 6.93,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -6.13,
-     "start": "2026-10-26",
+     "value": -3.0,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -13.59,
-     "start": "2026-08-26",
+     "value": -9.7,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -8.46,
-     "start": "2026-05-26",
+     "value": -4.58,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": -7.81,
+     "value": -3.79,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": -1.31,
-     "start": "2025-11-26",
+     "value": 5.3,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 37.47,
-     "start": "2024-11-26",
+     "value": 46.51,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 83.28,
+     "value": 91.29,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 80.18,
+     "value": 88.05,
      "start": "2016-11-25",
      "status": "ok"
     }
@@ -870,53 +870,53 @@
    "hedged": false,
    "fund_name": "Amundi MSCI Turkey UCITS ETF Acc",
    "first_close": "2019-03-15",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": -0.58,
-     "start": "2026-11-25",
+     "value": 4.16,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -6.89,
-     "start": "2026-11-19",
+     "value": -0.37,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -6.04,
-     "start": "2026-10-26",
+     "value": -1.92,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -16.49,
-     "start": "2026-08-26",
+     "value": -12.38,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -8.84,
-     "start": "2026-05-26",
+     "value": -5.61,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 6.3,
+     "value": 10.72,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 7.65,
-     "start": "2025-11-26",
+     "value": 12.99,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": -7.79,
-     "start": "2024-11-26",
+     "value": -3.14,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 109.7,
+     "value": 118.42,
      "start": "2021-11-26",
      "status": "ok"
     },
@@ -925,7 +925,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 43.25,
+      "value": 49.21,
       "start": "2019-03-15"
      }
     }
@@ -942,53 +942,53 @@
    "hedged": false,
    "fund_name": "iShares MSCI Saudi Arabia Capped UCITS ETF USD (Acc)",
    "first_close": "2019-04-18",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 0.39,
-     "start": "2026-11-25",
+     "value": 1.02,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -1.94,
-     "start": "2026-11-19",
+     "value": 0.09,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": 3.7,
-     "start": "2026-10-26",
+     "value": 2.7,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -5.27,
-     "start": "2026-08-26",
+     "value": -4.45,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -1.48,
-     "start": "2026-05-26",
+     "value": -0.05,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 7.51,
+     "value": 8.61,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 4.33,
-     "start": "2025-11-26",
+     "value": 5.91,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": -8.26,
-     "start": "2024-11-26",
+     "value": -4.79,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 4.57,
+     "value": 5.64,
      "start": "2021-11-26",
      "status": "ok"
     },
@@ -997,7 +997,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": 19.69,
+      "value": 20.92,
       "start": "2019-04-18"
      }
     }
@@ -1014,58 +1014,58 @@
    "hedged": false,
    "fund_name": "iShares MSCI Poland UCITS ETF USD (Acc)",
    "first_close": "2011-01-21",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 2.38,
-     "start": "2026-11-25",
+     "value": 1.75,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -5.23,
-     "start": "2026-11-19",
+     "value": 3.05,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -6.17,
-     "start": "2026-10-26",
+     "value": -5.71,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -4.67,
-     "start": "2026-08-26",
+     "value": -0.37,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": 6.75,
-     "start": "2026-05-26",
+     "value": 8.7,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 24.13,
+     "value": 26.3,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 31.38,
-     "start": "2025-11-26",
+     "value": 34.95,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 93.28,
-     "start": "2024-11-26",
+     "value": 97.31,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 131.94,
+     "value": 136.0,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 154.01,
+     "value": 158.45,
      "start": "2016-11-25",
      "status": "ok"
     }
@@ -1082,53 +1082,53 @@
    "hedged": false,
    "fund_name": "Amundi MSCI Indonesia UCITS ETF Acc",
    "first_close": "2019-03-15",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 1.66,
-     "start": "2026-11-25",
+     "value": 1.71,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": 2.03,
-     "start": "2026-11-19",
+     "value": 4.54,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": 6.44,
-     "start": "2026-10-26",
+     "value": 9.71,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -10.23,
-     "start": "2026-08-26",
+     "value": -8.48,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -9.07,
-     "start": "2026-05-26",
+     "value": -6.84,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": -40.19,
+     "value": -39.17,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": -42.52,
-     "start": "2025-11-26",
+     "value": -40.68,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": -50.67,
-     "start": "2024-11-26",
+     "value": -49.58,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": -45.33,
+     "value": -44.4,
      "start": "2021-11-26",
      "status": "ok"
     },
@@ -1137,7 +1137,7 @@
      "start": null,
      "status": "na_young",
      "since_launch": {
-      "value": -47.52,
+      "value": -46.62,
       "start": "2019-03-15"
      }
     }
@@ -1154,58 +1154,58 @@
    "hedged": false,
    "fund_name": "Xtrackers MSCI Taiwan UCITS ETF 1C",
    "first_close": "2008-01-02",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 9.93,
-     "start": "2026-11-25",
+     "value": 0.14,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": 1.39,
-     "start": "2026-11-19",
+     "value": 13.76,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -15.39,
-     "start": "2026-10-26",
+     "value": -16.99,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -12.99,
-     "start": "2026-08-26",
+     "value": -14.27,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -11.33,
-     "start": "2026-05-26",
+     "value": -11.92,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 46.1,
+     "value": 46.31,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 51.64,
-     "start": "2025-11-26",
+     "value": 51.57,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 75.34,
-     "start": "2024-11-26",
+     "value": 80.95,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 125.74,
+     "value": 126.07,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 429.09,
+     "value": 429.84,
      "start": "2016-11-25",
      "status": "ok"
     }

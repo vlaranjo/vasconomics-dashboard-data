@@ -4,8 +4,8 @@
  "title": "European sectors",
  "page": "eu-sectors",
  "kind": "funds",
- "generated_at": "2026-11-27T15:36:12Z",
- "as_of": "2026-11-26",
+ "generated_at": "2026-11-27T20:19:00Z",
+ "as_of": "2026-11-27",
  "lookbacks": [
   "1D",
   "1W",
@@ -30,58 +30,58 @@
    "hedged": false,
    "fund_name": "State Street SPDR MSCI Europe Communication Services UCITS ETF",
    "first_close": "2015-01-08",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 1.09,
-     "start": "2026-11-25",
+     "value": 0.56,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": 1.84,
-     "start": "2026-11-19",
+     "value": 2.54,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": 5.51,
-     "start": "2026-10-26",
+     "value": 5.87,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": 1.55,
-     "start": "2026-08-26",
+     "value": 4.4,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": 0.19,
-     "start": "2026-05-26",
+     "value": 0.75,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 7.2,
+     "value": 7.8,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 7.78,
-     "start": "2025-11-26",
+     "value": 8.25,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 11.65,
-     "start": "2024-11-26",
+     "value": 12.31,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 37.22,
+     "value": 37.98,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 33.53,
+     "value": 34.28,
      "start": "2016-11-01",
      "status": "ok"
     }
@@ -98,58 +98,58 @@
    "hedged": false,
    "fund_name": "State Street SPDR MSCI Europe Consumer Discretionary UCITS ETF",
    "first_close": "2014-12-19",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 0.0,
-     "start": "2026-11-25",
+     "value": 2.63,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -1.05,
-     "start": "2026-11-19",
+     "value": 1.55,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": 1.49,
-     "start": "2026-10-26",
+     "value": 4.16,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -4.9,
-     "start": "2026-08-26",
+     "value": -2.4,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -2.04,
-     "start": "2026-05-26",
+     "value": -2.03,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": -14.51,
+     "value": -12.26,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": -12.39,
-     "start": "2025-11-26",
+     "value": -10.03,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": -8.62,
-     "start": "2024-11-26",
+     "value": -5.59,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": -8.94,
+     "value": -6.55,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 53.41,
+     "value": 57.44,
      "start": "2016-11-17",
      "status": "ok"
     }
@@ -166,58 +166,58 @@
    "hedged": false,
    "fund_name": "State Street SPDR MSCI Europe Consumer Staples UCITS ETF",
    "first_close": "2014-12-22",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 0.49,
-     "start": "2026-11-25",
+     "value": -0.24,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": 3.95,
-     "start": "2026-11-19",
+     "value": 2.59,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": 4.93,
-     "start": "2026-10-26",
+     "value": 5.46,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": 12.21,
-     "start": "2026-08-26",
+     "value": 13.44,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": 15.07,
-     "start": "2026-05-26",
+     "value": 13.03,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 16.56,
+     "value": 16.28,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 16.48,
-     "start": "2025-11-26",
+     "value": 15.84,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 24.58,
-     "start": "2024-11-26",
+     "value": 24.28,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 18.4,
+     "value": 18.11,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 70.81,
+     "value": 70.39,
      "start": "2016-11-18",
      "status": "ok"
     }
@@ -234,58 +234,58 @@
    "hedged": false,
    "fund_name": "State Street SPDR MSCI Europe Energy UCITS ETF",
    "first_close": "2014-12-12",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 1.47,
-     "start": "2026-11-25",
+     "value": 0.59,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -0.68,
-     "start": "2026-11-19",
+     "value": 0.77,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -10.25,
-     "start": "2026-10-26",
+     "value": -7.82,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": 5.81,
-     "start": "2026-08-26",
+     "value": 8.04,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": 10.57,
-     "start": "2026-05-26",
+     "value": 14.66,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 47.09,
+     "value": 47.96,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 46.13,
-     "start": "2025-11-26",
+     "value": 47.44,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 65.68,
-     "start": "2024-11-26",
+     "value": 67.28,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 154.38,
+     "value": 155.89,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 185.49,
+     "value": 187.18,
      "start": "2016-11-24",
      "status": "ok"
     }
@@ -302,58 +302,58 @@
    "hedged": false,
    "fund_name": "State Street SPDR MSCI Europe Financials UCITS ETF",
    "first_close": "2014-12-11",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 2.08,
-     "start": "2026-11-25",
+     "value": 1.46,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -1.07,
-     "start": "2026-11-19",
+     "value": 2.59,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -0.05,
-     "start": "2026-10-26",
+     "value": 1.26,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -6.76,
-     "start": "2026-08-26",
+     "value": -4.25,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": 5.55,
-     "start": "2026-05-26",
+     "value": 7.15,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 10.88,
+     "value": 12.5,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 19.32,
-     "start": "2025-11-26",
+     "value": 20.55,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 68.17,
-     "start": "2024-11-26",
+     "value": 71.04,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 159.71,
+     "value": 163.5,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 216.07,
+     "value": 220.68,
      "start": "2016-11-25",
      "status": "ok"
     }
@@ -370,58 +370,58 @@
    "hedged": false,
    "fund_name": "State Street SPDR MSCI Europe Health Care UCITS ETF",
    "first_close": "2014-12-10",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 0.68,
-     "start": "2026-11-25",
+     "value": 0.16,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": 3.72,
-     "start": "2026-11-19",
+     "value": 4.15,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": 6.41,
-     "start": "2026-10-26",
+     "value": 6.27,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": 10.37,
-     "start": "2026-08-26",
+     "value": 11.69,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": 15.26,
-     "start": "2026-05-26",
+     "value": 14.79,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 14.64,
+     "value": 14.82,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 15.2,
-     "start": "2025-11-26",
+     "value": 15.87,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 18.1,
-     "start": "2024-11-26",
+     "value": 18.75,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 39.47,
+     "value": 39.69,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 132.64,
+     "value": 133.0,
      "start": "2016-11-24",
      "status": "ok"
     }
@@ -438,58 +438,58 @@
    "hedged": false,
    "fund_name": "State Street SPDR MSCI Europe Industrials UCITS ETF",
    "first_close": "2014-12-16",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 2.18,
-     "start": "2026-11-25",
+     "value": 1.42,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -2.02,
-     "start": "2026-11-19",
+     "value": 2.61,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -1.19,
-     "start": "2026-10-26",
+     "value": -1.05,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -9.7,
-     "start": "2026-08-26",
+     "value": -7.9,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -5.83,
-     "start": "2026-05-26",
+     "value": -4.4,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 2.74,
+     "value": 4.2,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 6.83,
-     "start": "2025-11-26",
+     "value": 7.97,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 29.09,
-     "start": "2024-11-26",
+     "value": 31.13,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 68.81,
+     "value": 71.21,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 199.62,
+     "value": 203.88,
      "start": "2016-11-22",
      "status": "ok"
     }
@@ -506,58 +506,58 @@
    "hedged": false,
    "fund_name": "State Street SPDR MSCI Europe Materials UCITS ETF",
    "first_close": "2015-01-23",
-   "last_close": "2026-11-25",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 0.0,
-     "start": "2026-11-24",
+     "value": 3.59,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -5.02,
-     "start": "2026-11-18",
+     "value": 3.54,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -3.6,
-     "start": "2026-10-23",
+     "value": -1.1,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -7.51,
-     "start": "2026-08-25",
+     "value": -4.54,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -4.81,
-     "start": "2026-05-25",
+     "value": -1.74,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 11.26,
+     "value": 15.26,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 17.51,
-     "start": "2025-11-25",
+     "value": 20.95,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 20.87,
-     "start": "2024-11-25",
+     "value": 27.76,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 28.75,
-     "start": "2021-11-25",
+     "value": 38.41,
+     "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 127.41,
+     "value": 135.58,
      "start": "2016-11-23",
      "status": "ok"
     }
@@ -574,58 +574,58 @@
    "hedged": false,
    "fund_name": "State Street SPDR MSCI Europe Technology UCITS ETF",
    "first_close": "2015-01-05",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 3.3,
-     "start": "2026-11-25",
+     "value": 2.28,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": -6.14,
-     "start": "2026-11-19",
+     "value": 3.1,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": -14.0,
-     "start": "2026-10-26",
+     "value": -14.35,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": -14.38,
-     "start": "2026-08-26",
+     "value": -13.99,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": -17.16,
-     "start": "2026-05-26",
+     "value": -14.1,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 17.46,
+     "value": 20.13,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 19.33,
-     "start": "2025-11-26",
+     "value": 22.1,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 35.22,
-     "start": "2024-11-26",
+     "value": 40.57,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 40.68,
+     "value": 43.88,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 235.38,
+     "value": 243.02,
      "start": "2016-11-22",
      "status": "ok"
     }
@@ -642,58 +642,58 @@
    "hedged": false,
    "fund_name": "State Street SPDR MSCI Europe Utilities UCITS ETF",
    "first_close": "2014-12-23",
-   "last_close": "2026-11-26",
+   "last_close": "2026-11-27",
    "stale": false,
    "stale_reason": null,
-   "last_success": "2026-11-27T15:36:12Z",
+   "last_success": "2026-11-27T20:19:00Z",
    "returns": {
     "1D": {
-     "value": 1.3,
-     "start": "2026-11-25",
+     "value": 0.72,
+     "start": "2026-11-26",
      "status": "ok"
     },
     "1W": {
-     "value": 1.93,
-     "start": "2026-11-19",
+     "value": 2.77,
+     "start": "2026-11-20",
      "status": "ok"
     },
     "1M": {
-     "value": 3.67,
-     "start": "2026-10-26",
+     "value": 3.94,
+     "start": "2026-10-27",
      "status": "ok"
     },
     "3M": {
-     "value": 6.04,
-     "start": "2026-08-26",
+     "value": 8.32,
+     "start": "2026-08-27",
      "status": "ok"
     },
     "6M": {
-     "value": 4.47,
-     "start": "2026-05-26",
+     "value": 7.05,
+     "start": "2026-05-27",
      "status": "ok"
     },
     "YTD": {
-     "value": 21.05,
+     "value": 21.92,
      "start": "2025-12-30",
      "status": "ok"
     },
     "1Y": {
-     "value": 22.55,
-     "start": "2025-11-26",
+     "value": 23.15,
+     "start": "2025-11-27",
      "status": "ok"
     },
     "2Y": {
-     "value": 58.76,
-     "start": "2024-11-26",
+     "value": 59.62,
+     "start": "2024-11-27",
      "status": "ok"
     },
     "5Y": {
-     "value": 82.42,
+     "value": 83.73,
      "start": "2021-11-26",
      "status": "ok"
     },
     "10Y": {
-     "value": 229.8,
+     "value": 232.16,
      "start": "2016-11-24",
      "status": "ok"
     }
