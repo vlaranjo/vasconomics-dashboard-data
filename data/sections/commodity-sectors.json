@@ -4,7 +4,7 @@
  "title": "Commodity sectors",
  "page": "commodities",
  "kind": "funds",
- "generated_at": "2026-11-27T20:19:00Z",
+ "generated_at": "2026-11-28T00:42:57Z",
  "as_of": "2026-11-27",
  "lookbacks": [
   "1D",
@@ -310,7 +310,7 @@
    "last_close": "2026-11-25",
    "stale": true,
    "stale_reason": "old_close",
-   "last_success": "2026-11-27T20:19:00Z",
+   "last_success": "2026-11-28T00:42:57Z",
    "returns": {
     "1D": {
      "value": 1.46,
